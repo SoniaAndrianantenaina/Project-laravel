@@ -1,0 +1,121 @@
+.btn-white{
+    border: 1px solid $white;
+    background: $white;
+    color: $color-primary;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 115px;
+    height: 20px;
+    padding: 13.5px 20px;
+    margin-bottom: 7px;
+    margin-top: 23px;
+
+    &.lg {
+       width: 204px;
+       height: 26px;
+       font-size: 26px;
+       color: $color-secondary;
+       text-align: center;
+       margin-bottom: 45px;
+    }
+
+    &.lg-bigger {
+        width: 150px;
+        height: 10px;
+        border-radius: 11px;
+     }
+
+    &.lg-plus{
+        font-size: 30px;
+        margin-left: 138px;
+        margin-top: 100px;
+        width: 220px;
+        height: 37px;
+    }
+}
+
+.btn-blue{
+    border: 1px solid $color-primary;
+    background: $white;
+    color: $color-secondary;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 45vh;
+    height: 38px;
+    padding: 13.5px 20px;
+    margin-bottom: 7px;
+    margin-top: 23px;
+    font-size: 25px;
+
+    &.primary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 45px;
+        width: 324px;
+        height: 71px;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        color: $white;
+        background-color: $color-primary;
+
+        &.medium{
+            width: 260px;
+            height: 40px;
+        }
+    }
+}
+
+.boutons{
+    position: relative;
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+
+    &.modify-top{
+        margin-top: 35px;
+    }
+
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $white;
+        border-radius: 14px;
+        width: 150px;
+        height: 40px;
+        margin-right: 25px;
+        font-size: 22px;
+
+        &.btn-medium{
+            width: 280px;
+            height: 72px;
+        }
+
+        &__middle-btn{
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}
+
+.bleu-clair{
+    background-color: $color-secondary;
+}
+
+.bleu-foncé{
+    background-color: $color-primary;
+}
+
+.btn-générer{
+    display: flex;
+    justify-content: center;
+}

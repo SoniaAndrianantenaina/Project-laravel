@@ -1,0 +1,164 @@
+.sectHeader {    
+  width: 100%;
+  z-index: 99;
+  background: $white;
+
+  &--sticky {
+      position: sticky;
+      top: 0;
+      left: 0;
+  }
+}
+
+.headerIntern {
+  @include flex-center(space-between);
+  .cntlogo {
+      a {
+          display: block;
+          width: 75px;
+          padding: 14px 22px;
+          @include max(992px) {
+              width: 130px;
+          }
+          img {
+              @include imgFull(contain, left)
+          }
+      }
+  }       
+}
+
+#navigation {
+  padding-right: 20px;
+  .cntNavBox {
+      @include max(992px) {
+          position: fixed;
+          top: -100%;
+          left: 0;
+          width: 100%;
+          height: auto;
+          background: $nav-mobile-Bg;
+          padding-top: 90px;
+          padding-bottom: 40px;
+          box-shadow: $nav-mobile-shadow;
+          transition: $transition-default;
+          z-index: -1;
+          li {
+              margin-bottom: 11px;
+              height: auto;
+              display: block;
+              &.openItem > a::after {
+                  & > a::after {
+                      transform: rotate(-135deg);
+                      top: 6px;
+                  }
+              }
+          }
+          .subitem {
+              min-width: 100%;
+              position: relative;
+              top: 0;
+              left: 0;
+              transform: translateX(0);
+              z-index: 1;
+              padding-bottom: 0;
+              li {
+                  margin-bottom: 0px;
+                  a {
+                      border-bottom: none;
+                      padding: 2px 0;
+                  }
+              }
+          }
+      }
+  }        
+  &.open {
+      .cntNavBox {
+          top: 0;                    
+      }
+  }
+  .cntNav {
+      display: flex;
+      grid-gap: $nav-gap;
+      font-family: $nav-fontFamily;
+      font-size: $nav-size;
+      @include resetList();
+      li {
+          a {
+              margin-right: 45px;
+              color: $nav-color;
+              font-weight: $nav-fontWeight;
+              transition: $transition-default;
+          }
+          &.current,
+          &:hover {
+              a {
+                  color: $nav-color-hover;
+              }
+          }
+      }
+      @include max(992px) {
+          display: block;
+          text-align: center;
+      }
+  }
+}    
+.btnBox {
+  display: none;
+  @include max(992px) {
+      display: block;
+      position: absolute;
+      top: calc(50% - 30px);
+      right: 23px;
+      z-index: 9;
+  }
+}  
+#btnnav {
+  width: 44px;
+  height: 47px;
+  @include flex-center();
+  cursor: pointer;
+  background: black;
+  .btninter {
+      flex: 0 0 32px;
+      max-width: 32px;
+      span {
+          display: block;
+          height: 3px;
+          width: 24px;
+          background: black;
+          opacity: 1;
+          transform-origin: left;
+          margin-left: auto;
+          margin-right: auto;
+          transition: $transition-default;
+          &:first-child {
+              margin-bottom: 4px;
+          }
+          &:last-child {
+              margin-top: 4px;
+          }
+      }
+  }
+  &.active {
+      span {
+          &:nth-child(2) {
+              opacity: 0;
+              width: 0;
+          }
+          &:first-child,
+          &:last-child {
+              width: 30px;
+          }
+          &:first-child {
+              transform: rotate(45deg) translate(3px, -4px);
+          }
+          &:last-child {
+              transform: rotate(-45deg) translate(-1px, 7px);
+          }
+      }
+  }
+}
+
+.text-decoration{
+  text-decoration: none;
+}

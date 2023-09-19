@@ -1,0 +1,37 @@
+$fontsPath: "../assets/fonts/";
+
+//colors
+$color-primary : #1859A3;
+$color-secondary : #70A8E7;
+$white: white;
+$grey: #797979;
+$grey-2: #5A5453;
+$grey-3: #5B5B5B;
+$grey-4: #EEEAEA;
+$grey-5: #D3D3D3;
+$light-grey: #ebe7e7;
+//fonts
+$regular: 'Roboto';
+
+
+$transition-default: all .3s ease-in-out; // transition General
+
+
+//Header ---------------------------------------------
+$header-bg: $white;
+// logo
+$header-logoWidth: 200px; // logo width
+$header-logoWidth-mobile: 130px; // logo width mobile
+$header-logoPadding: 20px 0; // logo padding
+// Menu
+$nav-fontFamily:'Microsoft Yahei'; // menu font-family
+$nav-size: 28px; // menu font-size
+$nav-fontWeight: 400; // menu font-size
+$nav-color: $color-secondary; // menu color
+$nav-color-hover: $color-primary; // menu color actif et hover
+$nav-gap: 25px; // gap item
+// Menu Mobile
+$nav-mobile-btnColor: $nav-color-hover; // color 3 band
+$nav-mobile-btnBg: $white; // background btn nav
+$nav-mobile-Bg: $white; // background nav
+$nav-mobile-shadow: 0 13px 26px #00000029; // box-shadow nav

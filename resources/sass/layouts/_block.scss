@@ -1,0 +1,58 @@
+.block-login {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-section {
+    &.section-one {
+        background-color: $color-primary;
+        width: 385px;
+        height: 315px;
+        color: $white;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &__title {
+            text-transform: uppercase;
+            font-size: 32px;
+            font-weight: bold;
+
+            &.bottom{
+                margin-bottom: 45px;
+            }
+        }
+
+        &.bleu-clair{
+            background-color: $color-secondary;
+            width: 440px;
+            height: 430px;
+            border-radius: 40px;
+        }
+    }
+
+    &.section-two {
+        background-color: $color-secondary;
+        width: 525px;
+        height: 566px;
+        color: #fff;
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &.identifiant{
+        font-size: 14px;
+    }
+}
+
+.adjust-position{
+    margin-bottom: 15px;
+    margin-top: 115px;
+}

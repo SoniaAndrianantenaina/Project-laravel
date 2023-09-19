@@ -1,0 +1,83 @@
+body{
+    font-family: 'Microsoft Yahei';
+}
+
+h2, title-h2{
+    font-size: 32px;
+}
+
+p{
+    font-size: 26px;
+}
+
+.trait{
+    border-bottom: 1px solid $color-primary;
+    width: 7%;
+    margin-left: 40px;
+}
+
+input{
+    font-family: 'Microsoft Yahei';
+}
+
+strong{
+    font-weight: 600;
+}
+
+
+
+.select {
+    border: 1px solid $color-primary;
+    background: $white;
+    color: $color-secondary;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    width: 49vh;
+    height: 67px;
+    padding: 13.5px 20px;
+    margin-bottom: 7px;
+    margin-top: 23px;
+    font-size: 20px;
+
+    &.white{
+        width: 38vh;
+    }
+}
+
+textarea{
+    border: 1px solid $color-primary;
+    background: $white;
+    color: $color-secondary;
+    font-size: 20px;
+    width: 48vh;
+
+    &::placeholder{
+        position: absolute;
+        color: $color-secondary;
+        top: 5%;
+        left: 5%;
+    }
+}
+
+input[type="number"]::placeholder,
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+label{
+    color: $color-secondary;
+    font-size: 23px;
+}
+
+input[type="file"]{
+    font-size: 20px;
+}
+
+.bg-color{
+    background-color: $light-grey;
+}
+
+
+.d-block{
+    display: block;
+}

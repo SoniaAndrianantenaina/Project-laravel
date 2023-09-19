@@ -1,0 +1,107 @@
+.block-accueil{
+    position: relative;
+
+    &__bg-img {
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 82vh;
+            object-fit: cover;
+        }
+    }
+
+    &__section{ 
+        position: absolute;
+        display: grid;
+        grid-template-columns: 54% 1fr;
+        z-index: 2; 
+        top: 0;
+        width: 100%;
+
+    }
+
+    &__paragraph{
+        margin-top: 450px;
+        margin-left: 163px;
+        color: $white;
+
+    }
+
+    &.subtitle{
+        font-size: 72px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    &.texte{
+        font-size: 30px;
+        line-height: 1.5;
+    }
+}
+
+.block-annonces{
+    position: relative;
+    margin-left: 163px;
+
+    &__item{
+        &__title{
+            color: $color-primary;
+            margin-top: 45px;
+            margin-bottom: 45px;
+        }
+    }
+
+    &__two-blocks{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        &__item{
+            width: 560px;
+            height: 720px;
+            border: 1px solid $light-grey;
+            color: $white;
+
+            &.left{
+                background-color: $color-secondary;
+            }
+
+            &.right{
+                background-color: $color-primary;
+
+            }
+
+        }
+    }
+
+    &.title{
+        margin-left: 105px;
+        margin-top: 50px;
+    }
+
+    &.content{
+        position: relative;
+        border-radius: 9px;
+        width: 492px;
+        height: 150px;
+        right: 23%;
+        top: 7%;
+        border: 1px solid $white;
+        margin-bottom: 45px;
+
+        &__paragraph{
+            position: absolute;
+            top: 13%;
+            left: -25%;
+        }
+    }
+}
+
+.statistiques{
+    position: relative;
+    margin-left: 163px;
+}
