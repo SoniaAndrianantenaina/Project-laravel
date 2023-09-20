@@ -84,6 +84,11 @@
         margin-top: 35px;
     }
 
+    &.modify-height{
+        height: 10vh;
+
+    }
+
     .btn{
         display: flex;
         justify-content: center;
@@ -96,8 +101,8 @@
         font-size: 22px;
 
         &.btn-medium{
-            width: 280px;
-            height: 72px;
+            width: 270px;
+            height: 68px;
         }
 
         &__middle-btn{

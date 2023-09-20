@@ -81,7 +81,7 @@
 
     </div>
 
-    <div class="boutons">
+    <div class="boutons modify-height">
 
         <div class="btn btn-medium bleu-clair">
             <a href="" class="btn__middle-btn">MODIFIER</a>

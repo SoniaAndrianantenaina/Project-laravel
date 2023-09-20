@@ -385,6 +385,9 @@ input[type=file] {
 .boutons.modify-top {
   margin-top: 35px;
 }
+.boutons.modify-height {
+  height: 10vh;
+}
 .boutons .btn {
   display: flex;
   justify-content: center;
@@ -397,8 +400,8 @@ input[type=file] {
   font-size: 22px;
 }
 .boutons .btn.btn-medium {
-  width: 280px;
-  height: 72px;
+  width: 270px;
+  height: 68px;
 }
 .boutons .btn__middle-btn {
   color: white;
