@@ -58,13 +58,20 @@ Route::get('/envoyer-identifiant', function () {
     return view('admin/envoyerIdentifiant');
 })->name('envoyer-identifiant');
 
-Route::get('/anniv-collaborateur', function () {
-    return view('admin/annivCollaborateur');
-})->name('anniv-collaborateur');
+    //EMPLOYÉS
+    Route::get('/anniv-collaborateur', function () {
+        return view('admin/annivCollaborateur');
+    })->name('anniv-collaborateur');
 
-Route::get('/off-boarding', function () {
-    return view('admin/offBoarding');
-})->name('off-boarding');
+    Route::get('/off-boarding', function () {
+        return view('admin/offBoarding');
+    })->name('off-boarding');
+
+    Route::get('/liste-employes', function () {
+        return view('admin/listeEmployés');
+    })->name('liste-employes');
+
+
 
 
 

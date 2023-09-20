@@ -1,38 +1,135 @@
 .container {
-  position: relative;
+    position: relative;
 
-  &.display{
-    display: flex;
-    align-items: center;
-  }
+    &.display {
+        display: flex;
+        align-items: center;
+    }
 }
 
 .bg-color-blue {
-  padding: 66px 152px;
-  width: 100%;
+    padding: 66px 152px;
+    width: 100%;
 
-  &__block {
-    background-color: $color-secondary;
-    width: 150vh;
-    height: 256px;
-    opacity: 68%;
-  }
+    &__block {
+        background-color: $color-secondary;
+        width: 150vh;
+        height: 256px;
+        opacity: 68%;
+    }
 }
 
 .filtre {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 
-  &__select {
-    width: 100%;
-    margin-top: 30px;
-    margin-left: 48px;
-  }
+    &__select {
+        width: 100%;
+        margin-top: 30px;
+        margin-left: 48px;
+    }
 }
 
-.filter-span{
-  display: block;
-  color: $white;
-  font-size: 30px;
+.filter-span {
+    display: block;
+    color: $white;
+    font-size: 30px;
+}
+
+.div-blue {
+    position: relative;
+    background-color: $color-secondary;
+    width: 100%;
+    height: 138px;
+}
+
+.list-content {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    height: 100vh;
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    &__right {
+        background-color: $light-grey-2;
+    }
+
+    &__blocks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 50px;
+        row-gap: 50px;
+        padding: 85px;
+
+        &__item {
+            display: grid;
+            grid-template-columns: 35% 1fr;
+            width: 392px;
+            height: 183px;
+            background-color: $white;
+            box-shadow: 0 7px 9px rgb(0 0 0 / 16%);
+
+
+        }
+    }
+
+    &__picture{
+        margin-top: 38px;
+        margin-left: -11px;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+
+        img {
+            max-width: 87px;
+            height: auto;
+        }
+    }
+
+    &__infos{
+        margin-top: 28px;
+    }
+}
+
+.see-plan {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-left: 25px;
+
+    .link {
+        color: black;
+        text-decoration: none;
+        font-size: $gb-font-size;
+
+        &__trait {
+            border-bottom: 1px solid black;
+            width: 50%;
+            margin-left: 45px;
+        }
+    }
+}
+
+.list-dpt {
+    display: block;
+    margin-left: 15px;
+
+    .nom {
+        margin-top: 10px;
+    }
+}
+
+.p-medium{
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.grey-text{
+    color: $grey;
 }

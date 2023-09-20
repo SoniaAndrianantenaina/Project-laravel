@@ -178,17 +178,25 @@ body {
   }
 }
 
-h2, title-h2 {
+h2,
+title-h2 {
   font-size: 32px;
 }
 @media (max-width: 1440px) {
-  h2, title-h2 {
+  h2,
+  title-h2 {
     font-size: 22px;
   }
 }
 
+h5,
+title-h5 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 p {
-  font-size: 26px;
+  font-size: 18px;
 }
 @media (max-width: 1440px) {
   p {
@@ -303,6 +311,21 @@ input[type=file] {
 
 .d-block {
   display: block;
+}
+
+.p-bleu {
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.p-bleu.clair {
+  color: #70A8E7;
+}
+.p-bleu.foncé {
+  color: #1859A3;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .btn-white {
@@ -882,6 +905,91 @@ input[type=file] {
   display: block;
   color: white;
   font-size: 30px;
+}
+
+.div-blue {
+  position: relative;
+  background-color: #70A8E7;
+  width: 100%;
+  height: 138px;
+}
+
+.list-content {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  height: 100vh;
+}
+.list-content__left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.list-content__right {
+  background-color: #f5f3f3;
+}
+.list-content__blocks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  row-gap: 50px;
+  padding: 85px;
+}
+.list-content__blocks__item {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  width: 392px;
+  height: 183px;
+  background-color: white;
+  box-shadow: 0 7px 9px rgba(0, 0, 0, 0.16);
+}
+.list-content__picture {
+  margin-top: 38px;
+  margin-left: -11px;
+}
+.list-content__image {
+  width: 100%;
+  height: 100%;
+}
+.list-content__image img {
+  max-width: 87px;
+  height: auto;
+}
+.list-content__infos {
+  margin-top: 28px;
+}
+
+.see-plan {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  margin-left: 25px;
+}
+.see-plan .link {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+.see-plan .link__trait {
+  border-bottom: 1px solid black;
+  width: 50%;
+  margin-left: 45px;
+}
+
+.list-dpt {
+  display: block;
+  margin-left: 15px;
+}
+.list-dpt .nom {
+  margin-top: 10px;
+}
+
+.p-medium {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.grey-text {
+  color: #797979;
 }
 
 .block-profil {
