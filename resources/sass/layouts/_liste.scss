@@ -42,6 +42,15 @@
     background-color: $color-secondary;
     width: 100%;
     height: 138px;
+    text-align: right;
+
+    &__recherche{
+        padding: 40px 44vh;
+    }
+
+    &__paragraph{
+        font-size: $gb-font-size;
+    }
 }
 
 .list-content {

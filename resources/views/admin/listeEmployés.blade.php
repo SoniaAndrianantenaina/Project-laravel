@@ -1,9 +1,11 @@
 @include('banner.header')
 
 <main>
-    <section class="div-blue">
+    <section class="recherche">
         <div class="div-blue">
-
+            <div class="div-blue__recherche">
+                <input type="text" class="div-blue__paragraph" placeholder="Recherche ....">
+            </div>
         </div>
     </section>
 

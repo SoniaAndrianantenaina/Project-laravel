@@ -1,6 +1,6 @@
 @include('banner.header')
 
-<body class='bg-color'>
+<body class='bg-color-grey'>
     <main class='liste-candidats'>
         <section class="filtre">
 
