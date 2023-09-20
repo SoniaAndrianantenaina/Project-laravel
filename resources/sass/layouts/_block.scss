@@ -17,6 +17,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @include max(1440px){
+            width: 285px;
+            height: 215px;
+        }
 
         &__title {
             text-transform: uppercase;
@@ -40,11 +44,16 @@
         background-color: $color-secondary;
         width: 525px;
         height: 566px;
-        color: #fff;
+        color: $white;
         border-radius: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        @include max(1440px){
+            width: 425px;
+            height: 466px;
+        }
     }
 
     &.identifiant{
@@ -52,7 +61,3 @@
     }
 }
 
-.adjust-position{
-    margin-bottom: 15px;
-    margin-top: 115px;
-}

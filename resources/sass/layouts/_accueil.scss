@@ -29,18 +29,26 @@
         margin-top: 450px;
         margin-left: 163px;
         color: $white;
-
+        @include max(1440px){
+            margin-top: 350px;
+          }
     }
 
     &.subtitle{
         font-size: 72px;
         margin-bottom: 15px;
         font-weight: bold;
+        @include max(1440px){
+            font-size: 52px;
+        }
     }
 
     &.texte{
         font-size: 30px;
         line-height: 1.5;
+        @include max(1440px){
+            font-size: $fs-primary;
+        }
     }
 }
 

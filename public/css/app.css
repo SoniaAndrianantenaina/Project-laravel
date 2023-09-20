@@ -172,13 +172,28 @@ html #wpadminbar {
 body {
   font-family: "Microsoft Yahei";
 }
+@media (max-width: 1440px) {
+  body {
+    font-size: 20px;
+  }
+}
 
 h2, title-h2 {
   font-size: 32px;
 }
+@media (max-width: 1440px) {
+  h2, title-h2 {
+    font-size: 22px;
+  }
+}
 
 p {
   font-size: 26px;
+}
+@media (max-width: 1440px) {
+  p {
+    font-size: 16px;
+  }
 }
 
 .trait {
@@ -189,6 +204,11 @@ p {
 
 input {
   font-family: "Microsoft Yahei";
+}
+@media (max-width: 1440px) {
+  input {
+    font-size: 16px;
+  }
 }
 
 strong {
@@ -213,6 +233,11 @@ strong {
 .select.white {
   width: 38vh;
 }
+@media (max-width: 1440px) {
+  .select {
+    font-size: 16px;
+  }
+}
 
 textarea {
   border: 1px solid #1859A3;
@@ -220,6 +245,11 @@ textarea {
   color: #70A8E7;
   font-size: 20px;
   width: 48vh;
+}
+@media (max-width: 1440px) {
+  textarea {
+    font-size: 16px;
+  }
 }
 textarea::-moz-placeholder {
   position: absolute;
@@ -236,7 +266,7 @@ textarea::placeholder {
 
 input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
   color: #70A8E7;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 input[type=number]::placeholder,
@@ -244,11 +274,27 @@ input[type=text]::placeholder,
 input[type=email]::placeholder,
 label {
   color: #70A8E7;
-  font-size: 23px;
+  font-size: 20px;
+}
+@media (max-width: 1440px) {
+  input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
+    font-size: 16px;
+  }
+  input[type=number]::placeholder,
+  input[type=text]::placeholder,
+  input[type=email]::placeholder,
+  label {
+    font-size: 16px;
+  }
 }
 
 input[type=file] {
   font-size: 20px;
+}
+@media (max-width: 1440px) {
+  input[type=file] {
+    font-size: 16px;
+  }
 }
 
 .bg-color {
@@ -558,6 +604,12 @@ input[type=file] {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 1440px) {
+  .main-section.section-one {
+    width: 285px;
+    height: 215px;
+  }
+}
 .main-section.section-one__title {
   text-transform: uppercase;
   font-size: 32px;
@@ -576,19 +628,21 @@ input[type=file] {
   background-color: #70A8E7;
   width: 525px;
   height: 566px;
-  color: #fff;
+  color: white;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1440px) {
+  .main-section.section-two {
+    width: 425px;
+    height: 466px;
+  }
 }
 .main-section.identifiant {
   font-size: 14px;
-}
-
-.adjust-position {
-  margin-bottom: 15px;
-  margin-top: 115px;
 }
 
 .block-accueil {
@@ -620,14 +674,29 @@ input[type=file] {
   margin-left: 163px;
   color: white;
 }
+@media (max-width: 1440px) {
+  .block-accueil__paragraph {
+    margin-top: 350px;
+  }
+}
 .block-accueil.subtitle {
   font-size: 72px;
   margin-bottom: 15px;
   font-weight: bold;
 }
+@media (max-width: 1440px) {
+  .block-accueil.subtitle {
+    font-size: 52px;
+  }
+}
 .block-accueil.texte {
   font-size: 30px;
   line-height: 1.5;
+}
+@media (max-width: 1440px) {
+  .block-accueil.texte {
+    font-size: 16px;
+  }
 }
 
 .block-annonces {

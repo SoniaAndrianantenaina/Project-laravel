@@ -10,12 +10,14 @@ $grey-3: #5B5B5B;
 $grey-4: #EEEAEA;
 $grey-5: #D3D3D3;
 $light-grey: #ebe7e7;
+
 //fonts
 $regular: 'Roboto';
-
-
 $transition-default: all .3s ease-in-out; // transition General
 
+//font-size global
+$gb-font-size: 20px;
+$fs-primary: 16px;
 
 //Header ---------------------------------------------
 $header-bg: $white;
