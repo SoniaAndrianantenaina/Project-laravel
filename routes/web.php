@@ -37,6 +37,19 @@ Route::get('/accueil-admin', function () {
         return view('admin/profilCandidat');
     })->name('profil-candidat');
 
+    //CONTRATS
+    Route::get('/convention-stage', function () {
+        return view('admin/contrat/conventionStage');
+    })->name('convention-stage');
+
+    Route::get('/contrat-cdi', function () {
+        return view('admin/contrat/CDI');
+    })->name('contrat-cdi');
+
+    Route::get('/contrat-cdd', function () {
+        return view('admin/contrat/CDD');
+    })->name('contrat-cdd');
+
 Route::get('/ajout-collaborateur', function () {
     return view('admin.ajoutCollaborateur');
 })->name('ajout-collaborateur');
