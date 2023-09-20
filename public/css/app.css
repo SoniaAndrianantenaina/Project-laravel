@@ -403,6 +403,12 @@ input[type=file] {
   width: 270px;
   height: 68px;
 }
+.boutons .btn.btn-small {
+  border-radius: 0;
+  width: 207px;
+  height: 70px;
+  text-align: center;
+}
 .boutons .btn__middle-btn {
   color: white;
   text-decoration: none;

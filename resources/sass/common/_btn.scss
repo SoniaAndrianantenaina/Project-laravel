@@ -105,6 +105,13 @@
             height: 68px;
         }
 
+        &.btn-small{
+            border-radius: 0;
+            width: 207px;
+            height: 70px;
+            text-align: center;
+        }
+
         &__middle-btn{
             color: $white;
             text-decoration: none;

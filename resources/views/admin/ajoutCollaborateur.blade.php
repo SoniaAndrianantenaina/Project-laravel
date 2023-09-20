@@ -70,8 +70,16 @@
 
             </div>
 
-            <div class="btn-générer">
-                <a href="envoyerIdentifiant.php" class="btn-blue primary">Générer identifiant et contrat</a>
+            <div class="boutons modify-height">
+
+                <div class="btn btn-small bleu-clair">
+                    <a href="" class="btn__middle-btn">GÉNÉRER CONTRAT</a>
+                </div>
+
+                <div class="btn btn-small bleu-foncé">
+                    <a href="" class="btn__middle-btn">GÉNÉRER IDENTIFIANTS</a>
+                </div>
+
             </div>
 
         </div>
