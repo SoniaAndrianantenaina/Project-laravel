@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="formulaire-collab__content">
-                    <textarea name="" id="" cols="50" rows="10" placeholder="Motif"></textarea>
+                    <textarea class="textarea" name="" id="" cols="50" rows="10" placeholder="Motif"></textarea>
                 </div>
 
             </div>

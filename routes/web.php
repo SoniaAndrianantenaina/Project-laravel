@@ -76,6 +76,10 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/listeAnnonces');
     })->name('liste-annonces');
 
+    Route::get('/ajout-annonces', function () {
+        return view('admin/ajoutAnnonce');
+    })->name('ajout-annonces');
+
 
 
 

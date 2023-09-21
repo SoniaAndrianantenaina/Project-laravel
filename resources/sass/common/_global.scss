@@ -73,12 +73,14 @@ strong {
     }
 }
 
+//textarea
 textarea {
     border: 1px solid $color-primary;
     background: $white;
     color: $color-secondary;
     font-size: 20px;
     width: 48vh;
+
     @include max(1440px) {
         font-size: $fs-primary;
     }
@@ -91,6 +93,11 @@ textarea {
     }
 }
 
+.small-text{
+    width: 41vh;
+}
+
+//input
 input[type="number"]::placeholder,
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
@@ -132,4 +139,8 @@ input[type="file"] {
 
 .uppercase{
     text-transform: uppercase;
+}
+
+.navy-span{
+    color: $color-primary;
 }

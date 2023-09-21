@@ -50,7 +50,6 @@
                                     repudiandae similique Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore dolores nam harum temporibus
                                 </p> <br>
                                 <p class="paragraph-content__text">Date de parution prévue : 02/03/2023</p>
-                                <p class="paragraph-content__text">Date début : 02/03/2023</p>
                                 <p class="paragraph-content__text">Date fin : 02/03/2023</p>
 
                             </div>
@@ -84,7 +83,6 @@
                                     repudiandae similique Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore dolores nam harum temporibus
                                 </p> <br>
                                 <p class="paragraph-content__text">Date de parution prévue : 02/03/2023</p>
-                                <p class="paragraph-content__text">Date début : 02/03/2023</p>
                                 <p class="paragraph-content__text">Date fin : 02/03/2023</p>
 
                             </div>
@@ -118,7 +116,6 @@
                                     repudiandae similique Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore dolores nam harum temporibus
                                 </p> <br>
                                 <p class="paragraph-content__text">Date de parution prévue : 02/03/2023</p>
-                                <p class="paragraph-content__text">Date début : 02/03/2023</p>
                                 <p class="paragraph-content__text">Date fin : 02/03/2023</p>
 
                             </div>

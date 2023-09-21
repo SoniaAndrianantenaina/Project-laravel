@@ -278,6 +278,10 @@ textarea::placeholder {
   left: 5%;
 }
 
+.small-text {
+  width: 41vh;
+}
+
 input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
   color: #70A8E7;
   font-size: 28px;
@@ -334,6 +338,10 @@ input[type=file] {
   text-transform: uppercase;
 }
 
+.navy-span {
+  color: #1859A3;
+}
+
 .btn-white {
   border: 1px solid white;
   background: white;
@@ -386,6 +394,9 @@ input[type=file] {
   margin-top: 23px;
   font-size: 25px;
 }
+.btn-blue.small {
+  width: 30vh;
+}
 .btn-blue.primary {
   display: flex;
   justify-content: center;
@@ -415,7 +426,7 @@ input[type=file] {
   margin-top: 35px;
 }
 .boutons.modify-top-1 {
-  margin-top: -5px;
+  margin-top: -35px;
   height: 5vh;
 }
 .boutons.modify-height {
@@ -720,6 +731,29 @@ input[type=file] {
 }
 .main-section.identifiant {
   font-size: 14px;
+}
+
+.border-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border-center__navy-blue {
+  position: absolute;
+  top: 15%;
+  width: 615px;
+  height: 920px;
+  border-radius: 98px;
+  border: 1px solid #1859A3;
+}
+.border-center__title {
+  text-align: center;
+  margin-top: 56px;
+  color: #1859A3;
+}
+.border-center__contenu {
+  margin-top: 40px;
+  margin-left: 60px;
 }
 
 .block-accueil {
@@ -1119,5 +1153,5 @@ input[type=file] {
   padding: 16px;
 }
 .paragraph-content__text {
-  font-size: 12px;
+  font-size: 14px;
 }
