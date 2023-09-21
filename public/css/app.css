@@ -342,6 +342,24 @@ input[type=file] {
   color: #1859A3;
 }
 
+.label-file {
+  cursor: pointer;
+  color: #00b1ca;
+  font-weight: bold;
+}
+
+.label-file:hover {
+  color: #25a5c4;
+}
+
+.input-file {
+  display: none;
+}
+
+.p-bottom {
+  margin-bottom: 14px;
+}
+
 .btn-white {
   border: 1px solid white;
   background: white;
@@ -1111,6 +1129,16 @@ input[type=file] {
 }
 .info.response.maj {
   text-transform: uppercase;
+}
+
+.left-image {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 15px;
+}
+.left-image img {
+  width: 30%;
+  border-radius: 26px;
 }
 
 .card-box {

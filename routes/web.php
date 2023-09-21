@@ -76,10 +76,13 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/listeAnnonces');
     })->name('liste-annonces');
 
-    Route::get('/ajout-annonces', function () {
+    Route::get('/ajout-annonce', function () {
         return view('admin/ajoutAnnonce');
-    })->name('ajout-annonces');
+    })->name('ajout-annonce');
 
+    Route::get('/modifier-annonce', function () {
+        return view('admin/modifierAnnonce');
+    })->name('modifier-annonce');
 
 
 
