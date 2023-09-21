@@ -33,6 +33,12 @@ p {
     margin-left: 40px;
 }
 
+.white-trait{
+    border-bottom: 2px solid white;
+    width: 55%;
+    margin-left: 40px;
+}
+
 input {
     font-family: "Microsoft Yahei";
     @include max(1440px) {
@@ -90,7 +96,7 @@ input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 label {
     color: $color-secondary;
-    font-size: $gb-font-size;
+    font-size: 28px;
     @include max(1440px) {
         font-size: $fs-primary;
     }

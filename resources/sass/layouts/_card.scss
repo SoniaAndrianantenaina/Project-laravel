@@ -1,24 +1,46 @@
-.card{
-    display: block;
-    margin: 30px;
-    max-width: 100%;
-    width: 400px;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.card-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    border-radius: 5px;
 
-    .card-title{
-        font-size: 1rem;
-        padding-bottom: 0.75rem;
-        font-weight: bold;
-    }
+    &__image {
+        margin: 0;
+        width: 100%;
 
-    .card-body{
-        font-size: 1rem;
-        
-        a{
-            text-decoration: underline;
+        img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
         }
     }
 
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    &__paragraph{
+        height: 150px;
+    }
+}
+
+.card-box:hover {
+    transform: scale(1.1);
+}
+
+.title-card{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    color: $color-primary;
+}
+
+.paragraph-content{
+    padding: 16px;
+
+    &__text{
+        font-size: 12px;
+    }
 }

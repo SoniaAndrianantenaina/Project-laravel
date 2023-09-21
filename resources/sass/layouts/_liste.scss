@@ -45,13 +45,11 @@
     text-align: right;
 
     &__recherche{
-        padding: 40px 44vh;
+        padding: 40px 40vh;
     }
 
-    &__paragraph{
-        font-size: $gb-font-size;
-    }
 }
+
 
 .list-content {
     display: grid;
@@ -75,6 +73,9 @@
         row-gap: 50px;
         padding: 85px;
 
+        &.big {
+            padding: 80px;
+        }
         &__item {
             display: grid;
             grid-template-columns: 35% 1fr;
@@ -82,8 +83,6 @@
             height: 183px;
             background-color: $white;
             box-shadow: 0 7px 9px rgb(0 0 0 / 16%);
-
-
         }
     }
 

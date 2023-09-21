@@ -84,6 +84,11 @@
         margin-top: 35px;
     }
 
+    &.modify-top-1{
+        margin-top: -5px;
+        height: 7vh;
+    }
+
     &.modify-height{
         height: 10vh;
 
@@ -100,6 +105,7 @@
         margin-right: 25px;
         font-size: 22px;
 
+
         &.btn-medium{
             width: 270px;
             height: 68px;
@@ -110,6 +116,12 @@
             width: 207px;
             height: 70px;
             text-align: center;
+        }
+
+        &.tiny-btn{
+            width: 100px;
+            height: 25px;
+            font-size: 15px;
         }
 
         &__middle-btn{

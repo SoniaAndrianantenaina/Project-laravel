@@ -1,4 +1,4 @@
-.sectHeader {    
+.sectHeader {
   width: 100%;
   z-index: 99;
   background: $white;
@@ -24,7 +24,7 @@
               @include imgFull(contain, left)
           }
       }
-  }       
+  }
 }
 
 #navigation {
@@ -70,10 +70,10 @@
               }
           }
       }
-  }        
+  }
   &.open {
       .cntNavBox {
-          top: 0;                    
+          top: 0;
       }
   }
   .cntNav {
@@ -101,7 +101,7 @@
           text-align: center;
       }
   }
-}    
+}
 .btnBox {
   display: none;
   @include max(992px) {
@@ -111,7 +111,7 @@
       right: 23px;
       z-index: 9;
   }
-}  
+}
 #btnnav {
   width: 44px;
   height: 47px;
@@ -161,4 +161,35 @@
 
 .text-decoration{
   text-decoration: none;
+}
+
+
+//header-annonces
+.boxNavAnnonces {
+    background-color: $color-secondary;
+    width: 100%;
+    height: 60px;
+    color: white;
+}
+.content-nav li {
+    display: inline-block;
+    padding: 22px;
+}
+
+.content-nav-box{
+    margin-left: 96px;
+}
+
+.content-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.content-nav li.current a {
+    color: $color-primary;
+}
+
+.content-nav a:hover {
+    color: $color-primary;
 }

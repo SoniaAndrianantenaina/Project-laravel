@@ -42,7 +42,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-decoration">
+                                    <a href="{{ route('liste-employes') }} " class="text-decoration">
                                         Employés
                                     </a>
                                 </li>
@@ -52,7 +52,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-decoration">
+                                    <a href="{{ route('liste-annonces') }} " class="text-decoration">
                                         Annonces
                                     </a>
                                 </li>

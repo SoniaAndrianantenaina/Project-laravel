@@ -71,6 +71,11 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/listeEmployés');
     })->name('liste-employes');
 
+    //ANNONCES
+    Route::get('/liste-annonces', function () {
+        return view('admin/listeAnnonces');
+    })->name('liste-annonces');
+
 
 
 
