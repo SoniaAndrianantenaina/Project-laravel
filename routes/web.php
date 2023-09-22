@@ -93,3 +93,8 @@ Route::get('/envoyer-identifiant', function () {
 Route::get('/accueil-employe', function () {
     return view('employé.accueilEmployé');
 })->name('accueil-employe');
+
+    //congés
+    Route::get('/solde-conge', function () {
+        return view('employé.soldeCongé');
+    })->name('solde-conge');

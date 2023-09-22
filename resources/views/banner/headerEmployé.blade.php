@@ -42,7 +42,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-decoration">
+                                    <a href="{{ route('solde-conge') }}" class="text-decoration">
                                         Congés
                                     </a>
                                 </li>

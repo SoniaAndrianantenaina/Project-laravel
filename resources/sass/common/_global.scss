@@ -145,6 +145,16 @@ input[type="file"] {
     color: $color-primary;
 }
 
+.title-h6{
+    color: $grey;
+    font-size: 20px;
+    margin-bottom: 12px;
+
+    &.black{
+        color: black;
+    }
+}
+
 //input type file
 
 .label-file {
