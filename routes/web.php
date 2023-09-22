@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('connexion');
 });
 
-//HEADER
-
-//ADMINISTRATEUR
+//Côté administrateur
 Route::get('/accueil-admin', function () {
     return view('admin.accueilAdmin');
 })->name('accueil-admin');
@@ -91,6 +89,7 @@ Route::get('/envoyer-identifiant', function () {
     })->name('plan-departements');
 
 
-
-
-
+//Côté employé
+Route::get('/accueil-employe', function () {
+    return view('employé.accueilEmployé');
+})->name('accueil-employe');

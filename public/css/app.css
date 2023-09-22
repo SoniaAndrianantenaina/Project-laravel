@@ -871,6 +871,7 @@ input[type=file] {
   position: absolute;
   top: 13%;
   left: -25%;
+  font-size: 25px;
 }
 
 .statistiques {
