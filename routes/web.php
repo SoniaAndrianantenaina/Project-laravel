@@ -85,6 +85,12 @@ Route::get('/envoyer-identifiant', function () {
     })->name('modifier-annonce');
 
 
+    //DÉPARTEMENTS
+    Route::get('/plan-departements', function () {
+        return view('admin/planDépartements');
+    })->name('plan-departements');
+
+
 
 
 
