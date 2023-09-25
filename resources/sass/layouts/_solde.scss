@@ -135,8 +135,26 @@
 }
 
 .create-request {
-    width: 125px;
-    height: 50px;
-    color: $color-secondary;
+    position: absolute;
+    z-index: 99;
+    width: 278px;
+    height: 45px;
+    color: $color-primary;
     background-color: $white;
+    top: 0;
+    right: 0;
+    margin-right: 41px;
+    margin-top: 30px;
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+
+        p{
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+    }
 }

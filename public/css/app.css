@@ -1413,8 +1413,24 @@ input[type=file] {
 }
 
 .create-request {
-  width: 125px;
-  height: 50px;
-  color: #70A8E7;
+  position: absolute;
+  z-index: 99;
+  width: 278px;
+  height: 45px;
+  color: #1859A3;
   background-color: white;
+  top: 0;
+  right: 0;
+  margin-right: 41px;
+  margin-top: 30px;
+}
+.create-request__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+.create-request__text p {
+  text-transform: uppercase;
+  font-size: 20px;
 }

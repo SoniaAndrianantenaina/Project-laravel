@@ -23,11 +23,13 @@
                                     SALAIRE
                                 </a>
                             </li>
-                            <li>
-                                <a class="create-request" href="">Hello</a>
-                            </li>
-
                         </ul>
+
+                        <div class="create-request">
+                            <div class="create-request__text">
+                                <p>+ Créer une demande</p>
+                            </div>
+                        </div>
                     </div>
                 </nav>
             </div>
