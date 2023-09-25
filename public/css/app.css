@@ -381,6 +381,10 @@ input[type=file] {
   color: #1859A3;
 }
 
+.light-grey {
+  color: #666666;
+}
+
 .btn-white {
   border: 1px solid white;
   background: white;
@@ -1166,6 +1170,12 @@ input[type=file] {
   border-radius: 26px;
 }
 
+.white-trait-lg {
+  border-bottom: 2px solid white;
+  width: 85%;
+  margin-top: 10px;
+}
+
 .card-box {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
@@ -1327,7 +1337,6 @@ input[type=file] {
   margin-top: 60px;
   margin-left: 31px;
 }
-
 .center-content {
   display: flex;
   justify-content: center;
