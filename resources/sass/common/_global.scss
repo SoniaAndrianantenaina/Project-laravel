@@ -147,7 +147,7 @@ input[type="file"] {
 
 .title-h6{
     color: $grey;
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 12px;
 
     &.black{
@@ -173,4 +173,16 @@ input[type="file"] {
 
 .p-bottom{
     margin-bottom: 14px;
+}
+
+.title-h3-navy{
+    font-size: 20px;
+    color: $color-primary;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: -2px;
+}
+
+.navy{
+    color: $color-primary;
 }

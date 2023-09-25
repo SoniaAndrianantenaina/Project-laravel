@@ -1,36 +1,142 @@
-.div-grey{
+.profile-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.div-grey {
     position: fixed;
-    background-color: $light-grey-2;
+    background-color: $grey-6;
     width: 100%;
-    height: 80%;
+    height: 81%;
     display: grid;
     grid-template-columns: 15% 1fr;
     gap: 4%;
 
-    &__profil{
+    &__profil {
         border: 1px solid $light-grey;
         background-color: $white;
+        overflow-y: auto;
     }
 
-    &__picture{
+    &__picture {
         width: 100%;
         height: 100%;
 
-        img{
+        img {
             max-width: 90px;
             height: auto;
         }
     }
 
-    &__infos{
-        text-align: center;
-        font-size: 18px;
+    &__infos {
+        &__center {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        &__left {
+            margin-top: 60px;
+            margin-left: 31px;
+        }
     }
 }
 
-.center-content{
+.center-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.trait-lg {
+    border-bottom: 1px solid $grey;
+    width: 91%;
+
+    &.modified {
+        margin-top: 45px;
+    }
+}
+
+.bck-data {
+    display: flex;
+    align-items: center;
+    margin-left: -20px;
+    margin-top: -6px;
+
+    &__picture {
+        width: 100%;
+        height: 100%;
+
+        img {
+            max-width: 45px;
+            height: auto;
+        }
+    }
+
+    &__text {
+        margin-left: -25px;
+    }
+}
+
+.title-h4 {
+    margin-top: 45px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.shadow-box {
+    position: absolute;
+    margin-top: 25px;
+    width: 417px;
+    height: 595px;
+    background-color: $white;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+
+    &__text {
+        margin-left: 40px;
+        margin-top: 21px;
+
+        &__title {
+            font-size: 22px;
+            text-transform: uppercase;
+
+            &.on-top {
+                margin-top: 24px;
+            }
+        }
+
+        &__content {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.adjust-right {
+    margin-right: 45px;
+}
+
+.subtitle {
+    color: $grey;
+    font-size: 17px;
+    margin-bottom: -8px;
+
+    &.black {
+        color: black;
+    }
+}
+
+.date-right {
+    margin-right: 45px;
+    margin-top: 12px;
+    position: absolute;
+    right: 0;
+}
+
+.create-request {
+    width: 125px;
+    height: 50px;
+    color: $color-secondary;
+    background-color: $white;
 }
