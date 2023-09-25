@@ -98,3 +98,7 @@ Route::get('/accueil-employe', function () {
     Route::get('/solde-conge', function () {
         return view('employé.soldeCongé');
     })->name('solde-conge');
+
+    Route::get('/demande-conge', function () {
+        return view('employé.demandeCongé');
+    })->name('demande-conge');

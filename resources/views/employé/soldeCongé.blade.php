@@ -1,178 +1,42 @@
 @include('banner.headerEmployé')
 
 <main class="solde-congé">
-    <div class="container">
-        <section class="banner-blue">
-            <div class="boxNavAnnonces">
-                <nav id="navigation-annonces">
-                    <div class="content-nav-box left-modified">
-                        <ul class="content-nav">
-                            <li>
-                                <a href="#" class="text-decoration">
-                                    SOLDE
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-decoration">
-                                    DEMANDES
-                                    <div class="white-trait"></div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-decoration">
-                                    SALAIRE
-                                </a>
-                            </li>
-                        </ul>
+    <section class="banner-blue">
+        <div class="boxNavAnnonces">
+            <nav id="navigation-annonces">
+                <div class="content-nav-box left-modified">
+                    <ul class="content-nav">
+                        <li>
+                            <a href="#" class="text-decoration">
+                                SOLDE
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration">
+                                DEMANDES
+                                <div class="white-trait"></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration">
+                                SALAIRE
+                            </a>
+                        </li>
+                    </ul>
 
-                        <div class="create-request">
-                            <div class="create-request__text">
-                                <p>+ Créer une demande</p>
-                            </div>
+                    <div class="create-request">
+                        <div class="create-request__text">
+                            <p>+ Créer une demande</p>
                         </div>
                     </div>
-                </nav>
-            </div>
-        </section>
+                </div>
+            </nav>
+        </div>
+    </section>
 
+    <section class="contenu">
         <div class="div-grey">
-            <div class="div-grey__profil">
-                <div class="center-content">
-
-                    <div class="div-grey__pic">
-                        <figure class="div-grey__picture">
-                            <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                        </figure>
-                    </div>
-
-                    <div class="div-grey__infos">
-                        <div class="div-grey__infos__center">
-                            <div class="title-h6">
-                                <h6>Sonia Fanomezantsoa</h6>
-                            </div>
-
-                            <div class="title-h6">
-                                <h6>Andrianantenaina</h6>
-                            </div>
-
-                            <div class="title-h6 uppercase black">
-                                <h6>Digital Agency</h6>
-                            </div>
-
-                            <div class="title-h6">
-                                <h6>Stagiaire</h6>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="left-text">
-                    <div class="div-grey__infos__left">
-                        <div class="title-h6">
-                            <h6>Matricule : 0222</h6>
-                        </div>
-
-                        <div class="title-h6">
-                            <h6>+261323975502</h6>
-                        </div>
-
-                        <div class="trait-lg"></div>
-
-                        <div>
-                            <div class="title-h3-navy uppercase">
-                                <h3>Contrat</h3>
-                            </div>
-
-                            <div class="title-h6">
-                                <h6>Contrat : CDI</h6>
-                            </div>
-                        </div>
-
-                        <div class="trait-lg"></div>
-
-                        <div>
-                            <div class="title-h3-navy uppercase">
-                                <h3>Manager</h3>
-                            </div>
-
-                            <div>
-                                <div class="bck-data">
-                                    <div class="bck-data pic">
-                                        <figure class="bck-data__picture">
-                                            <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}"
-                                                alt="">
-                                        </figure>
-                                    </div>
-
-                                    <div class="bck-data__text">
-                                        <div class="title-h6 black">
-                                            <h6>Henikaja Andriamahay</h6>
-                                        </div>
-
-                                        <div class="title-h6">
-                                            <h6>Team Leader Front End</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="trait-lg"></div>
-
-                        <div>
-                            <div class="title-h3-navy uppercase">
-                                <h3>Relations directes</h3>
-                            </div>
-
-                            <div>
-                                <div class="bck-data">
-                                    <div class="bck-data pic">
-                                        <figure class="bck-data__picture">
-                                            <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}"
-                                                alt="">
-                                        </figure>
-                                    </div>
-
-                                    <div class="bck-data__text">
-                                        <div class="title-h6 black">
-                                            <h6>Andrianantenaina Sonia</h6>
-                                        </div>
-
-                                        <div class="title-h6">
-                                            <h6>Intégrateur Junior</h6>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="bck-data">
-                                    <div class="bck-data pic">
-                                        <figure class="bck-data__picture">
-                                            <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}"
-                                                alt="">
-                                        </figure>
-                                    </div>
-
-                                    <div class="bck-data__text">
-                                        <div class="title-h6 black">
-                                            <h6>Andrianantenaina Sonia</h6>
-                                        </div>
-
-                                        <div class="title-h6">
-                                            <h6>Intégrateur Junior</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="height: 5vh"></div>
-
-            </div>
-
-
+            @include('employé.profil.profil-infos')
             <div class="div-grey__pay">
                 <div class="title-h4">
                     <h4>Mes congés</h4>
@@ -258,6 +122,6 @@
                 <h6 class="title-h6 navy">Lundi 04 Septembre 2023</h6>
             </div>
         </div>
-    </div>
+    </section>
 
 </main>
