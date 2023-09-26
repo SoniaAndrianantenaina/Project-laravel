@@ -17,11 +17,7 @@
                                 <div class="white-trait"></div>
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="text-decoration">
-                                SALAIRE
-                            </a>
-                        </li>
+
                     </ul>
 
                     <div class="create-request">

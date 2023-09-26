@@ -505,6 +505,11 @@ input[type=file] {
   color: white;
   text-decoration: none;
 }
+.boutons .btn.re-arraganged {
+  border: none;
+  width: 180px;
+  height: 48px;
+}
 
 .bleu-clair {
   background-color: #70A8E7;
@@ -1337,11 +1342,49 @@ input[type=file] {
   margin-top: 60px;
   margin-left: 31px;
 }
+.div-grey__request {
+  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+}
+.div-grey__request__data {
+  display: flex;
+}
+.div-grey__request__data__input {
+  border: 1px solid white;
+  background: white;
+  color: #70A8E7;
+  width: 250px;
+  height: 38px;
+  margin-left: 45px;
+  margin-top: -10px;
+}
+.div-grey__request__data__input.blue {
+  margin-bottom: 45px;
+  color: #70A8E7;
+}
+.div-grey__request__data__span {
+  width: 112px;
+  margin-bottom: 45px;
+  font-size: 22px;
+  color: black;
+}
+
+.ml {
+  margin-left: -5px;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+}
+
 .center-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-direction: none;
 }
 
 .trait-lg {

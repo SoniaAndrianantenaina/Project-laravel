@@ -34,18 +34,69 @@
                 <div class="white-trait-lg"></div>
 
 
-                <div class="div-grey__request">
-                    <div class="div-grey__request__data">
-                        <p>Date début : </p>
-                        <input type="date">
-                    </div>
+                <div class="centered-container">
+                    <div class="div-grey__request">
+                        <div class="div-grey__request__data">
+                            <div>
+                                <p class="div-grey__request__data__span">Date début : </p>
+                            </div>
 
-                    <div class="div-grey__request__data">
-                        <p>Date fin : </p>
-                        <input type="date">
+                            <div>
+                                <input class="div-grey__request__data__input" type="date">
+                            </div>
+                        </div>
+
+                        <div class="div-grey__request__data">
+                            <div>
+                                <p class="div-grey__request__data__span">Date fin : </p>
+                            </div>
+
+                            <div>
+                                <input class="div-grey__request__data__input" type="date">
+                            </div>
+                        </div>
+
+                        <div class="div-grey__request__data">
+                            <div>
+                                <label class="div-grey__request__data__span">Type congé :</label>
+                            </div>
+
+                            <div>
+                                <select class="div-grey__request__data__input blue" name="" id="">
+                                    <option value="">Congés payés</option>
+                                    <option value="">Permissions exceptionnelles</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="div-grey__request__data">
+                            <div>
+                                <label class="div-grey__request__data__span">Motif congé :</label>
+                            </div>
+
+                            <div class="ml">
+                                <select class="div-grey__request__data__input blue" name="" id="">
+                                    <option value="">Mariage</option>
+                                    <option value="">Décès</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="boutons">
+
+                            <div class="btn re-arraganged bleu-foncé">
+                                <a href="" class="btn__middle-btn">SOUMETTRE</a>
+                            </div>
+
+                            <div class="btn re-arraganged bleu-clair">
+                                <a href="" class="btn__middle-btn">ANNULER</a>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-
             </div>
 
 

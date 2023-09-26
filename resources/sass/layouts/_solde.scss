@@ -40,9 +40,46 @@
         }
     }
 
-    &__request{
+    &__request {
+        margin-top: 125px;
+        display: flex;
+        flex-direction: column;
 
+        &__data {
+            display: flex;
+
+            &__input {
+                border: 1px solid white;
+                background: white;
+                color: $color-secondary;
+                width: 250px;
+                height: 38px;
+                margin-left: 45px;
+                margin-top: -10px;
+
+                &.blue{
+                    margin-bottom: 45px;
+                    color: $color-secondary;
+                }
+            }
+
+            &__span {
+                width: 112px;
+                margin-bottom: 45px;
+                font-size: 22px;
+                color: black;
+            }
+        }
     }
+}
+
+.ml{
+    margin-left: -5px;
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
 }
 
 .center-content {
@@ -50,6 +87,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    flex-direction: none;
 }
 
 .trait-lg {
@@ -156,7 +195,7 @@
         align-items: center;
         padding: 12px;
 
-        p{
+        p {
             text-transform: uppercase;
             font-size: 20px;
         }
