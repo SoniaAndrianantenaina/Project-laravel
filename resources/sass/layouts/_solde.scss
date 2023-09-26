@@ -80,6 +80,7 @@
 .centered-container {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .center-content {
@@ -87,8 +88,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    flex-direction: none;
 }
 
 .trait-lg {

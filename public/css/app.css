@@ -369,14 +369,6 @@ input[type=file] {
   margin-bottom: 14px;
 }
 
-.title-h3-navy {
-  font-size: 20px;
-  color: #1859A3;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  margin-left: -2px;
-}
-
 .navy {
   color: #1859A3;
 }
@@ -1181,6 +1173,72 @@ input[type=file] {
   margin-top: 10px;
 }
 
+.title-h3-navy {
+  font-size: 20px;
+  color: #1859A3;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: -2px;
+}
+
+.three-cubes {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.cube__first {
+  background-color: white;
+  width: 450px;
+  height: 415px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+.cube__first__image {
+  width: 100%;
+  height: 100%;
+}
+.cube__first__image img {
+  max-width: 150px;
+  height: auto;
+}
+.cube__second {
+  background-color: white;
+  width: 450px;
+  height: 215px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cube__text__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.cube__text__subtitle {
+  font-size: 22px;
+}
+.cube__text.navy {
+  color: #1859A3;
+}
+
+.pin__image {
+  margin-left: -2px;
+  width: 100%;
+  height: 100%;
+}
+.pin__image img {
+  max-width: 30px;
+  height: auto;
+}
+
 .card-box {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
@@ -1377,6 +1435,7 @@ input[type=file] {
 .centered-container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .center-content {
@@ -1384,7 +1443,6 @@ input[type=file] {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  flex-direction: none;
 }
 
 .trait-lg {

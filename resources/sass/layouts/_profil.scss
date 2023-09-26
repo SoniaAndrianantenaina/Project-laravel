@@ -55,3 +55,87 @@
     width: 85%;
     margin-top: 10px;
 }
+
+.title-h3-navy{
+    font-size: 20px;
+    color: $color-primary;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: -2px;
+}
+
+//profil employé
+.three-cubes{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cube{
+    &__first{
+        background-color: $white;
+        width: 450px;
+        height: 415px;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 35px;
+
+        &__image{
+            width: 100%;
+            height: 100%;
+
+            img{
+                max-width: 150px;
+                height: auto;
+            }
+        }
+    }
+
+    &__second{
+        background-color: $white;
+        width: 450px;
+        height: 215px;
+        color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__text{
+        &__title{
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        &__subtitle{
+            font-size: 22px;
+        }
+
+        &.navy{
+            color: $color-primary;
+        }
+    }
+}
+
+.pin{
+    &__image{
+        margin-left: -2px;
+        width: 100%;
+        height: 100%;
+
+        img{
+            max-width: 30px;
+            height: auto;
+        }
+    }
+
+    &__text{
+        
+    }
+}
