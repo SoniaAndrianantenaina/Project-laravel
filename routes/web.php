@@ -88,6 +88,10 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/planDépartements');
     })->name('plan-departements');
 
+    Route::get('/liste-departements', function () {
+        return view('admin/listeDépartements');
+    })->name('liste-departements');
+
 
 //Côté employé
 Route::get('/accueil-employe', function () {

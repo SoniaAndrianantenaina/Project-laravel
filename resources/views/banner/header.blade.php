@@ -31,34 +31,36 @@
                     <nav id="navigation">
                         <div class="cntNavBox">
                             <ul class="cntNav">
-                                <li class="current">
-                                    <a href="#" class="text-decoration">
+                                <li class="@if(Request::is('accueil-admin')) current @endif">
+                                    <a href=" {{ route('accueil-admin') }} " class="text-decoration">
                                         Accueil
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="text-decoration">
+                                <li class="@if(Request::is('liste-departements')) current @endif">
+                                    <a href="{{ route('liste-departements') }}" class="text-decoration">
                                         Départements
                                     </a>
                                 </li>
-                                <li>
+                                <li class="@if(Request::is('liste-employes')) current @endif">
                                     <a href="{{ route('liste-employes') }} " class="text-decoration">
                                         Employés
                                     </a>
                                 </li>
-                                <li>
+                                <li class="@if(Request::is('liste-candidats')) current @endif">
                                     <a href="{{ route('liste-candidats') }}" class="text-decoration">
                                         Candidatures
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('liste-annonces') }} " class="text-decoration">
+
+                                <li class="@if(Request::is('liste-annonces')) current @endif">
+                                    <a href="{{ route('liste-annonces') }}" class="text-decoration">
                                         Annonces
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </nav>
+
                 </div>
             </div>
         </div>

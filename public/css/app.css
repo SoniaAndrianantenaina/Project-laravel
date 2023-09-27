@@ -520,6 +520,7 @@ input[type=file] {
   width: 100%;
   z-index: 99;
   background: white;
+  height: 100px;
 }
 .sectHeader--sticky {
   position: sticky;
@@ -601,7 +602,7 @@ input[type=file] {
   display: flex;
   grid-gap: 25px;
   font-family: "Microsoft Yahei";
-  font-size: 28px;
+  font-size: 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -681,6 +682,14 @@ input[type=file] {
 
 .text-decoration {
   text-decoration: none;
+}
+
+.profil-image {
+  width: 100%;
+  height: 100%;
+}
+.profil-image img {
+  max-width: 15px;
 }
 
 .boxNavAnnonces {
@@ -894,6 +903,10 @@ input[type=file] {
   margin-bottom: 45px;
 }
 .block-annonces.content__paragraph {
+  width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   position: absolute;
   top: 13%;
   left: -25%;

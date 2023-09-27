@@ -103,6 +103,10 @@
         margin-bottom: 45px;
 
         &__paragraph{
+            width: 450px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             position: absolute;
             top: 13%;
             left: -25%;
