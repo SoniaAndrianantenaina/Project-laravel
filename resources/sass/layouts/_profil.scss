@@ -1,62 +1,61 @@
-.block-profil{
+.block-profil {
     position: relative;
     margin-top: -60vh;
-    &__image{
+    &__image {
         width: 100%;
         height: 100%;
 
-        img{
+        img {
             max-width: 150px;
             height: auto;
         }
     }
 
-    &__informations{
+    &__informations {
         margin-left: 70px;
 
-        &__texte{
+        &__texte {
             display: flex;
             margin-top: 43px;
         }
     }
 }
-.info{
+.info {
     font-size: 25px;
 
-    &.request{
+    &.request {
         text-transform: uppercase;
         color: $color-secondary;
         margin-right: 50px;
-
     }
 
-    &.response{
+    &.response {
         color: $color-primary;
 
-        &.maj{
+        &.maj {
             text-transform: uppercase;
         }
     }
 }
 
-.left-image{
+.left-image {
     width: 100%;
     margin: 0;
     margin-bottom: 15px;
 
-    img{
+    img {
         width: 30%;
         border-radius: 26px;
     }
 }
 
-.white-trait-lg{
+.white-trait-lg {
     border-bottom: 2px solid white;
     width: 85%;
     margin-top: 10px;
 }
 
-.title-h3-navy{
+.title-h3-navy {
     font-size: 20px;
     color: $color-primary;
     margin-bottom: 20px;
@@ -65,7 +64,7 @@
 }
 
 //profil employé
-.three-cubes{
+.three-cubes {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -73,8 +72,9 @@
     min-height: 100vh;
 }
 
-.cube{
-    &__first{
+.cube {
+    &__first {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         background-color: $white;
         width: 450px;
         height: 415px;
@@ -85,57 +85,109 @@
         justify-content: center;
         margin-bottom: 35px;
 
-        &__image{
+        &__image {
             width: 100%;
             height: 100%;
 
-            img{
+            img {
                 max-width: 150px;
                 height: auto;
             }
         }
     }
 
-    &__second{
+    &__second {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         background-color: $white;
         width: 450px;
         height: 215px;
         color: $white;
+
+        &__salary {
+            display: flex;
+            justify-content: center;
+
+            h4 {
+                margin-top: 20px;
+            }
+        }
+
+        &__subtitle {
+            color: $color-secondary;
+            font-size: 22px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    }
+
+    &__third{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        margin-left: 23px;
+        background-color: $white;
+        width: 666px;
+        height: 666px;
+        color: $white;
+
+        &__ctn{
+            margin: 40px;
+            &__info{
+                margin-top: 20px;
+                color: $color-primary;
+                font-size: 22px;
+            }
+
+            &__trait{
+                margin-top: 5px;
+                border-bottom: 1px solid $light-grey;
+                width: 99%;
+            }
+        }
+
+    }
+
+    &__text {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-    }
 
-    &__text{
-        &__title{
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        &__subtitle{
+        &__subtitle {
             font-size: 22px;
         }
 
-        &.navy{
+        &.navy {
             color: $color-primary;
         }
     }
 }
 
-.pin{
-    &__image{
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pin {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+
+    &__image {
         margin-left: -2px;
         width: 100%;
         height: 100%;
 
-        img{
+        img {
             max-width: 30px;
             height: auto;
         }
     }
 
-    &__text{
-        
+    &__content {
+        &__text {
+            margin-left: -25px;
+            color: $color-secondary;
+            font-size: 22px;
+            width: 165px;
+        }
     }
 }

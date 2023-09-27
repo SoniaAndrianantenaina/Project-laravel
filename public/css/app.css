@@ -1190,6 +1190,7 @@ input[type=file] {
 }
 
 .cube__first {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   width: 450px;
   height: 415px;
@@ -1209,18 +1210,51 @@ input[type=file] {
   height: auto;
 }
 .cube__second {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
   width: 450px;
   height: 215px;
   color: white;
+}
+.cube__second__salary {
+  display: flex;
+  justify-content: center;
+}
+.cube__second__salary h4 {
+  margin-top: 20px;
+}
+.cube__second__subtitle {
+  color: #70A8E7;
+  font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.cube__third {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  margin-left: 23px;
+  background-color: white;
+  width: 666px;
+  height: 666px;
+  color: white;
+}
+.cube__third__ctn {
+  margin: 40px;
+}
+.cube__third__ctn__info {
+  margin-top: 20px;
+  color: #1859A3;
+  font-size: 22px;
+}
+.cube__third__ctn__trait {
+  margin-top: 5px;
+  border-bottom: 1px solid #ebe7e7;
+  width: 99%;
+}
+.cube__text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.cube__text__title {
-  font-size: 24px;
-  margin-bottom: 10px;
 }
 .cube__text__subtitle {
   font-size: 22px;
@@ -1229,6 +1263,16 @@ input[type=file] {
   color: #1859A3;
 }
 
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pin {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+}
 .pin__image {
   margin-left: -2px;
   width: 100%;
@@ -1237,6 +1281,12 @@ input[type=file] {
 .pin__image img {
   max-width: 30px;
   height: auto;
+}
+.pin__content__text {
+  margin-left: -25px;
+  color: #70A8E7;
+  font-size: 22px;
+  width: 165px;
 }
 
 .card-box {
@@ -1504,6 +1554,13 @@ input[type=file] {
 
 .adjust-right {
   margin-right: 45px;
+}
+.adjust-right__1 {
+  margin-right: 20px;
+}
+
+.adjust-left {
+  margin-left: 45px;
 }
 
 .subtitle {
