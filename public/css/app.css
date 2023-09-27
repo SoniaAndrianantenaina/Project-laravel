@@ -1122,6 +1122,52 @@ input[type=file] {
   color: #797979;
 }
 
+.request-list.box {
+  margin-top: 35px;
+  display: flex;
+}
+.request-list.box__color {
+  width: 325px;
+  height: 95px;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 35px;
+}
+.request-list.box__color.navy {
+  background-color: #1859A3;
+}
+.request-list.box__content {
+  display: flex;
+  margin-top: 22px;
+  margin-left: 10px;
+}
+.request-list.box__content__title {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #5A5453;
+}
+.request-list.box__content__title.white {
+  color: white;
+}
+.request-list.box__content__text h6 {
+  width: 85px;
+  font-size: 32px;
+  color: #1859A3;
+}
+.request-list.box__content__text p {
+  color: #5A5453;
+}
+
+.h6-text-white {
+  width: 85px;
+  font-size: 32px;
+  color: white;
+}
+
+.p-text-white {
+  color: white;
+}
+
 .block-profil {
   position: relative;
   margin-top: -60vh;

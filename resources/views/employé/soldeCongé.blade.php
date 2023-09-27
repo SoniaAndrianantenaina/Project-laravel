@@ -2,31 +2,33 @@
 
 <main class="solde-congé">
     <section class="banner-blue">
-        <div class="boxNavAnnonces">
-            <nav id="navigation-annonces">
-                <div class="content-nav-box left-modified">
-                    <ul class="content-nav">
-                        <li>
-                            <a href="#" class="text-decoration">
-                                SOLDE
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-decoration">
-                                DEMANDES
-                                <div class="white-trait"></div>
-                            </a>
-                        </li>
+        <div class="container">
+            <div class="boxNavAnnonces">
+                <nav id="navigation-annonces">
+                    <div class="content-nav-box left-modified">
+                        <ul class="content-nav">
+                            <li>
+                                <a href="#" class="text-decoration">
+                                    SOLDE
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-decoration">
+                                    DEMANDES
+                                    <div class="white-trait"></div>
+                                </a>
+                            </li>
 
-                    </ul>
+                        </ul>
 
-                    <div class="create-request">
-                        <div class="create-request__text">
-                            <p>+ Créer une demande</p>
+                        <div class="create-request">
+                            <div class="create-request__text">
+                                <p>+ Créer une demande</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </section>
 

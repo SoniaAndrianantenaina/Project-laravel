@@ -103,6 +103,10 @@ Route::get('/accueil-employe', function () {
         return view('employé.demandeCongé');
     })->name('demande-conge');
 
+    Route::get('/liste-demande-conge', function () {
+        return view('employé.listeDemandesCongé');
+    })->name('liste-demande-conge');
+
     //profil
     Route::get('/profil-employe', function () {
         return view('employé.profilEmployé');
