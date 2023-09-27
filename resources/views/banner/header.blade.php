@@ -46,7 +46,7 @@
                                         Employés
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-candidats')) current @endif">
+                                <li class="@if(Request::is('liste-candidats','ajout-candidat')) current @endif">
                                     <a href="{{ route('liste-candidats') }}" class="text-decoration">
                                         Candidatures
                                     </a>

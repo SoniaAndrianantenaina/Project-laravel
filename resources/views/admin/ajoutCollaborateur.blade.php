@@ -73,11 +73,11 @@
             <div class="boutons modify-height">
 
                 <div class="btn btn-small bleu-clair">
-                    <a href="" class="btn__middle-btn">GÉNÉRER CONTRAT</a>
+                    <a href="{{ route('contrat-cdd') }}" class="btn__middle-btn">GÉNÉRER CONTRAT</a>
                 </div>
 
                 <div class="btn btn-small bleu-foncé">
-                    <a href="" class="btn__middle-btn">GÉNÉRER IDENTIFIANTS</a>
+                    <a href="{{ route('envoyer-identifiant') }}" class="btn__middle-btn">GÉNÉRER IDENTIFIANTS</a>
                 </div>
 
             </div>

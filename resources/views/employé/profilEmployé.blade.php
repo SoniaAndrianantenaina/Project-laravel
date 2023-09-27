@@ -2,7 +2,7 @@
 
 <main class="profil-employé">
     <section class="contenu">
-        <div class="bg-color-grey ">
+        <div class="bg-color-grey">
 
             <div class="three-cubes">
                 <div class="div">
