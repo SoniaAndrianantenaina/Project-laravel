@@ -834,6 +834,7 @@ input[type=file] {
   }
 }
 .block-accueil.subtitle {
+  color: white;
   font-size: 72px;
   margin-bottom: 15px;
   font-weight: bold;

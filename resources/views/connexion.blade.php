@@ -41,7 +41,7 @@
                     </div>
 
                     <div>
-                        <a href="#" class="btn-white lg">VALIDER</a>
+                        <a href="{{ route('accueil-admin') }}" class="btn-white lg">VALIDER</a>
                     </div>
                 </div>
 

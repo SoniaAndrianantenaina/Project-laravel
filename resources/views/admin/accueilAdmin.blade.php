@@ -5,7 +5,7 @@
     <section class='block-accueil'>
 
         <figure class='block-accueil__bg-img'>
-            <img src='{{ asset('assets/images/accueil/building.jpg') }}' alt=''>
+            <img src='{{ asset('assets/images/accueil/accueil.jpg') }}' alt=''>
         </figure>
 
         <div class='block-accueil__section'>
@@ -25,7 +25,6 @@
     <section class='block-annonces'>
 
         <div class='block-annonces__item'>
-
             <div class='block-annonces__item__title'>
                 <h2 class='title-h2'>
                     ANNONCES
@@ -71,7 +70,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
