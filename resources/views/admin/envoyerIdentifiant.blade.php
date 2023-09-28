@@ -35,11 +35,11 @@
 
                 <div class="boutons">
                     <div class="btn bleu-foncé">
-                        <a href="" class="btn__middle-btn">ANNULER</a>
+                        <a href="{{ route('ajout-collaborateur') }}" class="btn__middle-btn">ANNULER</a>
                     </div>
 
                     <div class="btn bleu-clair">
-                        <a href="" class="btn__middle-btn">ENVOYER</a>
+                        <a href="{{ route('liste-candidats') }}" class="btn__middle-btn">ENVOYER</a>
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@
 
 <body>
 <header id="sectHeader" class="sectHeader sectHeader--sticky">
-        <div class="container">
+        <div class="menu-header">
             <div class="headerIntern">
                 <div class="cntlogo">
                     <a href="index.html">
@@ -41,12 +41,12 @@
                                         Départements
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-employes')) current @endif">
+                                <li class="@if(Request::is('liste-employes','profil-employe','off-boarding')) current @endif">
                                     <a href="{{ route('liste-employes') }} " class="text-decoration">
                                         Employés
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-candidats','ajout-candidat')) current @endif">
+                                <li class="@if(Request::is('liste-candidats','ajout-candidat','ajout-collaborateur')) current @endif">
                                     <a href="{{ route('liste-candidats') }}" class="text-decoration">
                                         Candidatures
                                     </a>

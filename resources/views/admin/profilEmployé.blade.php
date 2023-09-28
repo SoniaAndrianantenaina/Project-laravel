@@ -1,4 +1,4 @@
-@include('banner.headerEmployé')
+@include('banner.header')
 
 <main class="profil-employé">
     <section class="contenu">
@@ -66,6 +66,10 @@
                             <div class="boutons">
                                 <div class="btn bleu-clair">
                                     <a href="" class="btn__middle-btn">MODIFIER</a>
+                                </div>
+
+                                <div class="btn bleu-foncé">
+                                    <a href="{{ route('off-boarding') }}" class="btn__middle-btn">SUPPRIMER</a>
                                 </div>
                             </div>
 

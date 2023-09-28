@@ -4,7 +4,6 @@
     <section class="recherche">
         <div class="div-blue">
             <div class="div-blue__recherche">
-                <input type="text" class="recherche-input" placeholder="Recherche ....">
             </div>
         </div>
     </section>
@@ -16,7 +15,7 @@
                 <div class="list-content__left">
 
                     <div class="see-plan">
-                        <a class="see-plan link" href="">Voir le plan</a>
+                        <a class="see-plan link" href="{{ route('plan-departements') }}">Voir le plan</a>
                         <div class="link__trait"></div>
                     </div>
 
@@ -59,9 +58,11 @@
 
                         <div class="list-content__blocks__item">
                             <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
+                                <a href="{{ route('profil-employe') }}">
+                                    <figure class="list-content__image">
+                                        <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
+                                    </figure>
+                                </a>
                             </div>
 
                             <div class="list-content__infos">

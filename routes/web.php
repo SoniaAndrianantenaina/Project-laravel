@@ -69,6 +69,10 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/listeEmployés');
     })->name('liste-employes');
 
+    Route::get('/profil-employe', function () {
+        return view('admin/profilEmployé');
+    })->name('profil-employe');
+
     //ANNONCES
     Route::get('/liste-annonces', function () {
         return view('admin/listeAnnonces');
@@ -112,7 +116,7 @@ Route::get('/accueil-employe', function () {
     })->name('liste-demande-conge');
 
     //profil
-    Route::get('/profil-employe', function () {
+    Route::get('/mon-profil', function () {
         return view('employé.profilEmployé');
-    })->name('profil-employe');
+    })->name('mon-profil');
 
