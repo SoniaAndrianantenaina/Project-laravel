@@ -19,7 +19,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-decoration">
+                                <a href="{{ route('ajout-annonce') }}" class="text-decoration">
                                     Ajouter une annonce
                                 </a>
                             </li>
@@ -50,14 +50,14 @@
                                     repudiandae similique Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore dolores nam harum temporibus
                                 </p> <br>
                                 <p class="paragraph-content__text">Date de parution prévue : 02/03/2023</p>
+                                <p class="paragraph-content__text">Date début : 02/03/2023</p>
                                 <p class="paragraph-content__text">Date fin : 02/03/2023</p>
-
                             </div>
                         </div>
 
                         <div class="boutons modify-top-1">
                             <div class="btn tiny-btn bleu-clair">
-                                <a href="" class="btn__middle-btn">MODIFIER</a>
+                                <a href="{{ route('modifier-annonce') }}" class="btn__middle-btn">MODIFIER</a>
                             </div>
 
                             <div class="btn tiny-btn bleu-foncé">

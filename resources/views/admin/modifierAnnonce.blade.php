@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="btn bleu-foncé">
-                        <a href="" class="btn__middle-btn">ANNULER</a>
+                        <a href="{{ route('liste-annonces') }}" class="btn__middle-btn">ANNULER</a>
                     </div>
                 </div>
             </div>
