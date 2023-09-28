@@ -96,6 +96,10 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/listeDépartements');
     })->name('liste-departements');
 
+    //CONGÉS
+    Route::get('/planning-conge', function () {
+        return view('admin/planningCongés');
+    })->name('planning-conge');
 
 //Côté employé
 Route::get('/accueil-employe', function () {
