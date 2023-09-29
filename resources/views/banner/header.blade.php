@@ -42,9 +42,17 @@
                                     </a>
                                 </li>
                                 <li class="@if(Request::is('liste-employes','profil-employe','off-boarding')) current @endif">
-                                    <a href="{{ route('liste-employes') }} " class="text-decoration">
+                                    <a href="" class="text-decoration">
                                         Employés
                                     </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('liste-employes') }} " class="text-decoration">Liste</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('demande-employe-conge') }} " class="text-decoration">Demandes congés</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="@if(Request::is('liste-candidats','ajout-candidat','ajout-collaborateur')) current @endif">
                                     <a href="{{ route('liste-candidats') }}" class="text-decoration">

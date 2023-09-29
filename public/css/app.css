@@ -607,13 +607,16 @@ input[type=file] {
   padding: 0;
   list-style: none;
 }
-#navigation .cntNav li a {
+#navigation .cntNav > li {
+  position: relative;
+}
+#navigation .cntNav > li a {
   margin-right: 45px;
   color: #70A8E7;
   font-weight: 400;
   transition: all 0.3s ease-in-out;
 }
-#navigation .cntNav li.current a, #navigation .cntNav li:hover a {
+#navigation .cntNav > li.current a, #navigation .cntNav > li:hover a {
   color: #1859A3;
 }
 @media (max-width: 992px) {
@@ -621,6 +624,24 @@ input[type=file] {
     display: block;
     text-align: center;
   }
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.cntNav > li:hover .sub-menu {
+  list-style: none;
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .btnBox {
