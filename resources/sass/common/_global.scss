@@ -1,4 +1,3 @@
-@import "_mixins";
 body {
     font-family: "Microsoft Yahei";
     @include max(1440px) {
@@ -102,10 +101,11 @@ input[type="number"]::placeholder,
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 label {
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 28px;
-    @include max(1440px) {
-        font-size: $fs-primary;
+
+    @include max(1756px) {
+        font-size: 20px;
     }
 }
 
@@ -183,4 +183,8 @@ input[type="file"] {
 
 .light-grey{
     color: $grey-1;
+}
+
+.bold{
+    font-weight: 700;
 }

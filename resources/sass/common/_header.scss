@@ -82,6 +82,10 @@
         grid-gap: $nav-gap;
         font-family: $nav-fontFamily;
         font-size: $nav-size;
+        @include max(1756px){
+            font-size: 20px;
+        }
+
         @include resetList();
         > li {
             position: relative;

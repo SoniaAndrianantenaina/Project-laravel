@@ -200,7 +200,7 @@ p {
 }
 @media (max-width: 1440px) {
   p {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
@@ -221,7 +221,7 @@ input {
 }
 @media (max-width: 1440px) {
   input {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
@@ -249,7 +249,7 @@ strong {
 }
 @media (max-width: 1440px) {
   .select {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
@@ -262,7 +262,7 @@ textarea {
 }
 @media (max-width: 1440px) {
   textarea {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 textarea::-moz-placeholder {
@@ -283,7 +283,7 @@ textarea::placeholder {
 }
 
 input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
-  color: #70A8E7;
+  color: #1859A3;
   font-size: 28px;
 }
 
@@ -291,18 +291,18 @@ input[type=number]::placeholder,
 input[type=text]::placeholder,
 input[type=email]::placeholder,
 label {
-  color: #70A8E7;
+  color: #1859A3;
   font-size: 28px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1756px) {
   input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
-    font-size: 16px;
+    font-size: 20px;
   }
   input[type=number]::placeholder,
   input[type=text]::placeholder,
   input[type=email]::placeholder,
   label {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -311,7 +311,7 @@ input[type=file] {
 }
 @media (max-width: 1440px) {
   input[type=file] {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
@@ -377,6 +377,10 @@ input[type=file] {
   color: #666666;
 }
 
+.bold {
+  font-weight: 700;
+}
+
 .btn-white {
   border: 1px solid white;
   background: white;
@@ -400,6 +404,11 @@ input[type=file] {
   color: #70A8E7;
   text-align: center;
   margin-bottom: 45px;
+}
+@media (max-width: 1765px) {
+  .btn-white.lg {
+    font-size: 22px;
+  }
 }
 .btn-white.lg-bigger {
   width: 150px;
@@ -607,6 +616,11 @@ input[type=file] {
   padding: 0;
   list-style: none;
 }
+@media (max-width: 1756px) {
+  #navigation .cntNav {
+    font-size: 20px;
+  }
+}
 #navigation .cntNav > li {
   position: relative;
 }
@@ -765,12 +779,6 @@ input[type=file] {
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 1440px) {
-  .main-section.section-one {
-    width: 285px;
-    height: 215px;
-  }
-}
 .main-section.section-one__title {
   text-transform: uppercase;
   font-size: 32px;
@@ -858,9 +866,9 @@ input[type=file] {
   margin-left: 163px;
   color: white;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1756px) {
   .block-accueil__paragraph {
-    margin-top: 350px;
+    margin-top: 460px;
   }
 }
 .block-accueil.subtitle {
@@ -869,7 +877,7 @@ input[type=file] {
   margin-bottom: 15px;
   font-weight: bold;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1756px) {
   .block-accueil.subtitle {
     font-size: 52px;
   }
@@ -878,9 +886,9 @@ input[type=file] {
   font-size: 30px;
   line-height: 1.5;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1756px) {
   .block-accueil.texte {
-    font-size: 16px;
+    font-size: 22px;
   }
 }
 
