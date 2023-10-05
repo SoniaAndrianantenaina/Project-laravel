@@ -88,6 +88,10 @@
     align-items: center;
     justify-content: center;
 
+    &.padding-position{
+        padding: 20px 15px 10px;
+    }
+
     &.modify-top{
         margin-top: 35px;
     }

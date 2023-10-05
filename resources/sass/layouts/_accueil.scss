@@ -30,7 +30,7 @@
         margin-left: 163px;
         color: $white;
         @include max(1756px){
-            margin-top: 460px;
+            margin-top: 500px;
         }
     }
 
@@ -47,7 +47,7 @@
     &.texte{
         font-size: 30px;
         line-height: 1.5;
-        
+
         @include max(1756px){
             font-size: $fs-primary;
         }

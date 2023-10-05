@@ -32,7 +32,7 @@ p {
     margin-left: 40px;
 }
 
-.white-trait{
+.white-trait {
     border-bottom: 2px solid white;
     width: 55%;
     margin-left: 40px;
@@ -66,6 +66,10 @@ strong {
 
     &.white {
         width: 38vh;
+        @include max(1440px) {
+            width: 85%;
+            height: 47%;
+        }
     }
     @include max(1440px) {
         font-size: $fs-primary;
@@ -92,7 +96,7 @@ textarea {
     }
 }
 
-.small-text{
+.small-text {
     width: 41vh;
 }
 
@@ -101,7 +105,7 @@ input[type="number"]::placeholder,
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 label {
-    color: $color-primary;
+    color: $color-secondary;
     font-size: 28px;
 
     @include max(1756px) {
@@ -137,20 +141,20 @@ input[type="file"] {
     }
 }
 
-.uppercase{
+.uppercase {
     text-transform: uppercase;
 }
 
-.navy-span{
+.navy-span {
     color: $color-primary;
 }
 
-.title-h6{
+.title-h6 {
     color: $grey;
     font-size: 17px;
     margin-bottom: 12px;
 
-    &.black{
+    &.black {
         color: black;
     }
 }
@@ -171,20 +175,19 @@ input[type="file"] {
     display: none;
 }
 
-.p-bottom{
+.p-bottom {
     margin-bottom: 14px;
 }
 
-
 //color
-.navy{
+.navy {
     color: $color-primary;
 }
 
-.light-grey{
+.light-grey {
     color: $grey-1;
 }
 
-.bold{
+.bold {
     font-weight: 700;
 }

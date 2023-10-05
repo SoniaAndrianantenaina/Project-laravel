@@ -1,0 +1,153 @@
+.head-table{
+	display: flex;
+	justify-content:space-between;
+	flex-wrap: wrap;
+	margin-bottom: 16px;
+    margin-top: 45px;
+	@include max(767px){
+		display: block;
+   }
+	.left-head{
+		font-size: 18px;
+		color: white;
+		font-weight: 700;
+		@include max(767px){
+			 border-bottom: 1px solid white;
+			 padding-bottom: 15px;
+			 margin-bottom: 30px;
+		}
+		@include max(375px){
+			font-size: 16px;
+	   	}
+		span{
+			font-size: 24px;
+			padding-right: 5px;
+			display: inline-block;
+			@include max(375px){
+				font-size: 18px;
+		   	}
+		}
+	}
+	.right-head{
+		display: flex;
+		@include max(767px){
+			justify-content: space-between;
+	   }
+
+	   @include max(375px){
+			margin-top: -12px;
+   		}
+
+		a{
+			margin-left: 24px;
+			text-decoration: none;
+			@include max(375px){
+				font-size: 14px;
+		   }
+			&.print{
+				font-size: 16px;
+				@include max(375px){
+					font-size: 14px;
+			   }
+			}
+
+			@include max(767px){
+				margin-left: 0;
+				font-weight: 700;
+			}
+			i{
+				margin-right: 10px;
+				font-size: 20px;
+				vertical-align: middle;
+				@include max(375px){
+					font-size: 14px;
+			   	}
+			}
+		}
+	}
+	.wrapp-filter{
+		flex: 0 0 100%;
+	}
+}
+.table-list{
+	@include max(1280px){
+		display: none;
+	}
+}
+
+table{
+	width: 100%;
+	border: 1px solid white;
+	border-spacing: 0;
+	border-collapse: separate;
+	border-radius: 10px;
+	th{
+		background: white;
+		font-size: 16px;
+		color: black;
+		text-align: left;
+		padding: 20px 0;
+		position: relative;
+		div{
+			border-right: 1px solid black;
+			display: flex;
+			align-items: center;
+			white-space: nowrap;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		&:first-child{
+			border-radius: 11px 0 0 0;
+		}
+		&:last-child{
+			border-radius: 0 11px 0 0;
+			div{
+				border: 0;
+			}
+		}
+		i{
+			margin-left: 10px;
+			cursor: pointer;
+			margin-top: 2px
+		}
+	}
+	td{
+		background: var(--white);
+		padding: 20px;
+		font-size: 14px;
+		line-height: 24px;
+		div{
+			max-width: 275px;
+		}
+		&:first-child{
+			div{
+				max-width:  214px;
+			}
+		}
+	}
+	tbody{
+		tr{
+			&:nth-child(2n+2){
+				td{
+					background: white;
+				}
+			}
+			&:last-child{
+				td{
+					&:first-child{
+						border-radius:0 0 0 11px;
+					}
+					&:last-child{
+						border-radius: 0 0 11px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.statut{
+    img{
+        width: 15px;
+    }
+}

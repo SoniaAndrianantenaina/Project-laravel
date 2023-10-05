@@ -7,13 +7,14 @@
     }
 }
 
-.bg-color-blue {
-    padding: 66px 152px;
+.wrapper-main{
+    padding: 66px 85px;
+}
 
+.bg-color-blue {
     &__block {
         background-color: $color-secondary;
-        width: 150vh;
-        height: 256px;
+        padding: 20px;
         opacity: 68%;
     }
 }
@@ -24,7 +25,6 @@
     gap: 20px;
 
     &__select {
-        width: 100%;
         margin-top: 30px;
         margin-left: 48px;
     }
@@ -33,7 +33,7 @@
 .filter-span {
     display: block;
     color: $white;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .div-blue {
