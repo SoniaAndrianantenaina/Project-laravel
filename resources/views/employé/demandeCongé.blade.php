@@ -85,11 +85,11 @@
 
                         <div class="boutons">
 
-                            <div class="btn re-arraganged bleu-foncé">
+                            <div class="btn re-arranged bleu-foncé">
                                 <a href="" class="btn__middle-btn">SOUMETTRE</a>
                             </div>
 
-                            <div class="btn re-arraganged bleu-clair">
+                            <div class="btn re-arranged bleu-clair">
                                 <a href="" class="btn__middle-btn">ANNULER</a>
                             </div>
 

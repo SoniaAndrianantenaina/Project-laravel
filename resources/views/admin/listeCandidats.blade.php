@@ -1,7 +1,6 @@
 @include('banner.header')
 
 <body>
-
     <main class="liste-candidats">
         <section class="contenu">
             <div class="bg-color-grey">
@@ -41,11 +40,11 @@
                             </div>
 
                             <div class="boutons modify-top">
-                                <div class="btn bleu-foncé">
+                                <div class="btn btn-filtre bleu-foncé">
                                     <a href="" class="btn__middle-btn">EFFACER</a>
                                 </div>
 
-                                <div class="btn bleu-clair">
+                                <div class="btn btn-filtre bleu-clair">
                                     <a href="" class="btn__middle-btn">FILTRER</a>
                                 </div>
                             </div>
@@ -56,12 +55,12 @@
                     {{-- table --}}
                     <div class="head-table">
                         <div class="left-head">
-                            <span>18</span>
-                            consultations en cours
+                            <span>1-20</span>
+                            de 134 résultats
                         </div>
                         <div class="right-head">
-                            <a class="print" target="_blank" href="">
-                                <i class="icon-print"></i>Imprimer cette page
+                            <a class="print" href="{{ route('ajout-candidat') }}">
+                                <img src="{{ asset('assets/images/icon/add.jpg') }}" alt="">
                             </a>
                         </div>
                     </div>
@@ -84,12 +83,21 @@
                                 <th>
                                     <div>CV</div>
                                 </th>
+                                <th>
+                                    <div>VALIDER</div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <div>Communauté de Communes Combrailles, Sioule et Morge</div>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
                                 </td>
                                 <td>
                                     <div>Design Agency</div>
@@ -99,104 +107,213 @@
                                 </td>
                                 <td>
                                     <div class="statut center-content">
-                                        <img src="{{asset('assets/images/icon/cancel.png')}}" alt="">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </td>
                                 <td>
-                                    <div>Référence : P2306-AOO-DSI<br>Type de procédure : Appel d'offres ouvert</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>Mairie de Châteauneuf-les-Bains</div>
-                                </td>
-                                <td>
-                                    <div>Création d'une salle de repos aux Thermes de Châteauneuf-Les-Bains</div>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Travaux</div>
-                                </td>
-                                <td>
-                                    <div>15/05/2023<br>12:00</div>
-                                </td>
-                                <td>
-                                    <div>Référence : 2023 Voirie<br>Type de procédure : procédure adaptée à une
-                                        enveloppe
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div>Mairie de Saint-Pierre-Châtel</div>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Travaux d'assainissement - le Bourg - Bonnabaud - Roure</div>
+                                    <div>Design Agency</div>
                                 </td>
                                 <td>
-                                    <div>Travaux</div>
+                                    <div>Développeur</div>
                                 </td>
                                 <td>
-                                    <div>15/05/2023<br>12:00</div>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Référence : 2023 Voirie<br>Type de procédure : procédure adaptée à une
-                                        enveloppe
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div>Communauté de Communes Combrailles, Sioule et Morge</div>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Marché de maîtrise d'oeuvre pour la construction d'un bâtiment d'accueil,
-                                        d'information et à usage de refuge au lieu-dit Chancelade</div>
+                                    <div>Design Agency</div>
                                 </td>
                                 <td>
-                                    <div>Fournitures</div>
+                                    <div>Développeur</div>
                                 </td>
                                 <td>
-                                    <div>11/05/2023<br>23:59</div>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Référence : P2306-AOO-DSI<br>Type de procédure : Appel d'offres ouvert</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div>Mairie de Châteauneuf-les-Bains</div>
-                                </td>
-                                <td>
-                                    <div>Création d'une salle de repos aux Thermes de Châteauneuf-Les-Bains</div>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Travaux</div>
-                                </td>
-                                <td>
-                                    <div>15/05/2023<br>12:00</div>
-                                </td>
-                                <td>
-                                    <div>Référence : 2023 Voirie<br>Type de procédure : procédure adaptée à une
-                                        enveloppe
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div>Mairie de Saint-Pierre-Châtel</div>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Travaux d'assainissement - le Bourg - Bonnabaud - Roure</div>
+                                    <div>Design Agency</div>
                                 </td>
                                 <td>
-                                    <div>Travaux</div>
+                                    <div>Développeur</div>
                                 </td>
                                 <td>
-                                    <div>15/05/2023<br>12:00</div>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
-                                    <div>Référence : 2023 Voirie<br>Type de procédure : procédure adaptée à une
-                                        enveloppe
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>Design Agency</div>
+                                </td>
+                                <td>
+                                    <div>Développeur</div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>Design Agency</div>
+                                </td>
+                                <td>
+                                    <div>Développeur</div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

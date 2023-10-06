@@ -36,17 +36,14 @@
 
     &.subtitle{
         color: $white;
-        font-size: 72px;
+        font-size: 46px;
         margin-bottom: 15px;
         font-weight: bold;
-        @include max(1756px){
-            font-size: 52px;
-        }
     }
 
     &.texte{
         font-size: 30px;
-        line-height: 1.5;
+        line-height: normal;
 
         @include max(1756px){
             font-size: $fs-primary;
@@ -71,8 +68,8 @@
         grid-template-columns: 1fr 1fr;
 
         &__item{
-            width: 560px;
-            height: 720px;
+            width: 500px;
+            height: 620px;
             border: 1px solid $light-grey;
             color: $white;
 
@@ -89,14 +86,16 @@
     }
 
     &.title{
-        margin-left: 105px;
-        margin-top: 50px;
+        display: flex;
+        text-align: center;
+        margin-top: 45px;
+        margin-left: 130px;
     }
 
     &.content{
         position: relative;
         border-radius: 9px;
-        width: 492px;
+        width: 392px;
         height: 150px;
         right: 23%;
         top: 7%;
@@ -104,14 +103,14 @@
         margin-bottom: 45px;
 
         &__paragraph{
-            width: 450px;
+            width: 340px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            position: absolute;
             top: 13%;
-            left: -25%;
-            font-size: 25px;
+            left: -33%;
+            font-size: 19px;
+
         }
     }
 }

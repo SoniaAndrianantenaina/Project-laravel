@@ -1,4 +1,4 @@
-.btn-white{
+.btn-white {
     border: 1px solid $white;
     background: $white;
     color: $color-primary;
@@ -15,34 +15,34 @@
     margin-top: 23px;
 
     &.lg {
-       width: 204px;
-       height: 26px;
-       font-size: 26px;
-       color: $color-secondary;
-       text-align: center;
-       margin-bottom: 45px;
+        width: 204px;
+        height: 26px;
+        font-size: 26px;
+        color: $color-secondary;
+        text-align: center;
+        margin-bottom: 45px;
 
-       @include max(1765px){
+        @include max(1765px) {
             font-size: 22px;
-       }
+        }
     }
 
     &.lg-bigger {
         width: 150px;
         height: 10px;
         border-radius: 11px;
-     }
+    }
 
-    &.lg-plus{
-        font-size: 30px;
+    &.lg-plus {
+        font-size: 20px;
         margin-left: 138px;
-        margin-top: 100px;
-        width: 220px;
-        height: 37px;
+        margin-top: 45px;
+        width: 165px;
+        height: 20px;
     }
 }
 
-.btn-blue{
+.btn-blue {
     border: 1px solid $color-primary;
     background: $white;
     color: $color-secondary;
@@ -50,18 +50,18 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    width: 45vh;
-    height: 38px;
+    width: 347px;
+    height: 28px;
     padding: 13.5px 20px;
     margin-bottom: 7px;
     margin-top: 23px;
-    font-size: 25px;
+    font-size: 19px;
 
-    &.small{
+    &.small {
         width: 30vh;
     }
 
-    &.primary{
+    &.primary {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -74,39 +74,38 @@
         color: $white;
         background-color: $color-primary;
 
-        &.medium{
+        &.medium {
             width: 260px;
             height: 40px;
         }
     }
 }
 
-.boutons{
+.boutons {
     position: relative;
     display: flex;
     margin-top: 50px;
     align-items: center;
     justify-content: center;
 
-    &.padding-position{
+    &.padding-position {
         padding: 20px 15px 10px;
     }
 
-    &.modify-top{
+    &.modify-top {
         margin-top: 35px;
     }
 
-    &.modify-top-1{
-        margin-top: -35px;
+    &.modify-top-1 {
+        margin-top: -10px;
         height: 5vh;
     }
 
-    &.modify-height{
+    &.modify-height {
         height: 10vh;
-
     }
 
-    .btn{
+    .btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -117,49 +116,51 @@
         margin-right: 25px;
         font-size: 22px;
 
-
-        &.btn-medium{
+        &.btn-medium {
             width: 270px;
             height: 68px;
         }
 
-        &.btn-small{
+        &.btn-small {
             border-radius: 0;
             width: 207px;
             height: 70px;
             text-align: center;
         }
 
-        &.tiny-btn{
+        &.tiny-btn {
             width: 100px;
             height: 25px;
             font-size: 15px;
         }
 
-        &__middle-btn{
+        &__middle-btn {
             color: $white;
             text-decoration: none;
         }
 
-        &.re-arraganged{
+        &.re-arranged {
             border: none;
             width: 180px;
             height: 48px;
         }
+
+        &.btn-filtre {
+            height: 34px;
+            font-size: 19px;
+        }
     }
 }
 
-.bleu-clair{
+.bleu-clair {
     background-color: $color-secondary;
 }
 
-.bleu-foncé{
+.bleu-foncé {
     background-color: $color-primary;
 }
 
-.btn-générer{
+.btn-générer {
     display: flex;
     justify-content: center;
 }
-
-
