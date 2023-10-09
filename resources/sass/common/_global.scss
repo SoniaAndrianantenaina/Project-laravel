@@ -49,6 +49,10 @@ input {
     }
 }
 
+.d-none{
+    display: none;
+}
+
 strong {
     font-weight: 600;
 }
@@ -86,10 +90,10 @@ textarea {
     background: $white;
     color: $color-secondary;
     font-size: 20px;
-    width: 48vh;
+    width: 43vh;
 
     @include max(1440px) {
-        font-size: $fs-primary;
+        font-size: 15px;
     }
 
     &::placeholder {

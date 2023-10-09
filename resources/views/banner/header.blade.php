@@ -8,7 +8,6 @@
     <link rel="icon" href="{{ asset('assets/images/logo/logo.jpg') }}" />
     <title>Header</title>
 </head>
-
 <body>
 <header id="sectHeader" class="sectHeader sectHeader--sticky">
         <div class="menu-header">
@@ -41,7 +40,7 @@
                                         Départements
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-employes','profil-employe','off-boarding')) current @endif">
+                                <li class="@if(Request::is('liste-employes','profil-employe','off-boarding','demande-employe-conge')) current @endif">
                                     <a href="" class="text-decoration">
                                         Employés
                                     </a>

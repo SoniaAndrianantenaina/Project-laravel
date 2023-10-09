@@ -64,7 +64,7 @@
 
                         <div class="block-annonces content">
                             <p class="block-annonces content__paragraph">
-                                Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia <br>
+                                Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia <br> <br>
                                 Date début : <br>
                                 Date de parution prévue : <br>
                                 Date fin :

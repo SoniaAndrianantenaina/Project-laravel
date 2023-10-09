@@ -105,6 +105,7 @@ Route::get('/envoyer-identifiant', function () {
         return view('admin/demandesEmployésCongés');
     })->name('demande-employe-conge');
 
+
 //Côté employé
 Route::get('/accueil-employe', function () {
     return view('employé.accueilEmployé');

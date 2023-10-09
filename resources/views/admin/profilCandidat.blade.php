@@ -83,12 +83,12 @@
 
     <div class="boutons modify-height">
 
-        <div class="btn btn-medium bleu-clair">
+        <div class="btn bleu-clair">
             <a href="" class="btn__middle-btn">MODIFIER</a>
         </div>
 
-        <div class="btn btn-medium bleu-foncé">
-            <a href="" class="btn__middle-btn">ANNULER</a>
+        <div class="btn bleu-foncé">
+            <a href="{{ route('liste-candidats') }}" class="btn__middle-btn">ANNULER</a>
         </div>
 
     </div>

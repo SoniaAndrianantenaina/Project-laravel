@@ -5,8 +5,8 @@
     margin-top: 45px;
 
     &__content {
-        width: 400px;
-        height: 150px;
+        width: 340px;
+        height: 115px;
         background-color: $color-secondary;
         margin: 0 2px;
     }
@@ -18,8 +18,8 @@
         margin: 0 20px;
 
         &.bigger {
-            width: 258px;
-            height: 135px;
+            width: 245px;
+            height: 110px;
         }
     }
 }
@@ -31,8 +31,8 @@
     margin-top: 86px;
 
     &__content {
-        width: 325px;
-        height: 371px;
+        width: 320px;
+        height: 350px;
         background-color: $color-primary;
     }
 }
@@ -53,22 +53,22 @@
 .block {
     display: flex;
     flex-direction: row;
-    margin-top: -28vh;
+    margin-top: -30vh;
 
     &.left {
         flex-direction: column;
-        margin-left: 160px;
+        margin-left: 50px;
     }
 
     &.right {
         flex-direction: column;
-        margin-right: 160px;
+        margin-right: 50px;
         margin-left: auto;
     }
 
     &__content {
-        width: 380px;
-        height: 76px;
+        width: 350px;
+        height: 70px;
         background-color: $color-secondary;
         margin-bottom: 45px;
 
