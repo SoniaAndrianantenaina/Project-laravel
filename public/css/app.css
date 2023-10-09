@@ -216,12 +216,6 @@ p {
   margin-left: 15px;
 }
 
-.white-trait {
-  border-bottom: 2px solid white;
-  width: 55%;
-  margin-left: 40px;
-}
-
 input {
   font-family: "Microsoft Yahei";
 }
@@ -379,6 +373,10 @@ input[type=file] {
 
 .bold {
   font-weight: 700;
+}
+
+.fs-17 {
+  font-size: 17px;
 }
 
 .btn-white {
@@ -745,6 +743,14 @@ input[type=file] {
   display: inline-block;
   padding: 30px;
 }
+.content-nav li.current a, .content-nav li:hover a {
+  color: #1859A3;
+}
+.content-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
 
 .content-nav-box {
   margin-left: 96px;
@@ -753,18 +759,19 @@ input[type=file] {
   margin-left: 260px;
 }
 
-.content-nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
+.white-trait {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
-.content-nav li.current a {
-  color: #1859A3;
-}
-
-.content-nav a:hover {
-  color: #1859A3;
+.content-nav a:hover .white-trait {
+  transform: scaleX(1);
 }
 
 .block-login {
@@ -1169,8 +1176,8 @@ input[type=file] {
   display: flex;
 }
 .request-list.box__color {
-  width: 325px;
-  height: 95px;
+  width: 245px;
+  height: 85px;
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   margin-right: 35px;
@@ -1182,9 +1189,10 @@ input[type=file] {
   display: flex;
   margin-top: 22px;
   margin-left: 10px;
+  margin-right: -15px;
 }
 .request-list.box__content__title {
-  font-size: 20px;
+  font-size: 14px;
   text-transform: uppercase;
   color: #5A5453;
 }
@@ -1193,20 +1201,22 @@ input[type=file] {
 }
 .request-list.box__content__text h6 {
   width: 85px;
-  font-size: 32px;
+  font-size: 25px;
   color: #1859A3;
 }
 .request-list.box__content__text p {
+  font-size: 16px;
   color: #5A5453;
 }
 
 .h6-text-white {
   width: 85px;
-  font-size: 32px;
+  font-size: 25px;
   color: white;
 }
 
 .p-text-white {
+  font-size: 16px;
   color: white;
 }
 
@@ -1325,7 +1335,7 @@ input[type=file] {
 
 .white-trait-lg {
   border-bottom: 2px solid white;
-  width: 85%;
+  width: 74%;
   margin-top: 10px;
 }
 
@@ -1584,6 +1594,7 @@ input[type=file] {
   display: grid;
   grid-template-columns: 19% auto;
   gap: 4%;
+  overflow: auto;
 }
 .div-grey__profil {
   border: 1px solid #ebe7e7;
@@ -1622,16 +1633,17 @@ input[type=file] {
   height: 38px;
   margin-left: 45px;
   margin-top: -10px;
+  font-size: 14px;
 }
 .div-grey__request__data__input.blue {
   margin-bottom: 45px;
   color: #70A8E7;
 }
 .div-grey__request__data__span {
-  width: 112px;
+  width: 90px;
   margin-bottom: 45px;
-  font-size: 22px;
-  color: black;
+  font-size: 18px;
+  color: rgb(102, 100, 100);
 }
 
 .ml {
@@ -1679,7 +1691,7 @@ input[type=file] {
 
 .title-h4 {
   margin-top: 45px;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 
@@ -1740,7 +1752,6 @@ input[type=file] {
   z-index: 99;
   width: 265px;
   height: 40px;
-  color: #1859A3;
   background-color: white;
   top: 0;
   right: 0;
@@ -1759,8 +1770,12 @@ input[type=file] {
   align-items: center;
   padding: 12px;
 }
+.create-request__text a {
+  text-decoration: none;
+}
 .create-request__text p {
   text-transform: uppercase;
+  color: #1859A3;
   font-size: 15px;
 }
 
@@ -2035,4 +2050,38 @@ table tbody tr:last-child td:last-child {
   max-width: 35px;
   width: 100%;
   margin-top: 5px;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}
+
+.white-table {
+  width: 97%;
+  margin-top: 45px;
+}
+.white-table th {
+  background: white;
+}
+.white-table th:first-child {
+  border-radius: 0;
+}
+.white-table th:last-child {
+  border-radius: 0;
+}
+.white-table td {
+  background: white;
+}
+.white-table tbody tr:nth-child(2n+2) td {
+  background: white;
+}
+.white-table tbody tr:last-child td:first-child {
+  border-radius: 0;
+}
+.white-table tbody tr:last-child td:last-child {
+  border-radius: 0;
 }

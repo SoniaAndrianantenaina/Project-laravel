@@ -124,8 +124,16 @@ Route::get('/accueil-employe', function () {
         return view('employé.listeDemandesCongé');
     })->name('liste-demande-conge');
 
+    Route::get('/liste-annonces-employe', function () {
+        return view('employé.listeAnnonces');
+    })->name('liste-annonces-employe');
+
+    Route::get('/liste-collaborateurs', function () {
+        return view('employé.listeEmployés');
+    })->name('liste-collaborateurs');
+
     //profil
     Route::get('/mon-profil', function () {
-        return view('employé.profilEmployé');
+        return view('employé.monProfil');
     })->name('mon-profil');
 

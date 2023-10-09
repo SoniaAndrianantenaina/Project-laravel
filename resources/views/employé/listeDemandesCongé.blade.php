@@ -1,37 +1,7 @@
 @include('banner.headerEmployé')
+@include('banner.headerBlue')
 
 <main>
-    <section class="banner-blue">
-        <div class="container">
-            <div class="boxNavAnnonces">
-                <nav id="navigation-annonces">
-                    <div class="content-nav-box left-modified">
-                        <ul class="content-nav">
-                            <li>
-                                <a href="#" class="text-decoration">
-                                    SOLDE
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-decoration">
-                                    DEMANDES
-                                    <div class="white-trait"></div>
-                                </a>
-                            </li>
-
-                        </ul>
-
-                        <div class="create-request">
-                            <div class="create-request__text">
-                                <p>+ Créer une demande</p>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </section>
-
     <section class="liste-demande-conge">
         <div class="div-grey">
             @include('employé.profil.profil-infos')
@@ -92,6 +62,230 @@
                         </div>
                     </div>
                 </div>
+
+
+                <table class="white-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div>Référence</div>
+                            </th>
+                            <th>
+                                <div>Date de la demande</div>
+                            </th>
+                            <th>
+                                <div>Type d'absence</div>
+                            </th>
+                            <th>
+                                <div>Motif d'absence</div>
+                            </th>
+                            <th>
+                                <div>Date début</div>
+                            </th>
+                            <th>
+                                <div>Date fin</div>
+                            </th>
+                            <th>
+                                <div>Durée absence</div>
+                            </th>
+                            <th>
+                                <div>Etat</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div>REF001</div>
+                            </td>
+                            <td>
+                                <div>20/07/2023</div>
+                            </td>
+                            <td>
+                                <div>Congé Payé</div>
+                            </td>
+                            <td>
+                                <div> - </div>
+                            </td>
+                            <td>
+                                <div>21/07/2023</div>
+                            </td>
+                            <td>
+                                <div>22/07/2023</div>
+                            </td>
+                            <td>
+                                <div>2 j</div>
+                            </td>
+                            <td>
+                                <div class="color-green">Validée</div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
             </div>
         </div>
 
