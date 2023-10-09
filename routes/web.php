@@ -132,6 +132,10 @@ Route::get('/accueil-employe', function () {
         return view('employé.listeEmployés');
     })->name('liste-collaborateurs');
 
+    Route::get('/profil-collaborateur', function () {
+        return view('employé.profilCollaborateur');
+    })->name('profil-collaborateurs');
+
     //profil
     Route::get('/mon-profil', function () {
         return view('employé.monProfil');

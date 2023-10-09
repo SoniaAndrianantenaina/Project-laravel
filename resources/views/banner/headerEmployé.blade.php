@@ -36,7 +36,7 @@
                                         Accueil
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-colaborateurs')) current @endif">
+                                <li class="@if(Request::is('liste-collaborateurs')) current @endif">
                                     <a href="{{ route('liste-collaborateurs') }}" class="text-decoration">
                                         Collaborateurs
                                     </a>
