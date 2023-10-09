@@ -1,26 +1,6 @@
 @include('banner.headerEmployé')
 
 <main class="demande-congé">
-
-    <section class="banner-blue">
-        <div class="container">
-            <div class="boxNavAnnonces">
-                <nav id="navigation-annonces">
-                    <div class="content-nav-box left-modified">
-                        <ul class="content-nav">
-                        </ul>
-
-                        <div class="create-request">
-                            <div class="create-request__text">
-                                <p>Voir le planning</p>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </section>
-
     <section class="contenu">
         <div class="div-grey">
             @include('employé.profil.profil-infos')
@@ -83,16 +63,14 @@
                         </div>
 
 
-                        <div class="boutons">
-
-                            <div class="btn re-arranged bleu-foncé">
-                                <a href="" class="btn__middle-btn">SOUMETTRE</a>
+                        <div class="boutons modify-top">
+                            <div class="btn bleu-foncé">
+                                <a href="" class="btn__middle-btn fs-17">SOUMETTRE</a>
                             </div>
 
-                            <div class="btn re-arranged bleu-clair">
-                                <a href="" class="btn__middle-btn">ANNULER</a>
+                            <div class="btn bleu-clair">
+                                <a href="" class="btn__middle-btn fs-17">ANNULER</a>
                             </div>
-
                         </div>
 
                     </div>

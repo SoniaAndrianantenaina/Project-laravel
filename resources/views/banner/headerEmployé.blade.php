@@ -31,28 +31,28 @@
                     <nav id="navigation">
                         <div class="cntNavBox">
                             <ul class="cntNav">
-                                <li class="current">
-                                    <a href="#" class="text-decoration">
+                                <li class="@if(Request::is('accueil-employe')) current @endif">
+                                    <a href="{{ route('accueil-employe') }}" class="text-decoration">
                                         Accueil
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="text-decoration">
-                                        Employés
+                                <li class="@if(Request::is('liste-collaborateurs')) current @endif">
+                                    <a href="{{ route('liste-collaborateurs') }}" class="text-decoration">
+                                        Collaborateurs
                                     </a>
                                 </li>
-                                <li>
+                                <li class="@if(Request::is('solde-conge','liste-demande-conge','demande-conge')) current @endif">
                                     <a href="{{ route('solde-conge') }}" class="text-decoration">
                                         Congés
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="text-decoration">
+                                <li class="@if(Request::is('liste-annonces-employe')) current @endif">
+                                    <a href="{{ route('liste-annonces-employe') }}" class="text-decoration">
                                         Annonces
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="text-decoration">
+                                <li class="@if(Request::is('mon-profil')) current @endif">
+                                    <a href="{{ route('mon-profil') }}" class="text-decoration">
                                         Mon profil
                                     </a>
                                 </li>

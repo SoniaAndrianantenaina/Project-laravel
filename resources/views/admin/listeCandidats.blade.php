@@ -92,7 +92,7 @@
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>

@@ -3,7 +3,24 @@
 <main>
     <section class="recherche">
         <div class="div-blue">
-            <div class="div-blue__recherche">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search...">
+                <button class="search-button">Search</button>
+            </div>
+            <div class="filter-container">
+                <img src="{{ asset('assets/images/icon/filter.png') }}" alt="">
+
+                <p id="filter-button" onclick="filterDropDown()">Filtres</p>
+                <div id="filter-options" class="d-none">
+                    <p>Option 1</p>
+                    <p>Option 2</p>
+                    <p>Option 3</p>
+                </div>
+            </div>
+            <div class="remove-user">
+                <a href="{{ route('off-boarding') }}">
+                    <img src="{{ asset('assets/images/icon/remove-user.png') }}" alt="">
+                </a>
             </div>
         </div>
     </section>
@@ -221,4 +238,5 @@
         </div>
 
     </section>
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 </main>

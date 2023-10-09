@@ -67,10 +67,6 @@
                                 <div class="btn bleu-clair">
                                     <a href="" class="btn__middle-btn">MODIFIER</a>
                                 </div>
-
-                                <div class="btn bleu-foncé">
-                                    <a href="" class="btn__middle-btn">SUPPRIMER</a>
-                                </div>
                             </div>
 
                         </div>

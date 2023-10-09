@@ -36,17 +36,15 @@ p {
     margin-left: 15px;
 }
 
-.white-trait {
-    border-bottom: 2px solid white;
-    width: 55%;
-    margin-left: 40px;
-}
-
 input {
     font-family: "Microsoft Yahei";
     @include max(1440px) {
         font-size: $fs-primary;
     }
+}
+
+.d-none{
+    display: none;
 }
 
 strong {
@@ -86,10 +84,10 @@ textarea {
     background: $white;
     color: $color-secondary;
     font-size: 20px;
-    width: 48vh;
+    width: 43vh;
 
     @include max(1440px) {
-        font-size: $fs-primary;
+        font-size: 15px;
     }
 
     &::placeholder {
@@ -187,4 +185,8 @@ input[type="file"] {
 
 .bold {
     font-weight: 700;
+}
+
+.fs-17{
+    font-size: 17px;
 }

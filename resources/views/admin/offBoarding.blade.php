@@ -57,7 +57,7 @@
             </div>
 
             <div class="btn-générer">
-                <a href="envoyerIdentifiant.php" class="btn-blue primary">Licencier</a>
+                <a href="envoyerIdentifiant.php" class="btn-blue primary medium">Licencier</a>
             </div>
 
         </div>

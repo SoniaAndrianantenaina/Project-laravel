@@ -5,13 +5,13 @@
     <section class='block-accueil'>
 
         <figure class='block-accueil__bg-img'>
-            <img src='{{ asset('assets/images/accueil/building.jpg') }}' alt=''>
+            <img src='{{ asset('assets/images/accueil/accueil.jpg') }}' alt=''>
         </figure>
 
         <div class='block-accueil__section'>
 
             <div class='block-accueil__paragraph'>
-                <h2 class='block-accueil subtitle'>Ressources humaines</h2>
+                <h2 class='block-accueil subtitle'>RESSOURCES HUMAINES</h2>
                 <h3 class='block-accueil texte'>
                     Au sein d'une entreprise la gestion des Ressources humaines couvre de multiples aspects tous très importants pour le bon
                     fonctionnement de la société.
@@ -66,7 +66,7 @@
                         </div>
 
                         <div>
-                            <a href="#" class="btn-white lg-plus">VOIR TOUT</a>
+                            <a href="{{ route('liste-annonces-employe') }}" class="btn-white lg-plus">VOIR TOUT</a>
                         </div>
                     </div>
                 </div>
