@@ -4,6 +4,10 @@
     background: $white;
     height: 100px;
 
+    @include max(1756px){
+        height: 85px;
+    }
+
     &--sticky {
         position: sticky;
         top: 0;
@@ -23,6 +27,11 @@
             }
             img {
                 @include imgFull(contain, left);
+                @include max(1756px){
+                    width: 90%;
+                    object-fit: contain;
+                    object-position: left;
+                }
             }
         }
     }
@@ -83,7 +92,7 @@
         font-family: $nav-fontFamily;
         font-size: $nav-size;
         @include max(1756px){
-            font-size: 20px;
+            font-size: 15px;
         }
 
         @include resetList();

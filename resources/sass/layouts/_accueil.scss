@@ -30,23 +30,23 @@
         margin-left: 163px;
         color: $white;
         @include max(1756px){
-            margin-top: 500px;
+            margin-top: 350px;
         }
     }
 
     &.subtitle{
         color: $white;
-        font-size: 46px;
+        font-size: 44px;
         margin-bottom: 15px;
         font-weight: bold;
     }
 
     &.texte{
-        font-size: 30px;
+        font-size: 28px;
         line-height: normal;
 
         @include max(1756px){
-            font-size: $fs-primary;
+            font-size: 20px;
         }
     }
 }
@@ -109,8 +109,7 @@
             text-overflow: ellipsis;
             top: 13%;
             left: -33%;
-            font-size: 19px;
-
+            font-size: 17px;
         }
     }
 }
