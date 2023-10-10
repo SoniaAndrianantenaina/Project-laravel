@@ -44,3 +44,108 @@
         font-size: 14px;
     }
 }
+
+
+//liste départements
+.dept-container{
+    padding: 20px 100px 20px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.department-card {
+    width: 300px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid $color-primary;
+    border-radius: 5px;
+}
+
+.card-header {
+    background-color: $color-primary;
+    color: $white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+}
+
+.edit-button,
+.delete-button {
+    padding-right: 5px;
+    img{
+        width: 15px;
+    }
+}
+
+.right-items {
+    display: flex;
+    align-items: center;
+}
+
+
+.card-body {
+    padding: 10px;
+    height: 200px;
+    ul{
+        list-style: none;
+
+        li{
+            color: $grey-1;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.wrapper-crate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+    gap: 45px;
+
+    .crate{
+        width: 450px;
+        height: 450px;
+        border: 1px solid #ddd;
+
+        .crate-title{
+            display: flex;
+            justify-content: center;
+            margin-top: 38px;
+            text-transform: uppercase;
+            color: $color-secondary;
+        }
+
+        .crate-body{
+            padding: 10px 45px;
+
+        }
+
+        .crate-width{
+            width: 100px;
+        }
+
+        .crate-width-1{
+            width: 200px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-container label {
+            margin-right: 10px; /* Espacement entre les éléments */
+        }
+    }
+}
+
+

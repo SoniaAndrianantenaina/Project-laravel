@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="icon" href="{{ asset('assets/images/logo/logo.jpg') }}" />
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     <title>Header</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
                                         Accueil
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-departements')) current @endif">
+                                <li class="@if(Request::is('liste-departements','ajout-departement')) current @endif">
                                     <a href="{{ route('liste-departements') }}" class="text-decoration">
                                         Départements
                                     </a>
@@ -62,6 +63,12 @@
                                 <li class="@if(Request::is('liste-annonces','ajout-annonce')) current @endif">
                                     <a href="{{ route('liste-annonces') }}" class="text-decoration">
                                         Annonces
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('profil-admin') }}" class="text-decoration">
+                                        <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
                                     </a>
                                 </li>
                             </ul>

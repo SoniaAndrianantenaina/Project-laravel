@@ -235,12 +235,35 @@
     bottom: 10px;
     right: 36vh;
 
+    &.modified{
+        right: 23vh;
+        bottom: 7px;
+    }
+
+    &.modified-pic{
+        right: 19vh;
+        bottom: 7px;
+    }
+
     p{
         font-size: 17px;
         margin-left: 5px;
     }
     img{
-        width: 15px;
+        width: 19px;
+    }
+}
+
+.add-dept{
+    margin-top: -15px;
+    color: $white;
+    position: absolute;
+    display: flex;
+    right: 19vh;
+    bottom: 7px;
+
+    img{
+        width: 19px;
     }
 }
 

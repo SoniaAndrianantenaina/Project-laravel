@@ -26,12 +26,13 @@
     }
 
     &__paragraph{
-        margin-top: 450px;
+        margin-top: 525px;
         margin-left: 163px;
         color: $white;
-        @include max(1756px){
+
+        /*@include max(1756px){
             margin-top: 350px;
-        }
+        }*/
     }
 
     &.subtitle{

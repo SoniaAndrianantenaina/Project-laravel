@@ -28,16 +28,13 @@
     <section class="list">
         <div class="d-block">
             <div class="list-content">
-
                 <div class="list-content__left">
-
                     <div class="see-plan">
                         <a class="see-plan link" href="{{ route('plan-departements') }}">Voir le plan</a>
                         <div class="link__trait"></div>
                     </div>
 
                     <div class="list-dpt">
-
                         <div>
                             <h5 class="list-dpt title-h5">Tous</h5>
 
@@ -236,7 +233,5 @@
                 </div>
             </div>
         </div>
-
     </section>
-    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 </main>

@@ -294,7 +294,7 @@ textarea::placeholder {
 
 input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
   color: #70A8E7;
-  font-size: 19px;
+  font-size: 17px;
 }
 
 input[type=number]::placeholder,
@@ -302,11 +302,12 @@ input[type=text]::placeholder,
 input[type=email]::placeholder,
 label {
   color: #70A8E7;
-  font-size: 19px;
+  font-size: 17px;
 }
 
-input[type=file] {
-  font-size: 19px;
+input[type=file],
+input[type=date] {
+  font-size: 15px;
 }
 
 .bg-color-grey {
@@ -379,6 +380,10 @@ input[type=file] {
   font-size: 17px;
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+
 .btn-white {
   border: 1px solid white;
   background: white;
@@ -434,10 +439,13 @@ input[type=file] {
   padding: 13.5px 20px;
   margin-bottom: 7px;
   margin-top: 23px;
-  font-size: 19px;
+  font-size: 17px;
+}
+.btn-blue.clair {
+  border: 1px solid #70A8E7;
 }
 .btn-blue.small {
-  width: 30vh;
+  width: 26vh;
 }
 .btn-blue.primary {
   display: flex;
@@ -638,7 +646,7 @@ input[type=file] {
 }
 @media (max-width: 1756px) {
   #navigation .cntNav {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 #navigation .cntNav > li {
@@ -649,6 +657,9 @@ input[type=file] {
   color: #70A8E7;
   font-weight: 400;
   transition: all 0.3s ease-in-out;
+}
+#navigation .cntNav > li a img {
+  width: 15px;
 }
 #navigation .cntNav > li.current a, #navigation .cntNav > li:hover a {
   color: #1859A3;
@@ -676,6 +687,7 @@ input[type=file] {
   display: block;
   opacity: 1;
   visibility: visible;
+  color: #70A8E7;
 }
 
 .btnBox {
@@ -851,9 +863,9 @@ input[type=file] {
 .border-center__navy-blue {
   position: absolute;
   top: 15%;
-  width: 615px;
-  height: 920px;
-  border-radius: 98px;
+  width: 550px;
+  height: 810px;
+  border-radius: 100px;
   border: 1px solid #1859A3;
 }
 .border-center__title {
@@ -891,14 +903,12 @@ input[type=file] {
   width: 100%;
 }
 .block-accueil__paragraph {
-  margin-top: 450px;
+  margin-top: 525px;
   margin-left: 163px;
   color: white;
-}
-@media (max-width: 1756px) {
-  .block-accueil__paragraph {
-    margin-top: 350px;
-  }
+  /*@include max(1756px){
+      margin-top: 350px;
+  }*/
 }
 .block-accueil.subtitle {
   color: white;
@@ -1271,12 +1281,32 @@ input[type=file] {
   bottom: 10px;
   right: 36vh;
 }
+.filter-container.modified {
+  right: 23vh;
+  bottom: 7px;
+}
+.filter-container.modified-pic {
+  right: 19vh;
+  bottom: 7px;
+}
 .filter-container p {
   font-size: 17px;
   margin-left: 5px;
 }
 .filter-container img {
-  width: 15px;
+  width: 19px;
+}
+
+.add-dept {
+  margin-top: -15px;
+  color: white;
+  position: absolute;
+  display: flex;
+  right: 19vh;
+  bottom: 7px;
+}
+.add-dept img {
+  width: 19px;
 }
 
 #filter-options {
@@ -1511,6 +1541,97 @@ input[type=file] {
 }
 .paragraph-content__text {
   font-size: 14px;
+}
+
+.dept-container {
+  padding: 20px 100px 20px 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.department-card {
+  width: 300px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid #1859A3;
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: #1859A3;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+}
+
+.edit-button,
+.delete-button {
+  padding-right: 5px;
+}
+.edit-button img,
+.delete-button img {
+  width: 15px;
+}
+
+.right-items {
+  display: flex;
+  align-items: center;
+}
+
+.card-body {
+  padding: 10px;
+  height: 200px;
+}
+.card-body ul {
+  list-style: none;
+}
+.card-body ul li {
+  color: #666666;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+.card-body ul li:last-child {
+  border-bottom: none;
+}
+
+.wrapper-crate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  gap: 45px;
+}
+.wrapper-crate .crate {
+  width: 450px;
+  height: 450px;
+  border: 1px solid #ddd;
+}
+.wrapper-crate .crate .crate-title {
+  display: flex;
+  justify-content: center;
+  margin-top: 38px;
+  text-transform: uppercase;
+  color: #70A8E7;
+}
+.wrapper-crate .crate .crate-body {
+  padding: 10px 45px;
+}
+.wrapper-crate .crate .crate-width {
+  width: 100px;
+}
+.wrapper-crate .crate .crate-width-1 {
+  width: 200px;
+}
+.wrapper-crate .crate .checkbox-container {
+  display: flex;
+  align-items: center;
+}
+.wrapper-crate .crate .checkbox-container label {
+  margin-right: 10px; /* Espacement entre les éléments */
 }
 
 .two-blocks {

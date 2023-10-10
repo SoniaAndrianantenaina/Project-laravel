@@ -22,6 +22,11 @@ Route::get('/accueil-admin', function () {
     return view('admin.accueilAdmin');
 })->name('accueil-admin');
 
+Route::get('/profil-admin', function () {
+    return view('admin.profilAdmin');
+})->name('profil-admin');
+
+
     //CANDIDATS
     Route::get('/ajout-candidat', function () {
         return view('admin.ajoutCandidat');
@@ -48,13 +53,13 @@ Route::get('/accueil-admin', function () {
         return view('admin/contrat/CDD');
     })->name('contrat-cdd');
 
-Route::get('/ajout-collaborateur', function () {
-    return view('admin.ajoutCollaborateur');
-})->name('ajout-collaborateur');
+    Route::get('/ajout-collaborateur', function () {
+        return view('admin.ajoutCollaborateur');
+    })->name('ajout-collaborateur');
 
-Route::get('/envoyer-identifiant', function () {
-    return view('admin/envoyerIdentifiant');
-})->name('envoyer-identifiant');
+    Route::get('/envoyer-identifiant', function () {
+        return view('admin/envoyerIdentifiant');
+    })->name('envoyer-identifiant');
 
     //EMPLOYÉS
     Route::get('/anniv-collaborateur', function () {
@@ -91,6 +96,10 @@ Route::get('/envoyer-identifiant', function () {
     Route::get('/plan-departements', function () {
         return view('admin/planDépartements');
     })->name('plan-departements');
+
+    Route::get('/ajout-departement', function () {
+        return view('admin/ajoutDépartement');
+    })->name('ajout-departement');
 
     Route::get('/liste-departements', function () {
         return view('admin/listeDépartements');

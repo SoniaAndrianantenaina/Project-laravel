@@ -108,11 +108,12 @@ input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 label {
     color: $color-secondary;
-    font-size: 19px;
+    font-size: 17px;
 }
 
-input[type="file"] {
-    font-size: 19px;
+input[type="file"],
+input[type="date"] {
+    font-size: 15px;
 }
 
 .bg-color-grey {
@@ -190,3 +191,8 @@ input[type="file"] {
 .fs-17{
     font-size: 17px;
 }
+
+.mt-15{
+    margin-top: 15px;
+}
+

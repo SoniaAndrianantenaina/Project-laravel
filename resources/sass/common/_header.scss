@@ -92,7 +92,7 @@
         font-family: $nav-fontFamily;
         font-size: $nav-size;
         @include max(1756px){
-            font-size: 15px;
+            font-size: 17px;
         }
 
         @include resetList();
@@ -103,6 +103,10 @@
                 color: $nav-color;
                 font-weight: $nav-fontWeight;
                 transition: $transition-default;
+
+                img{
+                    width: 15px;
+                }
             }
             &.current,
             &:hover {
@@ -134,6 +138,7 @@
     display: block;
     opacity: 1;
     visibility: visible;
+    color: $color-secondary;
 }
 
 .btnBox {
