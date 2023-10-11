@@ -1,129 +1,147 @@
-CREATE TABLE `Administrateur`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `identifiant` VARCHAR(255) NOT NULL,
-    `mdp` VARCHAR(255) NOT NULL
-);
+CREATE TABLE `departements`(
+    `idDepartement` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
 
-CREATE TABLE `DépartementPoste`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE `poste`(
+    `idPoste` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(100) NOT NULL,
+    `salaire` DECIMAL(8, 2) NOT NULL,
+    `degre` INT NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `departement_poste`(
+    `idDeptPoste` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `idDepartement` INT NOT NULL,
     `idPoste` INT NOT NULL
-);
-CREATE TABLE `MotifCongé`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `raison` VARCHAR(255) NOT NULL,
-    `idtypecongé` INT NOT NULL
-);
-CREATE TABLE `Departements`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `Poste`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL,
-    `salaire` DECIMAL(8, 2) NOT NULL,
-    `degré` INT NOT NULL
-);
-CREATE TABLE `StatutMarital`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `Candidats`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL,
-    `prenom` VARCHAR(255) NOT NULL,
+)ENGINE = InnoDB;
+
+
+CREATE TABLE `genre`(
+    `idGenre` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(25) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `statut_marital`(
+    `idStatutMarital` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(25) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `candidats`(
+    `idCandidat` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(100) NOT NULL,
+    `prenom` VARCHAR(100) NOT NULL,
     `datenaissance` DATE NOT NULL,
-    `adresse` VARCHAR(255) NOT NULL,
+    `adresse` VARCHAR(100) NOT NULL,
     `contact` INT NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
     `idGenre` INT NOT NULL,
     `idStatutMarital` INT NOT NULL,
     `nb_enfants` INT NOT NULL,
-    `CV` VARCHAR(255) NOT NULL,
+    `CV` VARCHAR(100) NOT NULL,
+    `LM` VARCHAR(100) NOT NULL,
     `idDeptPoste` INT NOT NULL
-);
-CREATE TABLE `DemandesCongés`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `idEmployé` INT NOT NULL,
-    `idMotifCongé` INT NOT NULL,
-    `idTypeCongé` INT NOT NULL,
-    `date_debut` DATE NOT NULL,
-    `date_fin` DATE NOT NULL,
-    `etat` INT UNSIGNED NOT NULL
-);
-CREATE TABLE `Annonces`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `titre` VARCHAR(255) NOT NULL,
-    `contenu` VARCHAR(255) NOT NULL,
-    `date_parution` DATETIME NOT NULL,
-    `date_debut` DATETIME NOT NULL,
-    `date_fin` DATETIME NOT NULL
-);
-CREATE TABLE `Genre`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `Employés`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+)ENGINE = InnoDB;
+
+
+CREATE TABLE `administrateur`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `identifiant` VARCHAR(100) NOT NULL,
+    `mdp` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `employes`(
+    `idEmploye` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `idCandidat` INT NOT NULL,
-    `identifiant` VARCHAR(255) NOT NULL,
-    `mdp` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `TypeCongé`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `nom` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `SoldeCongé`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `idEmployé` INT NOT NULL,
-    `solde` DECIMAL(8, 2) NOT NULL
-);
-CREATE TABLE `TypeContrat`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `type` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `EmployésInfosPros`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `idEmployé` INT NOT NULL,
+    `identifiant` VARCHAR(100) NOT NULL,
+    `mdp` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `type_contrat`(
+    `idTypeContrat` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `employes_infos_pros`(
+    `idEmployeInfo` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idEmploye` INT NOT NULL,
     `idDeptPoste` INT NOT NULL,
     `idTypeContrat` INT NOT NULL,
     `date_debut` DATE NOT NULL,
     `date_fin` DATE NOT NULL
-);
-CREATE TABLE `CessationEmploi`(
-    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `idEmployé` INT NOT NULL,
+)ENGINE = InnoDB;
+
+CREATE TABLE `type_conge`(
+    `idTypeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `solde_conge`(
+    `idSoldeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idEmploye` INT NOT NULL,
+    `solde` DECIMAL(8, 2) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `motif_permission`(
+    `idMotifPermission` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idtypeconge` INT NOT NULL,
+    `motif` VARCHAR(50) NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `demandes_conges`(
+    `idDemandeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idEmploye` INT NOT NULL,
+    `idMotifPermission` INT NOT NULL,
+    `idTypeConge` INT NOT NULL,
+    `date_debut` DATE NOT NULL,
+    `date_fin` DATE NOT NULL,
+    `etat` INT NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `annonces`(
+    `idAnnonce` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `titre` VARCHAR(100) NOT NULL,
+    `contenu` VARCHAR(100) NOT NULL,
+    `date_parution` DATETIME NOT NULL,
+    `date_debut` DATETIME NOT NULL,
+    `date_fin` DATETIME NOT NULL
+)ENGINE = InnoDB;
+
+CREATE TABLE `cessation_emploi`(
+    `idCessationEmploi` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idEmploye` INT NOT NULL,
     `motif` VARCHAR(255) NOT NULL,
     `date_depart` DATE NOT NULL,
     `etat` INT NOT NULL
-);
+)ENGINE = InnoDB;
+
 ALTER TABLE
-    `Employés` ADD CONSTRAINT `employés_idcandidat_foreign` FOREIGN KEY(`idCandidat`) REFERENCES `Candidats`(`id`);
+    `employes` ADD CONSTRAINT `employes_idcandidat_foreign` FOREIGN KEY(`idCandidat`) REFERENCES `candidats`(`idCandidat`);
 ALTER TABLE
-    `EmployésInfosPros` ADD CONSTRAINT `employésinfospros_idemployé_foreign` FOREIGN KEY(`idEmployé`) REFERENCES `Employés`(`id`);
+    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
-    `Candidats` ADD CONSTRAINT `candidats_idgenre_foreign` FOREIGN KEY(`idGenre`) REFERENCES `Genre`(`id`);
+    `candidats` ADD CONSTRAINT `candidats_idgenre_foreign` FOREIGN KEY(`idGenre`) REFERENCES `genre`(`idGenre`);
 ALTER TABLE
-    `EmployésInfosPros` ADD CONSTRAINT `employésinfospros_idtypecontrat_foreign` FOREIGN KEY(`idTypeContrat`) REFERENCES `TypeContrat`(`id`);
+    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idtypecontrat_foreign` FOREIGN KEY(`idTypeContrat`) REFERENCES `type_contrat`(`idTypeContrat`);
 ALTER TABLE
-    `DemandesCongés` ADD CONSTRAINT `demandescongés_idemployé_foreign` FOREIGN KEY(`idEmployé`) REFERENCES `Employés`(`id`);
+    `demandes_conges` ADD CONSTRAINT `demandes_conges_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
-    `DemandesCongés` ADD CONSTRAINT `demandescongés_idmotifcongé_foreign` FOREIGN KEY(`idMotifCongé`) REFERENCES `MotifCongé`(`id`);
+    `demandes_conges` ADD CONSTRAINT `demandes_conges_idmotifpermission_foreign` FOREIGN KEY(`idMotifPermission`) REFERENCES `motif_permission`(`idMotifPermission`);
 ALTER TABLE
-    `DemandesCongés` ADD CONSTRAINT `demandescongés_idtypecongé_foreign` FOREIGN KEY(`idTypeCongé`) REFERENCES `TypeCongé`(`id`);
+    `demandes_conges` ADD CONSTRAINT `demandes_conges_idtypeconge_foreign` FOREIGN KEY(`idTypeConge`) REFERENCES `type_conge`(`idTypeConge`);
 ALTER TABLE
-    `Candidats` ADD CONSTRAINT `candidats_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `DépartementPoste`(`id`);
+    `candidats` ADD CONSTRAINT `candidats_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
 ALTER TABLE
-    `CessationEmploi` ADD CONSTRAINT `cessationemploi_idemployé_foreign` FOREIGN KEY(`idEmployé`) REFERENCES `Employés`(`id`);
+    `cessation_emploi` ADD CONSTRAINT `cessation_emploi_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
-    `DépartementPoste` ADD CONSTRAINT `départementposte_iddepartement_foreign` FOREIGN KEY(`idDepartement`) REFERENCES `Departements`(`id`);
+    `departement_poste` ADD CONSTRAINT `departement_poste_iddepartement_foreign` FOREIGN KEY(`idDepartement`) REFERENCES `departements`(`idDepartement`);
 ALTER TABLE
-    `DépartementPoste` ADD CONSTRAINT `départementposte_idposte_foreign` FOREIGN KEY(`idPoste`) REFERENCES `Poste`(`id`);
+    `departement_poste` ADD CONSTRAINT `departement_poste_idposte_foreign` FOREIGN KEY(`idPoste`) REFERENCES `poste`(`idPoste`);
 ALTER TABLE
-    `MotifCongé` ADD CONSTRAINT `motifcongé_idtypecongé_foreign` FOREIGN KEY(`idtypecongé`) REFERENCES `TypeCongé`(`id`);
+    `motif_permission` ADD CONSTRAINT `motif_permission_motif_foreign` FOREIGN KEY(`idTypeConge`) REFERENCES `type_conge`(`idTypeConge`);
 ALTER TABLE
-    `Candidats` ADD CONSTRAINT `candidats_idstatutmarital_foreign` FOREIGN KEY(`idStatutMarital`) REFERENCES `StatutMarital`(`id`);
+    `candidats` ADD CONSTRAINT `candidats_idstatutmarital_foreign` FOREIGN KEY(`idStatutMarital`) REFERENCES `statut_marital`(`idStatutMarital`);
 ALTER TABLE
-    `SoldeCongé` ADD CONSTRAINT `soldecongé_idemployé_foreign` FOREIGN KEY(`idEmployé`) REFERENCES `Employés`(`id`);
+    `solde_conge` ADD CONSTRAINT `solde_conge_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
-    `EmployésInfosPros` ADD CONSTRAINT `employésinfospros_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `DépartementPoste`(`id`);
+    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
