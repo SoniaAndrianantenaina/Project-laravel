@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="icon" href="{{ asset('assets/images/logo/logo.jpg') }}" />
+    <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" />
     <title>Header</title>
 </head>
 
@@ -15,7 +15,7 @@
             <div class="headerIntern">
                 <div class="cntlogo">
                     <a href="index.html">
-                        <img class="img-fluid" src="../../assets/images/logo/logo.jpg" alt="Logo">
+                        <img class="img-fluid" src="../../assets/images/logo/logo.png" alt="Logo">
                     </a>
                 </div>
                 <div class="boxNavIntern">

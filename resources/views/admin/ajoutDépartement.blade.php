@@ -59,6 +59,12 @@
                         <input type="checkbox" name="postes" id="postes6"><label for="postes6">Hello</label>
                     </div>
                 </div>
+
+                <label for="">
+                    <span>Salaire : </span>
+                    <input type="text" class="btn-blue clair small">
+                </label>
+
                 <label for="">
                     <span>Degré : </span>
                     <input type="number" class="btn-blue clair small">

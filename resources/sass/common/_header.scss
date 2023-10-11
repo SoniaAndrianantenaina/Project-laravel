@@ -28,7 +28,8 @@
             img {
                 @include imgFull(contain, left);
                 @include max(1756px){
-                    width: 90%;
+                    width: 100%;
+                    max-width: 50px;
                     object-fit: contain;
                     object-position: left;
                 }

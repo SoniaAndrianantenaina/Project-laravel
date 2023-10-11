@@ -84,6 +84,9 @@
                                     <div>CV</div>
                                 </th>
                                 <th>
+                                    <div>LM</div>
+                                </th>
+                                <th>
                                     <div>VALIDER</div>
                                 </th>
                             </tr>
@@ -121,16 +124,24 @@
                                 </td>
                                 <td>
                                     <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
                                         <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>
@@ -160,15 +171,23 @@
                                 <td>
                                     <div class="statut center-content">
                                         <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>
@@ -198,15 +217,23 @@
                                 <td>
                                     <div class="statut center-content">
                                         <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>
@@ -236,15 +263,23 @@
                                 <td>
                                     <div class="statut center-content">
                                         <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>
@@ -274,15 +309,23 @@
                                 <td>
                                     <div class="statut center-content">
                                         <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="">
+                                        <a href="{{ route('profil-candidat') }}">
                                             <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                         </a>
                                         Andrianantenaina Sonia <br>
@@ -312,6 +355,105 @@
                                 <td>
                                     <div class="statut center-content">
                                         <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('profil-candidat') }}">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>Design Agency</div>
+                                </td>
+                                <td>
+                                    <div>Développeur</div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
+                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('profil-candidat') }}">
+                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                        </a>
+                                        Andrianantenaina Sonia <br>
+                                        Lot VR 52 Ter M Mahazoarivo
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>Design Agency</div>
+                                </td>
+                                <td>
+                                    <div>Développeur</div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="">
+                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="statut center-content">
+                                        <a href="{{ route('ajout-collaborateur') }}">
                                             <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
                                         </a>
                                     </div>
