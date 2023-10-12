@@ -10,4 +10,6 @@ class StatutMarital extends Model
     protected $fillable = [
         'nom'
     ];
+
+    protected $table = "statut_marital";
 }

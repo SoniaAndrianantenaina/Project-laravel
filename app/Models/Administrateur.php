@@ -11,4 +11,6 @@ class Administrateur extends Model
         'identifiant',
         'mdp'
     ];
+
+    protected $table = "administrateur";
 }

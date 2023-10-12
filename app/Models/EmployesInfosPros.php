@@ -15,6 +15,8 @@ class EmployesInfosPros extends Model
         'date_fin'
     ];
 
+    protected $table = "employes_infos_pros";
+
     public function deptposte(){
         return $this->belongsTo(DepartementPoste::class, 'idDeptPoste');
     }

@@ -22,6 +22,9 @@ class Candidats extends Model
         'idDeptPoste'
     ];
 
+    protected $table = "candidats";
+
+
     public function genre(){
         return $this->belongsTo(Genre::class, 'idGenre');
     }

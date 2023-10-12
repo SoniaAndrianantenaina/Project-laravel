@@ -10,4 +10,6 @@ class Departements extends Model
     protected $fillable = [
         'nom'
     ];
+
+    protected $table = "departements";
 }
