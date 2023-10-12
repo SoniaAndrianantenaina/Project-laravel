@@ -191,7 +191,7 @@ title-h2 {
 @media (max-width: 1440px) {
   h2,
   title-h2 {
-    font-size: 22px;
+    font-size: 26px;
   }
 }
 
@@ -294,7 +294,7 @@ textarea::placeholder {
 
 input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
   color: #70A8E7;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 input[type=number]::placeholder,
@@ -302,12 +302,12 @@ input[type=text]::placeholder,
 input[type=email]::placeholder,
 label {
   color: #70A8E7;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 input[type=file],
 input[type=date] {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .bg-color-grey {
@@ -399,6 +399,7 @@ input[type=date] {
   padding: 13.5px 20px;
   margin-bottom: 7px;
   margin-top: 23px;
+  font-size: 18px;
 }
 .btn-white.lg {
   width: 204px;
