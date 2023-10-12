@@ -292,7 +292,7 @@ textarea::placeholder {
   width: 41vh;
 }
 
-input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
+input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=password]::-moz-placeholder {
   color: #70A8E7;
   font-size: 20px;
 }
@@ -300,6 +300,8 @@ input[type=number]::-moz-placeholder, input[type=text]::-moz-placeholder, input[
 input[type=number]::placeholder,
 input[type=text]::placeholder,
 input[type=email]::placeholder,
+input[type=email]::placeholder,
+input[type=password]::placeholder,
 label {
   color: #70A8E7;
   font-size: 20px;
@@ -382,6 +384,36 @@ input[type=date] {
 
 .mt-15 {
   margin-top: 15px;
+}
+
+.alert-danger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  background: #ec838c;
+  color: white;
+  border-radius: 5px;
+  height: 45px;
+}
+
+.button-submit {
+  border: 1px solid white;
+  background: white;
+  color: #70A8E7;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 244px;
+  height: 51px;
+  padding: 13.5px 20px;
+  margin-bottom: 45px;
+  margin-top: 23px;
+  font-size: 20px;
 }
 
 .btn-white {
@@ -852,6 +884,11 @@ input[type=date] {
     width: 425px;
     height: 466px;
   }
+}
+.main-section.section-two__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
 }
 .main-section.identifiant {
   font-size: 14px;

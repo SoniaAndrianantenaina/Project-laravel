@@ -92,6 +92,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             <tr>
                                 <td>
                                     <div class="d-flex">

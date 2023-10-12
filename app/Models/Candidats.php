@@ -36,4 +36,5 @@ class Candidats extends Model
     public function statutmarital(){
         return $this->belongsTo(StatutMarital::class, 'idStatutMarital');
     }
+
 }

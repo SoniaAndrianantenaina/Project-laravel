@@ -279,3 +279,11 @@ VALUES
 INSERT INTO rh.employes
 (idEmploye, idCandidat, identifiant, mdp)
 VALUES(1, 10, 'javier.gonzalez', 'G0nz@l3zJ@vier');
+
+INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin)
+VALUES
+    ('Réunion d''équipe', 'Nous aurons une réunion d''équipe demain pour discuter des projets en cours.', '2023-10-15 10:00:00', '2023-10-16 08:00:00', '2023-10-16 12:00:00'),
+    ('Formation sur la sécurité informatique', 'Une formation sur la sécurité informatique est prévue le 20 octobre.', '2023-10-16 15:30:00', '2023-10-20 09:00:00', '2023-10-20 16:00:00'),
+    ('Annonce de vacances', 'L''entreprise sera fermée pour les vacances de Noël du 24 décembre au 2 janvier.', '2023-10-17 14:15:00', '2023-12-24 00:00:00', '2024-01-02 00:00:00'),
+    ('Nouvelle politique de télétravail', 'Nous avons mis en place une nouvelle politique de télétravail à partir du 1er novembre.', '2023-10-18 11:45:00', '2023-11-01 08:00:00', '2023-11-01 17:00:00'),
+    ('Projet d''équipe - Appel à volontaires', 'Nous cherchons des volontaires pour un projet d''équipe passionnant.', '2023-10-18 15:00:00', '2023-10-19 09:00:00', '2023-11-19 17:00:00');
