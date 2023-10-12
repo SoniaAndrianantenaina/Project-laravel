@@ -6,7 +6,7 @@ CREATE TABLE `departements`(
 CREATE TABLE `poste`(
     `idPoste` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nom` VARCHAR(100) NOT NULL,
-    `salaire` DECIMAL(8, 2) NOT NULL,
+    `salaire` DECIMAL(12, 2) NOT NULL,
     `degre` INT NOT NULL
 )ENGINE = InnoDB;
 
@@ -15,7 +15,6 @@ CREATE TABLE `departement_poste`(
     `idDepartement` INT NOT NULL,
     `idPoste` INT NOT NULL
 )ENGINE = InnoDB;
-
 
 CREATE TABLE `genre`(
     `idGenre` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -42,7 +41,8 @@ CREATE TABLE `candidats`(
     `LM` VARCHAR(100) NOT NULL,
     `idDeptPoste` INT NOT NULL
 )ENGINE = InnoDB;
-
+ALTER TABLE rh.candidats ADD photo varchar(100) NOT NULL;
+ALTER TABLE rh.candidats ADD statut INT NOT NULL;
 
 CREATE TABLE `administrateur`(
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -79,7 +79,7 @@ CREATE TABLE `type_conge`(
 CREATE TABLE `solde_conge`(
     `idSoldeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `idEmploye` INT NOT NULL,
-    `solde` DECIMAL(8, 2) NOT NULL
+    `solde` DECIMAL(12, 2) NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE `motif_permission`(
@@ -118,19 +118,23 @@ CREATE TABLE `cessation_emploi`(
 ALTER TABLE
     `employes` ADD CONSTRAINT `employes_idcandidat_foreign` FOREIGN KEY(`idCandidat`) REFERENCES `candidats`(`idCandidat`);
 ALTER TABLE
-    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
-ALTER TABLE
     `candidats` ADD CONSTRAINT `candidats_idgenre_foreign` FOREIGN KEY(`idGenre`) REFERENCES `genre`(`idGenre`);
 ALTER TABLE
+    `candidats` ADD CONSTRAINT `candidats_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
+ALTER TABLE
+    `candidats` ADD CONSTRAINT `candidats_idstatutmarital_foreign` FOREIGN KEY(`idStatutMarital`) REFERENCES `statut_marital`(`idStatutMarital`);
+ALTER TABLE
+    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
+ALTER TABLE
     `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idtypecontrat_foreign` FOREIGN KEY(`idTypeContrat`) REFERENCES `type_contrat`(`idTypeContrat`);
+ALTER TABLE
+    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
 ALTER TABLE
     `demandes_conges` ADD CONSTRAINT `demandes_conges_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
     `demandes_conges` ADD CONSTRAINT `demandes_conges_idmotifpermission_foreign` FOREIGN KEY(`idMotifPermission`) REFERENCES `motif_permission`(`idMotifPermission`);
 ALTER TABLE
     `demandes_conges` ADD CONSTRAINT `demandes_conges_idtypeconge_foreign` FOREIGN KEY(`idTypeConge`) REFERENCES `type_conge`(`idTypeConge`);
-ALTER TABLE
-    `candidats` ADD CONSTRAINT `candidats_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
 ALTER TABLE
     `cessation_emploi` ADD CONSTRAINT `cessation_emploi_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
@@ -140,8 +144,4 @@ ALTER TABLE
 ALTER TABLE
     `motif_permission` ADD CONSTRAINT `motif_permission_motif_foreign` FOREIGN KEY(`idTypeConge`) REFERENCES `type_conge`(`idTypeConge`);
 ALTER TABLE
-    `candidats` ADD CONSTRAINT `candidats_idstatutmarital_foreign` FOREIGN KEY(`idStatutMarital`) REFERENCES `statut_marital`(`idStatutMarital`);
-ALTER TABLE
     `solde_conge` ADD CONSTRAINT `solde_conge_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
-ALTER TABLE
-    `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);

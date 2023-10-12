@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +19,19 @@ Route::get('/', function () {
     return view('connexion');
 });
 
-//Côté administrateur
-Route::get('/accueil-admin', function () {
-    return view('admin.accueilAdmin');
-})->name('accueil-admin');
 
-Route::get('/profil-admin', function () {
-    return view('admin.profilAdmin');
-})->name('profil-admin');
+
+//Côté administrateur
+Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-admin');
+
+    Route::get('/accueil-admin', function () {
+        return view('admin.accueilAdmin');
+    })->name('accueil-admin');
+
+    //PROFIL
+    Route::get('/profil-admin', function () {
+        return view('admin.profilAdmin');
+    })->name('profil-admin');
 
 
     //CANDIDATS
@@ -35,6 +42,8 @@ Route::get('/profil-admin', function () {
     Route::get('/liste-candidats', function () {
         return view('admin/listeCandidats');
     })->name('liste-candidats');
+
+    //Route::get('liste-candidats', [CandidatController::class, 'listeCandidats'])->name('liste-candidats');
 
     Route::get('/profil-candidat', function () {
         return view('admin/profilCandidat');
@@ -116,9 +125,8 @@ Route::get('/profil-admin', function () {
 
 
 //Côté employé
-Route::get('/accueil-employe', function () {
-    return view('employé.accueilEmployé');
-})->name('accueil-employe');
+Route::get('login-employe', [LogController::class, 'loginEmploye'])->name('login-employe');
+
 
     //congés
     Route::get('/solde-conge', function () {

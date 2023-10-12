@@ -16,6 +16,9 @@ class DemandesConges extends Model
         'etat'
     ];
 
+    protected $table = "demandes_conges";
+
+
     public function employe(){
         return $this->belongsTo(Employes::class, 'idEmploye');
     }

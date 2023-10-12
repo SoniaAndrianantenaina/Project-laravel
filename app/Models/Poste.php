@@ -12,4 +12,7 @@ class Poste extends Model
         'salaire',
         'degre'
     ];
+
+    protected $table = "poste";
+
 }

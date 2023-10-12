@@ -13,6 +13,8 @@ class Employes extends Model
         'mdp'
     ];
 
+    protected $table = "employes";
+
     public function candidat(){
         return $this->belongsTo(Candidats::class, 'idCandidat');
     }

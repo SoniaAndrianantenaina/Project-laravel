@@ -12,6 +12,8 @@ class MotifPermission extends Model
         'motif'
     ];
 
+    protected $table = "motif_permission";
+
     public function typeconge(){
         return $this->belongsTo(TypeConge::class, 'idTypeConge');
     }

@@ -13,7 +13,7 @@ h2,
 title-h2 {
     font-size: 32px;
     @include max(1440px) {
-        font-size: 22px;
+        font-size: 26px;
     }
 }
 
@@ -106,14 +106,16 @@ textarea {
 input[type="number"]::placeholder,
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
 label {
     color: $color-secondary;
-    font-size: 17px;
+    font-size: 20px;
 }
 
 input[type="file"],
 input[type="date"] {
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .bg-color-grey {
@@ -196,3 +198,13 @@ input[type="date"] {
     margin-top: 15px;
 }
 
+.alert-danger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    background: #ec838c;
+    color: white;
+    border-radius: 5px;
+    height: 45px;
+}

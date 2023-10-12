@@ -14,6 +14,8 @@ class CessationEmploi extends Model
         'etat'
     ];
 
+    protected $table = "cessation_emploi";
+
     public function employe(){
         return $this->belongsTo(Employes::class, 'idEmploye');
     }

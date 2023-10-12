@@ -14,4 +14,7 @@ class Annonces extends Model
         'date_debut',
         'date_fin'
     ];
+
+    protected $table = "annonces";
+
 }

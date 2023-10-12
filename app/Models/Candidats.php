@@ -22,6 +22,9 @@ class Candidats extends Model
         'idDeptPoste'
     ];
 
+    protected $table = "candidats";
+
+
     public function genre(){
         return $this->belongsTo(Genre::class, 'idGenre');
     }
@@ -33,4 +36,5 @@ class Candidats extends Model
     public function statutmarital(){
         return $this->belongsTo(StatutMarital::class, 'idStatutMarital');
     }
+
 }

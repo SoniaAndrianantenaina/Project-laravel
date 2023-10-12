@@ -10,4 +10,7 @@ class TypeConge extends Model
     protected $fillable = [
         'nom'
     ];
+
+    protected $table = "type_conge";
+
 }

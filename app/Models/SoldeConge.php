@@ -12,6 +12,8 @@ class SoldeConge extends Model
         'solde'
     ];
 
+    protected $table = "solde_conge";
+
     public function employe(){
         return $this->belongsTo(Employes::class, 'idEmploye');
     }

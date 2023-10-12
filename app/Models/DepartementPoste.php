@@ -12,6 +12,8 @@ class DepartementPoste extends Model
         'idPoste'
     ];
 
+    protected $table = "departement_poste";
+
     public function dept(){
         return $this->belongsTo(Departements::class, 'idDepartement');
     }

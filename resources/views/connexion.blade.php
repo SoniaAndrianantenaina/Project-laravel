@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="icon" href="{{ asset('assets/images/logo/logo.jpg') }}" />
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     <title>Login</title>
 </head>
 
@@ -20,31 +21,38 @@
                 </div>
 
                 <div>
-                    <a href="#" class="btn-white">Admin</a>
+                    <a href="#" onclick="showAdmin()" class="btn-white">Admin</a>
                 </div>
 
                 <div>
-                    <a href="#" class="btn-white">Employé</a>
+                    <a href="#" onclick="showEmploye()" class="btn-white">Employé</a>
                 </div>
 
             </div>
 
-            <div class="main-section section-two">
+            <div id="user-type" class="main-section section-two">
+                <form action="{{ route('login-admin') }}" method="POST">
+                    @csrf
+                    <div class="adjust-position">
+                        <div>
+                            <input type="text" name="identifiant" class="btn-white lg" placeholder="Identifiant">
+                        </div>
 
-                <div class="adjust-position">
-                    <div>
-                        <input type="text" class="btn-white lg" placeholder="Identifiant">
+                        <div>
+                            <input type="password" name="mdp" class="btn-white lg" placeholder="Mot de passe">
+                        </div>
+
+                        <div>
+                            <button type="submit" class="button-submit">VALIDER</button>
+                        </div>
                     </div>
+                </form>
 
-                    <div>
-                        <input type="text" class="btn-white lg" placeholder="Mot de passe">
+                @if (session('error'))
+                    <div class="alert-danger">
+                        {{ session('error') }}
                     </div>
-
-                    <div>
-                        <a href="{{ route('accueil-admin') }}" class="btn-white lg">VALIDER</a>
-                    </div>
-                </div>
-
+                @endif
             </div>
 
         </div>

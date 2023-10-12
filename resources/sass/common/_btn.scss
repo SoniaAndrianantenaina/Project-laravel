@@ -1,3 +1,22 @@
+.button-submit {
+    border: 1px solid $white;
+    background: $white;
+    color: $color-secondary;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 244px;
+    height: 51px;
+    padding: 13.5px 20px;
+    margin-bottom: 45px;
+    margin-top: 23px;
+    font-size: 20px;
+}
+
 .btn-white {
     border: 1px solid $white;
     background: $white;
@@ -13,6 +32,7 @@
     padding: 13.5px 20px;
     margin-bottom: 7px;
     margin-top: 23px;
+    font-size: 18px;
 
     @include max(1765px) {
         font-size: 16px;

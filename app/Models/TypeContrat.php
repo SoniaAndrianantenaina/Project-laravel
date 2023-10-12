@@ -10,4 +10,6 @@ class TypeContrat extends Model
     protected $fillable = [
         'type'
     ];
+
+    protected $table = "type_contrat";
 }
