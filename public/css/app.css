@@ -400,6 +400,11 @@ input[type=date] {
   margin-bottom: 7px;
   margin-top: 23px;
 }
+@media (max-width: 1765px) {
+  .btn-white {
+    font-size: 16px;
+  }
+}
 .btn-white.lg {
   width: 204px;
   height: 26px;
@@ -907,9 +912,11 @@ input[type=date] {
   margin-top: 525px;
   margin-left: 163px;
   color: white;
-  /*@include max(1756px){
-      margin-top: 350px;
-  }*/
+}
+@media (max-width: 1756px) {
+  .block-accueil__paragraph {
+    margin-top: 360px;
+  }
 }
 .block-accueil.subtitle {
   color: white;
@@ -1280,14 +1287,10 @@ input[type=date] {
   position: absolute;
   display: flex;
   bottom: 10px;
-  right: 36vh;
+  right: 47vh;
 }
 .filter-container.modified {
-  right: 23vh;
-  bottom: 7px;
-}
-.filter-container.modified-pic {
-  right: 19vh;
+  right: 26vh;
   bottom: 7px;
 }
 .filter-container p {

@@ -30,9 +30,9 @@
         margin-left: 163px;
         color: $white;
 
-        /*@include max(1756px){
-            margin-top: 350px;
-        }*/
+        @include max(1756px){
+            margin-top: 360px;
+        }
     }
 
     &.subtitle{
