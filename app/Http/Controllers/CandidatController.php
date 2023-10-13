@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Candidats;
-
+use App\Models\TypeContrat;
+use Illuminate\Contracts\Session\Session;
 
 class CandidatController extends Controller
 {
@@ -51,6 +53,20 @@ class CandidatController extends Controller
     public function profilCandidat($idCandidat){
         $candidat = Candidats::find($idCandidat);
         return view('admin.profilCandidat', compact('candidat'));
+    }
+
+    public function AjoutCollaborateur($idCandidat){
+        $candidat = Candidats::find($idCandidat);
+        session()->put('candidat', $candidat);
+        $type_contrat = TypeContrat::all();
+        return view('admin.ajoutCollaborateur', compact('candidat','type_contrat'));
+    }
+
+    public function genererID(){
+        $candidat = session()->get('candidat');
+        $nom = $candidat->nom;
+        $prenom = $candidat->prenom;
+        $identifiant = 0;
     }
 
 }

@@ -13,4 +13,8 @@ class TypeConge extends Model
 
     protected $table = "type_conge";
 
+    protected $primaryKey = 'idTypeConge';
+
+    public $timestamps = false;
+
 }

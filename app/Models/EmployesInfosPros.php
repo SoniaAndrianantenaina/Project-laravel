@@ -15,6 +15,10 @@ class EmployesInfosPros extends Model
         'date_fin'
     ];
 
+    protected $primaryKey = 'idEmployeInfo';
+
+    public $timestamps = false;
+
     protected $table = "employes_infos_pros";
 
     public function deptposte(){

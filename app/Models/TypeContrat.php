@@ -12,4 +12,8 @@ class TypeContrat extends Model
     ];
 
     protected $table = "type_contrat";
+
+    protected $primaryKey = 'idTypeContrat';
+
+    public $timestamps = false;
 }

@@ -15,6 +15,10 @@ class Employes extends Model
 
     protected $table = "employes";
 
+    protected $primaryKey = 'idEmploye';
+
+    public $timestamps = false;
+
     public function candidat(){
         return $this->belongsTo(Candidats::class, 'idCandidat');
     }

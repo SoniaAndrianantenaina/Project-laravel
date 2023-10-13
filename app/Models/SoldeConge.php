@@ -12,6 +12,10 @@ class SoldeConge extends Model
         'solde'
     ];
 
+    protected $primaryKey = 'idSoldeConge';
+
+    public $timestamps = false;
+
     protected $table = "solde_conge";
 
     public function employe(){

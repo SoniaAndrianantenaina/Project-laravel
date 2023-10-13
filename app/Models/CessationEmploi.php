@@ -16,6 +16,10 @@ class CessationEmploi extends Model
 
     protected $table = "cessation_emploi";
 
+    protected $primaryKey = 'idCessationEmploi';
+
+    public $timestamps = false;
+
     public function employe(){
         return $this->belongsTo(Employes::class, 'idEmploye');
     }

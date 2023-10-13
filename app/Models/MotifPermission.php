@@ -12,6 +12,10 @@ class MotifPermission extends Model
         'motif'
     ];
 
+    protected $primaryKey = 'idMotifPermission';
+
+    public $timestamps = false;
+
     protected $table = "motif_permission";
 
     public function typeconge(){

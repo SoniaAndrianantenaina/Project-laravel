@@ -96,51 +96,55 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="{{ route('profil-candidat', ['idCandidat' => $candidat->idCandidat]) }}">
+                                            <a
+                                                href="{{ route('profil-candidat', ['idCandidat' => $candidat->idCandidat]) }}">
                                                 <img src="{{ $candidat->photo }}" alt="">
                                             </a>
-                                            {{$candidat->nom}} {{$candidat->prenom}}<br>
-                                            {{$candidat->adresse}}
+                                            {{ $candidat->nom }} {{ $candidat->prenom }}<br>
+                                            {{ $candidat->adresse }}
                                         </div>
                                     </td>
                                     <td>
-                                        <div>{{$candidat->deptposte->dept->nom}}</div>
+                                        <div>{{ $candidat->deptposte->dept->nom }}</div>
                                     </td>
                                     <td>
-                                        <div>{{$candidat->deptposte->poste->nom}}</div>
+                                        <div>{{ $candidat->deptposte->poste->nom }}</div>
                                     </td>
                                     <td>
                                         <div class="statut center-content">
-                                            @if ($candidat->statut==0)
+                                            @if ($candidat->statut == 0)
                                                 <p> - </p>
                                             @endif
-                                            @if ($candidat->statut==1)
+                                            @if ($candidat->statut == 1)
                                                 <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
                                             @endif
-                                            @if ($candidat->statut==2)
+                                            @if ($candidat->statut == 2)
                                                 <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-
                                             @endif
                                         </div>
                                     </td>
                                     <td>
                                         <div class="statut center-content">
-                                            <a href="{{ route('afficher-cv', ['idCandidat' => $candidat->idCandidat]) }}" target="_blank">
+                                            <a href="{{ route('afficher-cv', ['idCandidat' => $candidat->idCandidat]) }}"
+                                                target="_blank">
                                                 <img src="{{ asset('assets/images/icon/file.png') }}" alt="CV">
                                             </a>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="statut center-content">
-                                            <a href="{{ route('afficher-LM', ['idCandidat' => $candidat->idCandidat]) }}" target="_blank">
+                                            <a href="{{ route('afficher-LM', ['idCandidat' => $candidat->idCandidat]) }}"
+                                                target="_blank">
                                                 <img src="{{ asset('assets/images/icon/file.png') }}" alt="LM">
                                             </a>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="statut center-content">
-                                            <a href="{{ route('ajout-collaborateur') }}">
-                                                <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                            <a
+                                                href="{{ route('ajout-collaborateur', ['idCandidat' => $candidat->idCandidat]) }}">
+                                                <img src="{{ asset('assets/images/icon/add-candidat.png') }}"
+                                                    alt="">
                                             </a>
                                         </div>
                                     </td>

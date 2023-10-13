@@ -60,9 +60,7 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
         return view('admin/contrat/CDD');
     })->name('contrat-cdd');
 
-    Route::get('/ajout-collaborateur', function () {
-        return view('admin.ajoutCollaborateur');
-    })->name('ajout-collaborateur');
+    Route::get('/ajout-collaborateur/{idCandidat}', [CandidatController::class, 'AjoutCollaborateur'])->name('ajout-collaborateur');
 
     Route::get('/envoyer-identifiant', function () {
         return view('admin/envoyerIdentifiant');
