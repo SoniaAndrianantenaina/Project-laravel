@@ -11,5 +11,9 @@ class Departements extends Model
         'nom'
     ];
 
+    protected $primaryKey = 'idDepartement';
+
+    public $timestamps = false;
+
     protected $table = "departements";
 }

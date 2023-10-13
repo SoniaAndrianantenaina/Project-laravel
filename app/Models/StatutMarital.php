@@ -12,4 +12,8 @@ class StatutMarital extends Model
     ];
 
     protected $table = "statut_marital";
+
+    protected $primaryKey = 'idStatutMarital';
+
+    public $timestamps = false;
 }

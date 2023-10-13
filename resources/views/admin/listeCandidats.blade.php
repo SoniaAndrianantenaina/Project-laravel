@@ -10,20 +10,20 @@
                             <div class="filtre">
                                 <div class="filtre__select">
                                     <label class="filter-label">
-                                        <span class="filter-span">Année :</span>
+                                        <span class="filter-span">Département :</span>
                                         <select class="select white" id="">
-                                            <option value="">2023</option>
-                                            <option value="">2022</option>
+                                            <option value="">Dept1</option>
+                                            <option value="">Dept2</option>
                                         </select>
                                     </label>
                                 </div>
 
                                 <div class="filtre__select">
                                     <label class="filter-label">
-                                        <span class="filter-span">Genre :</span>
+                                        <span class="filter-span">Poste :</span>
                                         <select class="select white" name="" id="">
-                                            <option value="">Homme</option>
-                                            <option value="">Femme</option>
+                                            <option value="">Poste1</option>
+                                            <option value="">Poste2</option>
                                         </select>
                                     </label>
                                 </div>
@@ -92,374 +92,60 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($candidats as $candidat)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="{{ route('profil-candidat', ['idCandidat' => $candidat->idCandidat]) }}">
+                                                <img src="{{ $candidat->photo }}" alt="">
+                                            </a>
+                                            {{$candidat->nom}} {{$candidat->prenom}}<br>
+                                            {{$candidat->adresse}}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>{{$candidat->deptposte->dept->nom}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{$candidat->deptposte->poste->nom}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="statut center-content">
+                                            @if ($candidat->statut==0)
+                                                <p> - </p>
+                                            @endif
+                                            @if ($candidat->statut==1)
+                                                <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
+                                            @endif
+                                            @if ($candidat->statut==2)
+                                                <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
 
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <div class="d-flex">
-                                        <a href="{{ route('profil-candidat') }}">
-                                            <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
-                                        </a>
-                                        Andrianantenaina Sonia <br>
-                                        Lot VR 52 Ter M Mahazoarivo
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>Design Agency</div>
-                                </td>
-                                <td>
-                                    <div>Développeur</div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="">
-                                            <img src="{{ asset('assets/images/icon/file.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="statut center-content">
-                                        <a href="{{ route('ajout-collaborateur') }}">
-                                            <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                                            @endif
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="statut center-content">
+                                            <a href="{{ route('afficher-cv', ['idCandidat' => $candidat->idCandidat]) }}" target="_blank">
+                                                <img src="{{ asset('assets/images/icon/file.png') }}" alt="CV">
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="statut center-content">
+                                            <a href="{{ route('afficher-LM', ['idCandidat' => $candidat->idCandidat]) }}" target="_blank">
+                                                <img src="{{ asset('assets/images/icon/file.png') }}" alt="LM">
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="statut center-content">
+                                            <a href="{{ route('ajout-collaborateur') }}">
+                                                <img src="{{ asset('assets/images/icon/add-candidat.png') }}" alt="">
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -35,19 +35,17 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
 
     //CANDIDATS
+    Route::get('liste-candidats', [CandidatController::class, 'listeCandidats'])->name('liste-candidats');
+
+    Route::get('/cv-candidat/{idCandidat}', [CandidatController::class, 'afficherCV'])->name('afficher-cv');
+
+    Route::get('/lm-candidat/{idCandidat}', [CandidatController::class, 'afficherLM'])->name('afficher-LM');
+
+    Route::get('/profil-candidat/{idCandidat}', [CandidatController::class, 'profilCandidat'])->name('profil-candidat');
+
     Route::get('/ajout-candidat', function () {
         return view('admin.ajoutCandidat');
     })->name('ajout-candidat');
-
-    Route::get('/liste-candidats', function () {
-        return view('admin/listeCandidats');
-    })->name('liste-candidats');
-
-    //Route::get('liste-candidats', [CandidatController::class, 'listeCandidats'])->name('liste-candidats');
-
-    Route::get('/profil-candidat', function () {
-        return view('admin/profilCandidat');
-    })->name('profil-candidat');
 
     //CONTRATS
     Route::get('/convention-stage', function () {

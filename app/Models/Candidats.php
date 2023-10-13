@@ -24,6 +24,9 @@ class Candidats extends Model
 
     protected $table = "candidats";
 
+    protected $primaryKey = 'idCandidat';
+
+    public $timestamps = false;
 
     public function genre(){
         return $this->belongsTo(Genre::class, 'idGenre');

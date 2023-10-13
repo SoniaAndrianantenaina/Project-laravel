@@ -5,34 +5,36 @@
     <div class="container display">
         <div class="block-profil">
             <figure class="block-profil__image">
-                <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
+                <img src="{{ asset($candidat->photo) }}" alt="">
             </figure>
         </div>
 
         <div class="block-profil__informations">
             <div class="block-profil__informations__texte">
                 <div class="info request">Nom :</div>
-                <div class="info response maj">Andrianantenaina</div>
+                <div class="info response maj">{{ $candidat->nom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Prénoms :</div>
-                <div class="info response">Sonia Fanomezantsoa</div>
+                <div class="info response">{{ $candidat->prenom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Genre :</div>
-                <div class="info response">Femme</div>
+                <div class="info response">{{ $candidat->genre->nom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Date de naissance :</div>
-                <div class="info response">04 Mars 2004</div>
+                <div class="info response">
+                    {{ \Carbon\Carbon::parse($candidat->datenaissance)->locale('fr_FR')->isoFormat('D MMMM Y') }}
+                </div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Contact :</div>
-                <div class="info response">+261 32 00 000 00</div>
+                <div class="info response">+261 {{ $candidat->contact }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
@@ -42,37 +44,47 @@
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Adresse :</div>
-                <div class="info response">Mahazoarivo</div>
+                <div class="info response">{{ $candidat->adresse }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Email :</div>
-                <div class="info response">andrianantenainasonia@gmail.com</div>
+                <div class="info response">{{ $candidat->email }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Statut marital :</div>
-                <div class="info response">Célibataire</div>
+                <div class="info response">{{ $candidat->statutmarital->nom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Nombre enfants :</div>
-                <div class="info response"></div>
+                <div class="info response">{{ $candidat->nb_enfants }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Département :</div>
-                <div class="info response">Digital Agency</div>
+                <div class="info response">{{ $candidat->deptposte->dept->nom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Poste :</div>
-                <div class="info response">Stagiaire</div>
+                <div class="info response">{{ $candidat->deptposte->poste->nom }}</div>
             </div>
 
             <div class="block-profil__informations__texte">
                 <div class="info request">Statut :</div>
-                <div class="info response"> - </div>
+                <div class="info response">
+                    @if ($candidat->statut == 0)
+                        <p> - </p>
+                    @endif
+                    @if ($candidat->statut == 1)
+                        <p>Confirmé</p>
+                    @endif
+                    @if ($candidat->statut == 2)
+                        <p>Refusé</p>
+                    @endif
+                </div>
             </div>
 
         </div>

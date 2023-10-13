@@ -14,6 +14,10 @@ class DepartementPoste extends Model
 
     protected $table = "departement_poste";
 
+    protected $primaryKey = 'idDeptPoste';
+
+    public $timestamps = false;
+
     public function dept(){
         return $this->belongsTo(Departements::class, 'idDepartement');
     }

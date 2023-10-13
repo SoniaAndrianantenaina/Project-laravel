@@ -15,4 +15,8 @@ class Poste extends Model
 
     protected $table = "poste";
 
+    protected $primaryKey = 'idPoste';
+
+    public $timestamps = false;
+
 }

@@ -13,4 +13,7 @@ class Genre extends Model
 
     protected $table = "genre";
 
+    protected $primaryKey = 'idGenre';
+
+    public $timestamps = false;
 }
