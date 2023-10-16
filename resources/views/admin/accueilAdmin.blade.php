@@ -1,5 +1,4 @@
 @include('banner.header')
-
 <main class='page-accueil'>
 
     <section class='block-accueil'>

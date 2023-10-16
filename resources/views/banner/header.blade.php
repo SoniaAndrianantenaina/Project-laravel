@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/query.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     <title>Header</title>
 </head>

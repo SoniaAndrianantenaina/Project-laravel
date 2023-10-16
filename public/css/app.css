@@ -879,10 +879,10 @@ input[type=date] {
   height: 566px;
   color: white;
   border-radius: 25px;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 @media (max-width: 1440px) {
   .main-section.section-two {
@@ -2159,7 +2159,7 @@ input[type=date] {
 
 table {
   width: 100%;
-  border: 1px solid white;
+  border: 1px solid #bebcbc;
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 10px;
@@ -2171,6 +2171,7 @@ table th {
   text-align: left;
   padding: 20px 0;
   position: relative;
+  border-bottom: 1px solid #bebcbc;
 }
 table th div {
   border-right: 1px solid black;
@@ -2199,6 +2200,7 @@ table td {
   padding: 20px;
   font-size: 14px;
   line-height: 24px;
+  border-bottom: 1px solid #bebcbc;
 }
 table td div {
   max-width: 275px;

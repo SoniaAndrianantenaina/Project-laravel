@@ -12,8 +12,16 @@ class CandidatController extends Controller
 {
     public function listeCandidats()
     {
-        $candidats = Candidats::where('statut', '!=', 3)->paginate(10);
-        return view('admin.listeCandidats', compact('candidats'));
+        //  dd(auth()->check());
+        if(auth()->check()){
+            $util=auth()->user();
+            $candidats = Candidats::where('statut', '!=', 3)->paginate(10);
+            return view('admin.listeCandidats', compact('candidats','util'));
+        }
+        else{
+            return view('connexion');
+        }
+       
     }
 
     public function afficherCV($idCandidat)

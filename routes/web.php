@@ -121,8 +121,11 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
 
 //Côté employé
-Route::get('login-employe', [LogController::class, 'loginEmploye'])->name('login-employe');
+Route::post('login-employé', [LogController::class, 'loginEmployé'])->name('login-employé');
 
+    Route::get('/accueil-employé', function () {
+        return view('employé.accueilEmployé');
+    })->name('accueil-employé');
 
     //congés
     Route::get('/solde-conge', function () {

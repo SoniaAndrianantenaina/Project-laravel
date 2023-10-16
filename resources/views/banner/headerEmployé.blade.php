@@ -31,8 +31,8 @@
                     <nav id="navigation">
                         <div class="cntNavBox">
                             <ul class="cntNav">
-                                <li class="@if(Request::is('accueil-employe')) current @endif">
-                                    <a href="{{ route('accueil-employe') }}" class="text-decoration">
+                                <li class="@if(Request::is('accueil-employé')) current @endif">
+                                    <a href="{{ route('accueil-employé') }}" class="text-decoration">
                                         Accueil
                                     </a>
                                 </li>

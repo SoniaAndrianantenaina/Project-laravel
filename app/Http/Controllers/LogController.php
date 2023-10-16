@@ -3,26 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Models\Administrateur;
+use App\Models\Employes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
 {
-    public function loginAdmin(Request $request){
-        return view('admin.accueilAdmin');
+    public function loginAdmin(Request $request)
+    {
+        $id = $request->input('identifiant');
+        $mdp = $request->input('mdp');
 
-        /*if (Auth::guard('admin')->attempt(['identifiant' => $request->input('identifiant'), 'mdp' => $request->input('mdp')])) {
-            return view('admin.accueilAdmin');
+        $admin = Administrateur::where('identifiant', $id)->first();
+
+        if ($admin && $mdp == $admin->mdp) {
+            auth()->login($admin);
+            $admin_user = auth()->user();
+            return response()->json(['success' => 'Connexion réussie', 'redirect' => route('accueil-admin')]);
         } else {
-            return redirect()->back()->with('error', 'Identifiants incorrects');
-        }*/
+            return response()->json(['error' => 'Identifiants incorrects']);
+        }
     }
 
-    public function loginEmploye(Request $request){
-        if (Auth::guard('employee')->attempt(['identifiant' => $request->input('identifiant'), 'mdp' => $request->input('mdp')])) {
-            return view('accueil-employe');
+    public function loginEmployé(Request $request)
+    {
+        $id = $request->input('identifiant');
+        $mdp = $request->input('mdp');
+
+        $employe = Employes::where('identifiant', $id)->first();
+
+        if ($employe && $mdp == $employe->mdp) {
+            // auth()->login($employe);
+            // $employe_user = auth()->user();
+            return response()->json(['success' => 'Connexion réussie', 'redirect' => route('accueil-employé')]);
         } else {
-            return redirect()->back()->with('error', 'Identifiants incorrects');
+            return response()->json(['error' => 'Identifiants incorrects']);
         }
     }
 }

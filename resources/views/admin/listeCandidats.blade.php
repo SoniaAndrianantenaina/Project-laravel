@@ -1,9 +1,7 @@
 @include('banner.header')
-
 <body>
     <main class="liste-candidats">
         <section class="contenu">
-            <div class="bg-color-grey">
                 <div class="wrapper-main">
                     <div class="bg-color-blue">
                         <div class="bg-color-blue__block">
@@ -153,8 +151,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-
         </section>
     </main>
 </body>

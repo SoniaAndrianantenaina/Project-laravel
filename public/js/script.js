@@ -3,18 +3,14 @@ function filterDropDown() {
     filterOptions.classList.toggle("d-none");
 }
 
-function showAdmin() {
-    var userTypeDiv = document.getElementById("user-type");
-    userTypeDiv.innerHTML =
-        '<div class="main-section section-two__title">Admin</div>' +
-        userTypeDiv.innerHTML;
-    document.getElementById("admin-button").disabled = true;
+function showForm(formId) {
+    var forms = document.querySelectorAll('.main-section.section-two');
+    forms.forEach(function(form) {
+        form.style.display = 'none';
+    });
+
+    var selectedForm = document.getElementById(formId);
+    selectedForm.style.display = 'flex';
 }
 
-function showEmploye() {
-    var userTypeDiv = document.getElementById("user-type");
-    userTypeDiv.innerHTML =
-        '<div class="main-section section-two__title">Employé</div>' +
-        userTypeDiv.innerHTML;
-}
 

@@ -42,10 +42,10 @@
         height: 566px;
         color: $white;
         border-radius: 25px;
-        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        text-align: center;
         @include max(1440px) {
             width: 425px;
             height: 466px;

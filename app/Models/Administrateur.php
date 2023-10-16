@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Administrateur extends Model implements Authenticatable
+class Administrateur extends Authenticatable
 {
     use AuthenticableTrait;
     protected $fillable = [
@@ -16,8 +16,5 @@ class Administrateur extends Model implements Authenticatable
 
     protected $table = "administrateur";
 
-    public function getAuthPassword()
-    {
-        return $this->mdp;
-    }
+
 }
