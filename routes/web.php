@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\DeptPosteController;
+use App\Http\Controllers\EmployeController;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,30 +47,17 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     Route::get('/profil-candidat/{idCandidat}', [CandidatController::class, 'profilCandidat'])->name('profil-candidat');
 
-    Route::get('/ajout-candidat', function () {
-        return view('admin.ajoutCandidat');
-    })->name('ajout-candidat');
+    Route::get('/ajout-candidat', [CandidatController::class, 'ajoutCandidat'])->name('ajout-candidat');
 
-    //CONTRATS
-    Route::get('/convention-stage', function () {
-        return view('admin/contrat/conventionStage');
-    })->name('convention-stage');
-
-    Route::get('/contrat-cdi', function () {
-        return view('admin/contrat/CDI');
-    })->name('contrat-cdi');
-
-    Route::get('/contrat-cdd', function () {
-        return view('admin/contrat/CDD');
-    })->name('contrat-cdd');
-
-    Route::get('/ajout-collaborateur/{idCandidat}', [CandidatController::class, 'AjoutCollaborateur'])->name('ajout-collaborateur');
-
-    Route::get('/envoyer-identifiant', function () {
-        return view('admin/envoyerIdentifiant');
-    })->name('envoyer-identifiant');
+    Route::post('valider-ajout-candidat', [CandidatController::class, 'ajouterCandidat'])->name('valider-ajout-candidat');
 
     //EMPLOYÉS
+    Route::get('/ajout-collaborateur/{idCandidat}', [EmployeController::class, 'ajoutCollaborateur'])->name('ajout-collaborateur');
+
+    Route::post('/envoyer-identifiant', [EmployeController::class, 'genererID'])->name('envoyer-identifiant');
+
+    Route::get('/generer-contrat', [EmployeController::class, 'genererContrat'])->name('generer-contrat');
+
     Route::get('/anniv-collaborateur', function () {
         return view('admin/annivCollaborateur');
     })->name('anniv-collaborateur');
@@ -82,6 +73,24 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
     Route::get('/profil-employe', function () {
         return view('admin/profilEmployé');
     })->name('profil-employe');
+
+    //POSTES
+    Route::get('/get-postes/{idDepartement}', [DeptPosteController::class, 'getPostesByDepartement'])->name('get-postes');
+
+    //CONTRATS
+    Route::get('/convention-stage', function () {
+        return view('admin/contrat/conventionStage');
+    })->name('convention-stage');
+
+    Route::get('/contrat-cdi', function () {
+        return view('admin/contrat/CDI');
+    })->name('contrat-cdi');
+
+    Route::get('/contrat-cdd', function () {
+        return view('admin/contrat/CDD');
+    })->name('contrat-cdd');
+
+
 
     //ANNONCES
     Route::get('/liste-annonces', function () {

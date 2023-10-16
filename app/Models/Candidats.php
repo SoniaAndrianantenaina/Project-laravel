@@ -19,7 +19,9 @@ class Candidats extends Model
         'nb_enfants',
         'CV',
         'LM',
-        'idDeptPoste'
+        'idDeptPoste',
+        'photo',
+        'statut'
     ];
 
     protected $table = "candidats";

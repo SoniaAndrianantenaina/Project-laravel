@@ -1,4 +1,5 @@
 @include('banner.header')
+{{-- {{$util}} --}}
 <body>
     <main class="liste-candidats">
         <section class="contenu">
