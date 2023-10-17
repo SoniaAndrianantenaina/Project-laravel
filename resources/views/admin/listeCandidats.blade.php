@@ -97,7 +97,7 @@
                                         <div class="d-flex">
                                             <a
                                                 href="{{ route('profil-candidat', ['idCandidat' => $candidat->idCandidat]) }}">
-                                                <img src="{{ $candidat->photo }}" alt="">
+                                                <img src="{{ asset($candidat->photo) }}" alt="">
                                             </a>
                                             {{ $candidat->nom }} {{ $candidat->prenom }}<br>
                                             {{ $candidat->adresse }}

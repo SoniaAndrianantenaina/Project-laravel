@@ -54,11 +54,14 @@ class EmployeController extends Controller
     public function genererContrat($idTypeContrat)
     {
         if ($idTypeContrat == 2) {
-            return "hey";
+            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\CDD.pdf';
+            return $pdfPath;
         } else if ($idTypeContrat == 3) {
-            return "hello";
+            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\Convention-de-stage.pdf';
+            return $pdfPath;
         } else {
-            return "hiii";
+            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\CDI.pdf';
+            return $pdfPath;
         }
     }
 
@@ -91,7 +94,7 @@ class EmployeController extends Controller
             $identifiant = $firstsurname . '.' . $firstname;
             $mdp = $this->genererMdp(10);
             //echo $identifiant . $mdp;
-            //$mail = $this->envoyerMail($identifiant,$mdp,$email);
+            // $mail = $this->envoyerMail($identifiant,$mdp,$email);
 
             $contrat = $this->genererContrat($type_contrat);
             echo $contrat;
