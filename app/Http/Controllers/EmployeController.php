@@ -7,6 +7,7 @@ use App\Models\Candidats;
 use App\Models\TypeContrat;
 use App\Mail\TestMail;
 use App\Models\EmployesInfosPros;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -51,25 +52,29 @@ class EmployeController extends Controller
         return $password;
     }
 
-    public function genererContrat($idTypeContrat)
+    public function getContrat($idTypeContrat)
     {
         if ($idTypeContrat == 2) {
-            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\CDD.pdf';
-            return $pdfPath;
-        } else if ($idTypeContrat == 3) {
-            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\Convention-de-stage.pdf';
-            return $pdfPath;
+            return public_path('assets/contrat/CDD.pdf');
+        } elseif ($idTypeContrat == 3) {
+            return public_path('assets/contrat/Convention-de-stage.pdf');
         } else {
-            $pdfPath = 'C:\Users\PC\Documents\GitHub\Soutenance\Project-laravel\public\assets\contrat\CDI.pdf';
-            return $pdfPath;
+            return public_path('assets/contrat/CDI.pdf');
         }
     }
 
-    public function envoyerMail($identifiant, $mdp, $email)
+    public function envoyerMail($identifiant, $mdp, $email, $contrat)
     {
         $mail = new TestMail($identifiant, $mdp);
         $mail->to($email);
+        $mail->attach($contrat);
         Mail::send($mail);
+
+        if (count(Mail::failures()) > 0) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public function genererID(Request $request)
@@ -78,10 +83,9 @@ class EmployeController extends Controller
 
             $candidat = session()->get('candidat');
             $idCandidat = $candidat->idCandidat;
-            $idDeptPoste = $candidat->idDeptPoste;
+
             $nom = $candidat->nom;
             $prenoms = $candidat->prenom;
-            $email = $candidat->email;
 
             $type_contrat = $request->input('type_contrat');
             $date_debut = $request->input('date_debut');
@@ -92,32 +96,72 @@ class EmployeController extends Controller
 
             //les identifiants
             $identifiant = $firstsurname . '.' . $firstname;
-            $mdp = $this->genererMdp(10);
-            //echo $identifiant . $mdp;
-            // $mail = $this->envoyerMail($identifiant,$mdp,$email);
 
-            $contrat = $this->genererContrat($type_contrat);
-            echo $contrat;
+            $mdp = $request->session()->get('generated_password');
 
-            /*$idEmploye = Employes::insertGetId([
-                'idCandidat' => $idCandidat,
-                'identifiant' => $identifiant,
-                'mdp' => $mdp
-            ]);
+            if (!$mdp) {
+                $mdp = $this->genererMdp(10);
+                $request->session()->put('generated_password', $mdp);
+            }
 
-            $employeInfoPro = EmployesInfosPros::create([
-                'idEmploye' => $idEmploye,
-                'idDeptPoste' => $idDeptPoste,
-                'idTypeContrat' => $type_contrat,
-                'date_debut' => $date_debut,
-                'date_fin' => $date_fin
-            ]);*/
+            session()->put('type_contrat', $type_contrat);
+            session()->put('date_debut', $date_debut);
+            session()->put('date_fin', $date_fin);
+            session()->put('identifiant', $identifiant);
+            session()->put('mdp', $mdp);
 
-            return "E-mail envoyé avec succès";
+            return view('admin.envoyerIdentifiant', compact('identifiant', 'mdp'));
         }
     }
 
+    public function envoyerIdentifiants(Request $request)
+    {
+        $candidat = session()->get('candidat');
+        $idCandidat = $candidat->idCandidat;
+        $idDeptPoste = $candidat->idDeptPoste;
+        $email = $candidat->email;
 
+        $type_contrat = session()->get('type_contrat');
+        $date_debut = session()->get('date_debut');
+        $date_fin = session()->get('date_fin');
+        $identifiant = $request->input('identifiant');
+        $mdp = $request->session()->get('generated_password');
+
+        $contrat = $this->getContrat($type_contrat);
+
+        echo $type_contrat;
+
+        if ($idCandidat != 0)
+        {
+            $mailResult = $this->envoyerMail($identifiant, $mdp, $email, $contrat);
+
+            if ($mailResult === 1) {
+                $idEmploye = DB::table('employes')->insertGetId([
+                    'idCandidat' => $idCandidat,
+                    'identifiant' => $identifiant,
+                    'mdp' => $mdp
+                ]);
+
+                if ($idEmploye != 0) {
+                    DB::table('candidats')
+                        ->where('idCandidat', $idCandidat)
+                        ->update(['statut' => 3]);
+
+                    $employeInfoPro = EmployesInfosPros::create([
+                        'idEmploye' => $idEmploye,
+                        'idDeptPoste' => $idDeptPoste,
+                        'idTypeContrat' => $type_contrat,
+                        'date_debut' => $date_debut,
+                        'date_fin' => $date_fin
+                    ]);
+                }
+                return redirect()->route('liste-candidats')->with('success', 'Identifiants bien envoyés, et employé inséré');
+
+            }else{
+                return redirect()->route('liste-candidats')->with('error', 'Erreur');
+            }
+        }
+    }
 
     public function listeEmployes()
     {

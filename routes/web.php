@@ -54,9 +54,9 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
     //EMPLOYÉS
     Route::get('/ajout-collaborateur/{idCandidat}', [EmployeController::class, 'ajoutCollaborateur'])->name('ajout-collaborateur');
 
-    Route::post('/envoyer-identifiant', [EmployeController::class, 'genererID'])->name('envoyer-identifiant');
+    Route::post('/generer-id', [EmployeController::class, 'genererID'])->name('generer-id');
 
-    Route::get('/generer-contrat', [EmployeController::class, 'genererContrat'])->name('generer-contrat');
+    Route::post('/envoyer-identifiant', [EmployeController::class, 'envoyerIdentifiants'])->name('envoyer-identifiant');
 
     Route::get('/anniv-collaborateur', function () {
         return view('admin/annivCollaborateur');
@@ -76,20 +76,6 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     //POSTES
     Route::get('/get-postes/{idDepartement}', [DeptPosteController::class, 'getPostesByDepartement'])->name('get-postes');
-
-    //CONTRATS
-    Route::get('/convention-stage', function () {
-        return view('admin/contrat/conventionStage');
-    })->name('convention-stage');
-
-    Route::get('/contrat-cdi', function () {
-        return view('admin/contrat/CDI');
-    })->name('contrat-cdi');
-
-    Route::get('/contrat-cdd', function () {
-        return view('admin/contrat/CDD');
-    })->name('contrat-cdd');
-
 
 
     //ANNONCES

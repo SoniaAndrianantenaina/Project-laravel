@@ -10,43 +10,44 @@
 </head>
 
 <body>
-
     <main class="envoyer-identifiant">
         <div class="block-login">
             <div class="main-section section-one bleu-clair">
-
-                <div class="main-section section-one__title bottom">
-                    <h2>IDENTIFIANTS</h2>
-                </div>
-
-                <div class="main-section identifiant">
-                    <div>
-                        <p>
-                            Nom : <input type="text" class="btn-white lg-bigger">
-                        </p>
+                <form action="{{ route('envoyer-identifiant') }}" method="POST">
+                    @csrf
+                    <div class="main-section section-one__title bottom">
+                        <h2>IDENTIFIANTS</h2>
                     </div>
 
-                    <div>
-                        <p>
-                            Mot De Passe : <input type="text" class="btn-white lg-bigger">
-                        </p>
-                    </div>
-                </div>
+                    <div class="main-section identifiant">
+                        <div>
+                            <p>
+                                Nom : <input type="text" name="identifiant" class="btn-white lg-bigger" value="{{ $identifiant }}">
+                            </p>
+                        </div>
 
-                <div class="boutons">
-                    <div class="btn bleu-foncé">
-                        <a href="{{ route('ajout-collaborateur') }}" class="btn__middle-btn">ANNULER</a>
+                        <div>
+                            <p>
+                                Mot De Passe : <input type="text" name="mdp" class="btn-white lg-bigger" value="{{ $mdp }}">
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="btn bleu-clair">
-                        <a href="{{ route('liste-candidats') }}" class="btn__middle-btn">ENVOYER</a>
-                    </div>
-                </div>
+                    <div class="boutons">
+                        <div class="btn bleu-foncé">
+                            <a href="{{ route('liste-candidats') }}" class="btn__middle-btn">ANNULER</a>
+                        </div>
 
+                        <div>
+                            <button type="submit" class="btn bleu-clair">ENVOYER</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-
     </main>
+
+
 </body>
 
 </html>

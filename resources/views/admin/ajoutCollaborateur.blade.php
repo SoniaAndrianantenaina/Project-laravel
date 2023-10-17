@@ -28,7 +28,7 @@
                 <h2 class='title-h2'>{{ $candidat->nom }} {{ $candidat->prenom }}</h2>
             </div>
 
-            <form action="{{ route('envoyer-identifiant') }}" method="POST">
+            <form action="{{ route('generer-id') }}" method="POST">
                 @csrf
                 <div class="formulaire-collab__content">
 
