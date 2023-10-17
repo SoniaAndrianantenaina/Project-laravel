@@ -320,17 +320,6 @@ input[type=date] {
   display: block;
 }
 
-.p-bleu {
-  text-transform: uppercase;
-  font-size: 18px;
-}
-.p-bleu.clair {
-  color: #70A8E7;
-}
-.p-bleu.foncé {
-  color: #1859A3;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -1163,7 +1152,7 @@ input[type=date] {
 .list-content {
   display: grid;
   grid-template-columns: 15% 85%;
-  height: 100vh;
+  height: 80vh;
 }
 .list-content__left {
   display: flex;
@@ -1226,10 +1215,17 @@ input[type=date] {
 
 .list-dpt {
   display: block;
-  margin-left: 15px;
+  margin-left: 25px;
 }
-.list-dpt .nom {
-  margin-top: 10px;
+.list-dpt .p-bleu {
+  margin-top: 17px;
+  font-size: 16px;
+}
+.list-dpt .p-bleu.clair {
+  color: #70A8E7;
+}
+.list-dpt .p-bleu.foncé {
+  color: #1859A3;
 }
 
 .p-medium {

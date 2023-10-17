@@ -35,41 +35,17 @@
                     </div>
 
                     <div class="list-dpt">
-                        <div>
-                            <h5 class="list-dpt title-h5">Tous</h5>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu foncé">Dept 1</p>
+                        <h5 class="title-h5">Tous</h5>
+                        @foreach ($departements as $departement)
+                            <div data-dept-id="{{ $departement->idDepartement }}">
+                                <p class="p-bleu clair">{{ $departement->nom }}</p>
                             </div>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu clair">Dept 1</p>
-                            </div>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu clair">Dept 1</p>
-                            </div>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu clair">Dept 1</p>
-                            </div>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu clair">Dept 1</p>
-                            </div>
-
-                            <div class="list-dpt nom">
-                                <p class="p-bleu clair">Dept 1</p>
-                            </div>
-
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
 
                 <div class="list-content__right">
                     <div class="list-content__blocks">
-
                         <div class="list-content__blocks__item">
                             <div class="list-content__picture">
                                 <a href="{{ route('profil-employe') }}">
@@ -80,156 +56,13 @@
                             </div>
 
                             <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
+                                <p class="p-medium uppercase">ANDRIANANTENAINA</p>
+                                <p class="p-medium">Sonia Fanomezantsoa</p>
+                                <p class="p-medium grey-text">Stagiaire</p>
+                                <p class="p-medium grey-text">+261 32 54 542 14</p>
                             </div>
                         </div>
-
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <figure class="list-content__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="list-content__infos">
-                                <div class="uppercase">
-                                    <p class="p-medium">Andrianantenaina</p>
-                                </div>
-
-                                <div class="prénoms">
-                                    <p class="p-medium">Sonia Fanomezantsoa</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">Stagiaire</p>
-                                </div>
-
-                                <div class="grey-text">
-                                    <p class="p-medium">+261 32 54 542 14</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

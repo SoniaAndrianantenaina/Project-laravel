@@ -68,7 +68,7 @@ CREATE TABLE `employes_infos_pros`(
     `idDeptPoste` INT NOT NULL,
     `idTypeContrat` INT NOT NULL,
     `date_debut` DATE NOT NULL,
-    `date_fin` DATE NOT NULL
+    `date_fin` DATE NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE `type_conge`(

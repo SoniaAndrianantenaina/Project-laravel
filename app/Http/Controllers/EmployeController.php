@@ -6,6 +6,7 @@ use App\Models\Employes;
 use App\Models\Candidats;
 use App\Models\TypeContrat;
 use App\Mail\TestMail;
+use App\Models\Departements;
 use App\Models\EmployesInfosPros;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -131,8 +132,7 @@ class EmployeController extends Controller
 
         echo $type_contrat;
 
-        if ($idCandidat != 0)
-        {
+        if ($idCandidat != 0) {
             $mailResult = $this->envoyerMail($identifiant, $mdp, $email, $contrat);
 
             if ($mailResult === 1) {
@@ -156,16 +156,33 @@ class EmployeController extends Controller
                     ]);
                 }
                 return redirect()->route('liste-candidats')->with('success', 'Identifiants bien envoyés, et employé inséré');
-
-            }else{
+            } else {
                 return redirect()->route('liste-candidats')->with('error', 'Erreur');
             }
         }
     }
 
+    public function getEmployes($idDepartement)
+    {
+        $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, c.nom as nomEmploye, c.prenom, p.nom, c.contact
+                        from employes_infos_pros eip join employes e
+                        on e.idEmploye = eip.idEmploye
+                        join departement_poste dp
+                        on dp.idDeptPoste  = eip.idDeptPoste
+                        join departements d ON d.idDepartement = dp.idDepartement
+                        join candidats c ON c.idCandidat = e.idCandidat
+                        WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+    }
+
     public function listeEmployes()
     {
-        $employe = Employes::all();
-        return view('admin.listeEmployés', compact('employe'));
+        $departements = Departements::all();
+        return view('admin.listeEmployés', compact('departements'));
     }
+
+    public function birthdayMail($date_anniversaire, $email){
+
+    }
+
+
 }

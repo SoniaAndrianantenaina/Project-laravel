@@ -126,19 +126,6 @@ input[type="date"] {
     display: block;
 }
 
-.p-bleu {
-    text-transform: uppercase;
-    font-size: 18px;
-
-    &.clair {
-        color: $color-secondary;
-    }
-
-    &.foncé {
-        color: $color-primary;
-    }
-}
-
 .uppercase {
     text-transform: uppercase;
 }

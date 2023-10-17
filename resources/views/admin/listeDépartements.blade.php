@@ -66,35 +66,6 @@
                 </div>
             @endforeach
 
-            <div class="department-card">
-                <div class="card-header">
-                    <h3>Ressources humaines</h3>
-                    <div class="right-items">
-                        <div class="edit-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/modify.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="delete-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/delete.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </section>
 </main>

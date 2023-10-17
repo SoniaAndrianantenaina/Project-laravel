@@ -49,7 +49,7 @@
 .list-content {
     display: grid;
     grid-template-columns: 15% 85%;
-    height: 100vh;
+    height: 80vh;
 
     &__left {
         display: flex;
@@ -121,12 +121,23 @@
 
 .list-dpt {
     display: block;
-    margin-left: 15px;
+    margin-left: 25px;
 
-    .nom {
-        margin-top: 10px;
+    .p-bleu {
+        margin-top: 17px;
+        font-size: 16px;
+
+        &.clair {
+            color: $color-secondary;
+        }
+
+        &.foncé {
+            color: $color-primary;
+        }
     }
 }
+
+
 
 .p-medium {
     font-size: 17px;

@@ -58,6 +58,8 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     Route::post('/envoyer-identifiant', [EmployeController::class, 'envoyerIdentifiants'])->name('envoyer-identifiant');
 
+    Route::get('/liste-employes', [EmployeController::class, 'listeEmployes'])->name('liste-employes');
+
     Route::get('/anniv-collaborateur', function () {
         return view('admin/annivCollaborateur');
     })->name('anniv-collaborateur');
@@ -66,9 +68,6 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
         return view('admin/offBoarding');
     })->name('off-boarding');
 
-    Route::get('/liste-employes', function () {
-        return view('admin/listeEmployés');
-    })->name('liste-employes');
 
     Route::get('/profil-employe', function () {
         return view('admin/profilEmployé');
