@@ -101,9 +101,7 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
         return view('admin/ajoutDépartement');
     })->name('ajout-departement');
 
-    Route::get('/liste-departements', function () {
-        return view('admin/listeDépartements');
-    })->name('liste-departements');
+    Route::get('/liste-departements', [DeptPosteController::class, 'listeDepartements'])->name('liste-departements');
 
     //CONGÉS
     Route::get('/planning-conge', function () {

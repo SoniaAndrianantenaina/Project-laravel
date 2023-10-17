@@ -38,34 +38,33 @@
 
     <section>
         <div class="dept-container">
-            <div class="department-card">
-                <div class="card-header">
-                    <h3>Ressources humaines</h3>
-                    <div class="right-items">
-                        <div class="edit-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/modify.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="delete-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/delete.png') }}" alt="">
-                            </a>
+
+            @foreach ($departements as $idDepartement => $groupedDepartements)
+                <div class="department-card">
+                    <div class="card-header">
+                        <h3>{{ $groupedDepartements->first()->dept->nom }}</h3>
+                        <div class="right-items">
+                            <div class="edit-button">
+                                <a href="#">
+                                    <img src="{{ asset('assets/images/icon/modify.png') }}" alt="Modifier">
+                                </a>
+                            </div>
+                            <div class="delete-button">
+                                <a href="#">
+                                    <img src="{{ asset('assets/images/icon/delete.png') }}" alt="Supprimer">
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <div class="card-body">
+                        <ul>
+                            @foreach ($groupedDepartements as $deptPoste)
+                                <li>{{ $deptPoste->poste->nom }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
 
             <div class="department-card">
                 <div class="card-header">
@@ -96,89 +95,6 @@
                 </div>
             </div>
 
-            <div class="department-card">
-                <div class="card-header">
-                    <h3>Ressources humaines</h3>
-                    <div class="right-items">
-                        <div class="edit-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/modify.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="delete-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/delete.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="department-card">
-                <div class="card-header">
-                    <h3>Ressources humaines</h3>
-                    <div class="right-items">
-                        <div class="edit-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/modify.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="delete-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/delete.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="department-card">
-                <div class="card-header">
-                    <h3>Ressources humaines</h3>
-                    <div class="right-items">
-                        <div class="edit-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/modify.png') }}" alt="">
-                            </a>
-                        </div>
-                        <div class="delete-button">
-                            <a href="">
-                                <img src="{{ asset('assets/images/icon/delete.png') }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                        <li>Poste 1</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 </main>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DepartementPoste;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -17,5 +18,14 @@ class DeptPosteController extends Controller
                      WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
 
         return response()->json(['postes' => $postes]);
+    }
+
+    public function listeDepartements()
+    {
+        $departements = DepartementPoste::select('idDepartement', 'idPoste')
+            ->with('poste', 'dept')
+            ->get()
+            ->groupBy('idDepartement');
+        return view('admin.listeDépartements', compact('departements'));
     }
 }

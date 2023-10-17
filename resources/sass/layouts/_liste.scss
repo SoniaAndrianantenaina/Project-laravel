@@ -7,7 +7,7 @@
     }
 }
 
-.wrapper-main{
+.wrapper-main {
     padding: 0 85px 75px;
 }
 
@@ -35,7 +35,6 @@
         font-size: 20px;
     }
 }
-
 
 .div-blue {
     position: relative;
@@ -150,7 +149,7 @@
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             margin-right: 35px;
 
-            &.navy{
+            &.navy {
                 background-color: $color-primary;
             }
         }
@@ -166,7 +165,7 @@
                 text-transform: uppercase;
                 color: $grey-2;
 
-                &.white{
+                &.white {
                     color: $white;
                 }
             }
@@ -187,13 +186,13 @@
     }
 }
 
-.h6-text-white{
+.h6-text-white {
     width: 85px;
     font-size: 25px;
     color: $white;
 }
 
-.p-text-white{
+.p-text-white {
     font-size: 16px;
     color: $white;
 }
@@ -218,7 +217,7 @@
 }
 
 .search-button {
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -227,29 +226,37 @@
     cursor: pointer;
 }
 
-.filter-container{
+.filter-container {
     margin-top: -15px;
     color: $white;
     position: absolute;
     display: flex;
     bottom: 10px;
-    right: 47vh;
+    right: 36vh;
 
-    &.modified{
-        right: 26vh;
-        bottom: 7px;
+    @include max(1366px) {
+        right: 47vh;
     }
 
-    p{
+    &.modified {
+        right: 23vh;
+        bottom: 7px;
+
+        @include max(1366px) {
+            right: 26vh;
+        }
+    }
+
+    p {
         font-size: 17px;
         margin-left: 5px;
     }
-    img{
+    img {
         width: 19px;
     }
 }
 
-.add-dept{
+.add-dept {
     margin-top: -15px;
     color: $white;
     position: absolute;
@@ -257,7 +264,7 @@
     right: 19vh;
     bottom: 7px;
 
-    img{
+    img {
         width: 19px;
     }
 }
@@ -278,12 +285,12 @@
 }
 
 //remove user
-.remove-user{
+.remove-user {
     position: absolute;
     top: 68px;
     right: 97px;
 
-    img{
+    img {
         width: 28px;
     }
 }

@@ -951,11 +951,9 @@ input[type=date] {
   margin-top: 525px;
   margin-left: 163px;
   color: white;
-}
-@media (max-width: 1756px) {
-  .block-accueil__paragraph {
-    margin-top: 360px;
-  }
+  /*@include max(1756px){
+      margin-top: 360px;
+  }*/
 }
 .block-accueil.subtitle {
   color: white;
@@ -1311,7 +1309,7 @@ input[type=date] {
 }
 
 .search-button {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
@@ -1326,11 +1324,21 @@ input[type=date] {
   position: absolute;
   display: flex;
   bottom: 10px;
-  right: 47vh;
+  right: 36vh;
+}
+@media (max-width: 1366px) {
+  .filter-container {
+    right: 47vh;
+  }
 }
 .filter-container.modified {
-  right: 26vh;
+  right: 23vh;
   bottom: 7px;
+}
+@media (max-width: 1366px) {
+  .filter-container.modified {
+    right: 26vh;
+  }
 }
 .filter-container p {
   font-size: 17px;
