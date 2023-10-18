@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnnoncesController;
 use App\Http\Controllers\CandidatController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\DeptPosteController;
@@ -28,9 +30,7 @@ Route::get('/', function () {
 //Côté administrateur
 Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-admin');
 
-    Route::get('/accueil-admin', function () {
-        return view('admin.accueilAdmin');
-    })->name('accueil-admin');
+    Route::get('accueil-admin', [AdminController::class, 'accueilAdmin'])->name('accueil-admin');
 
     //PROFIL
     Route::get('/profil-admin', function () {
@@ -80,13 +80,18 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
 
     //ANNONCES
-    Route::get('/liste-annonces', function () {
-        return view('admin/listeAnnonces');
-    })->name('liste-annonces');
+    Route::get('/annonces-du-jour', [AnnoncesController::class, 'allDayAnnouncement'])->name('annonces-du-jour');
+
+    Route::get('/annonces-à-venir', [AnnoncesController::class, 'allUpcomingAnnouncement'])->name('annonces-à-venir');
+
+    Route::get('/supprimer-annonce/{idAnnonce}', [AnnoncesController::class, 'supprimerAnnonce'])->name('supprimer-annonce');
 
     Route::get('/ajout-annonce', function () {
         return view('admin/ajoutAnnonce');
     })->name('ajout-annonce');
+
+    Route::post('/valider-ajout-annonce', [AnnoncesController::class, 'ajoutAnnonces'])->name('valider-ajout-annonce');
+
 
     Route::get('/modifier-annonce', function () {
         return view('admin/modifierAnnonce');

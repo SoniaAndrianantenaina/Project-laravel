@@ -11,7 +11,8 @@
             <div class='block-accueil__paragraph'>
                 <h1 class='block-accueil subtitle'>Ressources humaines</h1>
                 <h3 class='block-accueil texte'>
-                    Au sein d'une entreprise la gestion des Ressources humaines couvre de multiples aspects tous très importants pour le bon
+                    Au sein d'une entreprise la gestion des Ressources humaines couvre de multiples aspects tous très
+                    importants pour le bon
                     fonctionnement de la société.
                 </h3>
             </div>
@@ -36,22 +37,17 @@
                             <h2 class="title-h2">ANNONCES DU JOUR</h2>
                         </div>
 
-                        <div class="block-annonces content">
-                            <p class="block-annonces content__paragraph">
-                                Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia
-                                <br><br>
-                                Date fin :
-                            </p>
-                        </div>
-
-                        <div class="block-annonces content">
-                            <p class="block-annonces content__paragraph">
-                                Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia
-                                <br><br>
-                                Date fin :
-                            </p>
-                        </div>
-
+                        @foreach ($annonceDuJour as $adj)
+                            <div class="block-annonces content">
+                                <div class="block-annonces content__paragraph">
+                                    <h6>{{ $adj->titre }}</h6>
+                                    <p>{{ $adj->contenu }}</p>
+                                    <p>
+                                        Date fin : {{ \Carbon\Carbon::parse($adj->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -61,21 +57,27 @@
                             <h2 class="title-h2">ANNONCES À VENIR</h2>
                         </div>
 
-                        <div class="block-annonces content">
-                            <p class="block-annonces content__paragraph">
-                                Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia <br> <br>
-                                Date début : <br>
-                                Date de parution prévue : <br>
-                                Date fin :
-                            </p>
-                        </div>
+                        @foreach ($annoncesAvenir as $av)
+                            <div class="block-annonces content">
+                                <div class="block-annonces content__paragraph">
+                                    <h6>{{ $av->titre }}</h6>
+                                    <p>{{ $av->contenu }}</p>
+                                    <p class="date">
+                                        Date début : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                    </p>
+                                    <p class="date">
+                                        Date parution : {{ \Carbon\Carbon::parse($av->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                    </p>
+                                    <p class="date">
+                                        Date fin : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                    </p>
 
-                        <div class="block-annonces content">
-                            <p class="block-annonces content__paragraph">Souhaitons la bienvenue à notre nouvelle recrue Andrianantenaina Sonia</p>
-                        </div>
+                                </div>
+                            </div>
+                        @endforeach
 
                         <div>
-                            <a href="{{ route('liste-annonces') }}" class="btn-white lg-plus">VOIR TOUT</a>
+                            <a href="{{ route('annonces-du-jour') }}" class="btn-white lg-plus">VOIR TOUT</a>
                         </div>
                     </div>
                 </div>
@@ -85,11 +87,11 @@
 
     <section class="statistiques">
         <div class='block-annonces__item__title'>
-                <h2 class='title-h2'>
-                    STATISTIQUES
-                </h2>
-                <div class="trait"></div>
-            </div>
+            <h2 class='title-h2'>
+                STATISTIQUES
+            </h2>
+            <div class="trait"></div>
+        </div>
     </section>
 
 </main>

@@ -63,8 +63,8 @@
                                     </a>
                                 </li>
 
-                                <li class="@if(Request::is('liste-annonces','ajout-annonce')) current @endif">
-                                    <a href="{{ route('liste-annonces') }}" class="text-decoration">
+                                <li class="@if(Request::is('annonces-du-jour','ajout-annonce','annonces-à-venir')) current @endif">
+                                    <a href="{{ route('annonces-du-jour') }}" class="text-decoration">
                                         Annonces
                                     </a>
                                 </li>

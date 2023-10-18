@@ -18,11 +18,6 @@
                                     <div class="white-trait"></div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('ajout-annonce') }}" class="text-decoration">
-                                    Ajouter une annonce
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </nav>

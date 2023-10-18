@@ -106,6 +106,10 @@ CREATE TABLE `annonces`(
     `date_debut` DATETIME NOT NULL,
     `date_fin` DATETIME NOT NULL
 )ENGINE = InnoDB;
+ALTER TABLE rh.annonces ADD photo varchar(100) NULL;
+ALTER TABLE rh.annonces MODIFY COLUMN contenu TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
+
+
 
 CREATE TABLE `cessation_emploi`(
     `idCessationEmploi` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
