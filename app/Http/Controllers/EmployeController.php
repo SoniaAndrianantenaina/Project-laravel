@@ -164,14 +164,16 @@ class EmployeController extends Controller
 
     public function getEmployes($idDepartement)
     {
-        $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, c.nom as nomEmploye, c.prenom, p.nom, c.contact
-                        from employes_infos_pros eip join employes e
-                        on e.idEmploye = eip.idEmploye
-                        join departement_poste dp
-                        on dp.idDeptPoste  = eip.idDeptPoste
-                        join departements d ON d.idDepartement = dp.idDepartement
-                        join candidats c ON c.idCandidat = e.idCandidat
-                        WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+        $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact
+                            from employes_infos_pros eip join employes e
+                            on e.idEmploye = eip.idEmploye
+                            join departement_poste dp
+                            on dp.idDeptPoste  = eip.idDeptPoste
+                            join departements d ON d.idDepartement = dp.idDepartement
+                            join candidats c ON c.idCandidat = e.idCandidat
+                            join poste p on p.idPoste  = dp.idPoste 
+                            WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+         return response()->json($employe);
     }
 
     public function listeEmployes()

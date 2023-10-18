@@ -37,8 +37,10 @@
                     <div class="list-dpt">
                         <h5 class="title-h5">Tous</h5>
                         @foreach ($departements as $departement)
-                            <div data-dept-id="{{ $departement->idDepartement }}">
-                                <p class="p-bleu clair">{{ $departement->nom }}</p>
+                            <div data-dept-id="{{ $departement->idDepartement }}" class="department-item">
+                                <div class="department-name">
+                                    <p class="p-bleu clair">{{ $departement->nom }}</p>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -55,11 +57,11 @@
                                 </a>
                             </div>
 
-                            <div class="list-content__infos">
-                                <p class="p-medium uppercase">ANDRIANANTENAINA</p>
-                                <p class="p-medium">Sonia Fanomezantsoa</p>
-                                <p class="p-medium grey-text">Stagiaire</p>
-                                <p class="p-medium grey-text">+261 32 54 542 14</p>
+                            <div class="list-content__infos" id="result-container">
+                                <p class="p-medium uppercase" id="nomEmploye"></p>
+                                <p class="p-medium" id="prenomEmploye"></p>
+                                <p class="p-medium grey-text" id="posteEmploye"></p>
+                                <p class="p-medium grey-text" id="contactEmploye"></p>
                             </div>
                         </div>
                     </div>
@@ -67,4 +69,34 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const departmentItems = document.querySelectorAll('.department-item');
+
+            departmentItems.forEach(function(department) {
+                department.addEventListener('click', function() {
+                    const departmentId = department.getAttribute('data-dept-id');
+                    console.log(departmentId);
+
+                    fetch(`/get-employes/${departmentId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            const nomEmployeElement = document.getElementById("nomEmploye");
+                            const prenomEmployeElement = document.getElementById("prenomEmploye");
+                            const posteEmployeElement = document.getElementById("posteEmploye");
+                            const contactEmployeElement = document.getElementById("contactEmploye");
+
+
+                            nomEmployeElement.innerHTML = data.nomEmploye;
+                            prenomEmployeElement.innerHTML = data.prenom;
+                            posteEmployeElement.innerHTML = data.nomPoste;
+                            contactEmployeElement.innerHTML = data.contact;
+
+                        });
+                });
+            });
+        });
+    </script>
 </main>

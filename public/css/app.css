@@ -940,9 +940,11 @@ input[type=date] {
   margin-top: 525px;
   margin-left: 163px;
   color: white;
-  /*@include max(1756px){
-      margin-top: 360px;
-  }*/
+}
+@media (max-width: 1756px) {
+  .block-accueil__paragraph {
+    margin-top: 360px;
+  }
 }
 .block-accueil.subtitle {
   color: white;
@@ -1219,7 +1221,7 @@ input[type=date] {
 }
 .list-dpt .p-bleu {
   margin-top: 17px;
-  font-size: 16px;
+  font-size: 12px;
 }
 .list-dpt .p-bleu.clair {
   color: #70A8E7;
@@ -1229,7 +1231,7 @@ input[type=date] {
 }
 
 .p-medium {
-  font-size: 17px;
+  font-size: 15px;
   margin-bottom: 12px;
 }
 

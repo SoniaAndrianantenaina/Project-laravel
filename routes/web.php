@@ -60,6 +60,8 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     Route::get('/liste-employes', [EmployeController::class, 'listeEmployes'])->name('liste-employes');
 
+    Route::get('/get-employes/{idDepartement}', [EmployeController::class, 'getEmployes'])->name('get-employes');
+
     Route::get('/anniv-collaborateur', function () {
         return view('admin/annivCollaborateur');
     })->name('anniv-collaborateur');
