@@ -18,23 +18,29 @@
 
                             <div class="paragraph-content">
                                 <p class="paragraph-content__text">{{ $annonce->contenu }}</p> <br>
-                                <p class="paragraph-content__text">Date de parution prévue :
-                                    {{ $annonce->date_parution }}</p>
-                                <p class="paragraph-content__text">Date début : {{ $annonce->date_debut }}</p>
-                                <p class="paragraph-content__text">Date fin : {{ $annonce->date_fin }}</p>
+                                <p class="paragraph-content__text">
+                                    Date de parution prévue : {{ \Carbon\Carbon::parse($annonce->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
+                                <p class="paragraph-content__text">
+                                    Date début : {{ \Carbon\Carbon::parse($annonce->date_debut)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
+                                <p class="paragraph-content__text">
+                                    Date fin : {{ \Carbon\Carbon::parse($annonce->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
                             </div>
                         </div>
 
                         <div class="boutons modify-top-1">
                             <div class="btn tiny-btn bleu-clair">
-                                <a href="{{ route('modifier-annonce', ['id' => $annonce->id]) }}"
+                                <a href="{{ route('modifier-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
                                     class="btn__middle-btn">MODIFIER</a>
                             </div>
 
                             <div class="btn tiny-btn bleu-foncé">
-                                <a href="{{ route('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
-                                    class="btn__middle-btn">SUPPRIMER</a>
+                                <a href="{{ url('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
+                                    class="btn__middle-btn delete-button" onclick="confirmDelete(event);">SUPPRIMER</a>
                             </div>
+
                         </div>
                     </div>
                 @endforeach

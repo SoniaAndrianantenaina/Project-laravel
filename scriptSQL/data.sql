@@ -287,3 +287,8 @@ VALUES
     ('Annonce de vacances', 'L''entreprise sera fermée pour les vacances de Noël du 24 décembre au 2 janvier.', '2023-10-17 14:15:00', '2023-12-24 00:00:00', '2024-01-02 00:00:00'),
     ('Nouvelle politique de télétravail', 'Nous avons mis en place une nouvelle politique de télétravail à partir du 1er novembre.', '2023-10-18 11:45:00', '2023-11-01 08:00:00', '2023-11-01 17:00:00'),
     ('Projet d''équipe - Appel à volontaires', 'Nous cherchons des volontaires pour un projet d''équipe passionnant.', '2023-10-18 15:00:00', '2023-10-19 09:00:00', '2023-11-19 17:00:00');
+
+INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin, photo)
+VALUES ('Soirée de remise des prix', 'Rejoignez-nous le 15 novembre pour notre soirée annuelle de remise des prix. Célébrons nos réussites ensemble !', '2023-10-25 12:00:00', '2023-11-15', '2023-11-15', 'event1.jpg');
+INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin, photo)
+VALUES ('Formation en leadership', 'Inscrivez-vous à notre formation en leadership qui débutera le 1er novembre. Une opportunité unique !', '2023-10-20', '2023-11-01', '2023-11-30', 'formation1.jpg');

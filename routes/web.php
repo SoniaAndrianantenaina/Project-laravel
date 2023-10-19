@@ -86,16 +86,14 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     Route::get('/supprimer-annonce/{idAnnonce}', [AnnoncesController::class, 'supprimerAnnonce'])->name('supprimer-annonce');
 
-    Route::get('/ajout-annonce', function () {
-        return view('admin/ajoutAnnonce');
-    })->name('ajout-annonce');
+    Route::get('/modifier-annonce/{idAnnonce}', [AnnoncesController::class, 'modifierAnnonce'])->name('modifier-annonce');
+
+    Route::post('/valider-modif-annonce', [AnnoncesController::class, 'validerModifAnnonce'])->name('valider-modif-annonce');
+
+    Route::get('/ajout-annonce', function () { return view('admin/ajoutAnnonce'); })->name('ajout-annonce');
 
     Route::post('/valider-ajout-annonce', [AnnoncesController::class, 'ajoutAnnonces'])->name('valider-ajout-annonce');
 
-
-    Route::get('/modifier-annonce', function () {
-        return view('admin/modifierAnnonce');
-    })->name('modifier-annonce');
 
 
     //DÉPARTEMENTS

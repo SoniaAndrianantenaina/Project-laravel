@@ -42,7 +42,10 @@
                                 <div class="block-annonces content__paragraph">
                                     <h6>{{ $adj->titre }}</h6>
                                     <p>{{ $adj->contenu }}</p>
-                                    <p>
+                                    <p class="date">
+                                        Heure début : {{ \Carbon\Carbon::parse($adj->date_debut)->format('H:i') }}
+                                    </p>
+                                    <p class="date">
                                         Date fin : {{ \Carbon\Carbon::parse($adj->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                     </p>
                                 </div>

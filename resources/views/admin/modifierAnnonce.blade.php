@@ -9,57 +9,78 @@
             </div>
 
             <div class="border-center__contenu">
-
-                <div class="content">
-                    <div class="test">
+                <form action="{{ route('valider-modif-annonce') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="content">
                         <div>
                             <figure class="left-image">
-                                <img src="{{ asset('assets/images/annonces/image-annonce.jpg') }}" alt="">
+                                @if (Str::startsWith($annonce->photo, 'public/'))
+                                    <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $annonce->photo)) }}"
+                                        alt="Image 1">
+                                @else
+                                    <img src="{{ asset($annonce->photo) }}" alt="Image 1">
+                                @endif
                             </figure>
-
                         </div>
 
                         <div class="p-bottom">
                             <label for="file" class="label-file">Modifier l'image</label>
-                            <input id="file" class="input-file" type="file">
+                            <input type="file" id="file" class="input-file" name="file">
                         </div>
-
                     </div>
 
-                </div>
+                    <div class="content">
+                        <label for="">
+                            <span class="navy-span">Titre :</span>
+                            <input type="text" class="btn-blue small" name="titre" value="{{ $annonce->titre }}">
+                        </label>
+                    </div>
 
-                <div class="formulaire-collab__content">
-                    <label for="">
-                        <span class="navy-span">Contenu :</span>
+                    <div class="formulaire-collab__content">
+                        <label for="">
+                            <span class="navy-span">Contenu :</span>
+                            <div>
+                                <textarea class="small-text" name="contenu" id="" cols="45" rows="10">{{ $annonce->contenu }}</textarea>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="content">
+                        <label for="">
+                            <span class="navy-span">Date parution :</span>
+                            <input type="datetime-local" class="btn-blue small" name="date_parution"
+                                value="{{ \Carbon\Carbon::parse($annonce->date_parution)->format('Y-m-d\TH:i') }}">
+                        </label>
+                    </div>
+
+                    <div class="content">
+                        <label for="">
+                            <span class="navy-span">Date début :</span>
+                            <input type="datetime-local" class="btn-blue small" name="date_debut"
+                                value="{{ \Carbon\Carbon::parse($annonce->date_debut)->format('Y-m-d\TH:i') }}">
+                        </label>
+                    </div>
+
+                    <div class="content">
+                        <label for="">
+                            <span class="navy-span">Date fin :</span>
+                            <input type="datetime-local" class="btn-blue small" name="date_fin"
+                                value="{{ \Carbon\Carbon::parse($annonce->date_fin)->format('Y-m-d\TH:i') }}">
+                        </label>
+                    </div>
+
+
+                    <div class="boutons modify-top">
                         <div>
-                            <textarea class="small-text" name="" id="" cols="45" rows="10"></textarea>
+                            <button type="submit" class="btn bleu-clair">MODIFIER</button>
                         </div>
-                    </label>
-                </div>
 
-                <div class="content">
-                    <label for="">
-                        <span class="navy-span">Date parution :</span>
-                        <input type="datetime-local" class="btn-blue small">
-                    </label>
-                </div>
-
-                <div class="content">
-                    <label for="">
-                        <span class="navy-span">Date fin :</span>
-                        <input type="datetime-local" class="btn-blue small">
-                    </label>
-                </div>
-
-                <div class="boutons modify-top">
-                    <div class="btn bleu-clair">
-                        <a href="" class="btn__middle-btn">MODIFIER</a>
+                        <div class="btn bleu-foncé">
+                            <a href="{{ route('annonces-du-jour') }}" class="btn__middle-btn">ANNULER</a>
+                        </div>
                     </div>
 
-                    <div class="btn bleu-foncé">
-                        <a href="{{ route('liste-annonces') }}" class="btn__middle-btn">ANNULER</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
 
