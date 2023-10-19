@@ -171,7 +171,7 @@ class EmployeController extends Controller
                             on dp.idDeptPoste  = eip.idDeptPoste
                             join departements d ON d.idDepartement = dp.idDepartement
                             join candidats c ON c.idCandidat = e.idCandidat
-                            join poste p on p.idPoste  = dp.idPoste 
+                            join poste p on p.idPoste  = dp.idPoste
                             WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
          return response()->json($employe);
     }
@@ -182,8 +182,10 @@ class EmployeController extends Controller
         return view('admin.listeEmployés', compact('departements'));
     }
 
-    public function birthdayMail($date_anniversaire, $email){
-
+    public function birthdayMail(){
+        $employe = new Employes();
+        $test = $employe->birthdayMail();
+        return $test;
     }
 
 

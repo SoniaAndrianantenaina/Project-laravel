@@ -62,9 +62,7 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
     Route::get('/get-employes/{idDepartement}', [EmployeController::class, 'getEmployes'])->name('get-employes');
 
-    Route::get('/anniv-collaborateur', function () {
-        return view('admin/annivCollaborateur');
-    })->name('anniv-collaborateur');
+    Route::get('/anniversaire', [EmployeController::class, 'birthdayMail'])->name('anniversaire');
 
     Route::get('/off-boarding', function () {
         return view('admin/offBoarding');
