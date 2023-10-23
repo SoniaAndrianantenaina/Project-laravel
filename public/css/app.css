@@ -1460,14 +1460,14 @@ input[type=date] {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .cube__first {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  width: 450px;
-  height: 415px;
+  width: 420px;
+  height: 385px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -1486,7 +1486,7 @@ input[type=date] {
 .cube__second {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   background-color: white;
-  width: 450px;
+  width: 420px;
   height: 215px;
   color: white;
 }
@@ -1499,7 +1499,7 @@ input[type=date] {
 }
 .cube__second__subtitle {
   color: #70A8E7;
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -1508,8 +1508,8 @@ input[type=date] {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   margin-left: 23px;
   background-color: white;
-  width: 666px;
-  height: 666px;
+  width: 630px;
+  height: 630px;
   color: white;
 }
 .cube__third__ctn {
@@ -1518,7 +1518,7 @@ input[type=date] {
 .cube__third__ctn__info {
   margin-top: 20px;
   color: #1859A3;
-  font-size: 22px;
+  font-size: 18px;
 }
 .cube__third__ctn__trait {
   margin-top: 5px;
@@ -1531,14 +1531,14 @@ input[type=date] {
   align-items: center;
 }
 .cube__text__subtitle {
-  font-size: 22px;
+  font-size: 18px;
 }
 .cube__text.navy {
   color: #1859A3;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -1553,13 +1553,13 @@ input[type=date] {
   height: 100%;
 }
 .pin__image img {
-  max-width: 30px;
+  max-width: 24px;
   height: auto;
 }
 .pin__content__text {
   margin-left: -25px;
   color: #70A8E7;
-  font-size: 22px;
+  font-size: 18px;
   width: 165px;
 }
 

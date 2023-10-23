@@ -71,6 +71,7 @@ CREATE TABLE `employes_infos_pros`(
     `date_fin` DATE NULL
 )ENGINE = InnoDB;
 
+
 CREATE TABLE `type_conge`(
     `idTypeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nom` VARCHAR(100) NOT NULL

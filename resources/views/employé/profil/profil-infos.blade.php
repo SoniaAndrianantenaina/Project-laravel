@@ -10,19 +10,19 @@
         <div class="div-grey__infos">
             <div class="div-grey__infos__center">
                 <div class="title-h6">
-                    <h6>Sonia Fanomezantsoa</h6>
+                    <h6>{{ $profil->prenom }}</h6>
                 </div>
 
                 <div class="title-h6">
-                    <h6>Andrianantenaina</h6>
+                    <h6>{{ $profil->nom }}</h6>
                 </div>
 
                 <div class="title-h6 uppercase black">
-                    <h6>Digital Agency</h6>
+                    <h6> {{$profil->deptposte->dept->nom}}</h6>
                 </div>
 
                 <div class="title-h6">
-                    <h6>Stagiaire</h6>
+                    <h6>{{$profil->deptposte->poste->nom}}</h6>
                 </div>
             </div>
 
@@ -32,11 +32,11 @@
     <div class="left-text">
         <div class="div-grey__infos__left">
             <div class="title-h6">
-                <h6>Matricule : 0222</h6>
+                <h6>Matricule : {{$profil->idEmploye}}</h6>
             </div>
 
             <div class="title-h6">
-                <h6>+261323975502</h6>
+                <h6>0{{$profil->contact}}</h6>
             </div>
 
             <div class="trait-lg"></div>

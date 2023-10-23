@@ -24,7 +24,7 @@
                                 </div>
 
                                 <div class="subtitle adjust-right">
-                                    <h6>10j</h6>
+                                    <h6>{{$jour}}j</h6>
                                 </div>
                             </div>
 

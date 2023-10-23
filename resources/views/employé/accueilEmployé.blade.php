@@ -1,5 +1,7 @@
 @include('banner.headerEmployé')
+{{--}}
 {{$employe_user}}
+{{--}}
 <main class='page-accueil'>
 
     <section class='block-accueil'>

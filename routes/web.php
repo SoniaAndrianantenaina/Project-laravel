@@ -130,9 +130,8 @@ Route::get('/', function () {
     Route::get('/annonces-à-venir-employé', [AnnoncesController::class, 'allUpcomingAnnouncementEmployee'])->name('annonces-à-venir-employé');
 
     //congés
-    Route::get('/solde-conge', function () {
-        return view('employé.soldeCongé');
-    })->name('solde-conge');
+    Route::get('/solde-conge', [EmployeController::class, 'soldeCongéPage'])->name('solde-conge');
+
 
     Route::get('/demande-conge', function () {
         return view('employé.demandeCongé');
@@ -155,7 +154,6 @@ Route::get('/', function () {
     })->name('profil-collaborateurs');
 
     //profil
-    Route::get('/mon-profil', function () {
-        return view('employé.monProfil');
-    })->name('mon-profil');
+    Route::get('/mon-profil', [EmployeController::class, 'getMonProfil'])->name('mon-profil');
+
 

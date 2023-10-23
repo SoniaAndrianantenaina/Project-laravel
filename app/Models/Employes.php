@@ -23,11 +23,13 @@ class Employes extends Authenticatable
 
     public $timestamps = false;
 
-    public function candidat(){
+    public function candidat()
+    {
         return $this->belongsTo(Candidats::class, 'idCandidat');
     }
 
-    public function birthdayMail(){
+    public function birthdayMail()
+    {
         $employes = DB::select('SELECT e.idEmploye, c.nom, c.prenom, c.datenaissance  from employes e join candidats c on c.idCandidat = e.idCandidat');
         $today = date('d-m');
         //echo $today;
@@ -47,6 +49,41 @@ class Employes extends Authenticatable
         foreach ($employeeIDs as $employeeID) {
             echo "C'est l'anniversaire de l'employé avec l'ID : $employeeID<br>";
         }
+    }
 
+
+    public function monProfil()
+    {
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+            $profil = EmployeInfos::where('idEmploye', $employe_id)->first();
+            return $profil;
+        }
+    }
+
+    public function relationProfil()
+    {
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+
+            $profil = EmployeInfos::where('idEmploye', $employe_id)->first();
+            $idDepartement = $profil->deptposte->dept->idDepartement;
+            $relations = DB::select('SELECT e.idEmploye, c.nom, c.prenom, eip.idTypeContrat, dp.idDepartement, dp.idPoste,p.nom, p.degre  from employes e
+            join candidats c on c.idCandidat = e.idCandidat
+            join employes_infos_pros eip on e.idEmploye = eip.idEmploye
+            join departement_poste dp on dp.idDeptPoste = c.idDeptPoste
+            join poste p on dp.idPoste = p.idPoste d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+            return $relations;
+        }
+    }
+
+    public function soldeCongé()
+    {
+        if (auth()->guard('employee')->check()) {
+            $jour = 1;
+            return view('employé.soldeCongé', compact('jour'));
+        }
     }
 }

@@ -8,7 +8,7 @@ use App\Models\TypeContrat;
 use App\Mail\TestMail;
 use App\Models\Departements;
 use App\Models\Annonces;
-
+use App\Models\EmployeInfos;
 use App\Models\EmployesInfosPros;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -101,19 +101,18 @@ class EmployeController extends Controller
             $identifiant = $firstsurname . '.' . $firstname;
 
             $mdp = $request->session()->get('generated_password');
-
+            echo $identifiant . $mdp;
             if (!$mdp) {
                 $mdp = $this->genererMdp(10);
                 $request->session()->put('generated_password', $mdp);
             }
 
-            session()->put('type_contrat', $type_contrat);
+            /*            session()->put('type_contrat', $type_contrat);
             session()->put('date_debut', $date_debut);
             session()->put('date_fin', $date_fin);
             session()->put('identifiant', $identifiant);
-            session()->put('mdp', $mdp);
 
-            return view('admin.envoyerIdentifiant', compact('identifiant', 'mdp'));
+            return view('admin.envoyerIdentifiant', compact('identifiant', 'mdp'));*/
         }
     }
 
@@ -175,7 +174,7 @@ class EmployeController extends Controller
                             join candidats c ON c.idCandidat = e.idCandidat
                             join poste p on p.idPoste  = dp.idPoste
                             WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
-         return response()->json($employe);
+        return response()->json($employe);
     }
 
     public function listeEmployes()
@@ -184,7 +183,8 @@ class EmployeController extends Controller
         return view('admin.listeEmployés', compact('departements'));
     }
 
-    public function birthdayMail(){
+    public function birthdayMail()
+    {
         $employe = new Employes();
         $test = $employe->birthdayMail();
         return $test;
@@ -192,7 +192,8 @@ class EmployeController extends Controller
 
     //COTÉ EMPLOYÉ
 
-    public function accueilEmploye(){
+    public function accueilEmploye()
+    {
         if (auth()->guard('employee')->check()) {
             $annonce = new Annonces();
             $annonceDuJour = $annonce->dayAnnouncements();
@@ -202,5 +203,29 @@ class EmployeController extends Controller
         }
     }
 
+    public function getMonProfil()
+    {
+        $employe = new Employes();
+        $profil = $employe->monProfil();
+        return view('employé.monProfil', compact('profil'));
+    }
 
+    public function getRelationsProfil()
+    {
+        $employe = new Employes();
+        $profil = $employe->monProfil();
+        $relation = $employe->relationProfil();
+        return view('employé.profil.profil-infos', compact('profil', 'relation'));
+    }
+
+    public function getSolde(){
+        $jour = 1;
+        return view('employé.soldeCongé', compact('jour'));
+    }
+
+    public function soldeCongéPage(){
+        $relation_profil = $this->getRelationsProfil();
+        $solde = $this->getSolde();
+        return view('employé.soldeCongé', compact('relation_profil', 'solde'));
+    }
 }
