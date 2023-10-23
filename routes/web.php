@@ -124,6 +124,11 @@ Route::get('/', function () {
 
     Route::get('accueil-employé', [EmployeController::class, 'accueilEmploye'])->name('accueil-employé');
 
+    //annonce
+    Route::get('/annonces-du-jour-employé', [AnnoncesController::class, 'allDayAnnouncementEmployee'])->name('annonces-du-jour-employé');
+
+    Route::get('/annonces-à-venir-employé', [AnnoncesController::class, 'allUpcomingAnnouncementEmployee'])->name('annonces-à-venir-employé');
+
     //congés
     Route::get('/solde-conge', function () {
         return view('employé.soldeCongé');

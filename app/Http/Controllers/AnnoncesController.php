@@ -10,16 +10,38 @@ class AnnoncesController extends Controller
     //
     public function allDayAnnouncement()
     {
-        $announcement = new Annonces();
-        $annonces = $announcement->allDayAnnouncements();
-        return view('annonces.listeAnnoncesDuJour', compact('annonces'));
+        if (auth()->guard('web')->check()) {
+            $announcement = new Annonces();
+            $annonces = $announcement->allDayAnnouncements();
+            return view('admin.listeAnnoncesDuJour', compact('annonces'));
+        }
     }
 
     public function allUpcomingAnnouncement()
     {
-        $announcement = new Annonces();
-        $annonces = $announcement->allUpcomingAnnouncements();
-        return view('annonces.listeAnnoncesAvenir', compact('annonces'));
+        if (auth()->guard('web')->check()) {
+            $announcement = new Annonces();
+            $annonces = $announcement->allUpcomingAnnouncements();
+            return view('admin.listeAnnoncesAvenir', compact('annonces'));
+        }
+    }
+
+    public function allDayAnnouncementEmployee()
+    {
+        if (auth()->guard('employee')->check()) {
+            $announcement = new Annonces();
+            $annonces = $announcement->allDayAnnouncements();
+            return view('employé.listeAnnoncesDuJour', compact('annonces'));
+        }
+    }
+
+    public function allUpcomingAnnouncementEmployee()
+    {
+        if (auth()->guard('employee')->check()) {
+            $announcement = new Annonces();
+            $annonces = $announcement->allUpcomingAnnouncements();
+            return view('employé.listeAnnoncesAvenir', compact('annonces'));
+        }
     }
 
     public function supprimerAnnonce($idAnnonce)

@@ -46,8 +46,8 @@
                                         Congés
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('annonces-du-jour','annonces-à-venir')) current @endif">
-                                    <a href="{{ route('annonces-du-jour') }}" class="text-decoration">
+                                <li class="@if(Request::is('annonces-du-jour-employé','annonces-à-venir-employé')) current @endif">
+                                    <a href="{{ route('annonces-du-jour-employé') }}" class="text-decoration">
                                         Annonces
                                     </a>
                                 </li>

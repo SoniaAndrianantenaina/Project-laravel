@@ -1,9 +1,4 @@
-@if (auth()->guard('employee')->check())
-    @include('banner.headerEmployé')
-@elseif (auth()->guard('web')->check())
-    @include('banner.header')
-@endif
-
+@include('banner.header')
 
 <body>
     <main class="list-annonces">
@@ -24,10 +19,6 @@
                             <div class="paragraph-content">
                                 <p class="paragraph-content__text">{{ $annonce->contenu }}</p> <br>
                                 <p class="paragraph-content__text">
-                                    Date de parution prévue :
-                                    {{ \Carbon\Carbon::parse($annonce->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                </p>
-                                <p class="paragraph-content__text">
                                     Date début :
                                     {{ \Carbon\Carbon::parse($annonce->date_debut)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                 </p>
@@ -38,20 +29,17 @@
                             </div>
                         </div>
 
-                        @if (auth()->guard('web')->check())
-                            <div class="boutons modify-top-1">
-                                <div class="btn tiny-btn bleu-clair">
-                                    <a href="{{ route('modifier-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
-                                        class="btn__middle-btn">MODIFIER</a>
-                                </div>
-
-                                <div class="btn tiny-btn bleu-foncé">
-                                    <a href="{{ url('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
-                                        class="btn__middle-btn delete-button"
-                                        onclick="confirmDelete(event);">SUPPRIMER</a>
-                                </div>
+                        <div class="boutons modify-top-1">
+                            <div class="btn tiny-btn bleu-clair">
+                                <a href="{{ route('modifier-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
+                                    class="btn__middle-btn">MODIFIER</a>
                             </div>
-                        @endif
+
+                            <div class="btn tiny-btn bleu-foncé">
+                                <a href="{{ url('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
+                                    class="btn__middle-btn delete-button" onclick="confirmDelete(event);">SUPPRIMER</a>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>

@@ -794,7 +794,7 @@ input[type=date] {
 
 .content-nav li {
   display: inline-block;
-  padding: 30px;
+  padding: 25px;
 }
 .content-nav li.current a, .content-nav li:hover a {
   color: #1859A3;

@@ -86,7 +86,7 @@
                         @endforeach
 
                         <div>
-                            <a href="{{ route('annonces-du-jour') }}" class="btn-white lg-plus">VOIR TOUT</a>
+                            <a href="{{ route('annonces-du-jour-employé') }}" class="btn-white lg-plus">VOIR TOUT</a>
                         </div>
                     </div>
                 </div>
