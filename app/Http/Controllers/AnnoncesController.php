@@ -10,25 +10,21 @@ class AnnoncesController extends Controller
     //
     public function allDayAnnouncement()
     {
-        if (auth()->check()) {
-            $announcement = new Annonces();
-            $annonces = $announcement->allDayAnnouncements();
-            return view('admin.listeAnnoncesDuJour', compact('annonces'));
-        }
+        $announcement = new Annonces();
+        $annonces = $announcement->allDayAnnouncements();
+        return view('annonces.listeAnnoncesDuJour', compact('annonces'));
     }
 
     public function allUpcomingAnnouncement()
     {
-        if (auth()->check()) {
-            $announcement = new Annonces();
-            $annonces = $announcement->allUpcomingAnnouncements();
-            return view('admin.listeAnnoncesAvenir', compact('annonces'));
-        }
+        $announcement = new Annonces();
+        $annonces = $announcement->allUpcomingAnnouncements();
+        return view('annonces.listeAnnoncesAvenir', compact('annonces'));
     }
 
     public function supprimerAnnonce($idAnnonce)
     {
-        if (auth()->check()) {
+        if (auth()->guard('web')->check()) {
             $announcement = new Annonces();
             $result = $announcement->deleteAnnouncement($idAnnonce);
             if ($result == true) {
@@ -41,7 +37,7 @@ class AnnoncesController extends Controller
 
     public function ajoutAnnonces(Request $request)
     {
-        if (auth()->check()) {
+        if (auth()->guard('web')->check()) {
             $titre = $request->input('titre');
             $contenu = $request->input('contenu');
             $date_parution = $request->input('date_parution');
@@ -84,7 +80,7 @@ class AnnoncesController extends Controller
 
     public function modifierAnnonce($idAnnonce)
     {
-        if (auth()->check()) {
+        if (auth()->guard('web')->check()) {
             $annonce = Annonces::find($idAnnonce);
             session()->put('annonce', $annonce);
 
@@ -94,7 +90,7 @@ class AnnoncesController extends Controller
 
     public function validerModifAnnonce(Request $request)
     {
-        if (auth()->check()) {
+        if (auth()->guard('web')->check()) {
             $annonce = session()->get('annonce');
             $titre = $request->input('titre');
             $contenu = $request->input('contenu');

@@ -7,6 +7,8 @@ use App\Models\Candidats;
 use App\Models\TypeContrat;
 use App\Mail\TestMail;
 use App\Models\Departements;
+use App\Models\Annonces;
+
 use App\Models\EmployesInfosPros;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -186,6 +188,18 @@ class EmployeController extends Controller
         $employe = new Employes();
         $test = $employe->birthdayMail();
         return $test;
+    }
+
+    //COTÉ EMPLOYÉ
+
+    public function accueilEmploye(){
+        if (auth()->guard('employee')->check()) {
+            $annonce = new Annonces();
+            $annonceDuJour = $annonce->dayAnnouncements();
+            $annoncesAvenir = $annonce->upcomingAnnouncements();
+            $employe_user = auth()->guard('employee')->user();
+            return view('employé.accueilEmployé', compact('annonceDuJour', 'annoncesAvenir', 'employe_user'));
+        }
     }
 
 

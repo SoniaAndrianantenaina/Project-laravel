@@ -43,7 +43,7 @@
             </div>
 
             <div id="user-employee" class="main-section section-two" style="display: none;">
-                <form action="{{ route('login-employé') }}" method="POST" class="employee-form">
+                <form action="{{ route('login-employe') }}" method="POST" class="employee-form">
                     @csrf
                     <h2 class="main-section section-two__title">EMPLOYE</h2>
                     <input type="text" name="identifiant" class="btn-white lg" placeholder="Identifiant">

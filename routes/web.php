@@ -23,12 +23,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('connexion');
-});
+})->name('connexion');
 
 
 
 //Côté administrateur
-Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-admin');
+    Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-admin');
+
+    Route::get('logout-admin', [LogController::class, 'logoutAdmin'])->name('logout-admin');
 
     Route::get('accueil-admin', [AdminController::class, 'accueilAdmin'])->name('accueil-admin');
 
@@ -116,11 +118,11 @@ Route::post('login-admin', [LogController::class, 'loginAdmin'])->name('login-ad
 
 
 //Côté employé
-Route::post('login-employé', [LogController::class, 'loginEmployé'])->name('login-employé');
+    Route::post('login-employe', [LogController::class, 'loginEmployé'])->name('login-employe');
 
-    Route::get('/accueil-employé', function () {
-        return view('employé.accueilEmployé');
-    })->name('accueil-employé');
+    Route::get('logout-employe', [LogController::class, 'logoutEmployé'])->name('logout-employe');
+
+    Route::get('accueil-employé', [EmployeController::class, 'accueilEmploye'])->name('accueil-employé');
 
     //congés
     Route::get('/solde-conge', function () {

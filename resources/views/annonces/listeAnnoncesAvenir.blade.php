@@ -1,4 +1,9 @@
-@include('banner.header')
+@if (auth()->guard('employee')->check())
+    @include('banner.headerEmployé')
+@elseif (auth()->guard('web')->check())
+    @include('banner.header')
+@endif
+
 
 <body>
     <main class="list-annonces">
@@ -38,18 +43,20 @@
                             </div>
                         </div>
 
-                        <div class="boutons modify-top-1">
-                            <div class="btn tiny-btn bleu-clair">
-                                <a href="{{ route('modifier-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
-                                    class="btn__middle-btn">MODIFIER</a>
-                            </div>
+                        @if (auth()->guard('web')->check())
+                            <div class="boutons modify-top-1">
+                                <div class="btn tiny-btn bleu-clair">
+                                    <a href="{{ route('modifier-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
+                                        class="btn__middle-btn">MODIFIER</a>
+                                </div>
 
-                            <div class="btn tiny-btn bleu-foncé">
-                                <a href="{{ url('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
-                                    class="btn__middle-btn delete-button" onclick="confirmDelete(event);">SUPPRIMER</a>
+                                <div class="btn tiny-btn bleu-foncé">
+                                    <a href="{{ url('supprimer-annonce', ['idAnnonce' => $annonce->idAnnonce]) }}"
+                                        class="btn__middle-btn delete-button"
+                                        onclick="confirmDelete(event);">SUPPRIMER</a>
+                                </div>
                             </div>
-
-                        </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
@@ -57,7 +64,6 @@
     </main>
 
     <script>
-
         @if (session('success'))
             Swal.fire({
                 icon: 'success',

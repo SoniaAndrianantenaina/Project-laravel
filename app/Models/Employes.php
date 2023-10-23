@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+
 use Illuminate\Support\Facades\DB;
 
 
-class Employes extends Model
+class Employes extends Authenticatable
 {
+    use AuthenticableTrait;
     protected $fillable = [
         'idCandidat',
         'identifiant',
