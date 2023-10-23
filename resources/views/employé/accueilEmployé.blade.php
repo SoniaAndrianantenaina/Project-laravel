@@ -73,10 +73,6 @@
                                         {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                     </p>
                                     <p class="date">
-                                        Date parution :
-                                        {{ \Carbon\Carbon::parse($av->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                    </p>
-                                    <p class="date">
                                         Date fin :
                                         {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                     </p>

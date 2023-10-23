@@ -66,10 +66,10 @@
                                     <h6>{{ $av->titre }}</h6>
                                     <p>{{ $av->contenu }}</p>
                                     <p class="date">
-                                        Date début : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                        Date parution : {{ \Carbon\Carbon::parse($av->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                     </p>
                                     <p class="date">
-                                        Date parution : {{ \Carbon\Carbon::parse($av->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                        Date début : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
                                     </p>
                                     <p class="date">
                                         Date fin : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
