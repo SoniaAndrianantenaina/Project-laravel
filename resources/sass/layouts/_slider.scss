@@ -1,0 +1,70 @@
+#regForm {
+    padding: 50px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+.button-step {
+    background-color: $color-primary;
+    color: #ffffff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 17px;
+    font-family: Raleway;
+    margin-right: 18px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+#prevBtn {
+    background-color: $color-secondary;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: $color-primary;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn-position{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.steps{
+    text-align:center;
+    margin-top:20px;
+}

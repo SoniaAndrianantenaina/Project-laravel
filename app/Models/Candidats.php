@@ -21,7 +21,8 @@ class Candidats extends Model
         'LM',
         'idDeptPoste',
         'photo',
-        'statut'
+        'statut',
+        'idTypeContrat'
     ];
 
     protected $table = "candidats";
@@ -40,6 +41,10 @@ class Candidats extends Model
 
     public function statutmarital(){
         return $this->belongsTo(StatutMarital::class, 'idStatutMarital');
+    }
+
+    public function typecontrat(){
+        return $this->belongsTo(TypeContrat::class, 'idTypeContrat');
     }
 
 }

@@ -8,6 +8,7 @@ use App\Models\Candidats;
 use App\Models\Departements;
 use App\Models\Genre;
 use App\Models\StatutMarital;
+use App\Models\TypeContrat;
 
 class CandidatController extends Controller
 {
@@ -75,7 +76,8 @@ class CandidatController extends Controller
             $genres = Genre::all();
             $statut_marital = StatutMarital::all();
             $departements = Departements::all();
-            return view('admin.ajoutCandidat', compact('genres', 'statut_marital', 'departements'));
+            $type_contrat = TypeContrat::all();
+            return view('admin.ajoutCandidat', compact('genres', 'statut_marital', 'departements','type_contrat'));
         }
     }
 
@@ -102,7 +104,7 @@ class CandidatController extends Controller
                 ->where('p.idPoste', $idPoste)
                 ->first();
 
-            if ($nbrEnfants != 0) {
+            if ($idGenre != 0) {
                 $candidat = Candidats::create([
                     'nom' => $nom,
                     'prenom' => $prenom,

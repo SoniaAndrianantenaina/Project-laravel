@@ -91,8 +91,8 @@
         display: flex;
         grid-gap: $nav-gap;
         font-family: $nav-fontFamily;
-        font-size: $nav-size;
-        @include max(1756px){
+        font-size: 17px;
+        @include max(1366px){
             font-size: 15px;
         }
 

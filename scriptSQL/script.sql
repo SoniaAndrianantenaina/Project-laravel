@@ -43,6 +43,7 @@ CREATE TABLE `candidats`(
 )ENGINE = InnoDB;
 ALTER TABLE rh.candidats ADD photo varchar(100) NOT NULL;
 ALTER TABLE rh.candidats ADD statut INT NOT NULL;
+ALTER TABLE rh.candidats ADD idTypeContrat INT NOT NULL;
 
 CREATE TABLE `administrateur`(
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -128,6 +129,8 @@ ALTER TABLE
     `candidats` ADD CONSTRAINT `candidats_iddeptposte_foreign` FOREIGN KEY(`idDeptPoste`) REFERENCES `departement_poste`(`idDeptPoste`);
 ALTER TABLE
     `candidats` ADD CONSTRAINT `candidats_idstatutmarital_foreign` FOREIGN KEY(`idStatutMarital`) REFERENCES `statut_marital`(`idStatutMarital`);
+ALTER TABLE
+    `candidats` ADD CONSTRAINT `candidats_idtypecontrat_foreign` FOREIGN KEY(`idTypeContrat`) REFERENCES `type_contrat`(`idTypeContrat`);
 ALTER TABLE
     `employes_infos_pros` ADD CONSTRAINT `employes_infos_pros_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
 ALTER TABLE
