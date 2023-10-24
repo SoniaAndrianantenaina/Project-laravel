@@ -70,20 +70,22 @@ class Employes extends Authenticatable
 
             $profil = EmployeInfos::where('idEmploye', $employe_id)->first();
             $idDepartement = $profil->deptposte->dept->idDepartement;
-            $relations = DB::select('SELECT e.idEmploye, c.nom, c.prenom, eip.idTypeContrat, dp.idDepartement, dp.idPoste,p.nom, p.degre  from employes e
+            $relations = DB::select('SELECT e.idEmploye, c.nom as nomEmploye, c.prenom, eip.idTypeContrat, dp.idDepartement, dp.idPoste,p.nom as nomPoste, p.degre  from employes e
             join candidats c on c.idCandidat = e.idCandidat
             join employes_infos_pros eip on e.idEmploye = eip.idEmploye
             join departement_poste dp on dp.idDeptPoste = c.idDeptPoste
-            join poste p on dp.idPoste = p.idPoste d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+            join poste p on dp.idPoste = p.idPoste
+            WHERE dp.idDepartement = :idDepartement AND e.idEmploye != :employe_id' ,
+            ['idDepartement' => $idDepartement, 'employe_id' => $employe_id]);
             return $relations;
         }
     }
 
-    public function soldeCongé()
-    {
-        if (auth()->guard('employee')->check()) {
-            $jour = 1;
-            return view('employé.soldeCongé', compact('jour'));
-        }
+    public function dateDuJour(){
+        setlocale(LC_TIME, 'fr_FR.UTF-8');
+        date_default_timezone_set('Europe/Paris');
+        $day = strftime('%A %d %B %Y');
+        $day = ucfirst(mb_strtolower($day, 'UTF-8'));
+        return $day;
     }
 }

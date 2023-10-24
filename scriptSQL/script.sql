@@ -83,6 +83,11 @@ CREATE TABLE `solde_conge`(
     `idEmploye` INT NOT NULL,
     `solde` DECIMAL(12, 2) NOT NULL
 )ENGINE = InnoDB;
+ALTER TABLE rh.solde_conge CHANGE solde solde_réel decimal(8,2) NOT NULL;
+ALTER TABLE rh.solde_conge ADD solde_previsionnel INT NULL;
+ALTER TABLE rh.solde_conge ADD solde_perm INT NULL;
+ALTER TABLE rh.solde_conge ADD a_planifier INT NULL;
+
 
 CREATE TABLE `motif_permission`(
     `idMotifPermission` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

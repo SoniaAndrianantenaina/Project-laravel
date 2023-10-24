@@ -280,15 +280,42 @@ INSERT INTO rh.employes
 (idEmploye, idCandidat, identifiant, mdp)
 VALUES(1, 10, 'javier.gonzalez', 'G0nz@l3zJ@vier');
 
-INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin)
-VALUES
-    ('Réunion d''équipe', 'Nous aurons une réunion d''équipe demain pour discuter des projets en cours.', '2023-10-15 10:00:00', '2023-10-16 08:00:00', '2023-10-16 12:00:00'),
-    ('Formation sur la sécurité informatique', 'Une formation sur la sécurité informatique est prévue le 20 octobre.', '2023-10-16 15:30:00', '2023-10-20 09:00:00', '2023-10-20 16:00:00'),
-    ('Annonce de vacances', 'L''entreprise sera fermée pour les vacances de Noël du 24 décembre au 2 janvier.', '2023-10-17 14:15:00', '2023-12-24 00:00:00', '2024-01-02 00:00:00'),
-    ('Nouvelle politique de télétravail', 'Nous avons mis en place une nouvelle politique de télétravail à partir du 1er novembre.', '2023-10-18 11:45:00', '2023-11-01 08:00:00', '2023-11-01 17:00:00'),
-    ('Projet d''équipe - Appel à volontaires', 'Nous cherchons des volontaires pour un projet d''équipe passionnant.', '2023-10-18 15:00:00', '2023-10-19 09:00:00', '2023-11-19 17:00:00');
 
-INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin, photo)
-VALUES ('Soirée de remise des prix', 'Rejoignez-nous le 15 novembre pour notre soirée annuelle de remise des prix. Célébrons nos réussites ensemble !', '2023-10-25 12:00:00', '2023-11-15', '2023-11-15', 'event1.jpg');
-INSERT INTO annonces (titre, contenu, date_parution, date_debut, date_fin, photo)
-VALUES ('Formation en leadership', 'Inscrivez-vous à notre formation en leadership qui débutera le 1er novembre. Une opportunité unique !', '2023-10-20', '2023-11-01', '2023-11-30', 'formation1.jpg');
+INSERT INTO rh.annonces
+(idAnnonce, titre, contenu, date_parution, date_debut, date_fin, photo)
+VALUES(1, 'Réunion d''équipe', 'Nous aurons une réunion d''équipe demain pour discuter des projets en cours.', '2023-10-15 10:00:00', '2023-10-23 04:00:00', '2023-10-26 18:00:00', 'assets/annonces/réunion.jpg');
+INSERT INTO rh.annonces
+(idAnnonce, titre, contenu, date_parution, date_debut, date_fin, photo)
+VALUES(3, 'Vacances de Noël', 'L''entreprise sera fermée pour les vacances de Noël du 23 décembre au 1er janvier.', '2023-10-23 13:31:00', '2023-11-24 13:31:00', '2023-12-01 13:31:00', 'public/images/annonces/téléchargement.jpeg');
+INSERT INTO rh.annonces
+(idAnnonce, titre, contenu, date_parution, date_debut, date_fin, photo)
+VALUES(5, 'Projet d''équipe - Appel à volontaires', 'Nous cherchons des volontaires pour un projet d''équipe passionnant.', '2023-10-23 07:00:00', '2023-10-26 09:00:00', '2023-11-19 17:00:00', 'assets/annonces/équipe.jpg');
+
+INSERT INTO rh.employes
+(idEmploye, idCandidat, identifiant, mdp)
+VALUES(1, 10, 'javier.gonzalez', '123456');
+INSERT INTO rh.employes
+(idEmploye, idCandidat, identifiant, mdp)
+VALUES(5, 3, 'sonia.andrianantenaina', '6Am95bjyu8');
+INSERT INTO rh.employes
+(idEmploye, idCandidat, identifiant, mdp)
+VALUES(6, 1, 'john.doe', '65Fhl6Voou');
+INSERT INTO rh.employes
+(idEmploye, idCandidat, identifiant, mdp)
+VALUES(7, 2, 'alice.smith', '65Fhl6Voou');
+INSERT INTO rh.employes
+(idEmploye, idCandidat, identifiant, mdp)
+VALUES(8, 4, 'maria.johnson', '65Fhl6Voou');
+
+INSERT INTO rh.employes_infos_pros
+(idEmployeInfo, idEmploye, idDeptPoste, idTypeContrat, date_debut, date_fin)
+VALUES(5, 5, 3, 2, '2023-10-19', '2024-02-25');
+INSERT INTO rh.employes_infos_pros
+(idEmployeInfo, idEmploye, idDeptPoste, idTypeContrat, date_debut, date_fin)
+VALUES(6, 6, 1, 1, '2023-10-19', NULL);
+INSERT INTO rh.employes_infos_pros
+(idEmployeInfo, idEmploye, idDeptPoste, idTypeContrat, date_debut, date_fin)
+VALUES(7, 7, 2, 1, '2023-10-24', NULL);
+INSERT INTO rh.employes_infos_pros
+(idEmployeInfo, idEmploye, idDeptPoste, idTypeContrat, date_debut, date_fin)
+VALUES(8, 8, 4, 1, '2023-10-07', NULL);

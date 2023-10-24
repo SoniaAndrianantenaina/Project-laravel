@@ -290,7 +290,9 @@
         </div>
 
         <div class="date-right">
-            <h6 class="title-h6 navy">Lundi 04 Septembre 2023</h6>
+            @php
+                echo $dateDuJour;
+            @endphp
         </div>
     </section>
 </main>

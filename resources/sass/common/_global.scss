@@ -131,16 +131,6 @@ input[type="date"] {
     color: $color-primary;
 }
 
-.title-h6 {
-    color: $grey;
-    font-size: 17px;
-    margin-bottom: 12px;
-
-    &.black {
-        color: black;
-    }
-}
-
 //input type file
 
 .label-file {
@@ -159,6 +149,10 @@ input[type="date"] {
 
 .p-bottom {
     margin-bottom: 14px;
+}
+
+.mb-12{
+    margin-bottom: 12px;
 }
 
 //color

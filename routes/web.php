@@ -132,18 +132,11 @@ Route::get('/', function () {
     //congés
     Route::get('/solde-conge', [EmployeController::class, 'soldeCongéPage'])->name('solde-conge');
 
+    Route::get('/liste-demande-conge', [EmployeController::class, 'listeDemandeCongé'])->name('liste-demande-conge');
 
     Route::get('/demande-conge', function () {
         return view('employé.demandeCongé');
     })->name('demande-conge');
-
-    Route::get('/liste-demande-conge', function () {
-        return view('employé.listeDemandesCongé');
-    })->name('liste-demande-conge');
-
-    Route::get('/liste-annonces-employe', function () {
-        return view('employé.listeAnnonces');
-    })->name('liste-annonces-employe');
 
     Route::get('/liste-collaborateurs', function () {
         return view('employé.listeEmployés');

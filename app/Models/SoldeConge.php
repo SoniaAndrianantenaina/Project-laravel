@@ -9,7 +9,10 @@ class SoldeConge extends Model
 {
     protected $fillable = [
         'idEmploye',
-        'solde'
+        'solde_réel',
+        'solde_previsionnel',
+        'solde_perm',
+        'a_planifier'
     ];
 
     protected $primaryKey = 'idSoldeConge';
@@ -22,4 +25,15 @@ class SoldeConge extends Model
         return $this->belongsTo(Employes::class, 'idEmploye');
     }
 
+    public function soldeCongé()
+    {
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+            $jour = 1;
+            $permDeBase = 10;
+            $soldeReel = 24;
+
+        }
+    }
 }

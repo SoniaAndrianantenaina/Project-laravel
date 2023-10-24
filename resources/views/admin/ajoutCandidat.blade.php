@@ -28,7 +28,7 @@
 
     <section class="formulaire">
 
-        <div class="block-annonces__item__title">
+        <div class="formulaire-collab__title">
             <h2 class='title-h2'>VEUILLEZ REMPLIR LE FORMULAIRE SUIVANT :</h2>
         </div>
 
@@ -216,7 +216,5 @@
 
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
-
-
     </script>
 </main>

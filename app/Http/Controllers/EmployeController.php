@@ -10,6 +10,7 @@ use App\Models\Departements;
 use App\Models\Annonces;
 use App\Models\EmployeInfos;
 use App\Models\EmployesInfosPros;
+use App\Models\SoldeConge;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -118,6 +119,11 @@ class EmployeController extends Controller
 
     public function envoyerIdentifiants(Request $request)
     {
+        $solde_réel = 24;
+        $solde_previsionnel = 24;
+        $perm = 10;
+        $a_planifier = 7;
+
         $candidat = session()->get('candidat');
         $idCandidat = $candidat->idCandidat;
         $idDeptPoste = $candidat->idDeptPoste;
@@ -147,6 +153,13 @@ class EmployeController extends Controller
                     DB::table('candidats')
                         ->where('idCandidat', $idCandidat)
                         ->update(['statut' => 3]);
+
+                    $solde_conge = SoldeConge::create([
+                        'solde_réel' => $solde_réel,
+                        'solde_previsionnel' => $solde_previsionnel,
+                        'solde_perm' => $perm,
+                        'a_planifier' => $a_planifier
+                    ]);
 
                     $employeInfoPro = EmployesInfosPros::create([
                         'idEmploye' => $idEmploye,
@@ -210,22 +223,48 @@ class EmployeController extends Controller
         return view('employé.monProfil', compact('profil'));
     }
 
+    //profil congés
     public function getRelationsProfil()
     {
         $employe = new Employes();
         $profil = $employe->monProfil();
         $relation = $employe->relationProfil();
-        return view('employé.profil.profil-infos', compact('profil', 'relation'));
+        $relations = [];
+        $managers = [];
+
+        if (is_array($relation)) {
+            foreach ($relation as $relationItem) {
+                if ($relationItem->degre != 2) {
+                    $relations[] = $relationItem;
+                } else {
+                    $managers[] = $relationItem;
+                }
+            }
+        }
+
+        return ['profil' => $profil, 'relation' => $relations, 'manager' => $managers];
     }
 
     public function getSolde(){
         $jour = 1;
-        return view('employé.soldeCongé', compact('jour'));
+        return ['jour' => $jour];
     }
 
     public function soldeCongéPage(){
-        $relation_profil = $this->getRelationsProfil();
+        $employe = new Employes();
+        $data_profil = $this->getRelationsProfil();
         $solde = $this->getSolde();
-        return view('employé.soldeCongé', compact('relation_profil', 'solde'));
+
+        $dateDuJour = $employe->dateDuJour();
+        return view('employé.soldeCongé',  array_merge($data_profil,$solde, compact('dateDuJour')));
+    }
+
+    public function listeDemandeCongé(){
+        $employe = new Employes();
+        $data_profil = $this->getRelationsProfil();
+
+        $dateDuJour = $employe->dateDuJour();
+        return view('employé.listeDemandesCongé',  array_merge($data_profil, compact('dateDuJour')));
+
     }
 }
