@@ -109,7 +109,7 @@
     .link {
         color: black;
         text-decoration: none;
-        font-size: $gb-font-size;
+        font-size: 15px;
 
         &__trait {
             border-bottom: 1px solid black;
@@ -125,11 +125,7 @@
 
     .p-bleu {
         margin-top: 17px;
-        font-size: 16px;
-
-        @include max(1366px){
-            font-style: 12px;
-        }
+        font-size: 12px;
 
         &.clair {
             color: $color-secondary;
@@ -308,4 +304,12 @@
     img {
         width: 28px;
     }
+}
+
+.no-employees-message {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    color: $color-secondary;
 }

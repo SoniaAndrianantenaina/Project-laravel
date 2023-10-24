@@ -47,24 +47,7 @@
                 </div>
 
                 <div class="list-content__right">
-                    <div class="list-content__blocks">
-                        <div class="list-content__blocks__item">
-                            <div class="list-content__picture">
-                                <a href="{{ route('profil-employe') }}">
-                                    <figure class="list-content__image">
-                                        <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                    </figure>
-                                </a>
-                            </div>
 
-                            <div class="list-content__infos" id="result-container">
-                                <p class="p-medium uppercase" id="nomEmploye">ANDRIANANTENAINA</p>
-                                <p class="p-medium" id="prenomEmploye">Sonia Fanomezantsoa</p>
-                                <p class="p-medium grey-text" id="posteEmploye">Stagiaire</p>
-                                <p class="p-medium grey-text" id="contactEmploye">032 36 256 45</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -73,6 +56,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const departmentItems = document.querySelectorAll('.department-item');
+            const listContentRight = document.querySelector('.list-content__right'); // Define listContentRight here
 
             departmentItems.forEach(function(department) {
                 department.addEventListener('click', function() {
@@ -83,20 +67,51 @@
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
-                            const nomEmployeElement = document.getElementById("nomEmploye");
-                            const prenomEmployeElement = document.getElementById("prenomEmploye");
-                            const posteEmployeElement = document.getElementById("posteEmploye");
-                            const contactEmployeElement = document.getElementById("contactEmploye");
 
+                            listContentRight.innerHTML = '';
 
-                            nomEmployeElement.innerHTML = data.nomEmploye;
-                            prenomEmployeElement.innerHTML = data.prenom;
-                            posteEmployeElement.innerHTML = data.nomPoste;
-                            contactEmployeElement.innerHTML = data.contact;
+                            const noEmployeesMessage = document.createElement('p');
+                            noEmployeesMessage.className = 'p-medium';
 
+                            if (data.length > 0) {
+                                const listContentBlocks = document.createElement('div');
+                                listContentBlocks.className = 'list-content__blocks';
+
+                                data.forEach(employee => {
+                                    const employeeCard = document.createElement('div');
+                                    employeeCard.className =
+                                        'list-content__blocks__item';
+                                    employeeCard.innerHTML = `
+                                        <div class="list-content__picture">
+                                            <a href="{{ route('profil-employe') }}">
+                                                <figure class="list-content__image">
+                                                    <img src="${employee.imagePath}" alt="">
+                                                </figure>
+                                            </a>
+                                        </div>
+                                        <div class="list-content__infos">
+                                            <p class="p-medium uppercase">${employee.nomEmploye}</p>
+                                            <p class="p-medium">${employee.prenom}</p>
+                                            <p class="p-medium grey-text">${employee.nomPoste}</p>
+                                            <p class="p-medium grey-text">${employee.contact}</p>
+                                        </div>
+                                    `;
+                                    listContentBlocks.appendChild(employeeCard);
+                                });
+
+                                listContentRight.appendChild(listContentBlocks);
+                            } else {
+                                const noEmployeesMessage = document.createElement('p');
+                                noEmployeesMessage.className = 'no-employees-message';
+                                // Set the message when no employees are found
+                                noEmployeesMessage.textContent ="Il n'y a pas encore d'employés.";
+                                listContentRight.appendChild(noEmployeesMessage);
+                            }
                         });
                 });
             });
         });
     </script>
+
+
 </main>

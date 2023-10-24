@@ -93,7 +93,7 @@
         font-family: $nav-fontFamily;
         font-size: $nav-size;
         @include max(1756px){
-            font-size: 17px;
+            font-size: 15px;
         }
 
         @include resetList();
