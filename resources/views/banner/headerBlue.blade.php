@@ -18,7 +18,7 @@
 
                     <div class="create-request">
                         <div class="create-request__text">
-                            <a href="{{ route('demande-conge') }}">
+                            <a href="{{ route('demander-congé') }}">
                                 <p>+ Créer une demande</p>
                             </a>
                         </div>

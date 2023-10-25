@@ -13,11 +13,15 @@ class DemandesConges extends Model
         'idTypeConge',
         'date_debut',
         'date_fin',
-        'etat'
+        'etat',
+        'date_demande'
     ];
 
     protected $table = "demandes_conges";
 
+    protected $primaryKey = 'idDemandeConge';
+
+    public $timestamps = false;
 
     public function employe(){
         return $this->belongsTo(Employes::class, 'idEmploye');
@@ -29,5 +33,21 @@ class DemandesConges extends Model
 
     public function typeconge(){
         return $this->belongsTo(TypeConge::class, 'idTypeConge');
+    }
+
+    public function mesDemandesCongé(){
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+            $liste = DemandesConges::where('idEmploye', '=', $employe_id)->get();
+            return $liste;
+        }
+    }
+
+    public function nbJour($date_debut, $date_fin){
+        $jourDebut = date('j', strtotime($date_debut));
+        $jourFin = date('j', strtotime($date_fin));
+        $nbjour = $jourFin - $jourDebut;
+        return $nbjour;
     }
 }

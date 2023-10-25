@@ -84,9 +84,9 @@ CREATE TABLE `solde_conge`(
     `solde` DECIMAL(12, 2) NOT NULL
 )ENGINE = InnoDB;
 ALTER TABLE rh.solde_conge CHANGE solde solde_réel decimal(8,2) NOT NULL;
-ALTER TABLE rh.solde_conge ADD solde_previsionnel INT NULL;
-ALTER TABLE rh.solde_conge ADD solde_perm INT NULL;
-ALTER TABLE rh.solde_conge ADD a_planifier INT NULL;
+ALTER TABLE rh.solde_conge ADD solde_previsionnel decimal(8,2) NULL;
+ALTER TABLE rh.solde_conge ADD solde_perm decimal(8,2) NULL;
+ALTER TABLE rh.solde_conge ADD a_planifier decimal(8,2) NULL;
 
 
 CREATE TABLE `motif_permission`(
@@ -98,12 +98,14 @@ CREATE TABLE `motif_permission`(
 CREATE TABLE `demandes_conges`(
     `idDemandeConge` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `idEmploye` INT NOT NULL,
-    `idMotifPermission` INT NOT NULL,
+    `idMotifPermission` INT NULL,
     `idTypeConge` INT NOT NULL,
     `date_debut` DATE NOT NULL,
     `date_fin` DATE NOT NULL,
     `etat` INT NOT NULL
 )ENGINE = InnoDB;
+ALTER TABLE rh.demandes_conges ADD date_demande DATE NULL;
+
 
 CREATE TABLE `annonces`(
     `idAnnonce` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

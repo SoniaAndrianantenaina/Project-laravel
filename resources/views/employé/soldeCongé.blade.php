@@ -1,6 +1,5 @@
 @include('banner.headerEmployé')
 @include('banner.headerBlue')
-
 <main class="solde-congé">
     <section class="contenu">
         <div class="div-grey">
@@ -19,7 +18,7 @@
                             </div>
 
                             <div class="subtitle adjust-right">
-                                <h6>{{ $jour }}j</h6>
+                                <h6>{{ $soldes['solde_reel'] }} j</h6>
                             </div>
                         </div>
 
@@ -29,17 +28,17 @@
                             </div>
 
                             <div class="subtitle adjust-right">
-                                <h6>10j</h6>
+                                <h6>{{ $soldes['solde_previsionnel'] }} j</h6>
                             </div>
                         </div>
 
                         <div class="shadow-box__text__content">
                             <div class="subtitle">
-                                <h6>Permission exceptionnelle</h6>
+                                <h6>Permissions exceptionnelles </h6>
                             </div>
 
                             <div class="subtitle adjust-right">
-                                <h6>10j</h6>
+                                <h6>{{ $soldes['solde_perm'] }} j</h6>
                             </div>
                         </div>
 
@@ -50,7 +49,7 @@
                             </div>
 
                             <div class="subtitle adjust-right">
-                                <h6>5j</h6>
+                                <h6>{{ $soldes['a_planifier'] }} j</h6>
                             </div>
                         </div>
 

@@ -223,48 +223,4 @@ class EmployeController extends Controller
         return view('employé.monProfil', compact('profil'));
     }
 
-    //profil congés
-    public function getRelationsProfil()
-    {
-        $employe = new Employes();
-        $profil = $employe->monProfil();
-        $relation = $employe->relationProfil();
-        $relations = [];
-        $managers = [];
-
-        if (is_array($relation)) {
-            foreach ($relation as $relationItem) {
-                if ($relationItem->degre != 2) {
-                    $relations[] = $relationItem;
-                } else {
-                    $managers[] = $relationItem;
-                }
-            }
-        }
-
-        return ['profil' => $profil, 'relation' => $relations, 'manager' => $managers];
-    }
-
-    public function getSolde(){
-        $jour = 1;
-        return ['jour' => $jour];
-    }
-
-    public function soldeCongéPage(){
-        $employe = new Employes();
-        $data_profil = $this->getRelationsProfil();
-        $solde = $this->getSolde();
-
-        $dateDuJour = $employe->dateDuJour();
-        return view('employé.soldeCongé',  array_merge($data_profil,$solde, compact('dateDuJour')));
-    }
-
-    public function listeDemandeCongé(){
-        $employe = new Employes();
-        $data_profil = $this->getRelationsProfil();
-
-        $dateDuJour = $employe->dateDuJour();
-        return view('employé.listeDemandesCongé',  array_merge($data_profil, compact('dateDuJour')));
-
-    }
 }

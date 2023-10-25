@@ -7,12 +7,8 @@
 
             <div class="div-grey__content">
 
-                <div class="title-h4 light-grey">
-                    <h4>Demander un congé</h4>
-                </div>
-
+                <h4 class="title-h4 light-grey">Demander un congé</h4>
                 <div class="white-trait-lg"></div>
-
 
                 <div class="centered-container">
                     <div class="div-grey__request">
@@ -79,7 +75,9 @@
 
 
             <div class="date-right">
-                <h6 class="title-h6 navy">Lundi 04 Septembre 2023</h6>
+                @php
+                    echo $dateDuJour;
+                @endphp
             </div>
 
         </div>

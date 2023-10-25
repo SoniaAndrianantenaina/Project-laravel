@@ -20,7 +20,7 @@
                                 <h4>Solde réel sur congé payé</h4>
                             </div>
                             <div class="request-list box__content__text">
-                                <h6>12,0</h6>
+                                <h6>{{ $soldes['solde_reel'] }}</h6>
                                 <p>Jours</p>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <h4>Solde prévisionnel sur congé payé</h4>
                             </div>
                             <div class="request-list box__content__text">
-                                <h6>12,0</h6>
+                                <h6>{{ $soldes['solde_previsionnel'] }}</h6>
                                 <p>Jours</p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <h4>Permissions consommées</h4>
                             </div>
                             <div class="request-list box__content__text">
-                                <h6>0 / 10</h6>
+                                <h6>{{ $permconsommée }} / 10</h6>
                                 <p>Jours</p>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                 <h4>Congés à planifier avant 31/12/2023</h4>
                             </div>
                             <div>
-                                <h6 class="h6-text-white">5</h6>
+                                <h6 class="white">{{ $soldes['a_planifier'] }}</h6>
                                 <p class="p-text-white">Jours</p>
                             </div>
                         </div>
@@ -94,195 +94,44 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div>REF001</div>
-                            </td>
-                            <td>
-                                <div>20/07/2023</div>
-                            </td>
-                            <td>
-                                <div>Congé Payé</div>
-                            </td>
-                            <td>
-                                <div> - </div>
-                            </td>
-                            <td>
-                                <div>21/07/2023</div>
-                            </td>
-                            <td>
-                                <div>22/07/2023</div>
-                            </td>
-                            <td>
-                                <div>2 j</div>
-                            </td>
-                            <td>
-                                <div class="color-green">Validée</div>
-                            </td>
-                        </tr>
-
+                        @foreach ($mesDemandesCongé as $demande)
+                            <tr>
+                                <td>
+                                    <div>REF0{{$demande->idDemandeConge}}</div>
+                                </td>
+                                <td>
+                                    <div>{{$demande->date_demande}}</div>
+                                </td>
+                                <td>
+                                    <div>{{$demande->typeconge->nom}}</div>
+                                </td>
+                                <td>
+                                    @if ($demande->motifperm)
+                                        <div>{{$demande->motifperm->motif}}</div>
+                                        @else
+                                        <div> - </div>
+                                    @endif
+                                </td>
+                                <td>
+                                    <div>{{$demande->date_debut}}</div>
+                                </td>
+                                <td>
+                                    <div>{{$demande->date_fin}}</div>
+                                </td>
+                                <td>
+                                    <div>{{ $nbjour[$loop->index] }} j</div>
+                                </td>
+                                <td>
+                                    @if ($demande->etat == 1)
+                                        <div class="color-green">Validée</div>
+                                        @elseif ($demande->etat == 2)
+                                        <div class="color-red">Refusée</div>
+                                        @else
+                                        <div>-</div>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 

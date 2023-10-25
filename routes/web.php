@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AnnoncesController;
 use App\Http\Controllers\CandidatController;
+use App\Http\Controllers\CongeController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\DeptPosteController;
 use App\Http\Controllers\EmployeController;
@@ -130,13 +131,12 @@ Route::get('/', function () {
     Route::get('/annonces-à-venir-employé', [AnnoncesController::class, 'allUpcomingAnnouncementEmployee'])->name('annonces-à-venir-employé');
 
     //congés
-    Route::get('/solde-conge', [EmployeController::class, 'soldeCongéPage'])->name('solde-conge');
+    Route::get('/solde-conge', [CongeController::class, 'soldeCongéPage'])->name('solde-conge');
 
-    Route::get('/liste-demande-conge', [EmployeController::class, 'listeDemandeCongé'])->name('liste-demande-conge');
+    Route::get('/liste-demande-conge', [CongeController::class, 'listeDemandeCongé'])->name('liste-demande-conge');
 
-    Route::get('/demande-conge', function () {
-        return view('employé.demandeCongé');
-    })->name('demande-conge');
+    Route::get('/demander-congé', [CongeController::class, 'demanderCongé'])->name('demander-congé');
+
 
     Route::get('/liste-collaborateurs', function () {
         return view('employé.listeEmployés');

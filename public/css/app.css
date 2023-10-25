@@ -1796,6 +1796,11 @@ input[type=date] {
 .div-grey h6.black {
   color: black;
 }
+.div-grey h6.white {
+  width: 85px;
+  font-size: 25px;
+  color: white;
+}
 .div-grey__profil {
   border: 1px solid #ebe7e7;
   background-color: white;

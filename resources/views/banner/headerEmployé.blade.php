@@ -41,7 +41,7 @@
                                         Collaborateurs
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('solde-conge','liste-demande-conge','demande-conge')) current @endif">
+                                <li class="@if(Request::is('solde-conge','liste-demande-conge','demander-congé')) current @endif">
                                     <a href="{{ route('solde-conge') }}" class="text-decoration">
                                         Congés
                                     </a>
