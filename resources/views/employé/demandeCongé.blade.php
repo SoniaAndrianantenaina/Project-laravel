@@ -11,76 +11,88 @@
                 <div class="white-trait-lg"></div>
 
                 <div class="centered-container">
+
                     <div class="div-grey__request">
-                        <div class="div-grey__request__data">
-                            <div>
-                                <p class="div-grey__request__data__span">Date début : </p>
+                        <form action="{{ route('valider-demande-congé') }}" method="POST">
+                            @csrf
+                            <div class="div-grey__request__data">
+                                <p class="div-grey__request__data__span">Date demande :</p>
+                                <input class="div-grey__request__data__input" type="date" name="date_demande">
                             </div>
 
-                            <div>
-                                <input class="div-grey__request__data__input" type="date">
-                            </div>
-                        </div>
-
-                        <div class="div-grey__request__data">
-                            <div>
-                                <p class="div-grey__request__data__span">Date fin : </p>
+                            <div class="div-grey__request__data">
+                                <p class="div-grey__request__data__span">Date début :</p>
+                                <input class="div-grey__request__data__input" type="date" name="date_debut">
                             </div>
 
-                            <div>
-                                <input class="div-grey__request__data__input" type="date">
+                            <div class="div-grey__request__data">
+                                <p class="div-grey__request__data__span">Date fin :</p>
+                                <input class="div-grey__request__data__input" type="date" name="date_fin">
                             </div>
-                        </div>
 
-                        <div class="div-grey__request__data">
-                            <div>
+                            <div class="div-grey__request__data">
                                 <label class="div-grey__request__data__span">Type congé :</label>
-                            </div>
 
-                            <div>
-                                <select class="div-grey__request__data__input blue" name="" id="">
-                                    <option value="">Congés payés</option>
-                                    <option value="">Permissions exceptionnelles</option>
+                                <select class="div-grey__request__data__input blue" name="idTypeCongé" id="type_conge">
+                                    @foreach ($type_conge as $tc)
+                                        <option value="{{$tc->idTypeConge}}">{{$tc->nom}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                        </div>
 
-                        <div class="div-grey__request__data">
-                            <div>
+                            <div class="div-grey__request__data" style="display: none;" id="motif_permission">
                                 <label class="div-grey__request__data__span">Motif congé :</label>
-                            </div>
 
-                            <div class="ml">
-                                <select class="div-grey__request__data__input blue" name="" id="">
-                                    <option value="">Mariage</option>
-                                    <option value="">Décès</option>
+                                <select class="div-grey__request__data__input blue" name="idMotifPermission">
+                                    @foreach ($motif_permission as $mp)
+                                        <option value="{{$mp->idMotifPermission}}">{{$mp->motif}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                        </div>
 
 
-                        <div class="boutons modify-top">
-                            <div class="btn bleu-foncé">
-                                <a href="" class="btn__middle-btn fs-17">SOUMETTRE</a>
+                            <div class="boutons modify-top">
+                                <div>
+                                    <button type="submit" class="btn bleu-foncé fs-17">SOUMETTRE</button>
+                                </div>
+
+                                <div>
+                                    <a href="{{ route('solde-conge') }}" class="btn bleu-clair fs-17">ANNULER</a>
+                                </div>
                             </div>
-
-                            <div class="btn bleu-clair">
-                                <a href="" class="btn__middle-btn fs-17">ANNULER</a>
-                            </div>
-                        </div>
-
+                        </form>
                     </div>
                 </div>
             </div>
-
 
             <div class="date-right">
                 @php
                     echo $dateDuJour;
                 @endphp
             </div>
-
         </div>
     </section>
+
+    <script>
+       showMotif();
+
+       @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('solde-conge') }}';
+                }
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
+    </script>
 
 </main>

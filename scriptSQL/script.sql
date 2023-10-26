@@ -105,6 +105,7 @@ CREATE TABLE `demandes_conges`(
     `etat` INT NOT NULL
 )ENGINE = InnoDB;
 ALTER TABLE rh.demandes_conges ADD date_demande DATE NULL;
+ALTER TABLE rh.motif_permission ADD nbJour INT NULL;
 
 
 CREATE TABLE `annonces`(

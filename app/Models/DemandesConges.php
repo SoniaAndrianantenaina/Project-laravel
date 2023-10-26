@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DateTime;
 use Illuminate\Database\Eloquent\Model;
 
 class DemandesConges extends Model
@@ -23,19 +23,23 @@ class DemandesConges extends Model
 
     public $timestamps = false;
 
-    public function employe(){
+    public function employe()
+    {
         return $this->belongsTo(Employes::class, 'idEmploye');
     }
 
-    public function motifperm(){
+    public function motifperm()
+    {
         return $this->belongsTo(MotifPermission::class, 'idMotifPermission');
     }
 
-    public function typeconge(){
+    public function typeconge()
+    {
         return $this->belongsTo(TypeConge::class, 'idTypeConge');
     }
 
-    public function mesDemandesCongé(){
+    public function mesDemandesCongé()
+    {
         if (auth()->guard('employee')->check()) {
             $employe_user = auth()->guard('employee')->user();
             $employe_id = $employe_user->idEmploye;
@@ -44,10 +48,34 @@ class DemandesConges extends Model
         }
     }
 
-    public function nbJour($date_debut, $date_fin){
-        $jourDebut = date('j', strtotime($date_debut));
-        $jourFin = date('j', strtotime($date_fin));
-        $nbjour = $jourFin - $jourDebut;
-        return $nbjour;
+
+    public function nbJour($date_debut, $date_fin)
+    {
+        $joursFeries = array(
+            '2024-01-01',
+            '2023-12-31',
+            '2023-12-25',
+            '2023-11-01',
+            '2023-08-15'
+        );
+
+        $jourDebut = new DateTime($date_debut);
+        $jourFin = new DateTime($date_fin);
+        $interval = $jourDebut->diff($jourFin);
+
+        $nbJour = $interval->days + 1;
+
+        for ($i = 0; $i <= $interval->days; $i++) {
+            $jour = $jourDebut->format('N'); // 1 (lundi) à 7 (dimanche)
+            $dateActuelle = $jourDebut->format('Y-m-d');
+
+            if ($jour === '6' || $jour === '7' || in_array($dateActuelle, $joursFeries)) {
+                $nbJour--;
+            }
+
+            $jourDebut->modify('+1 day');
+        }
+
+        return $nbJour;
     }
 }

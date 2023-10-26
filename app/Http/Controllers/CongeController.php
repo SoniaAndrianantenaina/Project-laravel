@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\DemandesConges;
 use App\Models\Employes;
+use App\Models\MotifPermission;
 use App\Models\SoldeConge;
+use App\Models\TypeConge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CongeController extends Controller
 {
@@ -31,7 +34,8 @@ class CongeController extends Controller
         return ['profil' => $profil, 'relation' => $relations, 'manager' => $managers];
     }
 
-    public function getSolde(){
+    public function getSolde()
+    {
         $solde_emp = new SoldeConge();
         $solde = $solde_emp->soldeCongé();
         $solde = $solde[0];
@@ -45,25 +49,28 @@ class CongeController extends Controller
             'solde_perm' => $solde_perm,
             'a_planifier' => $a_plan
         ];
-        return ['soldes' => $soldes ];
+        return ['soldes' => $soldes];
     }
 
-    public function addtwodays(){
+    public function addtwodays()
+    {
         $solde_emp = new SoldeConge();
         $calcul = $solde_emp->addTwoDays();
         return $calcul;
     }
 
-    public function soldeCongéPage(){
+    public function soldeCongéPage()
+    {
         $employe = new Employes();
         $data_profil = $this->getRelationsProfil();
         $solde = $this->getSolde();
         $calcul = $this->addtwodays();
         $dateDuJour = $employe->dateDuJour();
-        return view('employé.soldeCongé',  array_merge($data_profil,$solde, compact('dateDuJour')));
+        return view('employé.soldeCongé',  array_merge($data_profil, $solde, compact('dateDuJour')));
     }
 
-    public function listeDemandeCongé(){
+    public function listeDemandeCongé()
+    {
         $employe = new Employes();
         $conge = new SoldeConge();
         $demande_conge = new DemandesConges();
@@ -75,20 +82,78 @@ class CongeController extends Controller
         $mesDemandesCongé = $demande_conge->mesDemandesCongé();
 
         $nbjour = [];
-        foreach($mesDemandesCongé as $demande){
+        foreach ($mesDemandesCongé as $demande) {
             $date_debut = $demande->date_debut;
             $date_fin = $demande->date_fin;
             $nbjour[] = $demande_conge->nbJour($date_debut, $date_fin);
         }
-        return view('employé.listeDemandesCongé',  array_merge($data_profil,$solde, compact('dateDuJour', 'permconsommée','mesDemandesCongé','nbjour')));
+        return view('employé.listeDemandesCongé',  array_merge($data_profil, $solde, compact('dateDuJour', 'permconsommée', 'mesDemandesCongé', 'nbjour')));
     }
 
-    public function demanderCongé(){
+    public function demanderCongé()
+    {
         $employe = new Employes();
         $dateDuJour = $employe->dateDuJour();
-
         $data_profil = $this->getRelationsProfil();
+        $type_conge = TypeConge::all();
+        $motif_permission = MotifPermission::all();
+        return view('employé.demandeCongé', array_merge($data_profil), compact('dateDuJour', 'type_conge', 'motif_permission'));
+    }
 
-        return view('employé.demandeCongé', array_merge($data_profil), compact('dateDuJour'));
+    public function validerDemandeCongé(Request $request)
+    {
+        if (auth()->guard('employee')->check()) {
+            $demande_conge = new DemandesConges();
+
+            $date_demande = $request->input('date_demande');
+            $date_debut = $request->input('date_debut');
+            $date_fin = $request->input('date_fin');
+            $idTypeCongé = $request->input('idTypeCongé');
+            $idMotifPermission = $request->input('idMotifPermission');
+
+            $nbjourMotif = DB::select('select nbJour from motif_permission where idMotifPermission = ?', [$idMotifPermission]);
+            $motif = DB::select('select motif from motif_permission where idMotifPermission = ?', [$idMotifPermission]);
+
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+
+            $nbJour = $demande_conge->nbJour($date_debut, $date_fin);
+
+            if ($date_debut > $date_fin || $date_demande > $date_debut || $date_demande > $date_fin) {
+                return redirect()->back()->with('error', 'Veuillez revérifier les dates que vous avez entrées');
+            }
+
+            dd($nbJour);
+
+            if ($idMotifPermission && $nbjourMotif) {
+                if ($nbjourMotif[0]->nbJour < $nbJour) {
+                    $message = 'La permission ' . $motif[0]->motif . ' n a droit qu à ' . $nbjourMotif[0]->nbJour . ' jour(s)';
+                    return redirect()->back()->with('error', $message);
+                }
+            }
+
+            dd('hello');
+            $demande_conge = DemandesConges::create([
+                'idEmploye' => $employe_id,
+                'idMotifPermission' => $idMotifPermission,
+                'idTypeConge' => $idTypeCongé,
+                'date_debut' => $date_debut,
+                'date_fin' => $date_fin,
+                'etat' => 0,
+                'date_demande' => $date_demande,
+
+            ]);
+            if ($demande_conge) {
+                $solde_conge = SoldeConge::where('idEmploye', '=', $employe_id)->get();
+                if ($solde_conge) {
+                    $solde_conge->solde_previsionnel -= $nbJour;
+                    $solde_conge->save();
+                }
+
+                return redirect()->back()->with('success', 'La demande de congé a été enregistrée avec succès.');
+            } else {
+                return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement de la demande de congé.');
+            }
+        }
     }
 }

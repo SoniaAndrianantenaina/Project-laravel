@@ -137,6 +137,7 @@ Route::get('/', function () {
 
     Route::get('/demander-congé', [CongeController::class, 'demanderCongé'])->name('demander-congé');
 
+    Route::post('/valider-demande-congé', [CongeController::class, 'validerDemandeCongé'])->name('valider-demande-congé');
 
     Route::get('/liste-collaborateurs', function () {
         return view('employé.listeEmployés');

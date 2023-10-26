@@ -357,10 +357,6 @@ input[type=date] {
   font-weight: 700;
 }
 
-.fs-17 {
-  font-size: 17px;
-}
-
 .mt-15 {
   margin-top: 15px;
 }
@@ -516,6 +512,10 @@ input[type=date] {
   font-size: 20px;
   color: white;
   font-family: "Microsoft Sans Yahei";
+  text-decoration: none;
+}
+.boutons .btn.fs-17 {
+  font-size: 17px;
 }
 .boutons .btn.btn-medium {
   width: 270px;
@@ -1845,7 +1845,7 @@ input[type=date] {
   color: #70A8E7;
 }
 .div-grey__request__data__span {
-  width: 90px;
+  width: 115px;
   margin-bottom: 45px;
   font-size: 18px;
   color: rgb(102, 100, 100);

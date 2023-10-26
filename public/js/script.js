@@ -100,3 +100,16 @@ function fixStepIndicator(n) {
     //... and adds the "active" class on the current step:
     x[n].className += " active";
 }
+
+function showMotif(){
+    var type_conge = document.getElementById('type_conge');
+    var motif_permission = document.getElementById('motif_permission');
+
+    type_conge.addEventListener("change", function() {
+        if (type_conge.value === "5") {
+            motif_permission.style.display = "flex";
+        } else {
+            motif_permission.style.display = "none";
+        }
+    });
+}
