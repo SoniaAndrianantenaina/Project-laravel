@@ -80,7 +80,7 @@ class CongeController extends Controller
         return view('employé.soldeCongé',  array_merge($data_profil, $solde, compact('dateDuJour', 'lastLeaves', 'nbjour')));
     }
 
-    public function listeDemandeCongé()
+    public function maListeDemandeCongé()
     {
         $employe = new Employes();
         $conge = new SoldeConge();
@@ -173,6 +173,13 @@ class CongeController extends Controller
 
                 return redirect()->back()->with('success', 'La demande de congé a été enregistrée avec succès.');
             }
+        }
+    }
+
+    public function demandesEmployésCongés(){
+        if (auth()->guard('web')->check()) {
+            $allDemandes = DemandesConges::all();
+            return view('admin.demandesEmployésCongés', compact('allDemandes'));
         }
     }
 }

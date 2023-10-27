@@ -70,6 +70,9 @@
                             <div>NOM/ADRESSE <i class="icon-chevron-bottom"></i></div>
                         </th>
                         <th>
+                            <div>REF</div>
+                        </th>
+                        <th>
                             <div>DÉPARTEMENT</div>
                         </th>
                         <th>
@@ -87,210 +90,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="{{ route('planning-conge') }}">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                        alt="">
-                                </a>
-                                Andrianantenaina Sonia <br>
-                                Lot VR 52 Ter M Mahazoarivo
-                            </div>
-                        </td>
-                        <td>
-                            <div>Design Agency</div>
-                        </td>
-                        <td>
-                            <div>Développeur</div>
-                        </td>
-                        <td>
-                            <div>23/06/2023</div>
-                        </td>
-                        <td>
-                            <div>24/06/2023</div>
-                        </td>
-                        <td>
-                            <div class="statut centered-container">
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
-                                </a>
-                                <a href="">
-                                    <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach ($allDemandes as $demande)
+                        <tr>
+                            <td>
+                                <div class="d-flex">
+                                    <a href="">
+                                        <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
+                                            alt="">
+                                    </a>
+                                    {{$demande->employe->candidat->nom}} {{$demande->employe->candidat->prenom}}  <br>
+                                    {{$demande->employe->candidat->adresse}}
+                                </div>
+                            </td>
+                            <td>
+                                <div>REF00{{$demande->idDemandeConge}}</div>
+                            </td>
+                            <td>
+                                <div>{{$demande->employe->candidat->deptposte->dept->nom}}</div>
+                            </td>
+                            <td>
+                                <div>{{$demande->employe->candidat->deptposte->poste->nom}}</div>
+                            </td>
+                            <td>
+                                <div>{{$demande->date_debut}}</div>
+                            </td>
+                            <td>
+                                <div>{{$demande->date_fin}}</div>
+                            </td>
+                            <td>
+                                <div class="statut centered-container">
+                                    <a href="">
+                                        <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
+                                    </a>
+                                    <a href="">
+                                        <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

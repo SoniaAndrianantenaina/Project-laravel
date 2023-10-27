@@ -113,9 +113,7 @@ Route::get('/', function () {
         return view('admin/planningCongés');
     })->name('planning-conge');
 
-    Route::get('/demande-employe-conge', function () {
-        return view('admin/demandesEmployésCongés');
-    })->name('demande-employe-conge');
+    Route::get('/demande-employe-conge', [CongeController::class, 'demandesEmployésCongés'])->name('demande-employe-conge');
 
 
 //Côté employé
@@ -133,7 +131,7 @@ Route::get('/', function () {
     //congés
     Route::get('/solde-conge', [CongeController::class, 'soldeCongéPage'])->name('solde-conge');
 
-    Route::get('/liste-demande-conge', [CongeController::class, 'listeDemandeCongé'])->name('liste-demande-conge');
+    Route::get('/liste-demande-conge', [CongeController::class, 'maListeDemandeCongé'])->name('liste-demande-conge');
 
     Route::get('/demander-congé', [CongeController::class, 'demanderCongé'])->name('demander-congé');
 
