@@ -182,4 +182,12 @@ class CongeController extends Controller
             return view('admin.demandesEmployésCongés', compact('allDemandes'));
         }
     }
+
+    public function validerDemandeCongéEmployé($idEmploye, $idDemandeConge){
+        $demande_conge = DB::select('SELECT * FROM demandes_conges WHERE idDemandeConge = ? AND idEmploye = ?', [$idDemandeConge, $idEmploye]);
+    }
+
+    public function refuserDemandeCongéEmployé($idEmployé){
+
+    }
 }
