@@ -61,7 +61,7 @@ table{
 		text-align: left;
 		padding: 20px 0;
 		position: relative;
-		border-bottom: 1px solid #bebcbc;	
+		border-bottom: 1px solid #bebcbc;
 		div{
 			border-right: 1px solid $black;
 			display: flex;
@@ -90,7 +90,7 @@ table{
 		padding: 20px;
 		font-size: 14px;
 		line-height: 24px;
-		border-bottom: 1px solid #bebcbc;	
+		border-bottom: 1px solid #bebcbc;
 
 		div{
 			max-width: 275px;
@@ -152,6 +152,10 @@ table{
 
 .color-green{
     color: green;
+}
+
+.color-yellow{
+    color: rgb(219, 163, 41);
 }
 
 .white-table{

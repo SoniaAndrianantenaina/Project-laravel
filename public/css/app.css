@@ -2274,6 +2274,10 @@ table tbody tr:last-child td:last-child {
   color: green;
 }
 
+.color-yellow {
+  color: rgb(219, 163, 41);
+}
+
 .white-table {
   width: 97%;
   margin-top: 45px;

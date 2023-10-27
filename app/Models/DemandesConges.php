@@ -3,10 +3,15 @@
 namespace App\Models;
 
 use DateTime;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class DemandesConges extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'idEmploye',
         'idMotifPermission',
@@ -48,6 +53,19 @@ class DemandesConges extends Model
         }
     }
 
+    public function lastLeaves()
+    {
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+
+            return $this->with('employe', 'motifperm', 'typeconge')
+                ->where('idEmploye', $employe_id)
+                ->orderBy('date_debut', 'desc')
+                ->limit(2)
+                ->get();
+        }
+    }
 
     public function nbJour($date_debut, $date_fin)
     {

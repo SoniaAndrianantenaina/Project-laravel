@@ -62,11 +62,22 @@ class CongeController extends Controller
     public function soldeCongéPage()
     {
         $employe = new Employes();
+        $demande_conge = new DemandesConges();
+
         $data_profil = $this->getRelationsProfil();
         $solde = $this->getSolde();
         $calcul = $this->addtwodays();
         $dateDuJour = $employe->dateDuJour();
-        return view('employé.soldeCongé',  array_merge($data_profil, $solde, compact('dateDuJour')));
+
+        $lastLeaves = $demande_conge->lastLeaves();
+
+        $nbjour = [];
+        foreach ($lastLeaves as $last) {
+            $date_debut = $last->date_debut;
+            $date_fin = $last->date_fin;
+            $nbjour[] = $demande_conge->nbJour($date_debut, $date_fin);
+        }
+        return view('employé.soldeCongé',  array_merge($data_profil, $solde, compact('dateDuJour', 'lastLeaves', 'nbjour')));
     }
 
     public function listeDemandeCongé()
@@ -119,20 +130,30 @@ class CongeController extends Controller
 
             $nbJour = $demande_conge->nbJour($date_debut, $date_fin);
 
-            if ($date_debut > $date_fin || $date_demande > $date_debut || $date_demande > $date_fin) {
-                return redirect()->back()->with('error', 'Veuillez revérifier les dates que vous avez entrées');
+            $errors = [];
+
+            if ($date_debut > $date_fin) {
+                $errors[] = 'La date de début ne peut pas être après la date de fin.';
             }
 
-            dd($nbJour);
+            if ($date_demande > $date_debut) {
+                $errors[] = 'La date de demande ne peut pas être après la date de début.';
+            }
+
+            if ($date_demande > $date_fin) {
+                $errors[] = 'La date de demande ne peut pas être après la date de fin.';
+            }
 
             if ($idMotifPermission && $nbjourMotif) {
                 if ($nbjourMotif[0]->nbJour < $nbJour) {
-                    $message = 'La permission ' . $motif[0]->motif . ' n a droit qu à ' . $nbjourMotif[0]->nbJour . ' jour(s)';
-                    return redirect()->back()->with('error', $message);
+                    $errors[] = 'La permission ' . $motif[0]->motif . ' n a droit qu à ' . $nbjourMotif[0]->nbJour . ' jour(s)';
                 }
             }
 
-            dd('hello');
+            if (!empty($errors)) {
+                return redirect()->back()->with('errors', $errors);
+            }
+
             $demande_conge = DemandesConges::create([
                 'idEmploye' => $employe_id,
                 'idMotifPermission' => $idMotifPermission,
@@ -141,18 +162,16 @@ class CongeController extends Controller
                 'date_fin' => $date_fin,
                 'etat' => 0,
                 'date_demande' => $date_demande,
-
             ]);
+
             if ($demande_conge) {
-                $solde_conge = SoldeConge::where('idEmploye', '=', $employe_id)->get();
-                if ($solde_conge) {
+                $solde_conge = SoldeConge::where('idEmploye', '=', $employe_id)->first();
+                if ($solde_conge && !$idMotifPermission) {
                     $solde_conge->solde_previsionnel -= $nbJour;
-                    $solde_conge->save();
+                    $solde_conge->update();
                 }
 
                 return redirect()->back()->with('success', 'La demande de congé a été enregistrée avec succès.');
-            } else {
-                return redirect()->back()->with('error', 'Une erreur est survenue lors de l\'enregistrement de la demande de congé.');
             }
         }
     }

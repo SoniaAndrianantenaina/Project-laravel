@@ -35,7 +35,7 @@
 
                                 <select class="div-grey__request__data__input blue" name="idTypeCongé" id="type_conge">
                                     @foreach ($type_conge as $tc)
-                                        <option value="{{$tc->idTypeConge}}">{{$tc->nom}}</option>
+                                        <option value="{{ $tc->idTypeConge }}">{{ $tc->nom }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -45,7 +45,7 @@
 
                                 <select class="div-grey__request__data__input blue" name="idMotifPermission">
                                     @foreach ($motif_permission as $mp)
-                                        <option value="{{$mp->idMotifPermission}}">{{$mp->motif}}</option>
+                                        <option value="{{ $mp->idMotifPermission }}">{{ $mp->motif }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -74,9 +74,9 @@
     </section>
 
     <script>
-       showMotif();
+        showMotif();
 
-       @if (session('success'))
+        @if (session('success'))
             Swal.fire({
                 icon: 'success',
                 title: 'Succès',
@@ -86,11 +86,21 @@
                     window.location.href = '{{ route('solde-conge') }}';
                 }
             });
-        @elseif (session('error'))
+        @endif
+
+        @if (session('error'))
             Swal.fire({
                 icon: 'error',
                 title: 'Erreur',
                 text: '{{ session('error') }}'
+            });
+        @endif
+
+        @if (session('errors'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreurs',
+                html: '<ul>@foreach (session('errors') as $error) <li>{{ $error }}</li> @endforeach</ul>'
             });
         @endif
     </script>

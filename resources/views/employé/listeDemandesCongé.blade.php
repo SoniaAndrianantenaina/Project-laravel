@@ -127,7 +127,7 @@
                                         @elseif ($demande->etat == 2)
                                         <div class="color-red">Refusée</div>
                                         @else
-                                        <div>-</div>
+                                        <div class="color-yellow">En attente</div>
                                     @endif
                                 </td>
                             </tr>

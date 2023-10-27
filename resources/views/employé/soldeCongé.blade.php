@@ -58,19 +58,33 @@
                         {{-- derniers congés --}}
                         <h4 class="shadow-box__text__title on-top navy">Mes derniers congés</h4>
 
-                        <div class="shadow-box__text__content">
-                            <div>
-                                <h6 class="subtitle black">Congé payé</h6>
+                        @foreach ($lastLeaves as $last)
+                            <div class="shadow-box__text__content">
+                                <div>
+                                    <h6 class="subtitle black">{{ $last->typeconge->nom }}</h6>
 
-                                <div class="subtitle">
-                                    <h6>20/07/2023 au 21/07/2023 : 1j</h6>
+                                    <div class="subtitle">
+                                        <h6>{{ $last->date_debut }} au {{ $last->date_fin }} :
+                                            {{ $nbjour[$loop->index] }}j</h6>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="subtitle adjust-right color-green">
-                                <p>Validée</p>
+                                @if ($last->etat == 1)
+                                    <div class="subtitle adjust-right color-green">
+                                        <p>Validée</p>
+                                    </div>
+                                @elseif ($last->etat == 2)
+                                    <div class="subtitle adjust-right color-red">
+                                        <p>Refusée</p>
+                                    </div>
+                                @else
+                                    <div class="subtitle adjust-right color-yellow">
+                                        <p>En attente</p>
+                                    </div>
+                                @endif
+
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
