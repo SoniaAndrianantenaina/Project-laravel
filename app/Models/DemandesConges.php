@@ -96,4 +96,5 @@ class DemandesConges extends Model
 
         return $nbJour;
     }
+
 }

@@ -9,6 +9,7 @@ use App\Models\SoldeConge;
 use App\Models\TypeConge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class CongeController extends Controller
 {
@@ -176,18 +177,66 @@ class CongeController extends Controller
         }
     }
 
-    public function demandesEmployésCongés(){
+    public function demandesEmployésCongés()
+    {
         if (auth()->guard('web')->check()) {
             $allDemandes = DemandesConges::all();
             return view('admin.demandesEmployésCongés', compact('allDemandes'));
         }
     }
 
-    public function validerDemandeCongéEmployé($idEmploye, $idDemandeConge){
+    public function validerDemandeCongéEmployé($idEmploye, $idDemandeConge)
+    {
         $demande_conge = DB::select('SELECT * FROM demandes_conges WHERE idDemandeConge = ? AND idEmploye = ?', [$idDemandeConge, $idEmploye]);
     }
 
-    public function refuserDemandeCongéEmployé($idEmployé){
+    public function refuserDemandeCongéEmployé($idEmployé)
+    {
+    }
 
+    public function goToPlanning()
+    {
+        if (auth()->guard('employee')->check()) {
+            return view('employé.planningCongés');
+        }
+    }
+
+
+    public function seePlanning()
+    {
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+            Log::info('planning de congés');
+            $idDepartement = DB::select('SELECT departements.idDepartement
+            FROM demandes_conges
+            JOIN employes ON demandes_conges.idEmploye = employes.idEmploye
+            JOIN employes_infos_pros ON employes.idEmploye = employes_infos_pros.idEmploye
+            JOIN candidats ON employes.idCandidat = candidats.idCandidat
+            JOIN departement_poste ON employes_infos_pros.idDeptPoste = departement_poste.idDeptPoste
+            JOIN departements ON departement_poste.idDepartement = departements.idDepartement
+            WHERE employes.idEmploye = ?', [$employe_id]);
+
+            $idDepartementValue = $idDepartement[0]->idDepartement;
+
+
+            $leaveRequests = DemandesConges::join('employes', 'demandes_conges.idEmploye', '=', 'employes.idEmploye')
+                ->join('employes_infos_pros', 'employes.idEmploye', '=', 'employes_infos_pros.idEmploye')
+                ->join('candidats', 'employes.idCandidat', '=', 'candidats.idCandidat')
+                ->join('departement_poste', 'employes_infos_pros.idDeptPoste', '=', 'departement_poste.idDeptPoste')
+                ->join('departements', 'departement_poste.idDepartement', '=', 'departements.idDepartement')
+                ->where('demandes_conges.etat', 1)
+                ->where('departements.idDepartement', '=', $idDepartementValue)
+                ->where('employes.idEmploye', '!=', $employe_id)
+                ->select('departements.idDepartement', DB::raw('CONCAT(candidats.nom, " ", candidats.prenom) as title'), 'demandes_conges.date_debut as start', 'demandes_conges.date_fin as end')
+                ->get()
+                ->map(function ($leaveRequest) {
+                    $leaveRequest->start = date('Y-m-d', strtotime($leaveRequest->start));
+                    $leaveRequest->end = date('Y-m-d', strtotime($leaveRequest->end . ' +1 day'));
+                    $leaveRequest->color = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+                    return $leaveRequest;
+                });
+            return response()->json($leaveRequests);
+        }
     }
 }

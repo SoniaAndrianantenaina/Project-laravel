@@ -109,9 +109,6 @@ Route::get('/', function () {
     Route::get('/liste-departements', [DeptPosteController::class, 'listeDepartements'])->name('liste-departements');
 
     //CONGÉS
-    Route::get('/planning-conge', function () {
-        return view('admin/planningCongés');
-    })->name('planning-conge');
 
     Route::get('/demande-employe-conge', [CongeController::class, 'demandesEmployésCongés'])->name('demande-employe-conge');
 
@@ -136,6 +133,12 @@ Route::get('/', function () {
     Route::get('/demander-congé', [CongeController::class, 'demanderCongé'])->name('demander-congé');
 
     Route::post('/valider-demande-congé', [CongeController::class, 'validerDemandeCongé'])->name('valider-demande-congé');
+
+    Route::get('/planning-congé', [CongeController::class, 'goToPlanning'])->name('planning-congé');
+
+    Route::get('/calendar/congés', [CongeController::class, 'seePlanning'])->name('/calendar/congés');
+
+
 
     Route::get('/liste-collaborateurs', function () {
         return view('employé.listeEmployés');

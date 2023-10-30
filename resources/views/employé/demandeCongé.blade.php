@@ -18,6 +18,8 @@
                             <div class="div-grey__request__data">
                                 <p class="div-grey__request__data__span">Date demande :</p>
                                 <input class="div-grey__request__data__input" type="date" name="date_demande">
+
+                                <a class="see-planning" href="{{ route('planning-congé') }}">Voir le planning</a>
                             </div>
 
                             <div class="div-grey__request__data">
