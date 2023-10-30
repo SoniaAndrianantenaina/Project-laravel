@@ -121,10 +121,10 @@
                             </td>
                             <td>
                                 <div class="statut centered-container">
-                                    <a href="">
+                                    <a href="{{ route('confirmer-congé', ['idDemandeCongé' => $demande->idDemandeConge]) }}" onclick="confirmerCongé(event);">
                                         <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
                                     </a>
-                                    <a href="">
+                                    <a href="{{ route('refuser-congé', ['idDemandeCongé' => $demande->idDemandeConge]) }}" onclick="refuserCongé(event);">
                                         <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
                                     </a>
                                 </div>
@@ -135,7 +135,21 @@
                 </tbody>
             </table>
         </div>
-
-
     </section>
+
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}'
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
+    </script>
 </main>

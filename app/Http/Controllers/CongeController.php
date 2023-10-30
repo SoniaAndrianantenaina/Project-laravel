@@ -266,12 +266,44 @@ class CongeController extends Controller
         }
     }
 
-    public function validerDemandeCongéEmployé($idEmploye, $idDemandeConge)
+    public function confirmerCongé($idDemandeCongé)
     {
-        $demande_conge = DB::select('SELECT * FROM demandes_conges WHERE idDemandeConge = ? AND idEmploye = ?', [$idDemandeConge, $idEmploye]);
+        $dc = new DemandesConges();
+        $demandeConge = DemandesConges::find($idDemandeCongé);
+        $idEmploye = $demandeConge->idEmploye;
+        $conge = SoldeConge::where('idEmploye', $idEmploye);
+        $date_debut = $demandeConge->date_debut;
+        $date_fin = $demandeConge->date_fin;
+        if ($demandeConge) {
+            $demandeConge->etat = 1;
+            $demandeConge->update();
+
+            if ($demandeConge->idMotifPermission) {
+                $nbJour = $dc->nbJour($date_debut, $date_fin);
+                $conge->solde_perm -= $nbJour;
+                $conge->update();
+            } else {
+                $nbJour = $dc->nbJour($date_debut, $date_fin);
+                $conge->solde_réel -= $nbJour;
+                $conge->update();
+            }
+
+            return redirect()->back()->with('success', 'La demande de congé a été confirmée avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'La demande de congé n\'existe pas.');
+        }
     }
 
-    public function refuserDemandeCongéEmployé($idEmployé)
+    public function refuserCongé($idDemandeCongé)
     {
+        $demandeConge = DemandesConges::find($idDemandeCongé);
+
+        if ($demandeConge) {
+            $demandeConge->etat = 2;
+            $demandeConge->save();
+            return redirect()->back()->with('success', 'La demande de congé a été refusée avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'La demande de congé n\'existe pas.');
+        }
     }
 }

@@ -113,3 +113,39 @@ function showMotif(){
         }
     });
 }
+
+function confirmerCongé(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute('href');
+
+    Swal.fire({
+        title: 'Confirmation',
+        text: 'Êtes-vous sûr de vouloir confirmer ce congé ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, confirmer',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+
+function refuserCongé(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute('href');
+
+    Swal.fire({
+        title: 'Confirmation',
+        text: 'Êtes-vous sûr de vouloir refuser ce congé ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, refuser',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}

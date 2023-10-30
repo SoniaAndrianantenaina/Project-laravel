@@ -116,6 +116,10 @@ Route::get('/', function () {
 
     Route::get('/calendrier-congé-employé', [CongeController::class, 'seePlanningAdmin'])->name('/calendrier-congé-employé');
 
+    Route::get('/confirmer-congé/{idDemandeCongé}', [CongeController::class, 'confirmerCongé'])->name('confirmer-congé');
+
+    Route::get('/refuser-congé/{idDemandeCongé}', [CongeController::class, 'refuserCongé'])->name('refuser-congé');
+
 //Côté employé
     Route::post('login-employe', [LogController::class, 'loginEmployé'])->name('login-employe');
 
