@@ -94,9 +94,11 @@
                         <tr>
                             <td>
                                 <div class="d-flex">
-                                    <a href="">
-                                        <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
-                                            alt="">
+                                    @php
+                                        $idDepartement = $demande->employe->candidat->deptposte->dept->idDepartement;
+                                    @endphp
+                                    <a href="{{ route('planning-congé-employé', ['idDepartement' => $idDepartement]) }}">
+                                        <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
                                     </a>
                                     {{$demande->employe->candidat->nom}} {{$demande->employe->candidat->prenom}}  <br>
                                     {{$demande->employe->candidat->adresse}}

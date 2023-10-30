@@ -112,6 +112,9 @@ Route::get('/', function () {
 
     Route::get('/demande-employe-conge', [CongeController::class, 'demandesEmployésCongés'])->name('demande-employe-conge');
 
+    Route::get('/planning-congé-employé/{idDepartement}', [CongeController::class, 'planningAdmin'])->name('planning-congé-employé');
+
+    Route::get('/calendrier-congé-employé', [CongeController::class, 'seePlanningAdmin'])->name('/calendrier-congé-employé');
 
 //Côté employé
     Route::post('login-employe', [LogController::class, 'loginEmployé'])->name('login-employe');
