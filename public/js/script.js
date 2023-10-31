@@ -149,3 +149,105 @@ function refuserCongé(event) {
         }
     });
 }
+
+function supprimerEmploye(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute('href');
+
+    Swal.fire({
+        title: 'Confirmation',
+        text: 'Êtes-vous sûr de vouloir supprimer cet(te) employé(e) ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, refuser',
+        cancelButtonText: 'Annuler'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+
+function listeEmployés(){
+    document.addEventListener('DOMContentLoaded', function() {
+        const departmentItems = document.querySelectorAll('.department-item');
+        const listContentRight = document.querySelector('.list-content__right'); // Define listContentRight here
+
+        departmentItems.forEach(function(department) {
+            department.addEventListener('click', function() {
+                const departmentId = department.getAttribute('data-dept-id');
+                console.log(departmentId);
+
+                fetch(`/get-employes/${departmentId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+
+                        listContentRight.innerHTML = '';
+
+                        const noEmployeesMessage = document.createElement('p');
+                        noEmployeesMessage.className = 'p-medium';
+
+                        if (data.length > 0) {
+                            const listContentBlocks = document.createElement('div');
+                            listContentBlocks.className = 'list-content__blocks';
+
+                            data.forEach(employee => {
+                                var idEmployee = employee.idEmploye;
+                                var imagePath = employee.imagePath;
+
+                                var link = document.createElement('a');
+                                link.href = `/profil-employe/${idEmployee}`;
+
+
+                                var figure = document.createElement('figure');
+
+                                var image = document.createElement('img');
+                                image.src = imagePath;
+                                image.alt = '';
+
+                                figure.appendChild(image);
+
+                                link.appendChild(figure);
+
+                                var listContentPicture = document.createElement(
+                                    'div');
+                                listContentPicture.className =
+                                    'list-content__picture';
+                                listContentPicture.appendChild(link);
+
+                                const employeeCard = document.createElement('div');
+                                employeeCard.className =
+                                    'list-content__blocks__item';
+
+                                employeeCard.appendChild(listContentPicture);
+
+                                var employeeInfo = document.createElement('div');
+                                employeeInfo.className = 'list-content__infos';
+                                employeeInfo.innerHTML = `
+                                            <p class="p-medium uppercase">${employee.nomEmploye}</p>
+                                            <p class="p-medium">${employee.prenom}</p>
+                                            <p class="p-medium grey-text">${employee.nomPoste}</p>
+                                            <p class="p-medium grey-text">${employee.contact}</p>
+                                        `;
+
+                                employeeCard.appendChild(employeeInfo);
+
+                                listContentBlocks.appendChild(employeeCard);
+                            });
+
+                            listContentRight.appendChild(listContentBlocks);
+
+                        } else {
+                            const noEmployeesMessage = document.createElement('p');
+                            noEmployeesMessage.className = 'no-employees-message';
+                            // Set the message when no employees are found
+                            noEmployeesMessage.textContent =
+                                "Il n'y a pas encore d'employés.";
+                            listContentRight.appendChild(noEmployeesMessage);
+                        }
+                    });
+            });
+        });
+    });
+}

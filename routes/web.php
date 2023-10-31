@@ -64,18 +64,13 @@ Route::get('/', function () {
 
     Route::get('/liste-employes', [EmployeController::class, 'listeEmployes'])->name('liste-employes');
 
+    Route::get('/profil-employe/{idEmploye}', [EmployeController::class, 'profilEmployé'])->name('profil-employe');
+
     Route::get('/get-employes/{idDepartement}', [EmployeController::class, 'getEmployes'])->name('get-employes');
 
     Route::get('/anniversaire', [EmployeController::class, 'birthdayMail'])->name('anniversaire');
 
-    Route::get('/off-boarding', function () {
-        return view('admin/offBoarding');
-    })->name('off-boarding');
-
-
-    Route::get('/profil-employe', function () {
-        return view('admin/profilEmployé');
-    })->name('profil-employe');
+    Route::get('/off-boarding', [EmployeController::class, 'offBoarding'])->name('off-boarding');
 
     //POSTES
     Route::get('/get-postes/{idDepartement}', [DeptPosteController::class, 'getPostesByDepartement'])->name('get-postes');

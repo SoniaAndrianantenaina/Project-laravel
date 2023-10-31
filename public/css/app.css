@@ -537,9 +537,9 @@ input[type=date] {
   text-decoration: none;
 }
 .boutons .btn.re-arranged {
-  border: none;
-  width: 180px;
-  height: 48px;
+  width: 130px;
+  height: 35px;
+  font-size: 17px;
 }
 .boutons .btn.btn-filtre {
   height: 34px;

@@ -62,6 +62,12 @@ class Employes extends Authenticatable
         }
     }
 
+    public function profilEmployé($employe_id)
+    {
+        $profil = EmployeInfos::where('idEmploye', $employe_id)->first();
+        return $profil;
+    }
+
     public function relationProfil()
     {
         if (auth()->guard('employee')->check()) {

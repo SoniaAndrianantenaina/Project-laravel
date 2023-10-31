@@ -28,7 +28,7 @@
     <section class="formulaire">
         <div class="formulaire-collab">
             <div class="block-annonces__item__title">
-                <h2 class='title-h2'>ANDRIANANTENAINA Sonia</h2>
+                <h2 class='title-h2'>{{ $offboarding->nom }} {{ $offboarding->prenom }}</h2>
             </div>
 
             <div class="formulaire-collab__content">

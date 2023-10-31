@@ -119,66 +119,69 @@ class EmployeController extends Controller
 
     public function envoyerIdentifiants(Request $request)
     {
-        $solde_réel = 0;
-        $solde_previsionnel = 0;
-        $perm = 10;
-        $a_planifier = 0;
+        if (auth()->check()) {
+            $solde_réel = 0;
+            $solde_previsionnel = 0;
+            $perm = 10;
+            $a_planifier = 0;
 
-        $candidat = session()->get('candidat');
-        $idCandidat = $candidat->idCandidat;
-        $idDeptPoste = $candidat->idDeptPoste;
-        $email = $candidat->email;
+            $candidat = session()->get('candidat');
+            $idCandidat = $candidat->idCandidat;
+            $idDeptPoste = $candidat->idDeptPoste;
+            $email = $candidat->email;
 
-        $type_contrat = session()->get('type_contrat');
-        $date_debut = session()->get('date_debut');
-        $date_fin = session()->get('date_fin');
-        $identifiant = $request->input('identifiant');
-        $mdp = $request->session()->get('generated_password');
+            $type_contrat = session()->get('type_contrat');
+            $date_debut = session()->get('date_debut');
+            $date_fin = session()->get('date_fin');
+            $identifiant = $request->input('identifiant');
+            $mdp = $request->session()->get('generated_password');
 
-        $contrat = $this->getContrat($type_contrat);
+            $contrat = $this->getContrat($type_contrat);
 
-        echo $type_contrat;
+            echo $type_contrat;
 
-        if ($idCandidat != 0) {
-            $mailResult = $this->envoyerMail($identifiant, $mdp, $email, $contrat);
+            if ($idCandidat != 0) {
+                $mailResult = $this->envoyerMail($identifiant, $mdp, $email, $contrat);
 
-            if ($mailResult === 1) {
-                $idEmploye = DB::table('employes')->insertGetId([
-                    'idCandidat' => $idCandidat,
-                    'identifiant' => $identifiant,
-                    'mdp' => $mdp
-                ]);
-
-                if ($idEmploye != 0) {
-                    DB::table('candidats')
-                        ->where('idCandidat', $idCandidat)
-                        ->update(['statut' => 3]);
-
-                    $solde_conge = SoldeConge::create([
-                        'solde_réel' => $solde_réel,
-                        'solde_previsionnel' => $solde_previsionnel,
-                        'solde_perm' => $perm,
-                        'a_planifier' => $a_planifier
+                if ($mailResult === 1) {
+                    $idEmploye = DB::table('employes')->insertGetId([
+                        'idCandidat' => $idCandidat,
+                        'identifiant' => $identifiant,
+                        'mdp' => $mdp
                     ]);
 
-                    $employeInfoPro = EmployesInfosPros::create([
-                        'idEmploye' => $idEmploye,
-                        'idDeptPoste' => $idDeptPoste,
-                        'idTypeContrat' => $type_contrat,
-                        'date_debut' => $date_debut,
-                        'date_fin' => $date_fin
-                    ]);
+                    if ($idEmploye != 0) {
+                        DB::table('candidats')
+                            ->where('idCandidat', $idCandidat)
+                            ->update(['statut' => 3]);
+
+                        $solde_conge = SoldeConge::create([
+                            'solde_réel' => $solde_réel,
+                            'solde_previsionnel' => $solde_previsionnel,
+                            'solde_perm' => $perm,
+                            'a_planifier' => $a_planifier
+                        ]);
+
+                        $employeInfoPro = EmployesInfosPros::create([
+                            'idEmploye' => $idEmploye,
+                            'idDeptPoste' => $idDeptPoste,
+                            'idTypeContrat' => $type_contrat,
+                            'date_debut' => $date_debut,
+                            'date_fin' => $date_fin
+                        ]);
+                    }
+                    return redirect()->route('liste-candidats')->with('success', 'Identifiants bien envoyés, et employé inséré');
+                } else {
+                    return redirect()->route('liste-candidats')->with('error', 'Erreur');
                 }
-                return redirect()->route('liste-candidats')->with('success', 'Identifiants bien envoyés, et employé inséré');
-            } else {
-                return redirect()->route('liste-candidats')->with('error', 'Erreur');
             }
         }
     }
 
     public function getEmployes($idDepartement)
     {
-        $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact
+        if (auth()->check()) {
+            $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact
                             from employes_infos_pros eip join employes e
                             on e.idEmploye = eip.idEmploye
                             join departement_poste dp
@@ -187,13 +190,34 @@ class EmployeController extends Controller
                             join candidats c ON c.idCandidat = e.idCandidat
                             join poste p on p.idPoste  = dp.idPoste
                             WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
-        return response()->json($employe);
+            return response()->json($employe);
+        }
     }
 
     public function listeEmployes()
     {
-        $departements = Departements::all();
-        return view('admin.listeEmployés', compact('departements'));
+        if (auth()->check()) {
+            $departements = Departements::all();
+            return view('admin.listeEmployés', compact('departements'));
+        }
+    }
+
+    public function profilEmployé($idEmploye)
+    {
+        if (auth()->check()) {
+            $employe = new Employes();
+            $profil = $employe->profilEmployé($idEmploye);
+            session()->put('idEmployeProfil', $idEmploye);
+            return view('admin.profilEmployé', compact('profil'));
+        }
+    }
+
+    public function offBoarding(){
+        if (auth()->check()) {
+            $idEmploye = session()->get('idEmployeProfil');
+            $offboarding = EmployeInfos::where($idEmploye);
+            return view('admin.offBoarding', compact('offboarding'));
+        }
     }
 
     public function birthdayMail()
@@ -218,9 +242,12 @@ class EmployeController extends Controller
 
     public function getMonProfil()
     {
-        $employe = new Employes();
-        $profil = $employe->monProfil();
-        return view('employé.monProfil', compact('profil'));
+        if (auth()->guard('employee')->check()) {
+            $employe_user = auth()->guard('employee')->user();
+            $employe_id = $employe_user->idEmploye;
+            $employe = new Employes();
+            $profil = $employe->profilEmployé($employe_id);
+            return view('employé.monProfil', compact('profil'));
+        }
     }
-
 }
