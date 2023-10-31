@@ -70,13 +70,16 @@
                             <div>NOM/ADRESSE <i class="icon-chevron-bottom"></i></div>
                         </th>
                         <th>
-                            <div>REF</div>
-                        </th>
-                        <th>
                             <div>DÉPARTEMENT</div>
                         </th>
                         <th>
                             <div>POSTE</div>
+                        </th>
+                        <th>
+                            <div>TYPE CONGÉ</div>
+                        </th>
+                        <th>
+                            <div>MOTIF</div>
                         </th>
                         <th>
                             <div>DÉBUT</div>
@@ -97,34 +100,45 @@
                                     @php
                                         $idDepartement = $demande->employe->candidat->deptposte->dept->idDepartement;
                                     @endphp
-                                    <a href="{{ route('planning-congé-employé', ['idDepartement' => $idDepartement]) }}">
-                                        <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}" alt="">
+                                    <a
+                                        href="{{ route('planning-congé-employé', ['idDepartement' => $idDepartement]) }}">
+                                        <img src="{{ asset('assets/images/collaborateur/user-profil.png') }}"
+                                            alt="">
                                     </a>
-                                    {{$demande->employe->candidat->nom}} {{$demande->employe->candidat->prenom}}  <br>
-                                    {{$demande->employe->candidat->adresse}}
+                                    {{ $demande->employe->candidat->nom }} {{ $demande->employe->candidat->prenom }}
+                                    <br>
+                                    {{ $demande->employe->candidat->adresse }}
                                 </div>
                             </td>
                             <td>
-                                <div>REF00{{$demande->idDemandeConge}}</div>
+                                <div>{{ $demande->employe->candidat->deptposte->dept->nom }}</div>
                             </td>
                             <td>
-                                <div>{{$demande->employe->candidat->deptposte->dept->nom}}</div>
+                                <div>{{ $demande->employe->candidat->deptposte->poste->nom }}</div>
                             </td>
                             <td>
-                                <div>{{$demande->employe->candidat->deptposte->poste->nom}}</div>
+                                <div>{{ $demande->typeconge->nom }} </div>
                             </td>
                             <td>
-                                <div>{{$demande->date_debut}}</div>
+                                @if ($demande->motifperm)
+                                    <div>{{ $demande->motifperm->motif }} </div>
+                                @endif
                             </td>
                             <td>
-                                <div>{{$demande->date_fin}}</div>
+                                <div>{{ $demande->date_debut }}</div>
+                            </td>
+                            <td>
+                                <div>{{ $demande->date_fin }}</div>
                             </td>
                             <td>
                                 <div class="statut centered-container">
-                                    <a href="{{ route('confirmer-congé', ['idDemandeCongé' => $demande->idDemandeConge]) }}" onclick="confirmerCongé(event);">
+                                    <a href="{{ url('confirmer-conge', ['idDemandeConge' => $demande->idDemandeConge]) }}"
+                                        onclick="confirmerCongé(event);">
                                         <img src="{{ asset('assets/images/icon/done.png') }}" alt="">
                                     </a>
-                                    <a href="{{ route('refuser-congé', ['idDemandeCongé' => $demande->idDemandeConge]) }}" onclick="refuserCongé(event);">
+
+                                    <a href="{{ url('refuser-conge', ['idDemandeConge' => $demande->idDemandeConge]) }}"
+                                        onclick="refuserCongé(event);">
                                         <img src="{{ asset('assets/images/icon/cancel.png') }}" alt="">
                                     </a>
                                 </div>

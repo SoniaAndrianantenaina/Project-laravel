@@ -64,7 +64,7 @@ class DemandesConges extends Model
             return $this->with('employe', 'motifperm', 'typeconge')
                 ->where('idEmploye', $employe_id)
                 ->orderBy('date_debut', 'desc')
-                ->limit(2)
+                ->limit(3)
                 ->get();
         }
     }

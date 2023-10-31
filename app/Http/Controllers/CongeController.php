@@ -122,12 +122,14 @@ class CongeController extends Controller
             $date_fin = $request->input('date_fin');
             $idTypeCongé = $request->input('idTypeCongé');
             $idMotifPermission = $request->input('idMotifPermission');
-
             $nbjourMotif = DB::select('select nbJour from motif_permission where idMotifPermission = ?', [$idMotifPermission]);
             $motif = DB::select('select motif from motif_permission where idMotifPermission = ?', [$idMotifPermission]);
 
             $employe_user = auth()->guard('employee')->user();
             $employe_id = $employe_user->idEmploye;
+
+            $sc = SoldeConge::where('idEmploye', $employe_id)->first();
+
 
             $nbJour = $demande_conge->nbJour($date_debut, $date_fin);
 
@@ -149,6 +151,10 @@ class CongeController extends Controller
                 if ($nbjourMotif[0]->nbJour < $nbJour) {
                     $errors[] = 'La permission ' . $motif[0]->motif . ' n a droit qu à ' . $nbjourMotif[0]->nbJour . ' jour(s)';
                 }
+            }
+
+            if ($sc->solde_perm == 0) {
+                $errors[] = 'Vous n\'avez plus de permissions';
             }
 
             if (!empty($errors)) {
@@ -266,28 +272,32 @@ class CongeController extends Controller
         }
     }
 
-    public function confirmerCongé($idDemandeCongé)
+    public function confirmerCongé($idDemandeConge)
     {
         $dc = new DemandesConges();
-        $demandeConge = DemandesConges::find($idDemandeCongé);
+        $sc = new SoldeConge();
+        $demandeConge = DemandesConges::find($idDemandeConge);
         $idEmploye = $demandeConge->idEmploye;
-        $conge = SoldeConge::where('idEmploye', $idEmploye);
+        $conge = SoldeConge::where('idEmploye', $idEmploye)->first();
         $date_debut = $demandeConge->date_debut;
         $date_fin = $demandeConge->date_fin;
-        $email = DB::select('select email from employes e join candidats c on c.idCandidat = e.idCandidat where e.idEmploye = ?', $idEmploye);
+        $email = DB::select('select email from employes e join candidats c on c.idCandidat = e.idCandidat where e.idEmploye = ?', [$idEmploye]);
         $adresseMail = $email[0]->email;
+        $nbJour = $dc->nbJour($date_debut, $date_fin);
+        $solde_reel = $conge->solde_réel;
 
         if ($demandeConge) {
             $demandeConge->etat = 1;
             $demandeConge->update();
 
             if ($demandeConge->idMotifPermission) {
-                $nbJour = $dc->nbJour($date_debut, $date_fin);
                 $conge->solde_perm -= $nbJour;
                 $conge->update();
             } else {
-                $nbJour = $dc->nbJour($date_debut, $date_fin);
                 $conge->solde_réel -= $nbJour;
+                $nouveauSoldeReel = $conge->solde_réel;
+                $nbJourAplanifier = $sc->aPlanifier($nouveauSoldeReel);
+                $conge->a_planifier = $nbJourAplanifier;
                 $conge->update();
             }
             $envoiMail = $dc->mailConfirmation($date_debut, $date_fin, $adresseMail);
@@ -297,9 +307,9 @@ class CongeController extends Controller
         }
     }
 
-    public function refuserCongé($idDemandeCongé)
+    public function refuserCongé($idDemandeConge)
     {
-        $demandeConge = DemandesConges::find($idDemandeCongé);
+        $demandeConge = DemandesConges::find($idDemandeConge);
 
         if ($demandeConge) {
             $demandeConge->etat = 2;

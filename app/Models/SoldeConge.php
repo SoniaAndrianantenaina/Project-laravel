@@ -53,24 +53,35 @@ class SoldeConge extends Model
     public function addTwoDays()
     {
         if (auth()->guard('employee')->check()) {
+            if (!session('twoDaysAdded')) {
+                $jourActuel = date('j');
+                $dernierJourDuMois = date('t');
 
-            $jourActuel = date('j');
-            $dernierJourDuMois = date('t');
-            $updatedCount = 0;
+                if ($jourActuel == $dernierJourDuMois) {
+                    $addTwo = 2;
+                    $soldes = SoldeConge::all();
 
-            if ($jourActuel == $dernierJourDuMois) {
-                $addTwo = 2;
-                $soldes = SoldeConge::all();
-
-                foreach ($soldes as $solde) {
-                    $solde->update([
-                        'solde_réel' => $solde->solde_réel + $addTwo,
-                    ]);
-
-                    $updatedCount++;
+                    foreach ($soldes as $solde) {
+                        $solde->update([
+                            'solde_réel' => $solde->solde_réel + $addTwo,
+                            'solde_previsionnel' => $solde->solde_previsionnel + $addTwo,
+                        ]);
+                    }
+                    session(['twoDaysAdded' => true]);
                 }
             }
-            return $updatedCount;
+        }
+    }
+
+    public function aPlanifier($solde_reel)
+    {
+        if (auth()->guard('employee')->check()) {
+            if ($solde_reel >= 7) {
+                $aplanifier = $solde_reel - 7;
+            } elseif ($solde_reel <= 6) {
+                $aplanifier = 0;
+            }
+            return $aplanifier;
         }
     }
 }

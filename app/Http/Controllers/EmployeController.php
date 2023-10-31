@@ -119,10 +119,10 @@ class EmployeController extends Controller
 
     public function envoyerIdentifiants(Request $request)
     {
-        $solde_réel = 24;
-        $solde_previsionnel = 24;
+        $solde_réel = 0;
+        $solde_previsionnel = 0;
         $perm = 10;
-        $a_planifier = 7;
+        $a_planifier = 0;
 
         $candidat = session()->get('candidat');
         $idCandidat = $candidat->idCandidat;

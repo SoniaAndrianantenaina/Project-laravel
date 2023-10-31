@@ -46,6 +46,7 @@
                                 <label class="div-grey__request__data__span">Motif congé :</label>
 
                                 <select class="div-grey__request__data__input blue" name="idMotifPermission">
+                                    <option value="">Sélectionnez une option</option>
                                     @foreach ($motif_permission as $mp)
                                         <option value="{{ $mp->idMotifPermission }}">{{ $mp->motif }}</option>
                                     @endforeach

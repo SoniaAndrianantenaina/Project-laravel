@@ -8,6 +8,9 @@
 </head>
 <body>
     <p>Bonjour,</p>
-    <p>Votre demande de conge de {{$date_debut}} à {{$date_fin}} a bien été confirmée</p>
+    <p>
+        Votre demande de congé du {{ \Carbon\Carbon::parse($date_debut)->locale('fr_FR')->isoFormat('D MMMM Y') }} au
+        {{ \Carbon\Carbon::parse($date_fin)->locale('fr_FR')->isoFormat('D MMMM Y') }} a bien été confirmée
+    </p>
 </body>
 </html>

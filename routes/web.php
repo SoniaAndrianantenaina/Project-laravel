@@ -8,6 +8,7 @@ use App\Http\Controllers\LogController;
 use App\Http\Controllers\DeptPosteController;
 use App\Http\Controllers\EmployeController;
 use App\Mail\TestMail;
+use App\Models\Annonces;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -114,11 +115,11 @@ Route::get('/', function () {
 
     Route::get('/planning-congé-employé/{idDepartement}', [CongeController::class, 'planningAdmin'])->name('planning-congé-employé');
 
-    Route::get('/calendrier-congé-employé', [CongeController::class, 'seePlanningAdmin'])->name('/calendrier-congé-employé');
+    Route::get('/calendrier-congé-employé', [CongeController::class, 'seePlanningAdmin'])->name('calendrier-congé-employé');
 
-    Route::get('/confirmer-congé/{idDemandeCongé}', [CongeController::class, 'confirmerCongé'])->name('confirmer-congé');
+    Route::get('/confirmer-conge/{idDemandeConge}', [CongeController::class, 'confirmerCongé'])->name('confirmer-conge');
 
-    Route::get('/refuser-congé/{idDemandeCongé}', [CongeController::class, 'refuserCongé'])->name('refuser-congé');
+    Route::get('/refuser-conge/{idDemandeConge}', [CongeController::class, 'refuserCongé'])->name('refuser-conge');
 
 //Côté employé
     Route::post('login-employe', [LogController::class, 'loginEmployé'])->name('login-employe');
