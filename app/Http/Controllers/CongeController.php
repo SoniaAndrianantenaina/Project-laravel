@@ -274,6 +274,9 @@ class CongeController extends Controller
         $conge = SoldeConge::where('idEmploye', $idEmploye);
         $date_debut = $demandeConge->date_debut;
         $date_fin = $demandeConge->date_fin;
+        $email = DB::select('select email from employes e join candidats c on c.idCandidat = e.idCandidat where e.idEmploye = ?', $idEmploye);
+        $adresseMail = $email[0]->email;
+
         if ($demandeConge) {
             $demandeConge->etat = 1;
             $demandeConge->update();
@@ -287,7 +290,7 @@ class CongeController extends Controller
                 $conge->solde_réel -= $nbJour;
                 $conge->update();
             }
-
+            $envoiMail = $dc->mailConfirmation($date_debut, $date_fin, $adresseMail);
             return redirect()->back()->with('success', 'La demande de congé a été confirmée avec succès.');
         } else {
             return redirect()->back()->with('error', 'La demande de congé n\'existe pas.');

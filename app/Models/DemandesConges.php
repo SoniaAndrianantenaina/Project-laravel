@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use DateTime;
+use App\Mail\ConfirmationConge;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -95,6 +97,19 @@ class DemandesConges extends Model
         }
 
         return $nbJour;
+    }
+
+    public function mailConfirmation($date_debut, $date_fin, $email)
+    {
+        $mail = new ConfirmationConge($date_debut, $date_fin);
+        $mail->to($email);
+        Mail::send($mail);
+
+        if (count(Mail::failures()) > 0) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
 }
