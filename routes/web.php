@@ -104,6 +104,10 @@ Route::get('/', function () {
 
     Route::get('/liste-departements', [DeptPosteController::class, 'listeDepartements'])->name('liste-departements');
 
+    Route::get('/update-department/{idDepartement}', [DeptPosteController::class, 'updateDept'])->name('update-department');
+
+    Route::get('/obtenir-salaire/{idPoste}', [DeptPosteController::class, 'getPosteSalaire'])->name('obtenir-salaire');
+
     //CONGÉS
 
     Route::get('/demande-employe-conge', [CongeController::class, 'demandesEmployésCongés'])->name('demande-employe-conge');

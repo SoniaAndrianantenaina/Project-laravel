@@ -45,7 +45,7 @@
                         <h3>{{ $groupedDepartements->first()->dept->nom }}</h3>
                         <div class="right-items">
                             <div class="edit-button">
-                                <a href="#">
+                                <a href="{{ route('update-department', ['idDepartement' => $groupedDepartements->first()->dept->idDepartement] ) }}">
                                     <img src="{{ asset('assets/images/icon/modify.png') }}" alt="Modifier">
                                 </a>
                             </div>

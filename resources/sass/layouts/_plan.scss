@@ -45,7 +45,7 @@
 }
 
 .title-dpt {
-    font-size: 27px;
+    font-size: 20px;
     color: $white;
     text-align: center;
 }
@@ -53,16 +53,16 @@
 .block {
     display: flex;
     flex-direction: row;
-    margin-top: -30vh;
+    margin-top: -40vh;
 
     &.left {
         flex-direction: column;
-        margin-left: 50px;
+        margin-left: 30px;
     }
 
     &.right {
         flex-direction: column;
-        margin-right: 50px;
+        margin-right: 30px;
         margin-left: auto;
     }
 

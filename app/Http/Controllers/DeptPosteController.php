@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DepartementPoste;
+use App\Models\Departements;
+use App\Models\Poste;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -27,5 +29,19 @@ class DeptPosteController extends Controller
             ->get()
             ->groupBy('idDepartement');
         return view('admin.listeDépartements', compact('departements'));
+    }
+
+    public function updateDept($idDepartement)
+    {
+        $departement = Departements::find($idDepartement);
+        $idDepartement = $departement->idDepartement;
+        $postes = DB::select('select d.idDepartement, d.nom, p.* from departements d join departement_poste dp on dp.idDepartement  = d.idDepartement 
+        join poste p on p.idPoste = dp.idPoste where d.idDepartement = ?', [$idDepartement]);
+        return view('admin.modifierDepartement', compact('departement', 'postes'));
+    }
+
+    public function getPosteSalaire($idPoste){
+        $postes = Poste::find($idPoste);
+        return response()->json($postes);
     }
 }

@@ -16,7 +16,7 @@
     }
 
     &:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -24,7 +24,7 @@
     transform: scale(1.1);
 }
 
-.title-card{
+.title-card {
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -33,17 +33,16 @@
     color: $color-primary;
 }
 
-.paragraph-content{
+.paragraph-content {
     padding: 16px;
 
-    &__text{
+    &__text {
         font-size: 14px;
     }
 }
 
-
 //liste départements
-.dept-container{
+.dept-container {
     padding: 20px 100px 20px 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -64,13 +63,13 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 .edit-button,
 .delete-button {
     padding-right: 5px;
-    img{
+    img {
         width: 15px;
     }
 }
@@ -80,39 +79,38 @@
     align-items: center;
 }
 
-
 .card-body {
     padding: 10px;
     height: 200px;
-    ul{
+    ul {
         list-style: none;
 
-        li{
+        li {
             color: $grey-1;
-            font-size: 16px;
+            font-size: 14px;
             border-bottom: 1px solid #ddd;
             padding: 5px 0;
 
-            &:last-child{
+            &:last-child {
                 border-bottom: none;
             }
         }
     }
 }
 
-.wrapper-crate{
+.wrapper-crate {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 45px;
     gap: 45px;
 
-    .crate{
+    .crate {
         width: 450px;
         height: 450px;
         border: 1px solid #ddd;
 
-        .crate-title{
+        .crate-title {
             display: flex;
             justify-content: center;
             margin-top: 38px;
@@ -120,16 +118,15 @@
             color: $color-secondary;
         }
 
-        .crate-body{
+        .crate-body {
             padding: 10px 45px;
-
         }
 
-        .crate-width{
+        .crate-width {
             width: 100px;
         }
 
-        .crate-width-1{
+        .crate-width-1 {
             width: 200px;
         }
 
@@ -144,4 +141,118 @@
     }
 }
 
+//edit-dept
+.edit-dept {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
+    &__title{
+        font-size: 15px;
+        font-weight: 700;
+        text-align: center;
+        color: $color-secondary;
+        text-transform: uppercase;
+        margin-bottom: 45px;
+    
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label-edit {
+    display: block;
+    text-align: start;
+    margin-left: 10px;
+}
+
+.input-edit {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: $color-secondary;
+        font-size: 14px;
+
+    &::placeholder{
+        color: $color-secondary;
+        font-size: 14px;
+    }
+}
+
+.input-edit-modal {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: $color-secondary;
+        font-size: 14px;
+
+    &::placeholder{
+        color: $color-secondary;
+        font-size: 14px;
+    }
+}
+
+.submit-form {
+    background-color: $color-secondary;
+    color: #fff;
+    width: 95%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-primary;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-button{
+    width: 45%;
+    height: 28px;
+    color: white;
+    font-family: 'Microsoft Yahei';
+    border: $color-secondary;
+    background-color: $color-secondary;
+}

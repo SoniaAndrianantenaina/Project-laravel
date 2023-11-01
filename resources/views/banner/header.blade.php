@@ -39,7 +39,7 @@
                                         Accueil
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-departements','ajout-departement')) current @endif">
+                                <li class="{{ Request::is('liste-departements', 'ajout-departement', 'update-department*') ? 'current' : '' }}">
                                     <a href="{{ route('liste-departements') }}" class="text-decoration">
                                         Départements
                                     </a>
