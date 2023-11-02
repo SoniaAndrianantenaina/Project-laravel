@@ -60,13 +60,13 @@
                 <div class="block left">
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Développement logiciel</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Qualité et tests</h3>
                         </div>
                     </div>
 
@@ -78,25 +78,25 @@
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Infrastructures et réseaux</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Cybersécurité</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Support technique</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Design et UX/UI</h3>
                         </div>
                     </div>
 
@@ -105,13 +105,13 @@
                 <div class="block right">
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>JAVA</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>PHP</h3>
                         </div>
                     </div>
 
@@ -123,25 +123,25 @@
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Mobilité et applications mobiles</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Ventes et marketing</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Ressources humaines</h3>
                         </div>
                     </div>
 
                     <div class="block__content put-center">
                         <div class="title-dpt">
-                            <h3></h3>
+                            <h3>Administration et finances</h3>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
             <div class="three-blocks">
                 <div class="block__content modify-pst navy-blue put-center">
                     <div class="title-dpt">
-                        <h3></h3>
+                        <h3>Brain storming 1</h3>
                     </div>
                 </div>
 
@@ -163,7 +163,7 @@
 
                 <div class="block__content modify-pst navy-blue put-center">
                     <div class="title-dpt">
-                        <h3></h3>
+                        <h3>Brain storming 2</h3>
                     </div>
                 </div>
             </div>

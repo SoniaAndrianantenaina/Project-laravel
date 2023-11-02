@@ -144,11 +144,8 @@ Route::get('/', function () {
 
     Route::get('/calendar/congés', [CongeController::class, 'seePlanning'])->name('/calendar/congés');
 
+    Route::get('/liste-collaborateurs', [EmployeController::class, 'listeCollaborateurs'])->name('liste-collaborateurs');
 
-
-    Route::get('/liste-collaborateurs', function () {
-        return view('employé.listeEmployés');
-    })->name('liste-collaborateurs');
 
     Route::get('/profil-collaborateur', function () {
         return view('employé.profilCollaborateur');

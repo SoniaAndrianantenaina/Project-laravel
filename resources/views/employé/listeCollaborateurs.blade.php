@@ -1,4 +1,4 @@
-@include('banner.header')
+@include('banner.headerEmployé')
 
 <main>
     <section class="recherche">
@@ -7,6 +7,7 @@
                 <input type="text" class="search-input" placeholder="Search...">
                 <button class="search-button">Search</button>
             </div>
+
             <div class="filter-container">
                 <img src="{{ asset('assets/images/icon/filter.png') }}" alt="">
 

@@ -2,7 +2,7 @@
 
 <body>
     <main class="list-annonces">
-        @include('banner.headerAnnonces')
+        @include('banner.headerAnnoncesEmployé')
         <section class="annonces">
             <div class="list-content__blocks big" id="annonces-container">
                 @foreach ($annonces as $annonce)

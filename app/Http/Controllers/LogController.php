@@ -33,8 +33,9 @@ class LogController extends Controller
         $mdp = $request->input('mdp');
 
         $employe = Employes::where('identifiant', $id)->first();
+        $statut = $employe->statut;
 
-        if ($employe && $mdp == $employe->mdp) {
+        if ($employe && $mdp == $employe->mdp && $statut == 0) {
             auth()->guard('employee')->login($employe);
             $employe_user = auth()->guard('employee')->user();
             return response()->json(['success' => 'Connexion réussie', 'redirect' => route('accueil-employé')]);

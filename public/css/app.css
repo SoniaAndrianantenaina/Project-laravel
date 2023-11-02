@@ -679,9 +679,6 @@ input[type=date] {
   font-weight: 400;
   transition: all 0.3s ease-in-out;
 }
-#navigation .cntNav > li a img {
-  width: 15px;
-}
 #navigation .cntNav > li.current a, #navigation .cntNav > li:hover a {
   color: #1859A3;
 }
@@ -690,6 +687,10 @@ input[type=date] {
     display: block;
     text-align: center;
   }
+}
+#navigation .header-profil {
+  width: 15px; /* Ajustez la largeur selon vos besoins */
+  height: auto; /* Pour conserver le ratio hauteur/largeur de l'image */
 }
 
 .sub-menu {
@@ -701,6 +702,8 @@ input[type=date] {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  background-color: aliceblue;
+  width: 100%;
 }
 
 .cntNav > li:hover .sub-menu {

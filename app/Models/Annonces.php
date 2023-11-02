@@ -33,8 +33,9 @@ class Annonces extends Model
 
     public function upcomingAnnouncements()
     {
-        return $this->whereDate('date_parution', '>=', now()->toDateString())
+        return $this->whereDate('date_parution', '<=', now()->toDateString())
             ->whereDate('date_debut', '>', now()->toDateString())
+            ->whereDate('date_fin', '>', now()->toDateString())
             ->limit(2)
             ->get();
     }
@@ -48,8 +49,9 @@ class Annonces extends Model
 
     public function allUpcomingAnnouncements()
     {
-        return $this->whereDate('date_parution', '>=', now()->toDateString())
+        return $this->whereDate('date_parution', '<=', now()->toDateString())
             ->whereDate('date_debut', '>', now()->toDateString())
+            ->whereDate('date_fin', '>=', now()->toDateString())
             ->get();
     }
 

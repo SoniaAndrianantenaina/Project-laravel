@@ -316,4 +316,12 @@ class EmployeController extends Controller
             return view('employé.monProfil', compact('profil'));
         }
     }
+
+    public function listeCollaborateurs()
+    {
+        if (auth()->guard('employee')->check()) {
+            $departements = Departements::all();
+            return view('employé.listeCollaborateurs', compact('departements'));
+        }
+    }
 }

@@ -56,9 +56,18 @@
                                     </a>
                                 </li>
                                 <li class="@if(Request::is('mon-profil')) current @endif">
-                                    <a href="{{ route('mon-profil') }}" class="text-decoration">
-                                        Mon profil
+                                    <a href="">
+                                        <img class="header-profil" src="{{ asset('assets/images/icon/profil.png') }}" alt="">
                                     </a>
+
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="{{ route('mon-profil') }} " class="text-decoration"> - Profil</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('logout-employe') }} " class="text-decoration"> - Se déconnecter</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

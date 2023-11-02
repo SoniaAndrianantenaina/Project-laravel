@@ -104,10 +104,6 @@
                 color: $nav-color;
                 font-weight: $nav-fontWeight;
                 transition: $transition-default;
-
-                img{
-                    width: 15px;
-                }
             }
             &.current,
             &:hover {
@@ -121,6 +117,12 @@
             text-align: center;
         }
     }
+
+    .header-profil {
+        width: 15px; /* Ajustez la largeur selon vos besoins */
+        height: auto; /* Pour conserver le ratio hauteur/largeur de l'image */
+    }
+
 }
 
 .sub-menu {
@@ -132,6 +134,8 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    background-color: aliceblue;
+    width: 100%;
 }
 
 .cntNav > li:hover .sub-menu {

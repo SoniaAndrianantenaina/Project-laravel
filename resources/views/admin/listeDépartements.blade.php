@@ -13,9 +13,8 @@
                 <img src="{{ asset('assets/images/icon/filter.png') }}" alt="">
                 <p id="filter-button" onclick="filterDropDown()">Filtres</p>
                 <div id="filter-options" class="d-none">
-                    <p>Option 1</p>
-                    <p>Option 2</p>
-                    <p>Option 3</p>
+                    <p id="sort-az">de A-Z</p>
+                    <p id="sort-za">de Z-A</p>
                 </div>
             </div>
 
@@ -45,7 +44,8 @@
                         <h3>{{ $groupedDepartements->first()->dept->nom }}</h3>
                         <div class="right-items">
                             <div class="edit-button">
-                                <a href="{{ route('update-department', ['idDepartement' => $groupedDepartements->first()->dept->idDepartement] ) }}">
+                                <a
+                                    href="{{ route('update-department', ['idDepartement' => $groupedDepartements->first()->dept->idDepartement]) }}">
                                     <img src="{{ asset('assets/images/icon/modify.png') }}" alt="Modifier">
                                 </a>
                             </div>
@@ -68,4 +68,13 @@
 
         </div>
     </section>
+
+    <script>
+        document.getElementById("sort-az").addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log('hello')
+            departements.sort((a, b) => a.nom.localeCompare(b.nom));
+        });
+
+    </script>
 </main>
