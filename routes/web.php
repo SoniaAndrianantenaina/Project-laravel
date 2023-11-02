@@ -7,9 +7,6 @@ use App\Http\Controllers\CongeController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\DeptPosteController;
 use App\Http\Controllers\EmployeController;
-use App\Mail\TestMail;
-use App\Models\Annonces;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +68,8 @@ Route::get('/', function () {
     Route::get('/anniversaire', [EmployeController::class, 'birthdayMail'])->name('anniversaire');
 
     Route::get('/off-boarding', [EmployeController::class, 'offBoarding'])->name('off-boarding');
+
+    Route::post('/valider-off-boarding', [EmployeController::class, 'validerOffBoarding'])->name('valider-off-boarding');
 
     //POSTES
     Route::get('/get-postes/{idDepartement}', [DeptPosteController::class, 'getPostesByDepartement'])->name('get-postes');

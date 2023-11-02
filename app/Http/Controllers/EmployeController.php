@@ -8,9 +8,12 @@ use App\Models\TypeContrat;
 use App\Mail\TestMail;
 use App\Models\Departements;
 use App\Models\Annonces;
+use App\Models\CessationEmploi;
 use App\Models\EmployeInfos;
 use App\Models\EmployesInfosPros;
+use App\Models\Poste;
 use App\Models\SoldeConge;
+use App\Models\TypeDepart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -147,7 +150,8 @@ class EmployeController extends Controller
                     $idEmploye = DB::table('employes')->insertGetId([
                         'idCandidat' => $idCandidat,
                         'identifiant' => $identifiant,
-                        'mdp' => $mdp
+                        'mdp' => $mdp,
+                        'statut' => 0
                     ]);
 
                     if ($idEmploye != 0) {
@@ -189,7 +193,7 @@ class EmployeController extends Controller
                             join departements d ON d.idDepartement = dp.idDepartement
                             join candidats c ON c.idCandidat = e.idCandidat
                             join poste p on p.idPoste  = dp.idPoste
-                            WHERE d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+                            WHERE e.statut = 0 and d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
             return response()->json($employe);
         }
     }
@@ -212,11 +216,73 @@ class EmployeController extends Controller
         }
     }
 
-    public function offBoarding(){
+    public function offBoarding()
+    {
         if (auth()->check()) {
             $idEmploye = session()->get('idEmployeProfil');
-            $offboarding = EmployeInfos::where($idEmploye);
-            return view('admin.offBoarding', compact('offboarding'));
+            $typedepart = TypeDepart::all();
+            $employe = EmployeInfos::where('idEmploye', $idEmploye)->first();
+            return view('admin.offBoarding', compact('employe', 'typedepart'));
+        }
+    }
+
+    public function validerOffBoarding(Request $request)
+    {
+        if (auth()->check()) {
+            $ce = new CessationEmploi();
+
+            $idEmploye = session()->get('idEmployeProfil');
+            $idTypeDepart = $request->input('idTypeDepart');
+            $date_depart = $request->input('date_depart');
+            $motif = $request->input('motif');
+
+            $employe = EmployeInfos::where('idEmploye', $idEmploye)->first();
+            $employe2 = Employes::where('idEmploye', $idEmploye)->first();
+
+            $nom = $employe->nom;
+            $prenom = $employe->prenom;
+            $idPoste = $employe->idPoste;
+
+            $poste = Poste::where('idPoste', $idPoste)->first();
+            $nomPoste = $poste->nom;
+            $idDepartement = $employe->idDepartement;
+
+            $mailCollaborateurs = DB::select('SELECT c.email
+            from employes_infos_pros eip join employes e
+            on e.idEmploye = eip.idEmploye
+            join departement_poste dp
+            on dp.idDeptPoste  = eip.idDeptPoste
+            join departements d ON d.idDepartement = dp.idDepartement
+            join candidats c ON c.idCandidat = e.idCandidat
+            join poste p on p.idPoste  = dp.idPoste
+            WHERE e.statut = 0 and d.idDepartement = ? and e.idEmploye != ?', [$idDepartement, $idEmploye]);
+
+            $emails = [];
+            foreach ($mailCollaborateurs as $collaborateur) {
+                $emails[] = $collaborateur->email;
+            }
+
+            if ($idTypeDepart != 0) {
+                $cessation = CessationEmploi::create([
+                    'idTypeDepart' => $idTypeDepart,
+                    'idEmploye' => $idEmploye,
+                    'date_depart' => $date_depart,
+                    'motif' => $motif
+                ]);
+
+                if ($cessation != null) {
+                    $employe2->statut = 1;
+                    $employe2->update();
+                }
+
+                $mail = $ce->mailOffboarding($nom, $prenom, $nomPoste, $emails);
+
+                if ($mail === 1) {
+                    return redirect()->back()->with('success', 'L\'offboarding s\'est bien effectuée ');
+                } else {
+                    return redirect()->back()->with('error', 'Erreur');
+                }
+            }
         }
     }
 

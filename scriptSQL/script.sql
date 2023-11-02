@@ -57,6 +57,8 @@ CREATE TABLE `employes`(
     `identifiant` VARCHAR(100) NOT NULL,
     `mdp` VARCHAR(100) NOT NULL
 )ENGINE = InnoDB;
+ALTER TABLE rh.employes ADD statut INT NULL;
+
 
 CREATE TABLE `type_contrat`(
     `idTypeContrat` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -119,15 +121,19 @@ CREATE TABLE `annonces`(
 ALTER TABLE rh.annonces ADD photo varchar(100) NULL;
 ALTER TABLE rh.annonces MODIFY COLUMN contenu TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
 
-
+CREATE TABLE `type_depart`(
+    `idTypeDepart` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `nom` VARCHAR(255) NOT NULL
+)ENGINE = InnoDB;
 
 CREATE TABLE `cessation_emploi`(
     `idCessationEmploi` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `idTypeDepart` INT NOT NULL,
     `idEmploye` INT NOT NULL,
     `motif` VARCHAR(255) NOT NULL,
-    `date_depart` DATE NOT NULL,
-    `etat` INT NOT NULL
+    `date_depart` DATE NOT NULL
 )ENGINE = InnoDB;
+ALTER TABLE rh.cessation_emploi MODIFY COLUMN motif varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL;
 
 ALTER TABLE
     `employes` ADD CONSTRAINT `employes_idcandidat_foreign` FOREIGN KEY(`idCandidat`) REFERENCES `candidats`(`idCandidat`);
@@ -161,3 +167,5 @@ ALTER TABLE
     `motif_permission` ADD CONSTRAINT `motif_permission_motif_foreign` FOREIGN KEY(`idTypeConge`) REFERENCES `type_conge`(`idTypeConge`);
 ALTER TABLE
     `solde_conge` ADD CONSTRAINT `solde_conge_idemploye_foreign` FOREIGN KEY(`idEmploye`) REFERENCES `employes`(`idEmploye`);
+ALTER TABLE
+    `cessation_emploi` ADD CONSTRAINT `cessation_emploi_idtypedepart_foreign` FOREIGN KEY(`idTypeDepart`) REFERENCES `type_depart`(`idTypeDepart`);

@@ -81,7 +81,7 @@
     margin-top: 23px;
     font-size: 17px;
 
-    &.clair{
+    &.clair {
         border: 1px solid $color-secondary;
     }
 
@@ -103,8 +103,8 @@
         background-color: $color-primary;
 
         &.medium {
-            width: 260px;
-            height: 40px;
+            width: 300px;
+            height: 60px;
         }
     }
 }
@@ -149,7 +149,7 @@
         font-family: "Microsoft Sans Yahei";
         text-decoration: none;
 
-        &.fs-17{
+        &.fs-17 {
             font-size: 17px;
         }
 

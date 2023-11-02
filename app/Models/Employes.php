@@ -14,7 +14,8 @@ class Employes extends Authenticatable
     protected $fillable = [
         'idCandidat',
         'identifiant',
-        'mdp'
+        'mdp',
+        'statut'
     ];
 
     protected $table = "employes";
