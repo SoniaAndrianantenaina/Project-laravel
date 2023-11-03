@@ -71,7 +71,6 @@
 
                                 <li>
                                     <a href="{{ route('profil-admin') }}" class="text-decoration">
-                                        <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
                                     </a>
                                 </li>
                             </ul>
