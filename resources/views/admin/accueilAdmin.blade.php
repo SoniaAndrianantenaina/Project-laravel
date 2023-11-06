@@ -90,9 +90,12 @@
 
     <section class="statistiques">
         <div class='block-annonces__item__title'>
-            <h2 class='title-h2'>
-                STATISTIQUES
-            </h2>
+            <a class="text-decoration" style="color: #1859A3;" href="{{ route('statistiques') }}">
+                <h2 class='title-h2'>
+                    STATISTIQUES
+                </h2>
+            </a>
+
             <div class="trait"></div>
         </div>
     </section>

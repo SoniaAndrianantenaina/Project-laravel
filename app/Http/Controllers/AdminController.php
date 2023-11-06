@@ -18,4 +18,10 @@ class AdminController extends Controller
             return view('admin.accueilAdmin', compact('annonceDuJour', 'annoncesAvenir'));
         }
     }
+
+    public function stats(){
+        if (auth()->check()) {
+            return view('admin.statistiques');
+        }
+    }
 }

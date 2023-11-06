@@ -119,6 +119,9 @@ Route::get('/', function () {
 
     Route::get('/refuser-conge/{idDemandeConge}', [CongeController::class, 'refuserCongé'])->name('refuser-conge');
 
+    //STATISTIQUES
+    Route::get('/statistiques', [AdminController::class, 'stats'])->name('statistiques');
+
 //Côté employé
     Route::post('login-employe', [LogController::class, 'loginEmployé'])->name('login-employe');
 
