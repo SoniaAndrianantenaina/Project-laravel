@@ -1,83 +1,93 @@
-@include('banner.header')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaires Côte à Côte</title>
+    <style>
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+        }
 
-<main class="ajout-département">
+        .form-box {
+            width: 45%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
 
-    <div class="wrapper-crate">
-        <div class="crate">
-            <div class="crate-title">
-                <h2>Nouveau département</h2>
-            </div>
-            <div class="crate-body">
-                <label for="">
-                    <span>Nom : </span>
-                    <input type="text" class="btn-blue clair small">
-                </label>
+        .form-box h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-                <div class="mt-15 checkbox-container">
-                    <div class="crate-width">
-                        <label for="postes">Postes : </label>
-                    </div>
+        .form-box label {
+            display: block;
+            margin-bottom: 10px;
+        }
 
-                    <div>
-                        <input type="checkbox" name="postes" id="postes1"><label for="postes1">Hello</label>
-                        <input type="checkbox" name="postes" id="postes2"><label for="postes2">Hello</label>
-                        <input type="checkbox" name="postes" id="postes3"><label for="postes3">Hello</label>
-                        <input type="checkbox" name="postes" id="postes4"><label for="postes4">Hello</label>
-                        <input type="checkbox" name="postes" id="postes5"><label for="postes5">Hello</label>
-                        <input type="checkbox" name="postes" id="postes6"><label for="postes6">Hello</label>
-                    </div>
+        .form-box input[type="text"],
+        .form-box select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
 
-                </div>
-            </div>
-            <div class="boutons">
-                <div class="btn btn-filtre bleu-clair">
-                    <a href="" class="btn__middle-btn">AJOUTER</a>
-                </div>
-            </div>
+        .form-box button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Formulaire 1</h2>
+            <form>
+                <label for="field1">Champ 1 :</label>
+                <input type="text" id="field1" name="field1">
+
+                <label for="field2">Champ 2 :</label>
+                <input type="text" id="field2" name="field2">
+
+                <label for="field3">Champ 3 :</label>
+                <select id="field3" name="field3">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+
+                <button type="submit">Soumettre</button>
+            </form>
         </div>
 
-        <div class="crate">
-            <div class="crate-title">
-                <h2>Nouveau poste</h2>
-            </div>
-            <div class="crate-body">
-                <label for="">
-                    <span>Nom : </span>
-                    <input type="text" class="btn-blue clair small">
-                </label>
+        <div class="form-box">
+            <h2>Formulaire 2</h2>
+            <form>
+                <label for="field4">Champ 4 :</label>
+                <input type="text" id="field4" name="field4">
 
-                <div class="mt-15 checkbox-container">
-                    <div class="crate-width-1">
-                        <label for="postes">Départements : </label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="postes" id="postes1"><label for="postes1">Hello</label>
-                        <input type="checkbox" name="postes" id="postes2"><label for="postes2">Hello</label>
-                        <input type="checkbox" name="postes" id="postes3"><label for="postes3">Hello</label>
-                        <input type="checkbox" name="postes" id="postes4"><label for="postes4">Hello</label>
-                        <input type="checkbox" name="postes" id="postes5"><label for="postes5">Hello</label>
-                        <input type="checkbox" name="postes" id="postes6"><label for="postes6">Hello</label>
-                    </div>
-                </div>
+                <label for="field5">Champ 5 :</label>
+                <input type="text" id="field5" name="field5">
 
-                <label for="">
-                    <span>Salaire : </span>
-                    <input type="text" class="btn-blue clair small">
-                </label>
+                <label for="field6">Champ 6 :</label>
+                <select id="field6" name="field6">
+                    <option value="option4">Option 4</option>
+                    <option value="option5">Option 5</option>
+                    <option value="option6">Option 6</option>
+                </select>
 
-                <label for="">
-                    <span>Degré : </span>
-                    <input type="number" class="btn-blue clair small">
-                </label>
-            </div>
-
-            <div class="boutons">
-                <div class="btn btn-filtre bleu-clair">
-                    <a href="" class="btn__middle-btn">AJOUTER</a>
-                </div>
-            </div>
+                <button type="submit">Soumettre</button>
+            </form>
         </div>
-
     </div>
-
-</main>
+</body>
+</html>

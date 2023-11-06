@@ -44,4 +44,10 @@ class DeptPosteController extends Controller
         $postes = Poste::find($idPoste);
         return response()->json($postes);
     }
+
+    public function pageAjoutDeptPoste(){
+        $postes = Poste::all();
+        $dept = Departements::all();
+        return view('admin.ajoutDépartement', compact('postes', 'dept'));
+    }
 }
