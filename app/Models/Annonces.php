@@ -25,32 +25,50 @@ class Annonces extends Model
 
     public function dayAnnouncements()
     {
-        return $this->whereDate('date_debut', '=', now()->toDateString())
-            ->whereTime('date_fin', '>=', now()->toTimeString())
+        return $this->whereDate('date_debut', '<=', now()->toDateString())
+            ->where(function ($query) {
+                $query->whereDate('date_fin', '>', now()->toDateString())
+                    ->orWhere(function ($query) {
+                        $query->whereDate('date_fin', '=', now()->toDateString())
+                            ->whereTime('date_fin', '>=', now()->format('H:i:s'));
+                    });
+            })
             ->limit(2)
             ->get();
     }
 
     public function upcomingAnnouncements()
     {
-        return $this->whereDate('date_parution', '<=', now()->toDateString())
-            ->whereDate('date_debut', '>', now()->toDateString())
-            ->whereDate('date_fin', '>', now()->toDateString())
+        return $this->whereDate('date_debut', '>', now()->toDateString())
+            ->whereDate('date_fin', '>=', now()->toDateString())
             ->limit(2)
             ->get();
     }
 
     public function allDayAnnouncements()
     {
-        return $this->whereDate('date_debut', '=', now()->toDateString())
-            ->whereTime('date_fin', '>=', now()->toTimeString())
+        return $this->whereDate('date_debut', '<=', now()->toDateString())
+            ->where(function ($query) {
+                $query->whereDate('date_fin', '>', now()->toDateString())
+                    ->orWhere(function ($query) {
+                        $query->whereDate('date_fin', '=', now()->toDateString())
+                            ->whereTime('date_fin', '>=', now()->format('H:i:s'));
+                    });
+            })
+            ->get();
+    }
+
+    public function annoncesAvenirEmployes()
+    {
+        return $this->whereDate('date_parution', '<=', now())
+            ->whereDate('date_debut', '>', now())
+            ->limit(2)
             ->get();
     }
 
     public function allUpcomingAnnouncements()
     {
-        return $this->whereDate('date_parution', '<=', now()->toDateString())
-            ->whereDate('date_debut', '>', now()->toDateString())
+        return $this->whereDate('date_debut', '>', now()->toDateString())
             ->whereDate('date_fin', '>=', now()->toDateString())
             ->get();
     }
@@ -67,8 +85,8 @@ class Annonces extends Model
         }
     }
 
-    public function updateAnnouncement($idAnnonce){
-
+    public function updateAnnouncement($idAnnonce)
+    {
     }
 
     public function storePhotos($file)

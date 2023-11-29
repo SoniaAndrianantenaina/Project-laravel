@@ -71,7 +71,7 @@
     &__navy-blue {
         position: absolute;
         top: 15%;
-        width: 550px;
+        width: 500px;
         border-radius: 100px;
         border: 1px solid $color-primary;
     }
@@ -86,4 +86,10 @@
         margin-top: 40px;
         margin-left: 60px;
     }
+}
+
+.forgot-password-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

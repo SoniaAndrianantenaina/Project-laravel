@@ -7,7 +7,7 @@
     position: fixed;
     background-color: $grey-6;
     width: 100%;
-    height: 81%;
+    height: 100%;
     display: grid;
     grid-template-columns: 19% auto;
     gap: 4%;
@@ -32,16 +32,17 @@
     &__profil {
         border: 1px solid $light-grey;
         background-color: $white;
-        overflow-y: auto;
+        overflow: auto;
+        height: 80%;
     }
 
     &__picture {
-        width: 100%;
-        height: 100%;
+        max-width: 75px;
 
         img {
-            max-width: 90px;
+            width: 100%;
             height: auto;
+            border-radius: 50px;
         }
     }
 
@@ -123,19 +124,18 @@
     margin-left: -45px;
 
     &__picture {
-        width: 100%;
-        height: 100%;
-        margin-top: 0;
-        margin-bottom: 10px;
+        max-width: 45px;
+        margin-left: 40px;
 
         img {
-            max-width: 45px;
+            width: 100%;
             height: auto;
+            border-radius: 50px;
         }
     }
 
     &__text {
-        margin-left: -45px;
+        margin-left: -30px;
     }
 }
 
@@ -149,7 +149,7 @@
     position: absolute;
     margin-top: 25px;
     width: 417px;
-    height: 595px;
+    height: 415px;
     background-color: $white;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
 
@@ -195,7 +195,7 @@
 .date-right {
     margin-right: 45px;
     margin-top: 12px;
-    position: absolute;
+    position: fixed;
     right: 0;
     color: $color-primary;
     font-size: 17px;

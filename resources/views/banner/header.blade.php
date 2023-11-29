@@ -8,9 +8,10 @@
     <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/query.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
-    <title>Header</title>
+    <title>@yield('title')</title>
 </head>
 <body>
 <header id="sectHeader" class="sectHeader sectHeader--sticky">
@@ -39,13 +40,13 @@
                                         Accueil
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('liste-departements', 'ajout-departement', 'update-department*') ? 'current' : '' }}">
+                                <li class="{{ Request::is('liste-departements', 'ajout-departement', 'update-department*','search-departements','filtre-departements') ? 'current' : '' }}">
                                     <a href="{{ route('liste-departements') }}" class="text-decoration">
                                         Départements
                                     </a>
                                 </li>
-                                <li class="@if(Request::is('liste-employes','profil-employe','off-boarding','demande-employe-conge')) current @endif">
-                                    <a href="" class="text-decoration">
+                                <li class="@if(Request::is('liste-employes','profil-employe*','off-boarding','demande-employe-conge')) current @endif">
+                                    <a href="{{ route('liste-employes') }}" class="text-decoration">
                                         Employés
                                     </a>
                                     <ul class="sub-menu">
@@ -57,13 +58,13 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="@if(Request::is('liste-candidats','ajout-candidat','ajout-collaborateur')) current @endif">
+                                <li class="@if(Request::is('liste-candidats','ajout-candidat','ajout-collaborateur','modifier-candidat','profil-candidat*','ajout-collaborateur*')) current @endif">
                                     <a href="{{ route('liste-candidats') }}" class="text-decoration">
                                         Candidatures
                                     </a>
                                 </li>
 
-                                <li class="@if(Request::is('annonces-du-jour','ajout-annonce','annonces-à-venir')) current @endif">
+                                <li class="@if(Request::is('annonces-du-jour','ajout-annonce','annonces-à-venir','modifier-annonce*')) current @endif">
                                     <a href="{{ route('annonces-du-jour') }}" class="text-decoration">
                                         Annonces
                                     </a>
@@ -71,6 +72,7 @@
 
                                 <li>
                                     <a href="{{ route('profil-admin') }}" class="text-decoration">
+                                        <img src="{{ asset('assets/images/icon/profil.png') }}" alt="">
                                     </a>
                                 </li>
                             </ul>

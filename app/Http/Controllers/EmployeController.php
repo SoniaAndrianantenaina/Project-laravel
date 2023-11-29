@@ -26,17 +26,13 @@ class EmployeController extends Controller
             $candidat = Candidats::find($idCandidat);
             session()->put('candidat', $candidat);
             $type_contrat = TypeContrat::all();
-            return view('admin.ajoutCollaborateur', compact('candidat', 'type_contrat'));
+            if($candidat->statut != 1){
+                return redirect()->back()->with('error', 'Ce(tte) candidat n est pas confirmé(e) ');
+            }else{
+                return view('admin.ajoutCollaborateur', compact('candidat', 'type_contrat'));
+            }
         }
     }
-
-    /*public function ajoutEmployé(Request $request){
-        if (auth()->check()) {
-            $candidat = session()->get('candidat');
-            $idCandidat = $candidat->idCandidat;
-
-        }
-    }*/
 
     public function takeFirst($word)
     {
@@ -47,17 +43,6 @@ class EmployeController extends Controller
         }
     }
 
-    public function genererMdp($length)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $password = '';
-
-        for ($i = 0; $i < $length; $i++) {
-            $randomIndex = rand(0, strlen($characters) - 1);
-            $password .= $characters[$randomIndex];
-        }
-        return $password;
-    }
 
     public function getContrat($idTypeContrat)
     {
@@ -87,7 +72,7 @@ class EmployeController extends Controller
     public function genererID(Request $request)
     {
         if (auth()->check()) {
-
+            $employe = new Employes();
             $candidat = session()->get('candidat');
             $idCandidat = $candidat->idCandidat;
 
@@ -97,6 +82,7 @@ class EmployeController extends Controller
             $type_contrat = $request->input('type_contrat');
             $date_debut = $request->input('date_debut');
             $date_fin = $request->input('date_fin');
+            $salaire = $request->input('salaire');
 
             $firstsurname = $this->takeFirst($prenoms);
             $firstname = $this->takeFirst($nom);
@@ -104,19 +90,19 @@ class EmployeController extends Controller
             //les identifiants
             $identifiant = $firstsurname . '.' . $firstname;
 
-            $mdp = $request->session()->get('generated_password');
-            echo $identifiant . $mdp;
-            if (!$mdp) {
-                $mdp = $this->genererMdp(10);
-                $request->session()->put('generated_password', $mdp);
-            }
 
-            /*            session()->put('type_contrat', $type_contrat);
+            $mdp = $employe->genererMdp(10);
+   
+
+            session()->put('type_contrat', $type_contrat);
             session()->put('date_debut', $date_debut);
             session()->put('date_fin', $date_fin);
             session()->put('identifiant', $identifiant);
+            session()->put('salaire', $salaire);
+            session()->put('mdp', $mdp);
 
-            return view('admin.envoyerIdentifiant', compact('identifiant', 'mdp'));*/
+
+            return view('admin.envoyerIdentifiant', compact('identifiant', 'mdp'));
         }
     }
 
@@ -137,7 +123,8 @@ class EmployeController extends Controller
             $date_debut = session()->get('date_debut');
             $date_fin = session()->get('date_fin');
             $identifiant = $request->input('identifiant');
-            $mdp = $request->session()->get('generated_password');
+            $mdp = $request->session()->get('mdp');
+            $salaire = $request->session()->get('salaire');
 
             $contrat = $this->getContrat($type_contrat);
 
@@ -158,20 +145,25 @@ class EmployeController extends Controller
                         DB::table('candidats')
                             ->where('idCandidat', $idCandidat)
                             ->update(['statut' => 3]);
-
-                        $solde_conge = SoldeConge::create([
-                            'solde_réel' => $solde_réel,
-                            'solde_previsionnel' => $solde_previsionnel,
-                            'solde_perm' => $perm,
-                            'a_planifier' => $a_planifier
-                        ]);
+                        
+                        if($type_contrat != 3){
+                            $solde_conge = SoldeConge::create([
+                                'idEmploye' => $idEmploye,
+                                'solde_réel' => $solde_réel,
+                                'solde_previsionnel' => $solde_previsionnel,
+                                'solde_perm' => $perm,
+                                'a_planifier' => $a_planifier
+                            ]);
+                        }
+                       
 
                         $employeInfoPro = EmployesInfosPros::create([
                             'idEmploye' => $idEmploye,
                             'idDeptPoste' => $idDeptPoste,
                             'idTypeContrat' => $type_contrat,
                             'date_debut' => $date_debut,
-                            'date_fin' => $date_fin
+                            'date_fin' => $date_fin,
+                            'salaire' =>$salaire
                         ]);
                     }
                     return redirect()->route('liste-candidats')->with('success', 'Identifiants bien envoyés, et employé inséré');
@@ -185,7 +177,7 @@ class EmployeController extends Controller
     public function getEmployes($idDepartement)
     {
         if (auth()->check()) {
-            $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact
+            $employe = DB::select('SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact, c.photo
                             from employes_infos_pros eip join employes e
                             on e.idEmploye = eip.idEmploye
                             join departement_poste dp
@@ -194,6 +186,23 @@ class EmployeController extends Controller
                             join candidats c ON c.idCandidat = e.idCandidat
                             join poste p on p.idPoste  = dp.idPoste
                             WHERE e.statut = 0 and d.idDepartement = :idDepartement', ['idDepartement' => $idDepartement]);
+            return response()->json($employe);
+        }
+    }
+
+    public function searchEmployee(Request $request){
+        if(auth()->check()){
+            $searchTerm = $request->input('search-employee');
+
+            $employe = DB::select("SELECT e.idEmploye, d.idDepartement, d.nom as nomDept, p.nom as nomPoste,c.nom as nomEmploye, c.prenom, c.contact, c.photo
+                FROM employes_infos_pros eip
+                JOIN employes e ON e.idEmploye = eip.idEmploye
+                JOIN departement_poste dp ON dp.idDeptPoste  = eip.idDeptPoste
+                JOIN departements d ON d.idDepartement = dp.idDepartement
+                JOIN candidats c ON c.idCandidat = e.idCandidat
+                JOIN poste p ON p.idPoste  = dp.idPoste
+                WHERE c.nom LIKE '%$searchTerm%' OR c.prenom LIKE '%$searchTerm%'");
+            
             return response()->json($employe);
         }
     }
@@ -212,7 +221,23 @@ class EmployeController extends Controller
             $employe = new Employes();
             $profil = $employe->profilEmployé($idEmploye);
             session()->put('idEmployeProfil', $idEmploye);
-            return view('admin.profilEmployé', compact('profil'));
+            $salaireBrut = $profil->salaire;
+            $cnaps = 2000;
+            $irsa = 0;
+            if ($salaireBrut > 0 && $salaireBrut <= 350000) {
+                $irsa = 0;
+            } elseif ($salaireBrut > 350000 && $salaireBrut <= 400000) {
+                $irsa = 0.05;
+            } elseif ($salaireBrut > 400000 && $salaireBrut <= 500000) {
+                $irsa = 0.10;
+            } elseif ($salaireBrut > 500000 && $salaireBrut <= 600000) {
+                $irsa = 0.15;
+            }elseif ($salaireBrut > 600000) {
+                $irsa = 0.20;
+            }
+            $salaireNet = ($salaireBrut-($salaireBrut * $irsa))-$cnaps;
+
+            return view('admin.profilEmployé', compact('profil','salaireNet'));
         }
     }
 
@@ -300,7 +325,7 @@ class EmployeController extends Controller
         if (auth()->guard('employee')->check()) {
             $annonce = new Annonces();
             $annonceDuJour = $annonce->dayAnnouncements();
-            $annoncesAvenir = $annonce->upcomingAnnouncements();
+            $annoncesAvenir = $annonce->annoncesAvenirEmployes();
             $employe_user = auth()->guard('employee')->user();
             return view('employé.accueilEmployé', compact('annonceDuJour', 'annoncesAvenir', 'employe_user'));
         }
@@ -313,7 +338,22 @@ class EmployeController extends Controller
             $employe_id = $employe_user->idEmploye;
             $employe = new Employes();
             $profil = $employe->profilEmployé($employe_id);
-            return view('employé.monProfil', compact('profil'));
+            $salaireBrut = $profil->salaire;
+            $cnaps = 2000;
+            $irsa = 0;
+            if ($salaireBrut > 0 && $salaireBrut <= 350000) {
+                $irsa = 0;
+            } elseif ($salaireBrut > 350000 && $salaireBrut <= 400000) {
+                $irsa = 0.05;
+            } elseif ($salaireBrut > 400000 && $salaireBrut <= 500000) {
+                $irsa = 0.10;
+            } elseif ($salaireBrut > 500000 && $salaireBrut <= 600000) {
+                $irsa = 0.15;
+            }elseif ($salaireBrut > 600000) {
+                $irsa = 0.20;
+            }
+            $salaireNet = ($salaireBrut-($salaireBrut * $irsa))-$cnaps;
+            return view('employé.monProfil', compact('profil', 'salaireNet'));
         }
     }
 

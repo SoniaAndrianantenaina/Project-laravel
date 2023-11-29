@@ -1,3 +1,4 @@
+@section('title', 'Mon profil')
 @include('banner.headerEmployé')
 
 <main class="profil-employé">
@@ -10,7 +11,12 @@
                         <div class="center-content">
                             <div class="div">
                                 <figure class="cube__first__image">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
+                                    @if (Str::startsWith($profil->photo, 'public/'))
+                                        <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $profil->photo)) }}"
+                                            alt="Image 1">
+                                    @else
+                                        <img src="{{ asset($profil->photo) }}" alt="Image 1">
+                                    @endif
                                 </figure>
                             </div>
 
@@ -41,15 +47,23 @@
 
                     <div class="cube__second">
                         <div>
-                            <div class="cube__second__salary title navy">
+                            <div class="cube__second__title">
                                 <h4 class="uppercase">
                                     SALAIRE
                                 </h4>
                             </div>
 
                             <div class="cube__second__subtitle">
-                                <h4 class="adjust-left">Solde</h4>
-                                <h4 class="adjust-right__1">{{$profil->deptposte->poste->salaire}}</h4>
+                                <div class="flex">
+                                    <h4>Solde brut : </h4>
+                                    <h4>{{ $profil->salaire }} Ar</h4>
+                                </div>
+
+                                <div class="flex">
+                                    <h4>Solde net : </h4>
+                                    <h4>{{ $salaireNet }} Ar</h4>
+                                </div>
+
                             </div>
                         </div>
                     </div>

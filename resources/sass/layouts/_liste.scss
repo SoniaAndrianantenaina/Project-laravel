@@ -12,9 +12,10 @@
 }
 
 .bg-color-blue {
+    margin-top: 35px;
     &__block {
         background-color: $color-secondary;
-        padding: 20px;
+        padding: 0px 0 10px;
         opacity: 80%;
     }
 }
@@ -32,7 +33,7 @@
     .filter-span {
         display: block;
         color: $white;
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 
@@ -66,7 +67,7 @@
         grid-template-columns: repeat(3, 1fr);
         column-gap: 50px;
         row-gap: 50px;
-        padding: 85px;
+        padding: 75px;
 
         &.big {
             padding: 80px;
@@ -122,25 +123,22 @@
 .list-dpt {
     display: block;
     margin-left: 25px;
-
-    .p-bleu {
-        margin-top: 17px;
-        font-size: 12px;
-
-        &.clair {
-            color: $color-secondary;
-        }
-
-        &.foncé {
-            color: $color-primary;
-        }
-    }
+    margin-top: 17px;
 }
 
+.department-item{
+    font-size: 14px;
+    color: $color-secondary;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 
+.selected-department {
+    color: $color-primary;
+}
 
 .p-medium {
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 12px;
 }
 
@@ -243,22 +241,16 @@
     position: absolute;
     display: flex;
     bottom: 10px;
-    right: 36vh;
-
-    @include max(1366px) {
-        right: 47vh;
-    }
+    right: 50vh;
 
     &.modified {
-        right: 23vh;
+        right: 30vh;
         bottom: 7px;
-
-        @include max(1366px) {
-            right: 26vh;
-        }
     }
 
-    p {
+    a {
+        text-decoration: none;
+        color: $color-secondary;
         font-size: 17px;
         margin-left: 5px;
     }
@@ -272,7 +264,7 @@
     color: $white;
     position: absolute;
     display: flex;
-    right: 19vh;
+    right: 22vh;
     bottom: 7px;
 
     img {

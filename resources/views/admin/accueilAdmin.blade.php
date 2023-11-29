@@ -1,3 +1,4 @@
+@section('title', 'Accueil-admin')
 @include('banner.header')
 <main class='page-accueil'>
 
@@ -7,10 +8,10 @@
             <img src='{{ asset('assets/images/accueil/accueil.jpg') }}' alt=''>
         </figure>
 
-        <div class='block-accueil__section'>
-            <div class='block-accueil__paragraph'>
-                <h1 class='block-accueil subtitle'>Ressources humaines</h1>
-                <h3 class='block-accueil texte'>
+        <div class='block-ajoutCol__paragraphe'>
+            <div class='block-ajoutCol__text'>
+                <h2 class='block-ajoutCol subtitle-collab'>Ressources humaines</h2>
+                <h3 class='block-ajoutCol cause-collab'>
                     Au sein d'une entreprise la gestion des Ressources humaines couvre de multiples aspects tous très
                     importants pour le bon
                     fonctionnement de la société.
@@ -29,62 +30,81 @@
                 </h2>
                 <div class="trait"></div>
             </div>
+            
+            <p style="color: #1859A3; margin-bottom:10px;">Du jour : </p>
+            <div class="list-content__blocks big" style="padding: 0;">
+                @foreach ($annonceDuJour as $annonce)
+                    <div class="card-box">
+                        <figure class="card-box__image">
+                            @if (Str::startsWith($annonce->photo, 'public/'))
+                                <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $annonce->photo)) }}"
+                                    alt="Image 1" loading="lazy">
+                            @else
+                                <img src="{{ asset($annonce->photo) }}" alt="Image 1" loading="lazy">
+                            @endif
+                        </figure>
 
-            <div class="block-annonces__two-blocks">
-                <div class="block-annonces__two-blocks__item">
-                    <div class="block-annonces__two-blocks__item left">
-                        <div class="block-annonces title">
-                            <h2 class="title-h2">ANNONCES DU JOUR</h2>
-                        </div>
-
-                        @foreach ($annonceDuJour as $adj)
-                            <div class="block-annonces content">
-                                <div class="block-annonces content__paragraph">
-                                    <h6>{{ $adj->titre }}</h6>
-                                    <p>{{ $adj->contenu }}</p>
-                                    <p class="date">
-                                        Heure début : {{ \Carbon\Carbon::parse($adj->date_debut)->format('H:i') }}
-                                    </p>
-                                    <p class="date">
-                                        Date fin : {{ \Carbon\Carbon::parse($adj->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                    </p>
-                                </div>
+                        <div class="card-box__paragraph">
+                            <div class="paragraph-title">
+                                <h4 class="title-card">{{ $annonce->titre }}</h4>
                             </div>
-                        @endforeach
-                    </div>
-                </div>
 
-                <div class="block-annonces__two-blocks__item">
-                    <div class="block-annonces__two-blocks__item right">
-                        <div class="block-annonces title">
-                            <h2 class="title-h2">ANNONCES À VENIR</h2>
-                        </div>
-
-                        @foreach ($annoncesAvenir as $av)
-                            <div class="block-annonces content">
-                                <div class="block-annonces content__paragraph">
-                                    <h6>{{ $av->titre }}</h6>
-                                    <p>{{ $av->contenu }}</p>
-                                    <p class="date">
-                                        Date parution : {{ \Carbon\Carbon::parse($av->date_parution)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                    </p>
-                                    <p class="date">
-                                        Date début : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                    </p>
-                                    <p class="date">
-                                        Date fin : {{ \Carbon\Carbon::parse($av->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
-                                    </p>
-
-                                </div>
+                            <div class="paragraph-content">
+                                <p class="paragraph-content__text">{{ $annonce->contenu }}</p> <br>
+                                <p class="paragraph-content__text">
+                                    Date début :
+                                    {{ \Carbon\Carbon::parse($annonce->date_debut)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
+                                <p class="paragraph-content__text">
+                                    Date fin :
+                                    {{ \Carbon\Carbon::parse($annonce->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
                             </div>
-                        @endforeach
-
-                        <div>
-                            <a href="{{ route('annonces-du-jour') }}" class="btn-white lg-plus">VOIR TOUT</a>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
+
+            <div style="margin-bottom: 45px"></div>
+
+            <p style="color: #1859A3; margin-bottom:10px;">A venir : </p>
+            <div class="list-content__blocks big" style="padding: 0;">
+                @foreach ($annoncesAvenir as $annonce)
+                    <div class="card-box">
+                        <figure class="card-box__image">
+                            @if (Str::startsWith($annonce->photo, 'public/'))
+                                <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $annonce->photo)) }}"
+                                    alt="Image 1" loading="lazy">
+                            @else
+                                <img src="{{ asset($annonce->photo) }}" alt="Image 1" loading="lazy">
+                            @endif
+                        </figure>
+
+                        <div class="card-box__paragraph">
+                            <div class="paragraph-title">
+                                <h4 class="title-card">{{ $annonce->titre }}</h4>
+                            </div>
+
+                            <div class="paragraph-content">
+                                <p class="paragraph-content__text">{{ $annonce->contenu }}</p> <br>
+                                <p class="paragraph-content__text">
+                                    Date début :
+                                    {{ \Carbon\Carbon::parse($annonce->date_debut)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
+                                <p class="paragraph-content__text">
+                                    Date fin :
+                                    {{ \Carbon\Carbon::parse($annonce->date_fin)->locale('fr_FR')->isoFormat('LL [à] LT') }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                <a href="{{ route('annonces-du-jour') }}" class="bouton-annonces">
+                    Voir tout
+                </a>
+            </div>
+            
         </div>
     </section>
 

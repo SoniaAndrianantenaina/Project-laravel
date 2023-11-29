@@ -31,6 +31,87 @@ function confirmDelete(event) {
     });
 }
 
+function confirmDeleteDept(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute("href");
+
+    Swal.fire({
+        title: "Confirmation",
+        text: "Êtes-vous sûr de vouloir supprimer ce département ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Oui, supprimer",
+        cancelButtonText: "Annuler",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+
+function confirmDeletePoste(event) {
+    event.preventDefault();
+    const urlDepartement = event.currentTarget.getAttribute(
+        "data-url-departement"
+    );
+    const urlPoste = event.currentTarget.getAttribute("data-url-poste");
+
+    Swal.fire({
+        title: "Confirmation",
+        text: "Que souhaitez-vous faire ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Supprimer du département",
+        cancelButtonText: "Annuler",
+        showDenyButton: true,
+        denyButtonText: "Supprimer le poste",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // L'utilisateur a cliqué sur "Supprimer du département"
+            window.location.href = urlDepartement;
+        } else if (result.isDenied) {
+            // L'utilisateur a cliqué sur "Supprimer le poste"
+            window.location.href = urlPoste;
+        }
+    });
+}
+
+function confirmDeleteCandidat(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute("href");
+
+    Swal.fire({
+        title: "Confirmation",
+        text: "Êtes-vous sûr de vouloir supprimer ce(tte) candidat(e) ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Oui, supprimer",
+        cancelButtonText: "Annuler",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+
+function deconnexion(event) {
+    event.preventDefault();
+    const url = event.currentTarget.getAttribute("href");
+
+    Swal.fire({
+        title: "Confirmation",
+        text: "Êtes-vous sûr de vouloir vous déconnecter ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Oui, se déconnecter",
+        cancelButtonText: "Annuler",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
+}
+
 function showTab(n) {
     // This function will display the specified tab of the form...
     var x = document.getElementsByClassName("tab");
@@ -180,6 +261,13 @@ function listeEmployés() {
 
         departmentItems.forEach(function (department) {
             department.addEventListener("click", function () {
+                departmentItems.forEach(function (item) {
+                    item.classList.remove("selected-department", "clair");
+                });
+
+                // Ajoute la classe 'selected-department' au département actuel
+                department.classList.add("selected-department");
+
                 const departmentId = department.getAttribute("data-dept-id");
                 console.log(departmentId);
 
@@ -201,7 +289,6 @@ function listeEmployés() {
 
                             data.forEach((employee) => {
                                 var idEmployee = employee.idEmploye;
-                                var imagePath = employee.imagePath;
 
                                 var link = document.createElement("a");
                                 link.href = `/profil-employe/${idEmployee}`;
@@ -209,8 +296,24 @@ function listeEmployés() {
                                 var figure = document.createElement("figure");
 
                                 var image = document.createElement("img");
-                                image.src = imagePath;
                                 image.alt = "";
+                                image.className = "list-content__image";
+                                var imagePath = employee.photo;
+
+                                if (imagePath.startsWith("public/")) {
+                                    image.src =
+                                        window.location.origin +
+                                        "/storage/" +
+                                        imagePath.replace("public/", "");
+                                } else if (imagePath.startsWith("assets/")) {
+                                    image.src = imagePath;
+                                } else {
+                                    // Chemin inattendu
+                                    console.error(
+                                        "Chemin d'image inattendu : " +
+                                            imagePath
+                                    );
+                                }
 
                                 figure.appendChild(image);
 
@@ -236,7 +339,7 @@ function listeEmployés() {
                                             <p class="p-medium uppercase">${employee.nomEmploye}</p>
                                             <p class="p-medium">${employee.prenom}</p>
                                             <p class="p-medium grey-text">${employee.nomPoste}</p>
-                                            <p class="p-medium grey-text">${employee.contact}</p>
+                                            <p class="p-medium grey-text">+261${employee.contact}</p>
                                         `;
 
                                 employeeCard.appendChild(employeeInfo);
@@ -261,34 +364,3 @@ function listeEmployés() {
     });
 }
 
-function modifyDeptPoste() {
-    const posteInputs = document.querySelectorAll(".input-edit");
-    const posteModal = document.getElementById("posteModal");
-    const modalClose = document.getElementById("modalClose");
-    const posteInput = document.getElementById("posteInput");
-    const salaireInput = document.getElementById("salaireInput");
-    const modifierButton = document.getElementById("modifierPoste");
-
-    posteInputs.forEach((input) => {
-        input.addEventListener("focus", function () {
-            const nom = input.value;
-            const salaire = input.getAttribute("data-salaire");
-            posteInput.value = nom;
-            salaireInput.value = salaire;
-            posteModal.style.display = "block";
-        });
-    });
-
-    modalClose.addEventListener("click", function () {
-        posteModal.style.display = "none";
-    });
-
-    modifierButton.addEventListener("click", function () {
-        const nom = posteInput.value;
-        const salaire = salaireInput.value;
-        // Mettez en œuvre la logique de mise à jour des données ici
-        console.log("Poste modifié :", nom);
-        console.log("Nouveau salaire :", salaire);
-        posteModal.style.display = "none";
-    });
-}

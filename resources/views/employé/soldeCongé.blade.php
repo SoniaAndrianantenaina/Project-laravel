@@ -1,9 +1,11 @@
+@section('title', 'Solde-congé-employé')
 @include('banner.headerEmployé')
 @include('banner.headerBlue')
 <main class="solde-congé">
     <section class="contenu">
         <div class="div-grey">
             @include('employé.profil.profil-infos')
+
             <div class="div-grey__pay">
                 <h4 class="title-h4">Mes congés</h4>
 
@@ -85,6 +87,7 @@
 
                             </div>
                         @endforeach
+                            
                     </div>
                 </div>
             </div>
@@ -95,6 +98,8 @@
                 echo $dateDuJour;
             @endphp
         </div>
+        <div style="height: 15vh;"></div>
+
     </section>
 
 </main>

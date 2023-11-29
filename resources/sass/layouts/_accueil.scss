@@ -37,18 +37,14 @@
 
     &.subtitle {
         color: $white;
-        font-size: 44px;
+        font-size: 40px;
         margin-bottom: 15px;
         font-weight: bold;
     }
 
     &.texte {
-        font-size: 28px;
+        font-size: 17px;
         line-height: normal;
-
-        @include max(1756px) {
-            font-size: 20px;
-        }
     }
 }
 
@@ -131,4 +127,17 @@
 .statistiques {
     position: relative;
     margin-left: 163px;
+}
+
+.bouton-annonces{
+    width: 150px;
+    background: $color-primary;
+    text-decoration: none;
+    color: white;
+    height: 45px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
 }

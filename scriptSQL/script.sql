@@ -3,6 +3,11 @@ CREATE TABLE `departements`(
     `nom` VARCHAR(100) NOT NULL
 )ENGINE = InnoDB;
 
+CREATE TABLE `type_contrat`(
+    `idTypeContrat` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type` VARCHAR(100) NOT NULL
+)ENGINE = InnoDB;
+
 CREATE TABLE `poste`(
     `idPoste` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nom` VARCHAR(100) NOT NULL,
@@ -50,6 +55,7 @@ CREATE TABLE `administrateur`(
     `identifiant` VARCHAR(100) NOT NULL,
     `mdp` VARCHAR(100) NOT NULL
 )ENGINE = InnoDB;
+alter table administrateur add email varchar(100) NULL;
 
 CREATE TABLE `employes`(
     `idEmploye` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -59,11 +65,6 @@ CREATE TABLE `employes`(
 )ENGINE = InnoDB;
 ALTER TABLE rh.employes ADD statut INT NULL;
 
-
-CREATE TABLE `type_contrat`(
-    `idTypeContrat` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `type` VARCHAR(100) NOT NULL
-)ENGINE = InnoDB;
 
 CREATE TABLE `employes_infos_pros`(
     `idEmployeInfo` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

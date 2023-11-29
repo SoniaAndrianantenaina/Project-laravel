@@ -16,5 +16,5 @@ class Administrateur extends Authenticatable
 
     protected $table = "administrateur";
 
-
+    public $timestamps = false;
 }

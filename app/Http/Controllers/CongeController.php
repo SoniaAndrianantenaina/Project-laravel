@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\DemandesConges;
+use App\Models\Departements;
 use App\Models\Employes;
 use App\Models\MotifPermission;
+use App\Models\Poste;
 use App\Models\SoldeConge;
 use App\Models\TypeConge;
+use App\Models\TypeContrat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -153,8 +156,12 @@ class CongeController extends Controller
                 }
             }
 
-            if ($sc->solde_perm == 0) {
+            if ($sc->solde_perm === 0) {
                 $errors[] = 'Vous n\'avez plus de permissions';
+            }
+
+            if ($sc->solde_reel === 0) {
+                $errors[] = 'Vous n\'avez plus de congé';
             }
 
             if (!empty($errors)) {
@@ -232,27 +239,50 @@ class CongeController extends Controller
     /*fin planning congé côté employé*/
 
     //CÔTÉ ADMIN
-    public function demandesEmployésCongés()
+    public function demandesEmployésCongés(Request $request)
     {
         if (auth()->guard('web')->check()) {
-            $allDemandes = DemandesConges::where('etat', 0)->get();
-            return view('admin.demandesEmployésCongés', compact('allDemandes'));
+            $allDemandes = DemandesConges::where('etat', 0);
+
+            // Filter by year
+            if ($request->has('annee')) {
+                $allDemandes->whereYear('date_debut', $request->annee);
+            }
+
+            // Filter by department
+            if ($request->has('departement')) {
+                $allDemandes->whereHas('employe.candidat.deptposte.dept', function ($query) use ($request) {
+                    $query->where('idDepartement', $request->departement);
+                });
+            }
+
+            // Filter by poste
+            if ($request->has('poste')) {
+                $allDemandes->whereHas('employe.candidat.deptposte.poste', function ($query) use ($request) {
+                    $query->where('idPoste', $request->poste);
+                });
+            }
+
+            $allDemandes = $allDemandes->get();
+
+            $departements = Departements::all();
+            $poste = Poste::all();
+
+            return view('admin.demandesEmployésCongés', compact('allDemandes', 'departements', 'poste'));
         }
     }
+
 
     public function planningAdmin($idDepartement)
     {
         if (auth()->guard('web')->check()) {
-            session()->put('idDepartement', $idDepartement);
-            return view('admin.planningCongés');
+            return view('admin.planningCongés', compact('idDepartement'));
         }
     }
 
-    public function seePlanningAdmin()
+    public function seePlanningAdmin($idDepartement)
     {
         if (auth()->guard('web')->check()) {
-            $idDepartement = session()->get('idDepartement');
-
             $leaveRequests = DemandesConges::join('employes', 'demandes_conges.idEmploye', '=', 'employes.idEmploye')
                 ->join('employes_infos_pros', 'employes.idEmploye', '=', 'employes_infos_pros.idEmploye')
                 ->join('candidats', 'employes.idCandidat', '=', 'candidats.idCandidat')

@@ -1,93 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaires Côte à Côte</title>
-    <style>
-        .form-container {
-            display: flex;
-            justify-content: space-between;
-        }
+@section('title', 'Ajout département et poste')
+@include('banner.header')
 
-        .form-box {
-            width: 45%;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
+<body class="bg-color-grey-1">
 
-        .form-box h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+    <div style="display: flex;">
+        <div class="edit-dept">
+            <h2 class="edit-dept__title">Ajouter département</h2>
+            <form action="{{ route('add-dept-poste') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label class="label-edit">Département :</label>
+                    <div class="display-flex">
+                        <input type="text" class="input-edit-modal" id="nomDepartement" name="nomDepartement"
+                            required>
+                    </div>
+                </div>
 
-        .form-box label {
-            display: block;
-            margin-bottom: 10px;
-        }
+                <div class="form-group">
+                    <div class="d-flex" style="justify-content: space-between;">
+                        <label class="label-edit">Poste :</label>
 
-        .form-box input[type="text"],
-        .form-box select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
+                        <a style="margin-right: 0;" onclick="addSelect()">
+                            <img src="{{ asset('assets/images/icon/add.jpg') }}" alt="" >
+                        </a>
+                    </div>
 
-        .form-box button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <div class="form-box">
-            <h2>Formulaire 1</h2>
-            <form>
-                <label for="field1">Champ 1 :</label>
-                <input type="text" id="field1" name="field1">
 
-                <label for="field2">Champ 2 :</label>
-                <input type="text" id="field2" name="field2">
+                    <div id="select-container">
+                        <div>
+                            <select class="select white clair" name="poste[]" id="poste1">
+                                @foreach ($postes as $poste)
+                                    <option value="{{ $poste->idPoste }}">{{ $poste->nom }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
-                <label for="field3">Champ 3 :</label>
-                <select id="field3" name="field3">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
+                </div>
 
-                <button type="submit">Soumettre</button>
+                <input type="submit" class="submit-form" value="Ajouter">
             </form>
         </div>
 
-        <div class="form-box">
-            <h2>Formulaire 2</h2>
-            <form>
-                <label for="field4">Champ 4 :</label>
-                <input type="text" id="field4" name="field4">
+        <div class="edit-dept">
+            <h2 class="edit-dept__title">Ajouter poste</h2>
+            <form action="{{ route('add-dept-poste') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <div>
+                        <label class="label-edit">Poste :</label>
+                        <input type="text" class="input-edit" name="nomPoste" value="">
+                    </div>
 
-                <label for="field5">Champ 5 :</label>
-                <input type="text" id="field5" name="field5">
+                    <div>
+                        <label class="label-edit">Salaire :</label>
+                        <input type="text" class="input-edit" name="salairePoste" value="">
+                    </div>
 
-                <label for="field6">Champ 6 :</label>
-                <select id="field6" name="field6">
-                    <option value="option4">Option 4</option>
-                    <option value="option5">Option 5</option>
-                    <option value="option6">Option 6</option>
-                </select>
+                    <div>
+                        <label class="label-edit">Poste :</label>
+                        <input type="text" class="input-edit" name="degrePoste" value="">
+                    </div>
 
-                <button type="submit">Soumettre</button>
+                </div>
+
+                <input type="submit" class="submit-form" value="Ajouter">
             </form>
         </div>
     </div>
+
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}'
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
+
+        let selectCount = 1;
+
+        function addSelect() {
+            selectCount++;
+
+            // Créer un nouvel élément select
+            const newSelect = document.createElement('select');
+            newSelect.classList.add('select', 'white', 'clair');
+            newSelect.name = 'poste[]';
+            newSelect.id = 'poste' + selectCount;
+
+            // Copier les options du premier select
+            const originalSelect = document.getElementById('poste1');
+            for (const option of originalSelect.options) {
+                const newOption = document.createElement('option');
+                newOption.value = option.value;
+                newOption.text = option.text;
+                newSelect.add(newOption);
+            }
+
+            // Ajouter le nouveau select au DOM
+            document.getElementById('select-container').appendChild(newSelect);
+        }
+    </script>
 </body>
-</html>

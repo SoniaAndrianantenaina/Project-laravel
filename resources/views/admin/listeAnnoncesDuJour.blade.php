@@ -1,3 +1,4 @@
+@section('title', 'Annonces du jour')
 @include('banner.header')
 
 <body>
@@ -8,8 +9,14 @@
                 @foreach ($annonces as $annonce)
                     <div class="card-box">
                         <figure class="card-box__image">
-                            <img src="{{ asset($annonce->photo) }}" alt="">
+                            @if (Str::startsWith($annonce->photo, 'public/'))
+                                <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $annonce->photo)) }}"
+                                    alt="Image 1">
+                            @else
+                                <img src="{{ asset($annonce->photo) }}" alt="Image 1">
+                            @endif
                         </figure>
+
 
                         <div class="card-box__paragraph">
                             <div class="paragraph-title">

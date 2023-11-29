@@ -18,8 +18,8 @@
         margin: 0 20px;
 
         &.bigger {
-            width: 245px;
-            height: 110px;
+            width: 230px;
+            height: 100px;
         }
     }
 }
@@ -53,7 +53,7 @@
 .block {
     display: flex;
     flex-direction: row;
-    margin-top: -30vh;
+    margin-top: -41vh;
 
     &.left {
         flex-direction: column;

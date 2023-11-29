@@ -3,7 +3,11 @@
 
         <div>
             <figure class="div-grey__picture">
-                <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
+                @if (Str::startsWith($profil->photo, 'public/'))
+                    <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $profil->photo)) }}" alt="Image 1">
+                @else
+                    <img src="{{ asset($profil->photo) }}" alt="Image 1">
+                @endif
             </figure>
         </div>
 
@@ -33,13 +37,16 @@
 
             <div>
                 @if ($profil->degre = 1)
-                <h3 class="title-h3-navy uppercase">Manager</h3>
+                    <h3 class="title-h3-navy uppercase">Manager</h3>
                     @foreach ($manager as $man)
                         <div class="bck-data">
-                            <div>
-                                <figure class="bck-data__picture">
-                                    <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                                </figure>
+                            <div class="bck-data__picture">
+                                @if (Str::startsWith($man->photo, 'public/'))
+                                    <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $man->photo)) }}"
+                                        alt="Image 1">
+                                @else
+                                    <img src="{{ asset($man->photo) }}" alt="Image 1">
+                                @endif
                             </div>
 
                             <div class="bck-data__text">
@@ -47,10 +54,9 @@
                                 <h6 class="title-h6">{{ $man->nomPoste }}</h6>
                             </div>
                         </div>
-
+                        
                         <div class="mb-12"></div>
                     @endforeach
-                    <div class="trait-lg"></div>
                 @endif
             </div>
 
@@ -61,10 +67,13 @@
 
                 @foreach ($relation as $rel)
                     <div class="bck-data">
-                        <div>
-                            <figure class="bck-data__picture">
-                                <img src="{{ asset('assets/images/collaborateur/profil.jpg') }}" alt="">
-                            </figure>
+                        <div class="bck-data__picture">
+                            @if (Str::startsWith($rel->photo, 'public/'))
+                                    <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $rel->photo)) }}"
+                                        alt="Image 1">
+                                @else
+                                    <img src="{{ asset($rel->photo) }}" alt="Image 1">
+                                @endif
                         </div>
 
                         <div class="bck-data__text">

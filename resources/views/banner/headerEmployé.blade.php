@@ -10,7 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/query.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
-    <title>Header</title>
+    <title>@yield('title')</title>
+    
 </head>
 
 <body>
@@ -56,16 +57,15 @@
                                     </a>
                                 </li>
                                 <li class="@if(Request::is('mon-profil')) current @endif">
-                                    <a href="">
+                                    <a href="{{ route('mon-profil') }}">
                                         <img class="header-profil" src="{{ asset('assets/images/icon/profil.png') }}" alt="">
                                     </a>
-
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="{{ route('mon-profil') }} " class="text-decoration"> - Profil</a>
+                                            <a href="{{ route('mon-profil') }} " class="text-decoration">Profil</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('logout-employe') }} " class="text-decoration"> - Se déconnecter</a>
+                                            <a href="{{ route('logout-employe') }} " class="text-decoration">Déconnexion</a>
                                         </li>
                                     </ul>
                                 </li>

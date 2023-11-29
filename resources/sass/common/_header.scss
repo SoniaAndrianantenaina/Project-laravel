@@ -104,7 +104,12 @@
                 color: $nav-color;
                 font-weight: $nav-fontWeight;
                 transition: $transition-default;
+                img{
+                    width: 15px;
+                }
             }
+
+            
             &.current,
             &:hover {
                 a {
@@ -126,24 +131,29 @@
 }
 
 .sub-menu {
-    display: none;
     position: absolute;
     top: 30px;
     width: 100%;
     left: 0;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    background-color: aliceblue;
+    visibility: visible;
+    background-color: #fff;
+    border: 1px solid #ccc;
     width: 100%;
+    list-style: none;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.cntNav > li:hover .sub-menu {
+.nav-item-container:hover .sub-menu,
+.sub-menu:hover {
     list-style: none;
     display: block;
+    padding: 10px;
     opacity: 1;
     visibility: visible;
+    background-color: #fff;
     color: $color-secondary;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .btnBox {
@@ -238,7 +248,7 @@
     a {
         text-decoration: none;
         color: white;
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 

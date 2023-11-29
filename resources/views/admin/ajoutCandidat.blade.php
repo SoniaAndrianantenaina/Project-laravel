@@ -1,3 +1,4 @@
+@section('title', 'Ajout candidat')
 @include('banner.header')
 
 <main class='page-ajout-candidat'>
@@ -33,7 +34,7 @@
         </div>
 
         <div class="formulaire-collab">
-            <form id="regForm" action="{{ route('valider-ajout-candidat') }}" method="POST">
+            <form id="regForm" action="{{ route('valider-ajout-candidat') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="tab">
@@ -41,28 +42,28 @@
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span class="d-block">Nom :</span>
-                                <input type="text" class="btn-blue" name="nom" id="" required>
+                                <input type="text" class="btn-blue clair" name="nom" id="" required>
                             </label>
                         </div>
 
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span class="d-block">Prénom :</span>
-                                <input type="text" class="btn-blue" name="prenom" id="" required>
+                                <input type="text" class="btn-blue clair" name="prenom" id="" required>
                             </label>
                         </div>
 
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Date de naissance :</span>
-                                <input type="date" class="btn-blue" name="date_naissance" id="" required>
+                                <input type="date" class="btn-blue clair" name="date_naissance" id="" required>
                             </label>
                         </div>
 
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Genre :</span>
-                                <select class="select" name="idGenre" id="">
+                                <select class="select clair" name="idGenre" id="">
                                     @foreach ($genres as $genre)
                                         <option value="{{ $genre->idGenre }}">{{ $genre->nom }}</option>
                                     @endforeach
@@ -73,14 +74,14 @@
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span class="d-block">Contact :</span>
-                                <input type="number" class="btn-blue" name="contact" required>
+                                <input type="number" class="btn-blue clair" name="contact" required>
                             </label>
                         </div>
 
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span class="d-block">Adresse :</span>
-                                <input type="text" class="btn-blue" name="adresse" id="">
+                                <input type="text" class="btn-blue clair" name="adresse" id="">
                             </label>
                         </div>
                     </div>
@@ -91,7 +92,7 @@
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Statut marital :</span>
-                                <select class="select" name="statut_marital" id="">
+                                <select class="select clair" name="statut_marital" id="">
                                     @foreach ($statut_marital as $sm)
                                         <option value="{{ $sm->idStatutMarital }}">{{ $sm->nom }}</option>
                                     @endforeach
@@ -102,35 +103,35 @@
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span>E-mail :</span>
-                                <input type="email" class="btn-blue" name="email" id="" required>
+                                <input type="email" class="btn-blue clair" name="email" id="" required>
                             </label>
                         </div>
 
                         <div class="formulaire-collab__content input">
                             <label for="">
                                 <span class="d-block">Nombre enfants :</span>
-                                <input type="number" class="btn-blue" name="nbrEnfants" id="" required>
+                                <input type="number" class="btn-blue clair" name="nbrEnfants" id="" required>
                             </label>
                         </div>
 
                         <div>
                             <label for="photo">
                                 <span class="d-block">Photo :</span>
-                                <input type="file" class="btn-blue" name="photo" id="">
+                                <input type="file" class="btn-blue clair" name="file" id="">
                             </label>
                         </div>
 
                         <div>
                             <label for="cv">
                                 <span class="d-block">CV :</span>
-                                <input type="file" class="btn-blue" name="CV" id="">
+                                <input type="file" class="btn-blue clair" name="CV" id="">
                             </label>
                         </div>
 
                         <div>
                             <label for="lm">
                                 <span class="d-block">LM :</span>
-                                <input type="file" class="btn-blue" name="LM" id="">
+                                <input type="file" class="btn-blue clair" name="LM" id="">
                             </label>
                         </div>
                     </div>
@@ -141,7 +142,7 @@
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Départements :</span>
-                                <select class="select" name="idDepartement" id="idDepartement">
+                                <select class="select clair" name="idDepartement" id="idDepartement">
                                     @foreach ($departements as $dpt)
                                         <option value="{{ $dpt->idDepartement }}">{{ $dpt->nom }}</option>
                                     @endforeach
@@ -152,7 +153,7 @@
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Postes :</span>
-                                <select class="select" name="idPoste" id="idPoste">
+                                <select class="select clair" name="idPoste" id="idPoste">
                                     <option value=""></option>
                                 </select>
                             </label>
@@ -161,7 +162,7 @@
                         <div class="formulaire label">
                             <label for="">
                                 <span class="d-block">Type Contrat :</span>
-                                <select class="select" name="idTypeContrat">
+                                <select class="select clair" name="idTypeContrat">
                                     @foreach ($type_contrat as $tc)
                                         <option value="{{ $tc->idTypeContrat }}">{{ $tc->type }}</option>
                                     @endforeach
@@ -216,5 +217,23 @@
 
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
+
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('liste-candidats') }}';
+                }
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
     </script>
 </main>

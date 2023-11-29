@@ -15,6 +15,7 @@
     margin-bottom: 45px;
     margin-top: 23px;
     font-size: 20px;
+    font-family: 'Roboto';
 }
 
 .btn-white {
@@ -121,8 +122,8 @@
     }
 
     &.modify-top {
-        margin-top: 35px;
-        margin-bottom: 45px;
+        margin-top: 20px;
+        margin-bottom: 15px;
     }
 
     &.modify-top-1 {
@@ -146,7 +147,7 @@
         margin-right: 25px;
         font-size: 20px;
         color: white;
-        font-family: "Microsoft Sans Yahei";
+        font-family: "Roboto";
         text-decoration: none;
 
         &.fs-17 {
@@ -195,6 +196,10 @@
 
 .bleu-foncé {
     background-color: $color-primary;
+}
+
+.red{
+    background-color: red;
 }
 
 .btn-générer {

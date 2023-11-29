@@ -1,0 +1,38 @@
+/* Réduire la taille de la pagination */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.pagination li {
+    margin: 0;
+    padding: 10px;
+}
+
+.pagination a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.pagination a:hover {
+    background-color: #eee;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.pagination .disabled {
+    color: #aaa;
+    pointer-events: none;
+    cursor: not-allowed;
+}

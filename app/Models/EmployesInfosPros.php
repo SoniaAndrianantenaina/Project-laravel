@@ -12,7 +12,8 @@ class EmployesInfosPros extends Model
         'idDeptPoste',
         'idTypeContrat',
         'date_debut',
-        'date_fin'
+        'date_fin',
+        'salaire'
     ];
 
     protected $primaryKey = 'idEmployeInfo';

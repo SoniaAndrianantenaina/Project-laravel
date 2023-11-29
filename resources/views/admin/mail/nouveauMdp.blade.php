@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue</title>
+    <title>Réinitialisation de mot de passe</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,19 +37,20 @@
 </head>
 <body>
     <header>
-        <h1>Vos identifiants</h1>
+        <h1>Réinitialisation de mot de passe</h1>
     </header>
 
     <div class="container">
         
         <p>Bonjour,</p>
         
-        <p>voici vos identifiants :</p>
+        <p>Votre mot de passe a été réinitialisé avec succès. Voici votre nouveau mot de passe :</p>
 
-        <p>Identifiant : {{$identifiant}}</p>
-        <p>Mdp : {{$mdp}}</p>
+        <div class="password-box">
+            <strong>{{$mdp}}</strong>
+        </div>
 
-        <p style="color: rgb(255, 225, 0);">Bienvenue dans l'entreprise !</p>
+        <p style="color: red;">Assurez-vous de changer ce mot de passe une fois connecté à votre compte.</p>
 
         <p>Cordialement,<br>Youman</p>
     </div>

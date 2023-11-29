@@ -1,20 +1,24 @@
+@section('title', 'Liste départements')
 @include('banner.header')
 
 <main class="liste-departements">
 
     <section class="recherche">
         <div class="div-blue">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search...">
-                <button class="search-button">Search</button>
-            </div>
+            <form action="{{ route('search-departements') }}" method="POST">
+                @csrf
+                <div class="search-container">
+                    <input type="text" class="search-input" name="search" placeholder="Search...">
+                    <button class="search-button">Search</button>
+                </div>
+            </form>
 
             <div class="filter-container">
                 <img src="{{ asset('assets/images/icon/filter.png') }}" alt="">
                 <p id="filter-button" onclick="filterDropDown()">Filtres</p>
                 <div id="filter-options" class="d-none">
-                    <p id="sort-az">de A-Z</p>
-                    <p id="sort-za">de Z-A</p>
+                    <a  href="{{ route('filtre-departements', ['sort' => 'asc']) }}">de A-Z</a> <br>
+                    <a href="{{ route('filtre-departements', ['sort' => 'desc']) }}">de Z-A</a>
                 </div>
             </div>
 
@@ -47,11 +51,6 @@
                                 <a
                                     href="{{ route('update-department', ['idDepartement' => $groupedDepartements->first()->dept->idDepartement]) }}">
                                     <img src="{{ asset('assets/images/icon/modify.png') }}" alt="Modifier">
-                                </a>
-                            </div>
-                            <div class="delete-button">
-                                <a href="#">
-                                    <img src="{{ asset('assets/images/icon/delete.png') }}" alt="Supprimer">
                                 </a>
                             </div>
                         </div>

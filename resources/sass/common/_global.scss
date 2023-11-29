@@ -1,5 +1,5 @@
 body {
-    font-family: "Microsoft Yahei";
+    font-family: "Roboto";
     @include max(1440px) {
         font-size: $gb-font-size;
     }
@@ -28,13 +28,14 @@ p {
 }
 
 .trait {
-    border-bottom: 1px solid $color-primary;
-    width: 7%;
-    margin-left: 15px;
+    border-bottom: 1px solid #1859A3;
+    width: 8%;
+    margin-left: 25px;
+    margin-top: 3px;
 }
 
 input {
-    font-family: "Microsoft Yahei";
+    font-family: "Roboto";
     @include max(1440px) {
         font-size: $fs-primary;
     }
@@ -61,23 +62,21 @@ strong {
     padding: 13.5px 20px;
     margin-bottom: 7px;
     margin-top: 23px;
-    font-size: 20px;
+    font-size: 14px;
 
     &.white {
         width: 38vh;
-        @include max(1440px) {
-            width: 85%;
-            height: 47%;
-        }
     }
-    @include max(1440px) {
-        font-size: 16px;
+
+    &.clair {
+        border: 1px solid $color-secondary;
     }
 }
 
+
 //textarea
 textarea {
-    border: 1px solid $color-primary;
+    border: 1px solid $color-secondary;
     background: $white;
     color: $color-secondary;
     font-size: 20px;
@@ -115,8 +114,23 @@ input[type="date"] {
     font-size: 18px;
 }
 
+input[type="submit"]{
+    border: none;
+    background-color: $color-secondary;
+    font-size: 18px;
+}
+
 .bg-color-grey {
-    background-color: $light-grey;
+    background-color: $light-grey-2;
+    position: relative;
+}
+
+.bg-color-grey-1 {
+    background-color: $grey-4;
+}
+
+.display-flex{
+    display: flex;
 }
 
 .d-block {
@@ -181,4 +195,5 @@ input[type="date"] {
     color: white;
     border-radius: 5px;
     height: 45px;
+    margin-top: 5px;
 }

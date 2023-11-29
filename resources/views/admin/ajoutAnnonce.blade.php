@@ -1,3 +1,4 @@
+@section('title', 'Ajout annonce')
 @include('banner.header')
 
 <main class="ajout-annonce">
@@ -58,7 +59,7 @@
 
                     <div class="boutons modify-top">
                         <div>
-                            <button type="submit" class="btn bleu-clair">ENVOYER</button>
+                            <button type="submit" class="btn bleu-clair">AJOUTER</button>
                         </div>
                 </form>
                 <div class="btn bleu-foncé">

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Annonces;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\DemandesConges;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -19,9 +19,11 @@ class AdminController extends Controller
         }
     }
 
-    public function stats(){
+    public function profilAdmin(){
         if (auth()->check()) {
-            return view('admin.statistiques');
+            $admin = Auth::guard('web')->user();
+            return view('admin.profilAdmin', compact('admin'));
         }
     }
+
 }

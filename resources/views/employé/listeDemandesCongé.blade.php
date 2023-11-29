@@ -1,3 +1,4 @@
+@section('title', 'Liste-demandes-congé')
 @include('banner.headerEmployé')
 @include('banner.headerBlue')
 

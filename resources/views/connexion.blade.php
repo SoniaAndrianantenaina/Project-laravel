@@ -38,6 +38,11 @@
                     <input type="text" name="identifiant" class="btn-white lg" placeholder="Identifiant">
                     <input type="password" name="mdp" class="btn-white lg" placeholder="Mot de passe">
                     <button type="submit" class="button-submit">VALIDER</button>
+
+                    <p>
+                        <a href="{{ route('mdp-oublie') }}" style="text-decoration: underline; font-size:15px; color:white;">Mot de passe oublié ?</a>
+                    </p>
+
                 </form>
                 <div id="admin-error" class="alert-danger" style="display: none;"></div>
             </div>
@@ -49,6 +54,8 @@
                     <input type="text" name="identifiant" class="btn-white lg" placeholder="Identifiant">
                     <input type="password" name="mdp" class="btn-white lg" placeholder="Mot de passe">
                     <button type="submit" class="button-submit">VALIDER</button>
+
+                    <p style="text-decoration: underline; font-size:15px;">Mot de passe oublié ?</p>
                 </form>
                 <div id="employee-error" class="alert-danger" style="display: none;"></div>
             </div>

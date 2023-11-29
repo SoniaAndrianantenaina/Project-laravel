@@ -1,3 +1,4 @@
+@section('title', 'Annonces à venir')
 @include('banner.header')
 
 <body>

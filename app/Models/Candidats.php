@@ -31,20 +31,72 @@ class Candidats extends Model
 
     public $timestamps = false;
 
-    public function genre(){
+    public function genre()
+    {
         return $this->belongsTo(Genre::class, 'idGenre');
     }
 
-    public function deptposte(){
+    public function deptposte()
+    {
         return $this->belongsTo(DepartementPoste::class, 'idDeptPoste');
     }
 
-    public function statutmarital(){
+    public function statutmarital()
+    {
         return $this->belongsTo(StatutMarital::class, 'idStatutMarital');
     }
 
-    public function typecontrat(){
+    public function typecontrat()
+    {
         return $this->belongsTo(TypeContrat::class, 'idTypeContrat');
     }
 
+    public function sauverImage($file)
+    {
+        if ($file) {
+            $file_name = $file->getClientOriginalName();
+            $path = $file->storeAs('public', 'images/candidats/' . $file_name);
+            return $path;
+        }
+
+        return false;
+    }
+
+    public function modifierCV($file)
+    {
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+
+            $extensionsAutorisees = ['pdf', 'doc', 'docx'];
+
+            if (in_array($extension, $extensionsAutorisees)) {
+                $file_name = $file->getClientOriginalName();
+                $path = $file->storeAs('public', 'dossier/candidats/CV/' . $file_name);
+                return $file_name;
+            } else {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    public function modifierLM($file)
+    {
+        if ($file) {
+            $extension = $file->getClientOriginalExtension();
+
+            $extensionsAutorisees = ['pdf', 'doc', 'docx'];
+
+            if (in_array($extension, $extensionsAutorisees)) {
+                $file_name = $file->getClientOriginalName();
+                $path = $file->storeAs('public', 'dossier/candidats/LM/' . $file_name);
+                return $file_name;
+            } else {
+                return false;
+            }
+        }
+
+        return false;
+    }
 }

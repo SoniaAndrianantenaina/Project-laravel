@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Mail\NouveauMdp;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 
@@ -27,6 +29,31 @@ class Employes extends Authenticatable
     public function candidat()
     {
         return $this->belongsTo(Candidats::class, 'idCandidat');
+    }
+
+    public function genererMdp($length)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $password = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $randomIndex = rand(0, strlen($characters) - 1);
+            $password .= $characters[$randomIndex];
+        }
+        return $password;
+    }
+
+    public function nouveauMdpMail($mdp, $email)
+    {
+        $mail = new NouveauMdp($mdp);
+        $mail->to($email);
+        Mail::send($mail);
+
+        if (count(Mail::failures()) > 0) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public function birthdayMail()
@@ -75,24 +102,29 @@ class Employes extends Authenticatable
             $employe_user = auth()->guard('employee')->user();
             $employe_id = $employe_user->idEmploye;
 
-            $profil = EmployeInfos::where('idEmploye', $employe_id)->first();
-            $idDepartement = $profil->deptposte->dept->idDepartement;
-            $relations = DB::select('SELECT e.idEmploye, c.nom as nomEmploye, c.prenom, eip.idTypeContrat, dp.idDepartement, dp.idPoste,p.nom as nomPoste, p.degre  from employes e
-            join candidats c on c.idCandidat = e.idCandidat
-            join employes_infos_pros eip on e.idEmploye = eip.idEmploye
-            join departement_poste dp on dp.idDeptPoste = c.idDeptPoste
-            join poste p on dp.idPoste = p.idPoste
-            WHERE dp.idDepartement = :idDepartement AND e.idEmploye != :employe_id' ,
-            ['idDepartement' => $idDepartement, 'employe_id' => $employe_id]);
+            $departement = DB::select('select d.idDepartement  from employes e 
+            join employes_infos_pros eip on eip.idEmploye = e.idEmploye 
+            join departement_poste dp on dp.idDeptPoste = eip.idDeptPoste 
+            join departements d on d.idDepartement = dp.idDepartement where e.idEmploye = ?', [$employe_id]);
+
+            $idDepartement = $departement[0]->idDepartement;
+            $relations = DB::select(
+                'select e.idEmploye, c.nom as nomEmploye, c.prenom,c.photo, eip.idTypeContrat, dp.idDepartement, dp.idPoste,p.nom as nomPoste, p.degre from employes e join employes_infos_pros eip on eip.idEmploye = e.idEmploye 
+                join candidats c on c.idCandidat = e.idCandidat
+                join departement_poste dp on dp.idDeptPoste = eip.idDeptPoste 
+                join departements d on d.idDepartement = dp.idDepartement
+                join poste p on p.idPoste = dp.idPoste 
+                WHERE dp.idDepartement = :idDepartement AND e.idEmploye != :employe_id',
+                ['idDepartement' => $idDepartement, 'employe_id' => $employe_id]
+            );
+
             return $relations;
         }
     }
 
-    public function dateDuJour(){
-        setlocale(LC_TIME, 'fr_FR.UTF-8');
-        date_default_timezone_set('Europe/Paris');
-        $day = strftime('%A %d %B %Y');
-        $day = ucfirst(mb_strtolower($day, 'UTF-8'));
-        return $day;
+    public function dateDuJour()
+    {
+        $date = Carbon::now()->locale('fr_FR');
+        return $date->isoFormat('dddd D MMMM YYYY');
     }
 }

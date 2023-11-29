@@ -64,6 +64,8 @@
 
 //profil employé
 .three-cubes {
+    position: relative;
+    top: 45px;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -73,7 +75,7 @@
 
 .cube {
     &__first {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         background-color: $white;
         width: 420px;
         height: 385px;
@@ -89,60 +91,71 @@
             height: 100%;
 
             img {
-                max-width: 150px;
+                max-width: 100px;
                 height: auto;
+                border-radius: 50%;
             }
         }
     }
 
     &__second {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         background-color: $white;
         width: 420px;
-        height: 215px;
+        height: 200px;
         color: $white;
 
-        &__salary {
-            display: flex;
-            justify-content: center;
-
-            h4 {
-                margin-top: 20px;
-            }
+        &__title {
+            position: relative;
+            top: 20px;
+            color: $color-primary;
+            margin-top: 15px;
+            text-align: center;
         }
 
         &__subtitle {
             color: $color-secondary;
             font-size: 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             margin-top: 20px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .boutons{
+            margin-top: 30px;
         }
     }
 
-    &__third{
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    &__third {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         margin-left: 23px;
         background-color: $white;
         width: 630px;
         height: 630px;
         color: $white;
 
-        &__ctn{
+        &__ctn {
             margin: 40px;
-            &__info{
+            &__info {
                 margin-top: 20px;
                 color: $color-primary;
                 font-size: 18px;
             }
 
-            &__trait{
+            &__trait {
                 margin-top: 5px;
                 border-bottom: 1px solid $light-grey;
                 width: 99%;
             }
         }
-
     }
 
     &__text {
@@ -166,7 +179,6 @@
 }
 
 .pin {
-    margin-top: 25px;
     display: flex;
     align-items: center;
 
@@ -189,4 +201,39 @@
             width: 165px;
         }
     }
+}
+
+/* Style pour le modal */
+#modifierProfilModal {
+    display: none; /* Cachez le modal par défaut */
+    background: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+}
+
+#modifierProfilModal .modal-dialog {
+    margin-top: 10%; /* Ajustez la marge supérieure pour centrer verticalement */
+}
+
+/* Style pour le contenu du modal */
+#modifierProfilModal .modal-content {
+    background: #fff; /* Couleur de fond du modal */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+}
+
+#modifierProfilModal .modal-header {
+    background-color: #007bff; /* Couleur de fond de l'en-tête */
+    color: #fff; /* Couleur du texte de l'en-tête */
+}
+
+#modifierProfilModal .modal-footer {
+    background-color: #f8f9fa; /* Couleur de fond du pied de page */
+}
+
+/* Style pour le bouton Fermer */
+#modifierProfilModal .close {
+    color: #fff; /* Couleur du texte du bouton Fermer */
+}
+
+/* Style pour le formulaire à l'intérieur du modal */
+#modifierProfilForm {
+    padding: 20px; /* Espacement interne du formulaire */
 }

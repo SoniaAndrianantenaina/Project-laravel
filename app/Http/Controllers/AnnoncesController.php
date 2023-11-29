@@ -39,7 +39,7 @@ class AnnoncesController extends Controller
     {
         if (auth()->guard('employee')->check()) {
             $announcement = new Annonces();
-            $annonces = $announcement->allUpcomingAnnouncements();
+            $annonces = $announcement->annoncesAvenirEmployes();
             return view('employé.listeAnnoncesAvenir', compact('annonces'));
         }
     }
@@ -130,20 +130,24 @@ class AnnoncesController extends Controller
                     return redirect()->back()->with('error', 'Le fichier dépasse la taille maximale de 2 Mo.');
                 }
             }
+            $path = null;
+            if ($photo) {
+                $path = $annonce->storePhotos($photo);
 
-            $path = $annonce->storePhotos($photo);
+                if ($path === false) {
+                    return redirect()->back()->with('error', 'Erreur lors de la gestion de la photo.');
+                }
+            }
 
             $compareHeure = $annonce->compareHeure($date_debut, $date_fin);
 
-            if ($path === false) {
-                return redirect()->back()->with('error', 'Erreur lors de la gestion de la photo.');
-            }
+           
 
             if ($compareHeure == -1) {
                 return redirect()->back()->with('error', 'Veuillez revérifier car votre Heure début est supérieure à votre heure fin');
             }
             if ($compareHeure == -2) {
-                return redirect()->back()->with('error', 'Veuillez revérifier car votre Date début est supérieure à votre');
+                return redirect()->back()->with('error', 'Veuillez revérifier car votre Date début est supérieure à votre date fin');
             }
 
             if ($path !== null) {
@@ -158,7 +162,7 @@ class AnnoncesController extends Controller
 
             $annonce->update();
 
-            return redirect()->back()->with('success', 'Annonce modifiée avec succès');
+            return redirect()->route('annonces-du-jour')->with('success', 'Annonce modifiée avec succès');
         }
     }
 }

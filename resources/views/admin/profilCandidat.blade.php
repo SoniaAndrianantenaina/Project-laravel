@@ -1,3 +1,4 @@
+@section('title', 'Profil candidat')
 @include('banner.header')
 
 <main class="profil-candidat">
@@ -5,7 +6,12 @@
         <div class="container display">
             <div class="block-profil">
                 <figure class="block-profil__image">
-                    <img src="{{ asset($candidat->photo) }}" alt="">
+                    @if (Str::startsWith($candidat->photo, 'public/'))
+                        <img src="{{ asset('storage/' . Str::replaceFirst('public/', '', $candidat->photo)) }}"
+                            alt="Image 1">
+                    @else
+                        <img src="{{ asset($candidat->photo) }}" alt="Image 1">
+                    @endif
                 </figure>
             </div>
 
@@ -38,11 +44,6 @@
                 </div>
 
                 <div class="block-profil__informations__texte">
-                    <div class="info request">Numéro CIN :</div>
-                    <div class="info response">101 121 155 455 444</div>
-                </div>
-
-                <div class="block-profil__informations__texte">
                     <div class="info request">Adresse :</div>
                     <div class="info response">{{ $candidat->adresse }}</div>
                 </div>
@@ -60,6 +61,11 @@
                 <div class="block-profil__informations__texte">
                     <div class="info request">Nombre enfants :</div>
                     <div class="info response">{{ $candidat->nb_enfants }}</div>
+                </div>
+
+                <div class="block-profil__informations__texte">
+                    <div class="info request">Type Contrat :</div>
+                    <div class="info response">{{ $candidat->typecontrat->type }}</div>
                 </div>
 
                 <div class="block-profil__informations__texte">
@@ -92,8 +98,12 @@
 
         <div class="boutons modify-height">
 
-            <div class="btn bleu-clair">
-                <a href="" class="btn__middle-btn">MODIFIER</a>
+            <div class="btn bleu-clair" id="btnModifier">
+                <a href="{{ route('modifier-candidat') }}"  class="btn__middle-btn">MODIFIER</a>
+            </div>
+
+            <div class="btn red">
+                <a href="{{ route('supprimer-candidat') }}" onclick="confirmDeleteCandidat(event)" class="btn__middle-btn">SUPPRIMER</a>
             </div>
 
             <div class="btn bleu-foncé">
@@ -102,4 +112,24 @@
 
         </div>
     </div>
+
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('liste-candidats') }}';
+                }
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
+    </script>
 </main>

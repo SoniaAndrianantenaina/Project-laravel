@@ -1,3 +1,4 @@
+@section('title', 'Modifier annonce')
 @include('banner.header')
 
 <main class="ajout-annonce">
@@ -32,7 +33,7 @@
                     <div class="content">
                         <label for="">
                             <span class="navy-span">Titre :</span>
-                            <input type="text" class="btn-blue small" name="titre" value="{{ $annonce->titre }}">
+                            <input type="text" class="btn-blue clair small" name="titre" value="{{ $annonce->titre }}">
                         </label>
                     </div>
 
@@ -48,7 +49,7 @@
                     <div class="content">
                         <label for="">
                             <span class="navy-span">Date parution :</span>
-                            <input type="datetime-local" class="btn-blue small" name="date_parution"
+                            <input type="datetime-local" class="btn-blue clair small" name="date_parution"
                                 value="{{ \Carbon\Carbon::parse($annonce->date_parution)->format('Y-m-d\TH:i') }}">
                         </label>
                     </div>
@@ -56,7 +57,7 @@
                     <div class="content">
                         <label for="">
                             <span class="navy-span">Date début :</span>
-                            <input type="datetime-local" class="btn-blue small" name="date_debut"
+                            <input type="datetime-local" class="btn-blue clair small" name="date_debut"
                                 value="{{ \Carbon\Carbon::parse($annonce->date_debut)->format('Y-m-d\TH:i') }}">
                         </label>
                     </div>
@@ -64,7 +65,7 @@
                     <div class="content">
                         <label for="">
                             <span class="navy-span">Date fin :</span>
-                            <input type="datetime-local" class="btn-blue small" name="date_fin"
+                            <input type="datetime-local" class="btn-blue clair small" name="date_fin"
                                 value="{{ \Carbon\Carbon::parse($annonce->date_fin)->format('Y-m-d\TH:i') }}">
                         </label>
                     </div>
@@ -85,4 +86,23 @@
         </div>
 
     </div>
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Succès',
+                text: '{{ session('success') }}',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ route('liste-candidats') }}';
+                }
+            });
+        @elseif (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Erreur',
+                text: '{{ session('error') }}'
+            });
+        @endif
+    </script>
 </main>
